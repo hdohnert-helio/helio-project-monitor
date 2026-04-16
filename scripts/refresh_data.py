@@ -1,23 +1,18 @@
 #!/usr/bin/env python3
 """Refresh Helio Install pipeline data from Zoho CRM.
 
-Runs via GitHub Actions on a cron schedule. Exchanges the stored refresh
-token for an access token, pulls the Installs module + user map from Zoho
-CRM, and writes the result to ../data.json at the repo root. The dashboard
-(index.html) fetches data.json on load and renders the table, chart, and
-cards client-side.
-
 Required env vars (GitHub Secrets):
   ZOHO_CLIENT_ID
   ZOHO_CLIENT_SECRET
   ZOHO_REFRESH_TOKEN
-  ZOHO_DC (optional, default 'com'; also 'eu', 'in', 'com.au', 'jp')
+  ZOHO_DC (optional, default 'com')
 """
 from __future__ import annotations
 
 import json
 import os
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -28,38 +23,38 @@ ACCOUNTS_HOST = f"accounts.zoho.{DC}"
 API_HOST = f"www.zohoapis.{DC}"
 
 ACTIVE_STAGES = [
-    "Sales Ops Review",
-    "Project Intake",
-    "Site Survey",
-    "Engineering",
-    "Plan Review",
-    "Interconnection",
-    "Permitting",
-    "Procurement & Scheduling",
-    "Active Installation",
-    "Inspection",
-    "Witness Test / PTO",
-    "Energized",
-    "On Hold",
+    "Sales Ops Review", "Project Intake", "Site Survey", "Engineering",
+    "Plan Review", "Interconnection", "Permitting",
+    "Procurement & Scheduling", "Active Installation", "Inspection",
+    "Witness Test / PTO", "Energized", "On Hold",
 ]
 ACTIVE_STAGES_SET = set(ACTIVE_STAGES)
 
+# Owner is a default field in v7 (always returned), so we don't list it here.
 FIELDS = (
     "Project_ID,Name,Project_Stage,Sales_Representative,"
-    "Owner,Project_Owner,Date_of_Stage_Change"
+    "Project_Owner,Date_of_Stage_Change"
 )
 
 CANVAS_ID = "5264387000040853100"
 
 
 def _http_json(req: urllib.request.Request) -> dict:
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        if resp.status == 204:
-            return {}
-        raw = resp.read()
-        if not raw:
-            return {}
-        return json.loads(raw)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            if resp.status == 204:
+                return {}
+            raw = resp.read()
+            return json.loads(raw) if raw else {}
+    except urllib.error.HTTPError as e:
+        body = ""
+        try:
+            body = e.read().decode("utf-8", errors="replace")
+        except Exception:
+            pass
+        print(f"HTTP {e.code} {e.reason} for {req.full_url}", file=sys.stderr)
+        print(f"Response body: {body}", file=sys.stderr)
+        raise
 
 
 def get_access_token() -> str:
@@ -106,8 +101,6 @@ def fetch_installs(token: str) -> list[dict]:
             "fields": FIELDS,
             "page": page,
             "per_page": 200,
-            "sort_by": "Project_ID",
-            "sort_order": "desc",
         })
         batch = resp.get("data") or []
         rows.extend(batch)
