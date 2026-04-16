@@ -42,6 +42,7 @@
   .stage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
   .stage-card { background: white; border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border-left: 4px solid #e0e0e0; }
   .stage-card.all-green { border-left-color: #22a85a; }
+  .stage-card.empty { border-left-color: #e0e0e0; opacity: 0.45; }
   .stage-card.has-yellow { border-left-color: #f5a623; }
   .stage-card.has-red { border-left-color: #e53935; }
   .stage-card .stage-name { font-size: 12px; font-weight: 600; color: #555; margin-bottom: 6px; }
@@ -153,10 +154,20 @@
   <!-- Stage breakdown -->
   <div class="section-title">Stage Breakdown</div>
   <div class="stage-grid">
-    <div class="stage-card all-green">
+    <div class="stage-card empty">
+      <div class="stage-name">Sales Ops Review</div>
+      <div class="stage-count">0</div>
+      <div class="stage-sla">—</div>
+    </div>
+    <div class="stage-card empty">
+      <div class="stage-name">Project Intake</div>
+      <div class="stage-count">0</div>
+      <div class="stage-sla">—</div>
+    </div>
+    <div class="stage-card empty">
       <div class="stage-name">Site Survey</div>
       <div class="stage-count">0</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 0 green (was 1 this morning — moved forward)</div>
+      <div class="stage-sla">—</div>
     </div>
     <div class="stage-card all-green">
       <div class="stage-name">Engineering</div>
