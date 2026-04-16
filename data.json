@@ -1,0 +1,701 @@
+{
+  "generated_at": "2026-04-16T23:57:13.711870Z",
+  "generated_at_label": "Thu Apr 16, 2026 · 7:57 PM ET",
+  "canvas_id": "5264387000040853100",
+  "project_count": 77,
+  "projects": [
+    {
+      "project_id": "PROJ-1606",
+      "customer": "Frank Fazzino",
+      "stage": "Sales Ops Review",
+      "days_in_stage": 0,
+      "rep": "Erik Williams",
+      "owner": "Erik Williams",
+      "zoho_record_id": "5264387000085244029"
+    },
+    {
+      "project_id": "PROJ-1605",
+      "customer": "Kevin Andersen",
+      "stage": "Engineering",
+      "days_in_stage": 0,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000085058051"
+    },
+    {
+      "project_id": "PROJ-1604",
+      "customer": "Charles Thomas",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000084583001"
+    },
+    {
+      "project_id": "PROJ-1603",
+      "customer": "Harry Dohnert",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "Harry Dohnert",
+      "owner": "Harry Dohnert",
+      "zoho_record_id": "5264387000084391015"
+    },
+    {
+      "project_id": "PROJ-1602",
+      "customer": "Marion Hinze",
+      "stage": "Interconnection",
+      "days_in_stage": 0,
+      "rep": "Scott Webb",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000084118015"
+    },
+    {
+      "project_id": "PROJ-1601",
+      "customer": "Elsa Ortiz",
+      "stage": "Plan Review",
+      "days_in_stage": 0,
+      "rep": "Kenny Crosby",
+      "owner": "Jenna Stockwell",
+      "zoho_record_id": "5264387000084065005"
+    },
+    {
+      "project_id": "PROJ-1600",
+      "customer": "Scott Webb",
+      "stage": "Interconnection",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000083838050"
+    },
+    {
+      "project_id": "PROJ-1599",
+      "customer": "Jacob Rastegar",
+      "stage": "Permitting",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000083195007"
+    },
+    {
+      "project_id": "PROJ-1596",
+      "customer": "Marie Souffrant",
+      "stage": "Permitting",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000082755001"
+    },
+    {
+      "project_id": "PROJ-1593",
+      "customer": "Benjamin Bloom",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "Gabriel Guzman",
+      "owner": "Gabriel Guzman",
+      "zoho_record_id": "5264387000081323025"
+    },
+    {
+      "project_id": "PROJ-1592",
+      "customer": "Gerold Rajesh",
+      "stage": "Procurement & Scheduling",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000081037027"
+    },
+    {
+      "project_id": "PROJ-1586",
+      "customer": "Charles Casey | Crystal Casey",
+      "stage": "Interconnection",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000079311044"
+    },
+    {
+      "project_id": "PROJ-1583",
+      "customer": "Nilo Torres",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000077493323"
+    },
+    {
+      "project_id": "PROJ-1582",
+      "customer": "Carl Guild | Commercial",
+      "stage": "Inspection",
+      "days_in_stage": 0,
+      "rep": "Laura Beth Collinson",
+      "owner": "Laura Beth Collinson",
+      "zoho_record_id": "5264387000075629013"
+    },
+    {
+      "project_id": "PROJ-1581",
+      "customer": "Sanjay Patel",
+      "stage": "Procurement & Scheduling",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000075613005"
+    },
+    {
+      "project_id": "PROJ-1579",
+      "customer": "John Fiorello",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "Jenna Stockwell",
+      "owner": "Jenna Stockwell",
+      "zoho_record_id": "5264387000074759001"
+    },
+    {
+      "project_id": "PROJ-1578",
+      "customer": "Edward Rivera",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Jihad Shaheer",
+      "owner": "Jihad (Jay) Shaheer",
+      "zoho_record_id": "5264387000074568005"
+    },
+    {
+      "project_id": "PROJ-1577",
+      "customer": "Ricardo Ocasio | Aileen Encinas",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "Jihad Shaheer",
+      "owner": "Jihad (Jay) Shaheer",
+      "zoho_record_id": "5264387000073964033"
+    },
+    {
+      "project_id": "PROJ-1576",
+      "customer": "Frank & Josephine LaFauci",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000072342015"
+    },
+    {
+      "project_id": "PROJ-1572",
+      "customer": "Gregory Lippert",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000070723058"
+    },
+    {
+      "project_id": "PROJ-1570",
+      "customer": "Colleen Banks",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Fred Stevens",
+      "owner": "Test User",
+      "zoho_record_id": "5264387000070089017"
+    },
+    {
+      "project_id": "PROJ-1567",
+      "customer": "Dumitru Pamint",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000068422033"
+    },
+    {
+      "project_id": "PROJ-1563",
+      "customer": "James Quilter",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000067666066"
+    },
+    {
+      "project_id": "PROJ-1558",
+      "customer": "Melissa Viscariello",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "David Shapard",
+      "owner": "David Shapard",
+      "zoho_record_id": "5264387000067409023"
+    },
+    {
+      "project_id": "PROJ-1556",
+      "customer": "Sample Project",
+      "stage": "Engineering",
+      "days_in_stage": 0,
+      "rep": "Brian Tilford",
+      "owner": "",
+      "zoho_record_id": "5264387000067351627"
+    },
+    {
+      "project_id": "PROJ-1555",
+      "customer": "Lukasz Grazda",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000067213061"
+    },
+    {
+      "project_id": "PROJ-1550",
+      "customer": "Daniel DeTuccio | Donna Petruska",
+      "stage": "Active Installation",
+      "days_in_stage": 0,
+      "rep": "Erik Williams",
+      "owner": "Erik Williams",
+      "zoho_record_id": "5264387000066739039"
+    },
+    {
+      "project_id": "PROJ-1547",
+      "customer": "Jeff Donnelly",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "Sam Karas",
+      "owner": "Sam Karas",
+      "zoho_record_id": "5264387000066495049"
+    },
+    {
+      "project_id": "PROJ-1542",
+      "customer": "Gautier Godard",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Brian Tilford",
+      "owner": "Brian Tilford",
+      "zoho_record_id": "5264387000066264151"
+    },
+    {
+      "project_id": "PROJ-1540",
+      "customer": "Gregory Soule",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Test User",
+      "zoho_record_id": "5264387000066267127"
+    },
+    {
+      "project_id": "PROJ-1532",
+      "customer": "Donna Karastamatis | James Karastamatis",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Sam Karas",
+      "owner": "Sam Karas",
+      "zoho_record_id": "5264387000066300013"
+    },
+    {
+      "project_id": "PROJ-1528",
+      "customer": "Maritza Estremera | Jermaine Jorge",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000065662048"
+    },
+    {
+      "project_id": "PROJ-1517",
+      "customer": "Melissa Conte",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000065253003"
+    },
+    {
+      "project_id": "PROJ-1513",
+      "customer": "Beatrice Volpe",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "Ricky Kar",
+      "owner": "Michael Stavrakis",
+      "zoho_record_id": "5264387000065083043"
+    },
+    {
+      "project_id": "PROJ-1506",
+      "customer": "Nelda Garcia",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000064588067"
+    },
+    {
+      "project_id": "PROJ-1505",
+      "customer": "Julie Rusch/Vasile & David Rusch",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000064402103"
+    },
+    {
+      "project_id": "PROJ-1501",
+      "customer": "Jack Johnson",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "Laura Beth Collinson",
+      "owner": "Laura Beth Collinson",
+      "zoho_record_id": "5264387000064374046"
+    },
+    {
+      "project_id": "PROJ-1491",
+      "customer": "Amy Karastamatis | Derek Karastamatis",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Sam Karas",
+      "owner": "Sam Karas",
+      "zoho_record_id": "5264387000063235103"
+    },
+    {
+      "project_id": "PROJ-1478",
+      "customer": "Randy Brown | Sandra Spencer",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "Douglas hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000063065205"
+    },
+    {
+      "project_id": "PROJ-1475",
+      "customer": "Angelica Bryan - NJ",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000063042027"
+    },
+    {
+      "project_id": "PROJ-1472",
+      "customer": "Vijaya Chilukuri",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Michael D'Angelo",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000062575179"
+    },
+    {
+      "project_id": "PROJ-1466",
+      "customer": "Michael Duke",
+      "stage": "Active Installation",
+      "days_in_stage": 0,
+      "rep": "Frederick Stevens",
+      "owner": "Fred Stevens",
+      "zoho_record_id": "5264387000062176077"
+    },
+    {
+      "project_id": "PROJ-1462",
+      "customer": "Ramsey Goodrich",
+      "stage": "Active Installation",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Test User",
+      "zoho_record_id": "5264387000061688021"
+    },
+    {
+      "project_id": "PROJ-1461",
+      "customer": "Mahlon Stewart",
+      "stage": "Active Installation",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000061531063"
+    },
+    {
+      "project_id": "PROJ-1444",
+      "customer": "Thomas Ajello",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Butch Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000060390063"
+    },
+    {
+      "project_id": "PROJ-1441",
+      "customer": "Jan Berman",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "Fred Stevens",
+      "owner": "Fred Stevens",
+      "zoho_record_id": "5264387000060179015"
+    },
+    {
+      "project_id": "PROJ-1437",
+      "customer": "Margarita Cayo",
+      "stage": "Permitting",
+      "days_in_stage": 0,
+      "rep": "Jihad Shaheer",
+      "owner": "Jihad (Jay) Shaheer",
+      "zoho_record_id": "5264387000059619037"
+    },
+    {
+      "project_id": "PROJ-1408",
+      "customer": "Paul Abel",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Brian Tilford",
+      "zoho_record_id": "5264387000056261013"
+    },
+    {
+      "project_id": "PROJ-1392",
+      "customer": "GVFC ASnell (Commercial)",
+      "stage": "On Hold",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Test User",
+      "zoho_record_id": "5264387000055817178"
+    },
+    {
+      "project_id": "PROJ-1390",
+      "customer": "Imran Sumra 145",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "David Shapard",
+      "owner": "David Shapard",
+      "zoho_record_id": "5264387000055860035"
+    },
+    {
+      "project_id": "PROJ-1378",
+      "customer": "Alex Starr | Commercial",
+      "stage": "Permitting",
+      "days_in_stage": 0,
+      "rep": "Jim Trolice",
+      "owner": "Jim Trolice",
+      "zoho_record_id": "5264387000054931025"
+    },
+    {
+      "project_id": "PROJ-1375",
+      "customer": "Peter & Leeann Tebben",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000054414060"
+    },
+    {
+      "project_id": "PROJ-1373",
+      "customer": "Tripp Killin",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000053763001"
+    },
+    {
+      "project_id": "PROJ-1372",
+      "customer": "Daniel Ghazal",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000053567062"
+    },
+    {
+      "project_id": "PROJ-1367",
+      "customer": "Alyssa Hasher",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "",
+      "owner": "Joseph Massa",
+      "zoho_record_id": "5264387000052250029"
+    },
+    {
+      "project_id": "PROJ-1360",
+      "customer": "Nicole Lara",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000050609019"
+    },
+    {
+      "project_id": "PROJ-1356",
+      "customer": "Olumide Adebayo",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000049898092"
+    },
+    {
+      "project_id": "PROJ-1349",
+      "customer": "Jeffrey Mehan",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000048743017"
+    },
+    {
+      "project_id": "PROJ-1340",
+      "customer": "James & Amanda Ray",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000048213080"
+    },
+    {
+      "project_id": "PROJ-1339",
+      "customer": "Charles Allen",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000048296023"
+    },
+    {
+      "project_id": "PROJ-1337",
+      "customer": "Jacqueline Pineau | Segreto",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000048230036"
+    },
+    {
+      "project_id": "PROJ-1333",
+      "customer": "Nimish Patel",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Tony Costanzo",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000047963039"
+    },
+    {
+      "project_id": "PROJ-1325",
+      "customer": "Kerry Hensley | Craig Stearns",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Walter Carmona",
+      "owner": "Walter Carmona",
+      "zoho_record_id": "5264387000047077013"
+    },
+    {
+      "project_id": "PROJ-1323",
+      "customer": "Stephanie Halene | Melchinger",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Doug Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000046723013"
+    },
+    {
+      "project_id": "PROJ-1321",
+      "customer": "Boris Zarate Alvarez",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000046736003"
+    },
+    {
+      "project_id": "PROJ-1319",
+      "customer": "Ann Marie Lorello",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000046409087"
+    },
+    {
+      "project_id": "PROJ-1313",
+      "customer": "Paula Licitra",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Joe Massa",
+      "owner": "Joseph Massa",
+      "zoho_record_id": "5264387000046466012"
+    },
+    {
+      "project_id": "PROJ-1305",
+      "customer": "Murilo Ferreira",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Joe Massa",
+      "owner": "Joseph Massa",
+      "zoho_record_id": "5264387000046222055"
+    },
+    {
+      "project_id": "PROJ-1257",
+      "customer": "Helene Kourouma",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Tony Costanzo",
+      "owner": "Doug Hoffman",
+      "zoho_record_id": "5264387000044538001"
+    },
+    {
+      "project_id": "PROJ-1250",
+      "customer": "Kim Steffen",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Denise Alafoyiannis",
+      "zoho_record_id": "5264387000044423005"
+    },
+    {
+      "project_id": "PROJ-1249",
+      "customer": "Steve Zajac | Hamm",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Jason Sowik",
+      "owner": "Joseph Massa",
+      "zoho_record_id": "5264387000044440001"
+    },
+    {
+      "project_id": "PROJ-1246",
+      "customer": "Bonnie Lee",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Fred Stevens",
+      "owner": "Fred Stevens",
+      "zoho_record_id": "5264387000044384001"
+    },
+    {
+      "project_id": "PROJ-1243",
+      "customer": "Gail Yurman",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Michael D'Angelo",
+      "owner": "Denise Alafoyiannis",
+      "zoho_record_id": "5264387000044325011"
+    },
+    {
+      "project_id": "PROJ-1233",
+      "customer": "Michael Davias",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Douglas Hoffman",
+      "owner": "Douglas Hoffman",
+      "zoho_record_id": "5264387000044150001"
+    },
+    {
+      "project_id": "PROJ-1228",
+      "customer": "Nubiola Rivera",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "David Shapard",
+      "owner": "David Shapard",
+      "zoho_record_id": "5264387000044074003"
+    },
+    {
+      "project_id": "PROJ-1227",
+      "customer": "Anthony Niro",
+      "stage": "Energized",
+      "days_in_stage": 0,
+      "rep": "Tony Costanzo",
+      "owner": "Denise Alafoyiannis",
+      "zoho_record_id": "5264387000044090003"
+    },
+    {
+      "project_id": "PROJ-1224",
+      "customer": "Virgilio Lozza",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 0,
+      "rep": "Fred Stevens",
+      "owner": "Fred Stevens",
+      "zoho_record_id": "5264387000043945001"
+    }
+  ]
+}
