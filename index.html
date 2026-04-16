@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helio Solar — Install Pipeline Monitor</title>
+<style>
+  /* Password gate */
+  #pw-gate { position: fixed; inset: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  #pw-box { background: white; border-radius: 16px; padding: 40px 36px; width: 340px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  #pw-box .logo { font-size: 22px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; }
+  #pw-box .logo span { color: #f5a623; }
+  #pw-box .subtitle { font-size: 13px; color: #999; margin-bottom: 28px; }
+  #pw-box input { width: 100%; padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 15px; outline: none; transition: border-color 0.2s; margin-bottom: 12px; }
+  #pw-box input:focus { border-color: #f5a623; }
+  #pw-box button { width: 100%; padding: 11px; background: #1a1a2e; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  #pw-box button:hover { background: #f5a623; color: #1a1a2e; }
+  #pw-error { color: #e53935; font-size: 13px; margin-top: 10px; min-height: 18px; }
+  #dashboard { display: none; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
+  header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  header h1 span { color: #f5a623; }
+  .run-info { font-size: 12px; color: #aab; text-align: right; }
+  .run-info strong { color: #eee; display: block; font-size: 13px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 20px; }
+
+  /* Summary cards */
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .card { background: white; border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #888; margin-bottom: 6px; }
+  .card .value { font-size: 32px; font-weight: 700; line-height: 1; }
+  .card.green .value { color: #22a85a; }
+  .card.yellow .value { color: #f5a623; }
+  .card.red .value { color: #e53935; }
+  .card.total .value { color: #1a1a2e; }
+  .card .sub { font-size: 11px; color: #aaa; margin-top: 4px; }
+
+  /* Stage bar */
+  .section-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #555; margin-bottom: 12px; }
+  .stage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .stage-card { background: white; border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border-left: 4px solid #e0e0e0; }
+  .stage-card.all-green { border-left-color: #22a85a; }
+  .stage-card.has-yellow { border-left-color: #f5a623; }
+  .stage-card.has-red { border-left-color: #e53935; }
+  .stage-card .stage-name { font-size: 12px; font-weight: 600; color: #555; margin-bottom: 6px; }
+  .stage-card .stage-count { font-size: 26px; font-weight: 700; color: #1a1a2e; }
+  .stage-card .stage-sla { font-size: 11px; margin-top: 4px; }
+  .dot-green { color: #22a85a; }
+  .dot-yellow { color: #f5a623; }
+  .dot-red { color: #e53935; }
+
+  /* Main table */
+  .table-wrap { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; margin-bottom: 24px; }
+  .table-header { padding: 16px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; }
+  .table-header h2 { font-size: 15px; font-weight: 700; }
+  .filter-row { display: flex; gap: 8px; }
+  .filter-btn { padding: 5px 12px; border-radius: 20px; border: 1px solid #ddd; background: white; font-size: 12px; cursor: pointer; color: #555; transition: all 0.15s; }
+  .filter-btn.active, .filter-btn:hover { background: #1a1a2e; color: white; border-color: #1a1a2e; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #fafafa; padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; border-bottom: 1px solid #f0f0f0; cursor: pointer; user-select: none; white-space: nowrap; }
+  th:hover { color: #333; }
+  td { padding: 11px 14px; font-size: 13px; border-bottom: 1px solid #f8f8f8; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafbff; }
+  .badge { display: inline-block; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .badge-green { background: #e8f8ef; color: #1a8a45; }
+  .badge-yellow { background: #fff8e7; color: #b37d00; }
+  .badge-red { background: #fdecea; color: #c62828; }
+  .proj-id { font-family: monospace; font-size: 12px; color: #888; }
+  .days-bar { display: flex; align-items: center; gap: 8px; }
+  .days-num { font-weight: 600; min-width: 28px; }
+
+  /* Alert box */
+  .alert-box { background: #e8f8ef; border: 1px solid #a5d6b7; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+  .alert-icon { font-size: 28px; }
+  .alert-text h3 { font-size: 14px; font-weight: 700; color: #1a5e35; }
+  .alert-text p { font-size: 13px; color: #2e7d50; margin-top: 3px; }
+
+  .baseline-note { background: #e3f2fd; border: 1px solid #90caf9; border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1565c0; }
+  .baseline-note strong { display: block; margin-bottom: 2px; }
+
+  footer { text-align: center; font-size: 11px; color: #bbb; padding: 16px; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<!-- Password gate -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <div class="logo">Helio <span>Solar</span></div>
+    <div class="subtitle">Install Pipeline Monitor</div>
+    <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPw()" autofocus />
+    <button onclick="checkPw()">Unlock Dashboard</button>
+    <div id="pw-error"></div>
+  </div>
+</div>
+
+<!-- Dashboard (hidden until authenticated) -->
+<div id="dashboard">
+
+<header>
+  <h1>Helio Solar <span>Install Pipeline</span></h1>
+  <div class="run-info">
+    <strong>📊 Pipeline Monitor</strong>
+    Last updated: Thu Apr 16, 2026 · 2:30 PM ET
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Baseline note -->
+  <div class="baseline-note">
+    <strong>ℹ️ Baseline Reset Day (April 16, 2026)</strong>
+    All <code>Date_of_Stage_Change</code> values were cleared today and Blueprint automation activated. Records without a stage-change date are treated as entering their current stage today (0 days). SLA timers start fresh from this point forward.
+  </div>
+
+  <!-- Summary cards -->
+  <div class="summary">
+    <div class="card total">
+      <div class="label">Active Projects</div>
+      <div class="value">44</div>
+      <div class="sub">across 10 active stages</div>
+    </div>
+    <div class="card green">
+      <div class="label">🟢 Green</div>
+      <div class="value">44</div>
+      <div class="sub">within SLA</div>
+    </div>
+    <div class="card yellow">
+      <div class="label">🟡 Yellow</div>
+      <div class="value">0</div>
+      <div class="sub">approaching limit</div>
+    </div>
+    <div class="card red">
+      <div class="label">🔴 Red</div>
+      <div class="value">0</div>
+      <div class="sub">past SLA</div>
+    </div>
+  </div>
+
+  <!-- All-clear alert -->
+  <div class="alert-box">
+    <div class="alert-icon">✅</div>
+    <div class="alert-text">
+      <h3>All 44 projects within SLA</h3>
+      <p>No projects require immediate attention. SLA timers started fresh today — watch for yellow flags over the next few days.</p>
+    </div>
+  </div>
+
+  <!-- Stage breakdown -->
+  <div class="section-title">Stage Breakdown</div>
+  <div class="stage-grid">
+    <div class="stage-card all-green">
+      <div class="stage-name">Site Survey</div>
+      <div class="stage-count">0</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 0 green (was 1 this morning — moved forward)</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Engineering</div>
+      <div class="stage-count">2</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 2 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Plan Review</div>
+      <div class="stage-count">1</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 1 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Interconnection</div>
+      <div class="stage-count">3</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 3 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Permitting</div>
+      <div class="stage-count">4</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 4 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Procurement & Scheduling</div>
+      <div class="stage-count">2</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 2 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Active Installation</div>
+      <div class="stage-count">4</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 4 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Inspection</div>
+      <div class="stage-count">1</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 1 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Witness Test / PTO</div>
+      <div class="stage-count">8</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 8 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">Energized</div>
+      <div class="stage-count">10</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 10 green</div>
+    </div>
+    <div class="stage-card all-green">
+      <div class="stage-name">On Hold</div>
+      <div class="stage-count">9</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 9 green</div>
+    </div>
+  </div>
+
+  <!-- Full project table -->
+  <div class="table-wrap">
+    <div class="table-header">
+      <h2>All Active Projects</h2>
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterTable('all', this)">All (44)</button>
+        <button class="filter-btn" onclick="filterTable('green', this)">🟢 Green</button>
+        <button class="filter-btn" onclick="filterTable('yellow', this)">🟡 Yellow</button>
+        <button class="filter-btn" onclick="filterTable('red', this)">🔴 Red</button>
+      </div>
+    </div>
+    <table id="projectTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">Project ↕</th>
+          <th onclick="sortTable(1)">Customer ↕</th>
+          <th onclick="sortTable(2)">Stage ↕</th>
+          <th onclick="sortTable(3)">Days in Stage ↕</th>
+          <th onclick="sortTable(4)">SLA Status ↕</th>
+          <th onclick="sortTable(5)">Notes</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Engineering -->
+        <tr data-status="green" data-stage="Engineering">
+          <td class="proj-id">PROJ-1605</td><td>Kevin Andersen</td><td>Engineering</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Stage change recorded today</td>
+        </tr>
+        <tr data-status="green" data-stage="Engineering">
+          <td class="proj-id">PROJ-1556</td><td>Sample Project</td><td>Engineering</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>⚠️ Possible test record</td>
+        </tr>
+        <!-- Plan Review -->
+        <tr data-status="green" data-stage="Plan Review">
+          <td class="proj-id">PROJ-1601</td><td>Elsa Ortiz</td><td>Plan Review</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <!-- Interconnection -->
+        <tr data-status="green" data-stage="Interconnection">
+          <td class="proj-id">PROJ-1602</td><td>Marion Hinze</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Interconnection">
+          <td class="proj-id">PROJ-1600</td><td>Scott Webb</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Interconnection">
+          <td class="proj-id">PROJ-1586</td><td>Charles Casey | Crystal Casey</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <!-- Permitting -->
+        <tr data-status="green" data-stage="Permitting">
+          <td class="proj-id">PROJ-1599</td><td>Jacob Rastegar</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Permitting">
+          <td class="proj-id">PROJ-1596</td><td>Marie Souffrant</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Permitting">
+          <td class="proj-id">PROJ-1437</td><td>Margarita Cayo</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Permitting">
+          <td class="proj-id">PROJ-1378</td><td>Alex Starr | Commercial</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Commercial project</td>
+        </tr>
+        <!-- Procurement & Scheduling -->
+        <tr data-status="green" data-stage="Procurement & Scheduling">
+          <td class="proj-id">PROJ-1592</td><td>Gerold Rajesh</td><td>Procurement &amp; Scheduling</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Procurement & Scheduling">
+          <td class="proj-id">PROJ-1581</td><td>Sanjay Patel</td><td>Procurement &amp; Scheduling</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <!-- Active Installation -->
+        <tr data-status="green" data-stage="Active Installation">
+          <td class="proj-id">PROJ-1550</td><td>Daniel DeTuccio | Donna Petruska</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Active Installation">
+          <td class="proj-id">PROJ-1466</td><td>Michael Duke</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Active Installation">
+          <td class="proj-id">PROJ-1462</td><td>Ramsey Goodrich</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Active Installation">
+          <td class="proj-id">PROJ-1461</td><td>Mahlon Stewart</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <!-- Inspection -->
+        <tr data-status="green" data-stage="Inspection">
+          <td class="proj-id">PROJ-1582</td><td>Carl Guild | Commercial</td><td>Inspection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Commercial project</td>
+        </tr>
+        <!-- Witness Test / PTO -->
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1563</td><td>James Quilter</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1555</td><td>Lukasz Grazda</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1547</td><td>Jeff Donnelly</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Stage change recorded today</td>
+        </tr>
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1513</td><td>Beatrice Volpe</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1501</td><td>Jack Johnson</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1478</td><td>Randy Brown | Sandra Spencer</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1372</td><td>Daniel Ghazal</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Witness Test / PTO">
+          <td class="proj-id">PROJ-1224</td><td>Virgilio Lozza</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <!-- Energized -->
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1578</td><td>Edward Rivera</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1576</td><td>Frank &amp; Josephine LaFauci</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1572</td><td>Gregory Lippert</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1570</td><td>Colleen Banks</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1567</td><td>Dumitru Pamint</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1558</td><td>Melissa Viscariello</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1542</td><td>Gautier Godard</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1532</td><td>Donna Karastamatis | James Karastamatis</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1528</td><td>Maritza Estremera | Jermaine Jorge</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="Energized">
+          <td class="proj-id">PROJ-1517</td><td>Melissa Conte</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <!-- On Hold -->
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1604</td><td>Charles Thomas</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1603</td><td>Harry Dohnert</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Test record (Blueprint verification)</td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1593</td><td>Benjamin Bloom</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1583</td><td>Nilo Torres</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1579</td><td>John Fiorello</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1577</td><td>Ricardo Ocasio | Aileen Encinas</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1540</td><td>Gregory Soule</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1441</td><td>Jan Berman</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
+        </tr>
+        <tr data-status="green" data-stage="On Hold">
+          <td class="proj-id">PROJ-1392</td><td>GVFC ASnell (Commercial)</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Commercial project</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer>Helio Solar Install Pipeline Monitor · Generated Thu Apr 16, 2026 · hdohnert@helio.solar</footer>
+
+</div><!-- end #dashboard -->
+
+<script>
+  // Password auth (SHA-256 hashed)
+  const PW_HASH = '4b6ef3f69e974392c792213f217e786bb82ff1693f47ae96adcdbf6f4583bcb1';
+
+  async function checkPw() {
+    const input = document.getElementById('pw-input').value;
+    const msgEl = document.getElementById('pw-error');
+    if (!input) { msgEl.textContent = 'Please enter the password.'; return; }
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    if (hashHex === PW_HASH) {
+      sessionStorage.setItem('helio_auth', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+    } else {
+      msgEl.textContent = 'Incorrect password. Try again.';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+
+  // Auto-unlock if already authenticated this session
+  if (sessionStorage.getItem('helio_auth') === '1') {
+    document.getElementById('pw-gate').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+  }
+</script>
+
+<script>
+  function filterTable(status, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const rows = document.querySelectorAll('#tableBody tr');
+    rows.forEach(row => {
+      if (status === 'all') { row.classList.remove('hidden'); return; }
+      const rowStatus = row.dataset.status || '';
+      row.classList.toggle('hidden', !rowStatus.includes(status));
+    });
+  }
+
+  function sortTable(col) {
+    const tbody = document.getElementById('tableBody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const asc = tbody.dataset.sortCol == col && tbody.dataset.sortDir === 'asc' ? false : true;
+    tbody.dataset.sortCol = col;
+    tbody.dataset.sortDir = asc ? 'asc' : 'desc';
+    rows.sort((a, b) => {
+      const av = a.querySelectorAll('td')[col]?.textContent.trim() || '';
+      const bv = b.querySelectorAll('td')[col]?.textContent.trim() || '';
+      const an = parseFloat(av), bn = parseFloat(bv);
+      if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+      return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  }
+</script>
+</body>
+</html>
