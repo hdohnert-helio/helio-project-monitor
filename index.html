@@ -122,12 +122,12 @@
   <div class="summary">
     <div class="card total">
       <div class="label">Active Projects</div>
-      <div class="value">44</div>
-      <div class="sub">across 10 active stages</div>
+      <div class="value">45</div>
+      <div class="sub">across active stages</div>
     </div>
     <div class="card green">
       <div class="label">🟢 Green</div>
-      <div class="value">44</div>
+      <div class="value">45</div>
       <div class="sub">within SLA</div>
     </div>
     <div class="card yellow">
@@ -146,7 +146,7 @@
   <div class="alert-box">
     <div class="alert-icon">✅</div>
     <div class="alert-text">
-      <h3>All 44 projects within SLA</h3>
+      <h3>All 45 projects within SLA</h3>
       <p>No projects require immediate attention. SLA timers started fresh today — watch for yellow flags over the next few days.</p>
     </div>
   </div>
@@ -154,10 +154,10 @@
   <!-- Stage breakdown -->
   <div class="section-title">Stage Breakdown</div>
   <div class="stage-grid">
-    <div class="stage-card empty">
+    <div class="stage-card all-green">
       <div class="stage-name">Sales Ops Review</div>
-      <div class="stage-count">0</div>
-      <div class="stage-sla">—</div>
+      <div class="stage-count">1</div>
+      <div class="stage-sla"><span class="dot-green">●</span> 1 green</div>
     </div>
     <div class="stage-card empty">
       <div class="stage-name">Project Intake</div>
@@ -226,7 +226,7 @@
     <div class="table-header">
       <h2>All Active Projects</h2>
       <div class="filter-row">
-        <button class="filter-btn active" onclick="filterTable('all', this)">All (44)</button>
+        <button class="filter-btn active" onclick="filterTable('all', this)">All (45)</button>
         <button class="filter-btn" onclick="filterTable('green', this)">🟢 Green</button>
         <button class="filter-btn" onclick="filterTable('yellow', this)">🟡 Yellow</button>
         <button class="filter-btn" onclick="filterTable('red', this)">🔴 Red</button>
@@ -244,6 +244,10 @@
         </tr>
       </thead>
       <tbody id="tableBody">
+        <!-- Sales Ops Review -->
+        <tr data-status="green" data-stage="Sales Ops Review">
+          <td class="proj-id">PROJ-1606</td><td>Frank Fazzino</td><td>Sales Ops Review</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td>
+        </tr>
         <!-- Engineering -->
         <tr data-status="green" data-stage="Engineering">
           <td class="proj-id">PROJ-1605</td><td>Kevin Andersen</td><td>Engineering</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Stage change recorded today</td>
