@@ -5,457 +5,334 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helio Solar — Install Pipeline Monitor</title>
 <style>
-  /* Password gate */
-  #pw-gate { position: fixed; inset: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; }
-  #pw-box { background: white; border-radius: 16px; padding: 40px 36px; width: 340px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-  #pw-box .logo { font-size: 22px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; }
-  #pw-box .logo span { color: #f5a623; }
-  #pw-box .subtitle { font-size: 13px; color: #999; margin-bottom: 28px; }
-  #pw-box input { width: 100%; padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 15px; outline: none; transition: border-color 0.2s; margin-bottom: 12px; }
-  #pw-box input:focus { border-color: #f5a623; }
-  #pw-box button { width: 100%; padding: 11px; background: #1a1a2e; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-  #pw-box button:hover { background: #f5a623; color: #1a1a2e; }
-  #pw-error { color: #e53935; font-size: 13px; margin-top: 10px; min-height: 18px; }
-  #dashboard { display: none; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a2e; }
-  header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
-  header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
-  header h1 span { color: #f5a623; }
-  .run-info { font-size: 12px; color: #aab; text-align: right; }
-  .run-info strong { color: #eee; display: block; font-size: 13px; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 24px 20px; }
-
-  /* Summary cards */
-  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
-  .card { background: white; border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-  .card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #888; margin-bottom: 6px; }
-  .card .value { font-size: 32px; font-weight: 700; line-height: 1; }
-  .card.green .value { color: #22a85a; }
-  .card.yellow .value { color: #f5a623; }
-  .card.red .value { color: #e53935; }
-  .card.total .value { color: #1a1a2e; }
-  .card .sub { font-size: 11px; color: #aaa; margin-top: 4px; }
-
-  /* Stage bar */
-  .section-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #555; margin-bottom: 12px; }
-  .stage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
-  .stage-card { background: white; border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border-left: 4px solid #e0e0e0; }
-  .stage-card.all-green { border-left-color: #22a85a; }
-  .stage-card.empty { border-left-color: #e0e0e0; opacity: 0.45; }
-  .stage-card.has-yellow { border-left-color: #f5a623; }
-  .stage-card.has-red { border-left-color: #e53935; }
-  .stage-card .stage-name { font-size: 12px; font-weight: 600; color: #555; margin-bottom: 6px; }
-  .stage-card .stage-count { font-size: 26px; font-weight: 700; color: #1a1a2e; }
-  .stage-card .stage-sla { font-size: 11px; margin-top: 4px; }
-  .dot-green { color: #22a85a; }
-  .dot-yellow { color: #f5a623; }
-  .dot-red { color: #e53935; }
-
-  /* Main table */
-  .table-wrap { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; margin-bottom: 24px; }
-  .table-header { padding: 16px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; }
-  .table-header h2 { font-size: 15px; font-weight: 700; }
-  .filter-row { display: flex; gap: 8px; }
-  .filter-btn { padding: 5px 12px; border-radius: 20px; border: 1px solid #ddd; background: white; font-size: 12px; cursor: pointer; color: #555; transition: all 0.15s; }
-  .filter-btn.active, .filter-btn:hover { background: #1a1a2e; color: white; border-color: #1a1a2e; }
-  table { width: 100%; border-collapse: collapse; }
-  th { background: #fafafa; padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; border-bottom: 1px solid #f0f0f0; cursor: pointer; user-select: none; white-space: nowrap; }
-  th:hover { color: #333; }
-  td { padding: 11px 14px; font-size: 13px; border-bottom: 1px solid #f8f8f8; vertical-align: middle; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #fafbff; }
-  .badge { display: inline-block; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
-  .badge-green { background: #e8f8ef; color: #1a8a45; }
-  .badge-yellow { background: #fff8e7; color: #b37d00; }
-  .badge-red { background: #fdecea; color: #c62828; }
-  .proj-id { font-family: monospace; font-size: 12px; color: #888; }
-  .days-bar { display: flex; align-items: center; gap: 8px; }
-  .days-num { font-weight: 600; min-width: 28px; }
-
-  /* Alert box */
-  .alert-box { background: #e8f8ef; border: 1px solid #a5d6b7; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
-  .alert-icon { font-size: 28px; }
-  .alert-text h3 { font-size: 14px; font-weight: 700; color: #1a5e35; }
-  .alert-text p { font-size: 13px; color: #2e7d50; margin-top: 3px; }
-
-  .baseline-note { background: #e3f2fd; border: 1px solid #90caf9; border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1565c0; }
-  .baseline-note strong { display: block; margin-bottom: 2px; }
-
-  footer { text-align: center; font-size: 11px; color: #bbb; padding: 16px; }
-  .hidden { display: none; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;color:#1a1a2e}
+  #pw-gate{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);display:flex;align-items:center;justify-content:center;z-index:9999}
+  #pw-box{background:white;border-radius:16px;padding:40px 36px;width:340px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+  #pw-box .logo{font-size:22px;font-weight:800;color:#1a1a2e;margin-bottom:4px}
+  #pw-box .logo span{color:#f5a623}
+  #pw-box .subtitle{font-size:13px;color:#999;margin-bottom:28px}
+  #pw-box input{width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:8px;font-size:15px;outline:none;margin-bottom:12px}
+  #pw-box input:focus{border-color:#f5a623}
+  #pw-box button{width:100%;padding:11px;background:#1a1a2e;color:white;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+  #pw-box button:hover{background:#f5a623;color:#1a1a2e}
+  #pw-error{color:#e53935;font-size:13px;margin-top:10px;min-height:18px}
+  #dashboard{display:none}
+  header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:white;padding:20px 32px;display:flex;align-items:center;justify-content:space-between}
+  header h1{font-size:22px;font-weight:700}
+  header h1 span{color:#f5a623}
+  .run-info{font-size:12px;color:#aab;text-align:right}
+  .run-info strong{color:#eee;display:block;font-size:13px}
+  .container{max-width:1200px;margin:0 auto;padding:24px 20px}
+  .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+  .card{background:white;border-radius:12px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+  .card .label{font-size:11px;text-transform:uppercase;letter-spacing:0.6px;color:#888;margin-bottom:6px}
+  .card .value{font-size:32px;font-weight:700}
+  .card.green .value{color:#22a85a}.card.yellow .value{color:#f5a623}.card.red .value{color:#e53935}.card.total .value{color:#1a1a2e}
+  .card .sub{font-size:11px;color:#aaa;margin-top:4px}
+  .section-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#555;margin-bottom:12px}
+  /* CHART */
+  .chart-section{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:24px}
+  .chart-row{display:flex;align-items:center;gap:12px;margin-bottom:7px;cursor:pointer;border-radius:6px;padding:3px 6px;transition:background 0.15s}
+  .chart-row:hover{background:#f5f7ff}
+  .chart-row.cr-empty{opacity:0.35;cursor:default}
+  .chart-row.cr-empty:hover{background:transparent}
+  .chart-row.chart-active{background:#eef2ff;outline:2px solid #4f6ef5}
+  .cr-label{width:190px;font-size:12px;color:#444;font-weight:500;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cr-bar{flex:1;height:22px;display:flex;align-items:center}
+  .cb-track{display:flex;height:22px;border-radius:4px;overflow:hidden;min-width:6px;transition:width 0.3s}
+  .cb-green{background:#22a85a;min-width:2px}.cb-yellow{background:#f5a623;min-width:2px}.cb-red{background:#e53935;min-width:2px}
+  .cb-empty{height:2px;width:20px;background:#e0e0e0;border-radius:2px}
+  .cr-count{width:28px;font-size:12px;font-weight:700;color:#333;text-align:right}
+  /* LEGEND */
+  .chart-legend{display:flex;gap:16px;margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0}
+  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#666}
+  .legend-dot{width:10px;height:10px;border-radius:2px}
+  .ld-green{background:#22a85a}.ld-yellow{background:#f5a623}.ld-red{background:#e53935}
+  /* STAGE GRID */
+  .stage-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px}
+  .stage-card{background:white;border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.07);border-left:4px solid #e0e0e0;cursor:pointer;transition:box-shadow 0.15s,transform 0.1s}
+  .stage-card:hover{box-shadow:0 3px 12px rgba(0,0,0,0.13);transform:translateY(-1px)}
+  .stage-card.stage-active{outline:2px solid #4f6ef5;box-shadow:0 3px 12px rgba(79,110,245,0.25)}
+  .stage-card.all-green{border-left-color:#22a85a}.stage-card.has-yellow{border-left-color:#f5a623}.stage-card.has-red{border-left-color:#e53935}.stage-card.empty{border-left-color:#e0e0e0;opacity:0.5;cursor:default}
+  .stage-card.empty:hover{box-shadow:0 1px 4px rgba(0,0,0,0.07);transform:none}
+  .stage-card .stage-name{font-size:12px;font-weight:600;color:#555;margin-bottom:6px}
+  .stage-card .stage-count{font-size:26px;font-weight:700;color:#1a1a2e}
+  .stage-card .stage-sla{font-size:11px;margin-top:4px}
+  .dot-green{color:#22a85a}.dot-yellow{color:#f5a623}.dot-red{color:#e53935}
+  /* TABLE */
+  .table-wrap{background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,0.08);overflow:hidden;margin-bottom:24px}
+  .table-header{padding:16px 20px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .table-header h2{font-size:15px;font-weight:700}
+  .table-header-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .filter-row{display:flex;gap:8px;flex-wrap:wrap}
+  .filter-btn{padding:5px 12px;border-radius:20px;border:1px solid #ddd;background:white;font-size:12px;cursor:pointer;color:#555}
+  .filter-btn.active,.filter-btn:hover{background:#1a1a2e;color:white;border-color:#1a1a2e}
+  .stage-filter-badge{display:inline-flex;align-items:center;gap:6px;background:#eef2ff;border:1px solid #c7d2fe;border-radius:20px;padding:4px 10px;font-size:12px;color:#4338ca}
+  .stage-filter-badge button{background:none;border:none;cursor:pointer;font-size:13px;color:#6366f1;padding:0 0 0 2px;line-height:1}
+  .stage-filter-badge button:hover{color:#e53935}
+  table{width:100%;border-collapse:collapse}
+  th{background:#fafafa;padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#888;border-bottom:1px solid #f0f0f0;cursor:pointer;white-space:nowrap}
+  td{padding:11px 14px;font-size:13px;border-bottom:1px solid #f8f8f8}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#fafbff}
+  .badge{display:inline-block;padding:3px 8px;border-radius:12px;font-size:11px;font-weight:600}
+  .badge-green{background:#e8f8ef;color:#1a8a45}.badge-yellow{background:#fff8e7;color:#b37d00}.badge-red{background:#fdecea;color:#c62828}
+  .proj-id{font-family:monospace;font-size:12px;color:#888}
+  .link-cell{text-align:center;width:40px}
+  .zoho-link{display:inline-block;color:#4f6ef5;font-size:14px;font-weight:700;text-decoration:none;opacity:0.7;transition:opacity 0.15s}
+  .zoho-link:hover{opacity:1;color:#1a1a2e}
+  .alert-box{border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:14px}
+  .alert-green{background:#e8f8ef;border:1px solid #a5d6b7}.alert-yellow{background:#fff8e7;border:1px solid #ffe082}.alert-red{background:#fdecea;border:1px solid #ef9a9a}
+  .alert-icon{font-size:28px}
+  .alert-text h3{font-size:14px;font-weight:700}
+  .alert-green .alert-text h3{color:#1a5e35}.alert-green .alert-text p{color:#2e7d50}
+  .alert-yellow .alert-text h3{color:#7a5c00}.alert-yellow .alert-text p{color:#7a5c00}
+  .alert-red .alert-text h3{color:#c62828}.alert-red .alert-text p{color:#c62828}
+  .alert-text p{font-size:13px;margin-top:3px}
+  footer{text-align:center;font-size:11px;color:#bbb;padding:16px}
+  .hidden{display:none}
 </style>
 </head>
 <body>
-
-<!-- Password gate -->
 <div id="pw-gate">
   <div id="pw-box">
     <div class="logo">Helio <span>Solar</span></div>
     <div class="subtitle">Install Pipeline Monitor</div>
-    <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPw()" autofocus />
+    <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPw()" autofocus/>
     <button onclick="checkPw()">Unlock Dashboard</button>
     <div id="pw-error"></div>
   </div>
 </div>
-
-<!-- Dashboard (hidden until authenticated) -->
 <div id="dashboard">
-
 <header>
   <h1>Helio Solar <span>Install Pipeline</span></h1>
-  <div class="run-info">
-    <strong>📊 Pipeline Monitor</strong>
-    Last updated: Thu Apr 16, 2026 · 2:30 PM ET
-  </div>
+  <div class="run-info"><strong>📊 Pipeline Monitor</strong>Last updated: Thu Apr 16, 2026 · 04:33 PM ET</div>
 </header>
-
 <div class="container">
-
-  <!-- Baseline note -->
-  <div class="baseline-note">
-    <strong>ℹ️ Baseline Reset Day (April 16, 2026)</strong>
-    All <code>Date_of_Stage_Change</code> values were cleared today and Blueprint automation activated. Records without a stage-change date are treated as entering their current stage today (0 days). SLA timers start fresh from this point forward.
-  </div>
-
-  <!-- Summary cards -->
   <div class="summary">
-    <div class="card total">
-      <div class="label">Active Projects</div>
-      <div class="value">45</div>
-      <div class="sub">across active stages</div>
-    </div>
-    <div class="card green">
-      <div class="label">🟢 Green</div>
-      <div class="value">45</div>
-      <div class="sub">within SLA</div>
-    </div>
-    <div class="card yellow">
-      <div class="label">🟡 Yellow</div>
-      <div class="value">0</div>
-      <div class="sub">approaching limit</div>
-    </div>
-    <div class="card red">
-      <div class="label">🔴 Red</div>
-      <div class="value">0</div>
-      <div class="sub">past SLA</div>
+    <div class="card total"><div class="label">Active Projects</div><div class="value">77</div><div class="sub">across active stages</div></div>
+    <div class="card green"><div class="label">🟢 Green</div><div class="value">77</div><div class="sub">within SLA</div></div>
+    <div class="card yellow"><div class="label">🟡 Yellow</div><div class="value">0</div><div class="sub">approaching limit</div></div>
+    <div class="card red"><div class="label">🔴 Red</div><div class="value">0</div><div class="sub">past SLA</div></div>
+  </div>
+  <div class="alert-box alert-green"><div class="alert-icon">✅</div><div class="alert-text"><h3>All projects within SLA</h3><p>No projects require immediate attention.</p></div></div>
+  <div class="section-title">Pipeline at a Glance — click a stage to filter</div>
+  <div class="chart-section">
+    
+      <div class="chart-row" onclick="filterByStage('Sales Ops Review',this)" data-stage="Sales Ops Review"><div class="cr-label">Sales Ops Review</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
+      <div class="chart-row cr-empty" onclick="filterByStage('Project Intake',this)" data-stage="Project Intake"><div class="cr-label">Project Intake</div><div class="cr-bar"><div class="cb-empty"></div></div><div class="cr-count"></div></div>
+      <div class="chart-row cr-empty" onclick="filterByStage('Site Survey',this)" data-stage="Site Survey"><div class="cr-label">Site Survey</div><div class="cr-bar"><div class="cb-empty"></div></div><div class="cr-count"></div></div>
+      <div class="chart-row" onclick="filterByStage('Engineering',this)" data-stage="Engineering"><div class="cr-label">Engineering</div><div class="cr-bar"><div class="cb-track" style="width:4.8%"><div class="cb-green" style="flex:2" title="2 green"></div></div></div><div class="cr-count">2</div></div>
+      <div class="chart-row" onclick="filterByStage('Plan Review',this)" data-stage="Plan Review"><div class="cr-label">Plan Review</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
+      <div class="chart-row" onclick="filterByStage('Interconnection',this)" data-stage="Interconnection"><div class="cr-label">Interconnection</div><div class="cr-bar"><div class="cb-track" style="width:7.1%"><div class="cb-green" style="flex:3" title="3 green"></div></div></div><div class="cr-count">3</div></div>
+      <div class="chart-row" onclick="filterByStage('Permitting',this)" data-stage="Permitting"><div class="cr-label">Permitting</div><div class="cr-bar"><div class="cb-track" style="width:9.5%"><div class="cb-green" style="flex:4" title="4 green"></div></div></div><div class="cr-count">4</div></div>
+      <div class="chart-row" onclick="filterByStage('Procurement & Scheduling',this)" data-stage="Procurement & Scheduling"><div class="cr-label">Procurement & Scheduling</div><div class="cr-bar"><div class="cb-track" style="width:4.8%"><div class="cb-green" style="flex:2" title="2 green"></div></div></div><div class="cr-count">2</div></div>
+      <div class="chart-row" onclick="filterByStage('Active Installation',this)" data-stage="Active Installation"><div class="cr-label">Active Installation</div><div class="cr-bar"><div class="cb-track" style="width:9.5%"><div class="cb-green" style="flex:4" title="4 green"></div></div></div><div class="cr-count">4</div></div>
+      <div class="chart-row" onclick="filterByStage('Inspection',this)" data-stage="Inspection"><div class="cr-label">Inspection</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
+      <div class="chart-row" onclick="filterByStage('Witness Test / PTO',this)" data-stage="Witness Test / PTO"><div class="cr-label">Witness Test / PTO</div><div class="cr-bar"><div class="cb-track" style="width:19.0%"><div class="cb-green" style="flex:8" title="8 green"></div></div></div><div class="cr-count">8</div></div>
+      <div class="chart-row" onclick="filterByStage('Energized',this)" data-stage="Energized"><div class="cr-label">Energized</div><div class="cr-bar"><div class="cb-track" style="width:100.0%"><div class="cb-green" style="flex:42" title="42 green"></div></div></div><div class="cr-count">42</div></div>
+      <div class="chart-row" onclick="filterByStage('On Hold',this)" data-stage="On Hold"><div class="cr-label">On Hold</div><div class="cr-bar"><div class="cb-track" style="width:21.4%"><div class="cb-green" style="flex:9" title="9 green"></div></div></div><div class="cr-count">9</div></div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot ld-green"></div> Within SLA</div>
+      <div class="legend-item"><div class="legend-dot ld-yellow"></div> Approaching limit</div>
+      <div class="legend-item"><div class="legend-dot ld-red"></div> Past SLA</div>
     </div>
   </div>
-
-  <!-- All-clear alert -->
-  <div class="alert-box">
-    <div class="alert-icon">✅</div>
-    <div class="alert-text">
-      <h3>All 45 projects within SLA</h3>
-      <p>No projects require immediate attention. SLA timers started fresh today — watch for yellow flags over the next few days.</p>
-    </div>
-  </div>
-
-  <!-- Stage breakdown -->
-  <div class="section-title">Stage Breakdown</div>
+  <div class="section-title">Stage Breakdown — click a stage to filter</div>
   <div class="stage-grid">
-    <div class="stage-card all-green">
-      <div class="stage-name">Sales Ops Review</div>
-      <div class="stage-count">1</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 1 green</div>
-    </div>
-    <div class="stage-card empty">
-      <div class="stage-name">Project Intake</div>
-      <div class="stage-count">0</div>
-      <div class="stage-sla">—</div>
-    </div>
-    <div class="stage-card empty">
-      <div class="stage-name">Site Survey</div>
-      <div class="stage-count">0</div>
-      <div class="stage-sla">—</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Engineering</div>
-      <div class="stage-count">2</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 2 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Plan Review</div>
-      <div class="stage-count">1</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 1 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Interconnection</div>
-      <div class="stage-count">3</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 3 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Permitting</div>
-      <div class="stage-count">4</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 4 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Procurement & Scheduling</div>
-      <div class="stage-count">2</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 2 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Active Installation</div>
-      <div class="stage-count">4</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 4 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Inspection</div>
-      <div class="stage-count">1</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 1 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Witness Test / PTO</div>
-      <div class="stage-count">8</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 8 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">Energized</div>
-      <div class="stage-count">10</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 10 green</div>
-    </div>
-    <div class="stage-card all-green">
-      <div class="stage-name">On Hold</div>
-      <div class="stage-count">9</div>
-      <div class="stage-sla"><span class="dot-green">●</span> 9 green</div>
-    </div>
-  </div>
-
-  <!-- Full project table -->
-  <div class="table-wrap">
+    <div class="stage-card all-green" onclick="filterByStage('Sales Ops Review',this)" role="button" tabindex="0"><div class="stage-name">Sales Ops Review</div><div class="stage-count">1</div><div class="stage-sla"><span class="dot-green">● 1 green</span></div></div>
+    <div class="stage-card empty" onclick="filterByStage('Project Intake',this)"><div class="stage-name">Project Intake</div><div class="stage-count">0</div><div class="stage-sla">—</div></div>
+    <div class="stage-card empty" onclick="filterByStage('Site Survey',this)"><div class="stage-name">Site Survey</div><div class="stage-count">0</div><div class="stage-sla">—</div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Engineering',this)" role="button" tabindex="0"><div class="stage-name">Engineering</div><div class="stage-count">2</div><div class="stage-sla"><span class="dot-green">● 2 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Plan Review',this)" role="button" tabindex="0"><div class="stage-name">Plan Review</div><div class="stage-count">1</div><div class="stage-sla"><span class="dot-green">● 1 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Interconnection',this)" role="button" tabindex="0"><div class="stage-name">Interconnection</div><div class="stage-count">3</div><div class="stage-sla"><span class="dot-green">● 3 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Permitting',this)" role="button" tabindex="0"><div class="stage-name">Permitting</div><div class="stage-count">4</div><div class="stage-sla"><span class="dot-green">● 4 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Procurement & Scheduling',this)" role="button" tabindex="0"><div class="stage-name">Procurement & Scheduling</div><div class="stage-count">2</div><div class="stage-sla"><span class="dot-green">● 2 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Active Installation',this)" role="button" tabindex="0"><div class="stage-name">Active Installation</div><div class="stage-count">4</div><div class="stage-sla"><span class="dot-green">● 4 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Inspection',this)" role="button" tabindex="0"><div class="stage-name">Inspection</div><div class="stage-count">1</div><div class="stage-sla"><span class="dot-green">● 1 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Witness Test / PTO',this)" role="button" tabindex="0"><div class="stage-name">Witness Test / PTO</div><div class="stage-count">8</div><div class="stage-sla"><span class="dot-green">● 8 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('Energized',this)" role="button" tabindex="0"><div class="stage-name">Energized</div><div class="stage-count">42</div><div class="stage-sla"><span class="dot-green">● 42 green</span></div></div>
+    <div class="stage-card all-green" onclick="filterByStage('On Hold',this)" role="button" tabindex="0"><div class="stage-name">On Hold</div><div class="stage-count">9</div><div class="stage-sla"><span class="dot-green">● 9 green</span></div></div></div>
+  <div class="table-wrap" id="projectTable">
     <div class="table-header">
-      <h2>All Active Projects</h2>
+      <div class="table-header-left">
+        <h2>All Active Projects</h2>
+        <div id="stage-filter-badge" class="stage-filter-badge hidden">
+          Stage: <strong id="sfb-label"></strong>
+          <button onclick="clearStageFilter()" title="Clear stage filter">×</button>
+        </div>
+      </div>
       <div class="filter-row">
-        <button class="filter-btn active" onclick="filterTable('all', this)">All (45)</button>
-        <button class="filter-btn" onclick="filterTable('green', this)">🟢 Green</button>
-        <button class="filter-btn" onclick="filterTable('yellow', this)">🟡 Yellow</button>
-        <button class="filter-btn" onclick="filterTable('red', this)">🔴 Red</button>
+        <button class="filter-btn active" onclick="filterByStatus('all',this)">All (77)</button>
+        <button class="filter-btn" onclick="filterByStatus('green',this)">🟢 Green (77)</button>
+        <button class="filter-btn" onclick="filterByStatus('yellow',this)">🟡 Yellow (0)</button>
+        <button class="filter-btn" onclick="filterByStatus('red',this)">🔴 Red (0)</button>
       </div>
     </div>
-    <table id="projectTable">
-      <thead>
-        <tr>
-          <th onclick="sortTable(0)">Project ↕</th>
-          <th onclick="sortTable(1)">Customer ↕</th>
-          <th onclick="sortTable(2)">Stage ↕</th>
-          <th onclick="sortTable(3)">Days in Stage ↕</th>
-          <th onclick="sortTable(4)">SLA Status ↕</th>
-          <th onclick="sortTable(5)">Notes</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <!-- Sales Ops Review -->
-        <tr data-status="green" data-stage="Sales Ops Review">
-          <td class="proj-id">PROJ-1606</td><td>Frank Fazzino</td><td>Sales Ops Review</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td>
-        </tr>
-        <!-- Engineering -->
-        <tr data-status="green" data-stage="Engineering">
-          <td class="proj-id">PROJ-1605</td><td>Kevin Andersen</td><td>Engineering</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Stage change recorded today</td>
-        </tr>
-        <tr data-status="green" data-stage="Engineering">
-          <td class="proj-id">PROJ-1556</td><td>Sample Project</td><td>Engineering</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>⚠️ Possible test record</td>
-        </tr>
-        <!-- Plan Review -->
-        <tr data-status="green" data-stage="Plan Review">
-          <td class="proj-id">PROJ-1601</td><td>Elsa Ortiz</td><td>Plan Review</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <!-- Interconnection -->
-        <tr data-status="green" data-stage="Interconnection">
-          <td class="proj-id">PROJ-1602</td><td>Marion Hinze</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Interconnection">
-          <td class="proj-id">PROJ-1600</td><td>Scott Webb</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Interconnection">
-          <td class="proj-id">PROJ-1586</td><td>Charles Casey | Crystal Casey</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <!-- Permitting -->
-        <tr data-status="green" data-stage="Permitting">
-          <td class="proj-id">PROJ-1599</td><td>Jacob Rastegar</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Permitting">
-          <td class="proj-id">PROJ-1596</td><td>Marie Souffrant</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Permitting">
-          <td class="proj-id">PROJ-1437</td><td>Margarita Cayo</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Permitting">
-          <td class="proj-id">PROJ-1378</td><td>Alex Starr | Commercial</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Commercial project</td>
-        </tr>
-        <!-- Procurement & Scheduling -->
-        <tr data-status="green" data-stage="Procurement & Scheduling">
-          <td class="proj-id">PROJ-1592</td><td>Gerold Rajesh</td><td>Procurement &amp; Scheduling</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Procurement & Scheduling">
-          <td class="proj-id">PROJ-1581</td><td>Sanjay Patel</td><td>Procurement &amp; Scheduling</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <!-- Active Installation -->
-        <tr data-status="green" data-stage="Active Installation">
-          <td class="proj-id">PROJ-1550</td><td>Daniel DeTuccio | Donna Petruska</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Active Installation">
-          <td class="proj-id">PROJ-1466</td><td>Michael Duke</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Active Installation">
-          <td class="proj-id">PROJ-1462</td><td>Ramsey Goodrich</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Active Installation">
-          <td class="proj-id">PROJ-1461</td><td>Mahlon Stewart</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <!-- Inspection -->
-        <tr data-status="green" data-stage="Inspection">
-          <td class="proj-id">PROJ-1582</td><td>Carl Guild | Commercial</td><td>Inspection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Commercial project</td>
-        </tr>
-        <!-- Witness Test / PTO -->
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1563</td><td>James Quilter</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1555</td><td>Lukasz Grazda</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1547</td><td>Jeff Donnelly</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Stage change recorded today</td>
-        </tr>
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1513</td><td>Beatrice Volpe</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1501</td><td>Jack Johnson</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1478</td><td>Randy Brown | Sandra Spencer</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1372</td><td>Daniel Ghazal</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Witness Test / PTO">
-          <td class="proj-id">PROJ-1224</td><td>Virgilio Lozza</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <!-- Energized -->
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1578</td><td>Edward Rivera</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1576</td><td>Frank &amp; Josephine LaFauci</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1572</td><td>Gregory Lippert</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1570</td><td>Colleen Banks</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1567</td><td>Dumitru Pamint</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1558</td><td>Melissa Viscariello</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1542</td><td>Gautier Godard</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1532</td><td>Donna Karastamatis | James Karastamatis</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1528</td><td>Maritza Estremera | Jermaine Jorge</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="Energized">
-          <td class="proj-id">PROJ-1517</td><td>Melissa Conte</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <!-- On Hold -->
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1604</td><td>Charles Thomas</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1603</td><td>Harry Dohnert</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Test record (Blueprint verification)</td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1593</td><td>Benjamin Bloom</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1583</td><td>Nilo Torres</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1579</td><td>John Fiorello</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1577</td><td>Ricardo Ocasio | Aileen Encinas</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1540</td><td>Gregory Soule</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1441</td><td>Jan Berman</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td></td>
-        </tr>
-        <tr data-status="green" data-stage="On Hold">
-          <td class="proj-id">PROJ-1392</td><td>GVFC ASnell (Commercial)</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td>Commercial project</td>
-        </tr>
-      </tbody>
-    </table>
+    <table><thead><tr>
+      <th onclick="sortTable(0)">Project ↕</th><th onclick="sortTable(1)">Customer ↕</th>
+      <th onclick="sortTable(2)">Stage ↕</th><th onclick="sortTable(3)">Days in Stage ↕</th>
+      <th onclick="sortTable(4)">SLA Status ↕</th><th style="cursor:default">Zoho</th>
+    </tr></thead>
+    <tbody id="tableBody">
+        <tr data-status="green" data-stage="Active Installation"><td class="proj-id">PROJ-1550</td><td>Daniel DeTuccio | Donna Petruska</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000066739039" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Active Installation"><td class="proj-id">PROJ-1466</td><td>Michael Duke</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000062176077" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Active Installation"><td class="proj-id">PROJ-1462</td><td>Ramsey Goodrich</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000061688021" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Active Installation"><td class="proj-id">PROJ-1461</td><td>Mahlon Stewart</td><td>Active Installation</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000061531063" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1578</td><td>Edward Rivera</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000074568005" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1576</td><td>Frank &amp; Josephine LaFauci</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000072342015" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1572</td><td>Gregory Lippert</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000070723058" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1570</td><td>Colleen Banks</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000070089017" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1567</td><td>Dumitru Pamint</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000068422033" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1558</td><td>Melissa Viscariello</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000067409023" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1532</td><td>Donna Karastamatis | James Karastamatis</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000066300013" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1542</td><td>Gautier Godard</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000066264151" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1528</td><td>Maritza Estremera | Jermaine Jorge</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000065662048" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1517</td><td>Melissa Conte</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000065253003" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1506</td><td>Nelda Garcia</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000064588067" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1505</td><td>Julie Rusch/Vasile &amp; David Rusch</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000064402103" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1491</td><td>Amy Karastamatis | Derek Karastamatis</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000063235103" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1475</td><td>Angelica Bryan - NJ</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000063042027" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1472</td><td>Vijaya Chilukuri</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000062575179" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1444</td><td>Thomas Ajello</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000060390063" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1408</td><td>Paul Abel</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000056261013" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1390</td><td>Imran Sumra 145</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000055860035" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1375</td><td>Peter &amp; Leeann Tebben</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000054414060" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1373</td><td>Tripp Killin</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000053763001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1367</td><td>Alyssa Hasher</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000052250029" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1360</td><td>Nicole Lara</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000050609019" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1356</td><td>Olumide Adebayo</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000049898092" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1349</td><td>Jeffrey Mehan</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000048743017" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1339</td><td>Charles Allen</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000048296023" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1337</td><td>Jacqueline Pineau | Segreto</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000048230036" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1340</td><td>James &amp; Amanda Ray</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000048213080" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1333</td><td>Nimish Patel</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000047963039" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1325</td><td>Kerry Hensley | Craig Stearns</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000047077013" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1321</td><td>Boris Zarate Alvarez</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000046736003" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1323</td><td>Stephanie Halene | Melchinger</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000046723013" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1313</td><td>Paula Licitra</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000046466012" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1319</td><td>Ann Marie Lorello</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000046409087" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1305</td><td>Murilo Ferreira</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000046222055" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1257</td><td>Helene Kourouma</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044538001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1249</td><td>Steve Zajac | Hamm</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044440001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1250</td><td>Kim Steffen</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044423005" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1246</td><td>Bonnie Lee</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044384001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1243</td><td>Gail Yurman</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044325011" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1233</td><td>Michael Davias</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044150001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1227</td><td>Anthony Niro</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044090003" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Energized"><td class="proj-id">PROJ-1228</td><td>Nubiola Rivera</td><td>Energized</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000044074003" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Engineering"><td class="proj-id">PROJ-1605</td><td>Kevin Andersen</td><td>Engineering</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000085058051" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Engineering"><td class="proj-id">PROJ-1556</td><td>Sample Project</td><td>Engineering</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000067351627" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Inspection"><td class="proj-id">PROJ-1582</td><td>Carl Guild | Commercial</td><td>Inspection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000075629013" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Interconnection"><td class="proj-id">PROJ-1602</td><td>Marion Hinze</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000084118015" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Interconnection"><td class="proj-id">PROJ-1600</td><td>Scott Webb</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000083838050" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Interconnection"><td class="proj-id">PROJ-1586</td><td>Charles Casey | Crystal Casey</td><td>Interconnection</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000079311044" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1604</td><td>Charles Thomas</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000084583001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1603</td><td>Harry Dohnert</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000084391015" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1593</td><td>Benjamin Bloom</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000081323025" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1583</td><td>Nilo Torres</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000077493323" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1579</td><td>John Fiorello</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000074759001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1577</td><td>Ricardo Ocasio | Aileen Encinas</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000073964033" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1540</td><td>Gregory Soule</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000066267127" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1441</td><td>Jan Berman</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000060179015" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="On Hold"><td class="proj-id">PROJ-1392</td><td>GVFC ASnell (Commercial)</td><td>On Hold</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000055817178" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Permitting"><td class="proj-id">PROJ-1599</td><td>Jacob Rastegar</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000083195007" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Permitting"><td class="proj-id">PROJ-1596</td><td>Marie Souffrant</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000082755001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Permitting"><td class="proj-id">PROJ-1437</td><td>Margarita Cayo</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000059619037" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Permitting"><td class="proj-id">PROJ-1378</td><td>Alex Starr | Commercial</td><td>Permitting</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000054931025" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Plan Review"><td class="proj-id">PROJ-1601</td><td>Elsa Ortiz</td><td>Plan Review</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000084065005" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Procurement & Scheduling"><td class="proj-id">PROJ-1592</td><td>Gerold Rajesh</td><td>Procurement & Scheduling</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000081037027" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Procurement & Scheduling"><td class="proj-id">PROJ-1581</td><td>Sanjay Patel</td><td>Procurement & Scheduling</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000075613005" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Sales Ops Review"><td class="proj-id">PROJ-1606</td><td>Frank Fazzino</td><td>Sales Ops Review</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000085244029" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1563</td><td>James Quilter</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000067666066" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1555</td><td>Lukasz Grazda</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000067213061" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1547</td><td>Jeff Donnelly</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000066495049" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1513</td><td>Beatrice Volpe</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000065083043" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1501</td><td>Jack Johnson</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000064374046" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1478</td><td>Randy Brown | Sandra Spencer</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000063065205" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1372</td><td>Daniel Ghazal</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000053567062" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr>
+        <tr data-status="green" data-stage="Witness Test / PTO"><td class="proj-id">PROJ-1224</td><td>Virgilio Lozza</td><td>Witness Test / PTO</td><td>0</td><td><span class="badge badge-green">🟢 Green</span></td><td class="link-cell"><a href="https://crm.zoho.com/crm/org785811207/tab/Installs/5264387000043945001" target="_blank" class="zoho-link" title="Open in Zoho CRM">↗</a></td></tr></tbody></table>
   </div>
-
 </div>
-
-<footer>Helio Solar Install Pipeline Monitor · Generated Thu Apr 16, 2026 · hdohnert@helio.solar</footer>
-
-</div><!-- end #dashboard -->
-
+<footer>Helio Solar Install Pipeline Monitor · Thu Apr 16, 2026 · 04:33 PM ET · hdohnert@helio.solar</footer>
+</div>
 <script>
-  // Password auth (SHA-256 hashed)
-  const PW_HASH = '4b6ef3f69e974392c792213f217e786bb82ff1693f47ae96adcdbf6f4583bcb1';
+  const PW_HASH='4b6ef3f69e974392c792213f217e786bb82ff1693f47ae96adcdbf6f4583bcb1';
+  async function checkPw(){
+    const input=document.getElementById('pw-input').value;
+    const msgEl=document.getElementById('pw-error');
+    if(!input){msgEl.textContent='Please enter the password.';return;}
+    const enc=new TextEncoder();
+    const buf=await crypto.subtle.digest('SHA-256',enc.encode(input));
+    const hex=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    if(hex===PW_HASH){sessionStorage.setItem('helio_auth','1');document.getElementById('pw-gate').style.display='none';document.getElementById('dashboard').style.display='block';}
+    else{msgEl.textContent='Incorrect password. Try again.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
+  }
+  if(sessionStorage.getItem('helio_auth')==='1'){document.getElementById('pw-gate').style.display='none';document.getElementById('dashboard').style.display='block';}
 
-  async function checkPw() {
-    const input = document.getElementById('pw-input').value;
-    const msgEl = document.getElementById('pw-error');
-    if (!input) { msgEl.textContent = 'Please enter the password.'; return; }
-    const encoder = new TextEncoder();
-    const data = encoder.encode(input);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-    if (hashHex === PW_HASH) {
-      sessionStorage.setItem('helio_auth', '1');
-      document.getElementById('pw-gate').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'block';
-    } else {
-      msgEl.textContent = 'Incorrect password. Try again.';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
-    }
+  let currentStatusFilter='all';
+  let activeStageFilter=null;
+
+  function applyFilters(){
+    document.querySelectorAll('#tableBody tr').forEach(row=>{
+      const statusOk=currentStatusFilter==='all'||row.dataset.status===currentStatusFilter;
+      const stageOk=!activeStageFilter||row.dataset.stage===activeStageFilter;
+      row.classList.toggle('hidden',!statusOk||!stageOk);
+    });
   }
 
-  // Auto-unlock if already authenticated this session
-  if (sessionStorage.getItem('helio_auth') === '1') {
-    document.getElementById('pw-gate').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-  }
-</script>
-
-<script>
-  function filterTable(status, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  function filterByStatus(status,btn){
+    currentStatusFilter=status;
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    const rows = document.querySelectorAll('#tableBody tr');
-    rows.forEach(row => {
-      if (status === 'all') { row.classList.remove('hidden'); return; }
-      const rowStatus = row.dataset.status || '';
-      row.classList.toggle('hidden', !rowStatus.includes(status));
-    });
+    applyFilters();
   }
 
-  function sortTable(col) {
-    const tbody = document.getElementById('tableBody');
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    const asc = tbody.dataset.sortCol == col && tbody.dataset.sortDir === 'asc' ? false : true;
-    tbody.dataset.sortCol = col;
-    tbody.dataset.sortDir = asc ? 'asc' : 'desc';
-    rows.sort((a, b) => {
-      const av = a.querySelectorAll('td')[col]?.textContent.trim() || '';
-      const bv = b.querySelectorAll('td')[col]?.textContent.trim() || '';
-      const an = parseFloat(av), bn = parseFloat(bv);
-      if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
-      return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+  function filterByStage(stage,el){
+    if(el&&el.classList.contains('cr-empty'))return;
+    if(el&&el.classList.contains('empty'))return;
+    if(activeStageFilter===stage){
+      clearStageFilter();
+      return;
+    }
+    activeStageFilter=stage;
+    document.querySelectorAll('.stage-card').forEach(c=>c.classList.remove('stage-active'));
+    document.querySelectorAll('.chart-row').forEach(r=>r.classList.remove('chart-active'));
+    document.querySelectorAll('.stage-card').forEach(c=>{
+      if(c.querySelector('.stage-name')&&c.querySelector('.stage-name').textContent.trim()===stage)c.classList.add('stage-active');
     });
-    rows.forEach(r => tbody.appendChild(r));
+    document.querySelectorAll('.chart-row').forEach(r=>{
+      if(r.dataset.stage===stage)r.classList.add('chart-active');
+    });
+    applyFilters();
+    const badge=document.getElementById('stage-filter-badge');
+    badge.classList.remove('hidden');
+    document.getElementById('sfb-label').textContent=stage;
+    setTimeout(()=>document.getElementById('projectTable').scrollIntoView({behavior:'smooth',block:'start'}),100);
+  }
+
+  function clearStageFilter(){
+    activeStageFilter=null;
+    document.querySelectorAll('.stage-card').forEach(c=>c.classList.remove('stage-active'));
+    document.querySelectorAll('.chart-row').forEach(r=>r.classList.remove('chart-active'));
+    applyFilters();
+    document.getElementById('stage-filter-badge').classList.add('hidden');
+  }
+
+  function sortTable(col){
+    const tbody=document.getElementById('tableBody');
+    const rows=Array.from(tbody.querySelectorAll('tr'));
+    const asc=tbody.dataset.sortCol==col&&tbody.dataset.sortDir==='asc'?false:true;
+    tbody.dataset.sortCol=col;tbody.dataset.sortDir=asc?'asc':'desc';
+    rows.sort((a,b)=>{
+      const av=a.querySelectorAll('td')[col]?.textContent.trim()||'';
+      const bv=b.querySelectorAll('td')[col]?.textContent.trim()||'';
+      const an=parseFloat(av),bn=parseFloat(bv);
+      if(!isNaN(an)&&!isNaN(bn))return asc?an-bn:bn-an;
+      return asc?av.localeCompare(bv):bv.localeCompare(av);
+    });
+    rows.forEach(r=>tbody.appendChild(r));
   }
 </script>
 </body>
