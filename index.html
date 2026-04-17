@@ -539,8 +539,19 @@
     [...owners].sort().forEach(r => { const o = document.createElement('option'); o.value = r; o.textContent = r; ownerSel.appendChild(o); });
   }
 
-  // -------- data.json fetch bootstrap --------
-  const DATA_URL = 'data.json?v=' + Date.now();  // cache-bust
+  // -------- data fetch bootstrap --------
+  // If a ?view=<slug> query param is present, load the pre-filtered data
+  // file for that view; otherwise load the full data.json (admin view).
+  function _getViewSlug(){
+    try {
+      const raw = new URLSearchParams(window.location.search).get('view') || '';
+      // sanitize: allow only [a-z0-9-_] to avoid path traversal or weird chars
+      return raw.toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 64);
+    } catch (e) { return ''; }
+  }
+  const VIEW_SLUG = _getViewSlug();
+  const DATA_URL = (VIEW_SLUG ? ('data-' + VIEW_SLUG + '.json') : 'data.json')
+                 + '?v=' + Date.now();  // cache-bust
 
   function esc(s){
     return String(s == null ? '' : s)
@@ -587,11 +598,30 @@
     if (b) b.textContent = label;
   }
 
+  function renderViewLabel(payload){
+    // If the payload declares a view_label (per-view data files do), show it
+    // next to the h1 and update the browser tab title so shared links feel
+    // personalised to the recipient.
+    const label = payload.view_label;
+    if (!label) return;
+    const h1 = document.querySelector('#dashboard header h1');
+    if (h1 && !h1.querySelector('.view-label')){
+      const chip = document.createElement('span');
+      chip.className = 'view-label';
+      chip.textContent = label;
+      chip.style.cssText = 'margin-left:12px;padding:4px 10px;border-radius:999px;'
+        + 'background:rgba(255,255,255,0.15);font-size:13px;font-weight:500;'
+        + 'vertical-align:middle;color:#fff;';
+      h1.appendChild(chip);
+    }
+    document.title = label + ' · Helio Pipeline Monitor';
+  }
+
   function showError(msg){
     const tbody = document.getElementById('tableBody');
     if (tbody){
       tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:32px;color:#c62828;font-size:13px">'
-        + 'Could not load data.json — ' + esc(msg) + '</td></tr>';
+        + esc(msg) + '</td></tr>';
     }
     const a = document.getElementById('lastUpdated');
     if (a) a.textContent = 'data load failed';
@@ -603,12 +633,16 @@
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const payload = await r.json();
       renderTimestamp(payload);
+      renderViewLabel(payload);
       renderRows(payload);
       populateFilterDropdowns();
       applyClassification();
     } catch (e){
       console.error('Dashboard load failed:', e);
-      showError(e && e.message ? e.message : String(e));
+      const msg = VIEW_SLUG
+        ? ('Could not load data-' + VIEW_SLUG + '.json — this view may not exist yet')
+        : (e && e.message ? e.message : String(e));
+      showError(msg);
     }
   }
 
