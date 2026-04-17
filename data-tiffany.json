@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-17T16:33:33.277722Z",
-  "generated_at_label": "Fri Apr 17, 2026 · 12:33 PM ET",
+  "generated_at": "2026-04-17T18:45:55.024300Z",
+  "generated_at_label": "Fri Apr 17, 2026 · 2:45 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 10,
   "projects": [
     {
       "project_id": "PROJ-1605",
       "customer": "Kevin Andersen",
-      "stage": "Engineering",
+      "stage": "Interconnection",
       "days_in_stage": 0,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
