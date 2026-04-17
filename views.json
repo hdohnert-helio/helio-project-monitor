@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "tiffany",
+    "label": "Tiffany Vilayphonh",
+    "filter": { "owners": ["Tiffany Vilayphonh"] }
+  },
+  {
+    "slug": "walter",
+    "label": "Walter Carmona",
+    "filter": { "owners": ["Walter Carmona"] }
+  },
+  {
+    "slug": "doug-team",
+    "label": "Doug Hoffman + Team",
+    "filter": { "owners": ["Douglas Hoffman", "Tiffany Vilayphonh"] }
+  }
+]
