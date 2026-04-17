@@ -21,6 +21,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -51,20 +52,33 @@ ACTIVE_STAGES_SET = set(ACTIVE_STAGES)
 
 FIELDS = (
     "Project_ID,Name,Project_Stage,Sales_Representative,"
-    "Owner,Project_Owner,Date_of_Stage_Change"
+    "Project_Owner,Date_of_Stage_Change"
 )
+
+# Stage-change tracking was enabled in Zoho on 2026-04-16. Records that
+# haven't moved stages since then have Date_of_Stage_Change = null. We
+# treat those as "last changed on the launch date" so they show a
+# consistent, daily-incrementing floor until they actually move stages
+# and pick up a real timestamp. Midnight ET on the launch date.
+STAGE_TRACKING_LAUNCH_TS = "2026-04-16T00:00:00-04:00"
 
 CANVAS_ID = "5264387000040853100"  # layout ID used for the Zoho "open" link
 
 
 def _http_json(req: urllib.request.Request) -> dict:
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        if resp.status == 204:
-            return {}
-        raw = resp.read()
-        if not raw:
-            return {}
-        return json.loads(raw)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            if resp.status == 204:
+                return {}
+            raw = resp.read()
+            if not raw:
+                return {}
+            return json.loads(raw)
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        print(f"HTTP {e.code} {e.reason} for {req.full_url}", file=sys.stderr)
+        print(f"Response body: {body}", file=sys.stderr)
+        raise
 
 
 def get_access_token() -> str:
@@ -111,8 +125,6 @@ def fetch_installs(token: str) -> list[dict]:
             "fields": FIELDS,
             "page": page,
             "per_page": 200,
-            "sort_by": "Project_ID",
-            "sort_order": "desc",
         })
         batch = resp.get("data") or []
         rows.extend(batch)
@@ -167,11 +179,13 @@ def build_projects(rows: list[dict]) -> list[dict]:
         if not owner_name:
             owner_name = (r.get("Project_Owner") or "").strip()
 
+        stage_change_ts = r.get("Date_of_Stage_Change") or STAGE_TRACKING_LAUNCH_TS
+
         out.append({
             "project_id": (r.get("Project_ID") or "").strip(),
             "customer": (r.get("Name") or "").strip(),
             "stage": stage,
-            "days_in_stage": _days_since(r.get("Date_of_Stage_Change")),
+            "days_in_stage": _days_since(stage_change_ts),
             "rep": (r.get("Sales_Representative") or "").strip(),
             "owner": owner_name,
             "zoho_record_id": r.get("id") or "",
