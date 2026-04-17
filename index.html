@@ -94,6 +94,27 @@
   .hidden{display:none}
   .filter-select{padding:5px 10px;border-radius:20px;border:1px solid #ddd;background:white;font-size:12px;color:#555;cursor:pointer;max-width:200px}
   .filter-select:focus{outline:none;border-color:#1a1a2e}
+  /* VELOCITY */
+  .velocity-section{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:24px}
+  .velocity-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+  .velocity-header h2{font-size:15px;font-weight:700;color:#1a1a2e}
+  .velocity-meta{font-size:11px;color:#888}
+  .velocity-transitions{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0 18px}
+  .vt-card{background:#f8f9fc;border:1px solid #e9ecf2;border-radius:8px;padding:12px 14px}
+  .vt-card .vt-label{font-size:11px;color:#666;font-weight:500;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .vt-card .vt-median{font-size:22px;font-weight:700;color:#1a1a2e;line-height:1.1}
+  .vt-card .vt-unit{font-size:12px;font-weight:500;color:#888;margin-left:2px}
+  .vt-card .vt-sub{font-size:11px;color:#888;margin-top:3px}
+  .vt-card.vt-empty .vt-median{color:#bbb}
+  .velocity-dwell-title{font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#888;margin:6px 0 10px}
+  .velocity-dwell-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:12px}
+  .vd-label{width:170px;color:#444;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .vd-bar-wrap{flex:1;height:16px;background:#f0f2f5;border-radius:3px;overflow:hidden;position:relative}
+  .vd-bar{height:100%;background:#4f6ef5;border-radius:3px}
+  .vd-bar.vd-open{background:#f5a623}
+  .vd-val{width:90px;color:#555;text-align:left;flex-shrink:0}
+  .vd-empty{color:#bbb}
+  .velocity-footnote{font-size:11px;color:#888;margin-top:12px;padding-top:10px;border-top:1px solid #f0f0f0;line-height:1.5}
   .settings-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:white;padding:6px 14px;border-radius:6px;font-size:12px;cursor:pointer;margin-left:16px}
   .settings-btn:hover{background:rgba(255,255,255,0.2)}
   .header-right{display:flex;align-items:center}
@@ -182,6 +203,16 @@
     <div class="stage-card all-green" onclick="filterByStage('Witness Test / PTO',this)" role="button" tabindex="0"><div class="stage-name">Witness Test / PTO</div><div class="stage-count">8</div><div class="stage-sla"><span class="dot-green">● 8 green</span></div></div>
     <div class="stage-card all-green" onclick="filterByStage('Energized',this)" role="button" tabindex="0"><div class="stage-name">Energized</div><div class="stage-count">42</div><div class="stage-sla"><span class="dot-green">● 42 green</span></div></div>
     <div class="stage-card all-green" onclick="filterByStage('On Hold',this)" role="button" tabindex="0"><div class="stage-name">On Hold</div><div class="stage-count">9</div><div class="stage-sla"><span class="dot-green">● 9 green</span></div></div></div>
+  <div class="velocity-section" id="velocitySection" style="display:none">
+    <div class="velocity-header">
+      <h2>Pipeline Velocity</h2>
+      <div class="velocity-meta" id="velocityMeta"></div>
+    </div>
+    <div class="velocity-transitions" id="velocityTransitions"></div>
+    <div class="velocity-dwell-title">Median time in stage (days)</div>
+    <div id="velocityDwell"></div>
+    <div class="velocity-footnote" id="velocityFootnote"></div>
+  </div>
   <div class="table-wrap" id="projectTable">
     <div class="table-header">
       <div class="table-header-left">
@@ -552,6 +583,9 @@
   const VIEW_SLUG = _getViewSlug();
   const DATA_URL = (VIEW_SLUG ? ('data-' + VIEW_SLUG + '.json') : 'data.json')
                  + '?v=' + Date.now();  // cache-bust
+  const VELOCITY_URL = (VIEW_SLUG
+      ? ('pipeline_velocity-' + VIEW_SLUG + '.json')
+      : 'pipeline_velocity.json') + '?v=' + Date.now();
 
   function esc(s){
     return String(s == null ? '' : s)
@@ -627,6 +661,92 @@
     if (a) a.textContent = 'data load failed';
   }
 
+  function _fmtDays(v){
+    if (v == null) return '—';
+    if (v < 1) {
+      const h = v * 24;
+      if (h < 1) return '<1h';
+      return h.toFixed(1) + 'h';
+    }
+    if (v < 10) return v.toFixed(1) + 'd';
+    return Math.round(v) + 'd';
+  }
+
+  function renderVelocity(payload){
+    const section = document.getElementById('velocitySection');
+    if (!section || !payload) return;
+    section.style.display = 'block';
+    const meta = document.getElementById('velocityMeta');
+    if (meta){
+      const cutoff = payload.cutoff
+        ? new Date(payload.cutoff).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})
+        : 'launch';
+      meta.textContent = 'Tracking since ' + cutoff
+        + ' · ' + (payload.project_count|0) + ' projects in scope';
+    }
+    // Transition cards
+    const tBox = document.getElementById('velocityTransitions');
+    if (tBox){
+      tBox.innerHTML = (payload.transitions || []).map(t => {
+        const empty = t.median_days == null;
+        return '<div class="vt-card' + (empty ? ' vt-empty' : '') + '">'
+             + '<div class="vt-label">' + esc(t.label) + '</div>'
+             + '<div class="vt-median">' + _fmtDays(t.median_days)
+             +   (empty ? '' : '<span class="vt-unit"> median</span>') + '</div>'
+             + '<div class="vt-sub">'
+             +   (empty
+                   ? 'no completed transitions yet'
+                   : ('n=' + t.sample_count + ' · p75 ' + _fmtDays(t.p75_days)))
+             + '</div>'
+             + '</div>';
+      }).join('');
+    }
+    // Dwell bars — scale to the max non-null median for visual comparison
+    const dBox = document.getElementById('velocityDwell');
+    const rows = (payload.dwell_per_stage || []);
+    const maxDwell = rows.reduce((m,r) => (r.median_days != null && r.median_days > m) ? r.median_days : m, 0);
+    if (dBox){
+      dBox.innerHTML = rows.map(r => {
+        if (r.median_days == null){
+          return '<div class="velocity-dwell-row">'
+               + '<div class="vd-label">' + esc(r.stage) + '</div>'
+               + '<div class="vd-bar-wrap"><div class="vd-bar" style="width:0"></div></div>'
+               + '<div class="vd-val vd-empty">—</div></div>';
+        }
+        const pct = maxDwell > 0 ? Math.max(2, (r.median_days / maxDwell) * 100) : 0;
+        const barClass = (r.open_count && r.sample_count === r.open_count) ? 'vd-bar vd-open' : 'vd-bar';
+        const suffix = r.open_count
+          ? ' · ' + r.open_count + ' open'
+          : '';
+        return '<div class="velocity-dwell-row">'
+             + '<div class="vd-label">' + esc(r.stage) + '</div>'
+             + '<div class="vd-bar-wrap"><div class="' + barClass + '" style="width:' + pct.toFixed(1) + '%"></div></div>'
+             + '<div class="vd-val">' + _fmtDays(r.median_days) + ' <span style="color:#999">· n=' + r.sample_count + suffix + '</span></div>'
+             + '</div>';
+      }).join('');
+    }
+    const fn = document.getElementById('velocityFootnote');
+    if (fn){
+      const notes = (payload.notes || []).map(n => esc(n)).join(' ');
+      fn.textContent = notes;
+    }
+  }
+
+  async function loadVelocity(){
+    try {
+      const r = await fetch(VELOCITY_URL, {cache: 'no-store'});
+      if (!r.ok){
+        // 404 is fine on first deploy — just skip the section.
+        console.info('No velocity data yet:', r.status);
+        return;
+      }
+      const payload = await r.json();
+      renderVelocity(payload);
+    } catch (e){
+      console.warn('Velocity load skipped:', e);
+    }
+  }
+
   async function bootstrapDashboard(){
     try {
       const r = await fetch(DATA_URL, {cache: 'no-store'});
@@ -644,6 +764,8 @@
         : (e && e.message ? e.message : String(e));
       showError(msg);
     }
+    // Velocity is optional — don't block the main dashboard if it fails.
+    loadVelocity();
   }
 
   bootstrapDashboard();
