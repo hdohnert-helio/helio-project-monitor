@@ -179,7 +179,19 @@ def build_projects(rows: list[dict]) -> list[dict]:
         if not owner_name:
             owner_name = (r.get("Project_Owner") or "").strip()
 
-        stage_change_ts = r.get("Date_of_Stage_Change") or STAGE_TRACKING_LAUNCH_TS
+        # Pick the best "entered current stage" timestamp:
+        #   1. Real Date_of_Stage_Change (populated once a stage actually changes)
+        #   2. If stage is "Sales Ops Review" (pipeline entry) and no stage
+        #      change has been recorded, the project has never moved — use
+        #      Created_Time, which is effectively when it entered this stage.
+        #   3. Otherwise the project has been in its current stage since
+        #      before stage tracking was enabled — use the launch date floor.
+        stage_change_ts = r.get("Date_of_Stage_Change")
+        if not stage_change_ts:
+            if stage == "Sales Ops Review":
+                stage_change_ts = r.get("Created_Time") or STAGE_TRACKING_LAUNCH_TS
+            else:
+                stage_change_ts = STAGE_TRACKING_LAUNCH_TS
 
         out.append({
             "project_id": (r.get("Project_ID") or "").strip(),
