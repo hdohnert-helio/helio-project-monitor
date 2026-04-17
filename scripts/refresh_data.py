@@ -20,11 +20,12 @@ from __future__ import annotations
 
 import json
 import os
+import statistics
 import sys
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 DC = os.environ.get("ZOHO_DC", "com").strip()
@@ -61,6 +62,29 @@ FIELDS = (
 # consistent, daily-incrementing floor until they actually move stages
 # and pick up a real timestamp. Midnight ET on the launch date.
 STAGE_TRACKING_LAUNCH_TS = "2026-04-16T00:00:00-04:00"
+
+# Velocity stats (pipeline_velocity.json + stage_history.json) share the same
+# cutoff. Any stage span that started before this date is marked truncated and
+# is excluded from dwell/transition medians, because we don't have reliable
+# entry timestamps for pre-cutoff history.
+VELOCITY_CUTOFF_TS = STAGE_TRACKING_LAUNCH_TS
+VELOCITY_CUTOFF_DT = datetime.fromisoformat(VELOCITY_CUTOFF_TS).astimezone(timezone.utc)
+
+# Ordered stage list used for dwell-per-stage reporting (Project Closeout is
+# not an active stage and has no dwell story worth plotting).
+VELOCITY_STAGE_ORDER = [s for s in ACTIVE_STAGES if s != "On Hold"]
+
+# Transitions the dashboard highlights. Each entry is (label, from, to);
+# "__creation__" means "from the first observed stage in a project's timeline"
+# (only counts if the first span is NOT truncated to the cutoff).
+KEY_TRANSITIONS = [
+    ("Creation → Active Installation", "__creation__", "Active Installation"),
+    ("Creation → Inspection", "__creation__", "Inspection"),
+    ("Creation → Energized", "__creation__", "Energized"),
+    ("Permitting → Active Installation", "Permitting", "Active Installation"),
+    ("Active Installation → Inspection", "Active Installation", "Inspection"),
+    ("Witness Test / PTO → Energized", "Witness Test / PTO", "Energized"),
+]
 
 CANVAS_ID = "5264387000040853100"  # layout ID used for the Zoho "open" link
 
@@ -239,6 +263,287 @@ def _write_payload(path: Path, projects: list[dict], now: datetime,
     )
 
 
+# =============================================================================
+# Stage history + velocity tracking (pipeline_velocity.json)
+# =============================================================================
+#
+# stage_history.json is a persistent store maintained across nightly runs and
+# committed to the repo. Each record's stage transitions are captured as a
+# list of spans: {stage, entered_at, exited_at, truncated}. A "truncated" span
+# is one whose entered_at was clamped to the cutoff because the real entry
+# happened before we started tracking — it's kept for dwell calculation of
+# later spans, but the span itself is excluded from stats.
+#
+# On each run we walk the current Installs feed and:
+#   * If a record has no history yet: seed it with a single open span at its
+#     current stage. If Date_of_Stage_Change is before cutoff, mark truncated.
+#   * If a record's latest span stage matches the current stage: no change.
+#   * If the stage has changed: close the latest span at Date_of_Stage_Change
+#     (or "now" if null) and open a new span for the new stage.
+#   * If a record disappears from the active feed (Closed/Cancelled): close
+#     any open span at "now".
+
+
+def _parse_iso_utc(s: str) -> datetime | None:
+    if not s:
+        return None
+    try:
+        dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def _iso_utc(dt: datetime) -> str:
+    return dt.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def load_stage_history(path: Path) -> dict:
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            print(f"stage_history.json is invalid ({e}); starting fresh", file=sys.stderr)
+    return {
+        "version": 1,
+        "cutoff": VELOCITY_CUTOFF_TS,
+        "last_run": None,
+        "projects": {},
+    }
+
+
+def update_stage_history(history: dict, raw_rows: list[dict], now: datetime) -> dict:
+    """Mutate history in place to reflect the current Installs feed."""
+    projects = history.setdefault("projects", {})
+    now_iso = _iso_utc(now)
+    seen_ids: set[str] = set()
+
+    for r in raw_rows:
+        stage = (r.get("Project_Stage") or "").strip()
+        if stage not in ACTIVE_STAGES_SET:
+            continue
+        record_id = str(r.get("id") or "").strip()
+        if not record_id:
+            continue
+        seen_ids.add(record_id)
+
+        # Owner resolution matches build_projects() above.
+        owner_name = ""
+        owner_obj = r.get("Owner")
+        if isinstance(owner_obj, dict):
+            owner_name = (owner_obj.get("name") or "").strip()
+        if not owner_name:
+            owner_name = (r.get("Project_Owner") or "").strip()
+
+        stage_change_ts = r.get("Date_of_Stage_Change")
+        created_ts = r.get("Created_Time")
+        transition_dt = _parse_iso_utc(stage_change_ts) or _parse_iso_utc(created_ts) or now
+        clamped_dt = max(transition_dt, VELOCITY_CUTOFF_DT)
+        clamped_iso = _iso_utc(clamped_dt)
+        was_truncated = transition_dt < VELOCITY_CUTOFF_DT
+
+        entry = projects.setdefault(record_id, {
+            "project_id": (r.get("Project_ID") or "").strip(),
+            "customer": (r.get("Name") or "").strip(),
+            "owner": owner_name,
+            "rep": (r.get("Sales_Representative") or "").strip(),
+            "spans": [],
+        })
+        # keep metadata current (customer names/owners can change)
+        if r.get("Project_ID"): entry["project_id"] = (r["Project_ID"] or "").strip()
+        if r.get("Name"): entry["customer"] = (r["Name"] or "").strip()
+        if owner_name: entry["owner"] = owner_name
+        if r.get("Sales_Representative"): entry["rep"] = (r["Sales_Representative"] or "").strip()
+
+        spans = entry["spans"]
+        if not spans:
+            spans.append({
+                "stage": stage,
+                "entered_at": clamped_iso,
+                "exited_at": None,
+                "truncated": was_truncated,
+            })
+            continue
+
+        last = spans[-1]
+        if last["stage"] == stage and last["exited_at"] is None:
+            continue  # still in the same stage, nothing to update
+
+        # Stage has changed since our last snapshot. Close the last open span
+        # at the reported transition time (clamped forward to cutoff if
+        # needed), and open a new span for the current stage.
+        last["exited_at"] = clamped_iso
+        spans.append({
+            "stage": stage,
+            "entered_at": clamped_iso,
+            "exited_at": None,
+            "truncated": False,  # transition observed after cutoff = real data
+        })
+
+    # Close spans for records that have left the active feed entirely.
+    for record_id, entry in projects.items():
+        if record_id in seen_ids:
+            continue
+        spans = entry.get("spans") or []
+        if spans and spans[-1].get("exited_at") is None:
+            spans[-1]["exited_at"] = now_iso
+
+    history["last_run"] = now_iso
+    history["cutoff"] = VELOCITY_CUTOFF_TS
+    return history
+
+
+def _on_hold_overlap_seconds(start: datetime, end: datetime, spans: list[dict]) -> float:
+    """Seconds of overlap between [start,end] and any On Hold spans."""
+    if end <= start:
+        return 0.0
+    total = 0.0
+    for s in spans:
+        if s.get("stage") != "On Hold":
+            continue
+        s_start = _parse_iso_utc(s.get("entered_at"))
+        s_end = _parse_iso_utc(s.get("exited_at")) or end
+        if not s_start:
+            continue
+        lo = max(start, s_start)
+        hi = min(end, s_end)
+        if hi > lo:
+            total += (hi - lo).total_seconds()
+    return total
+
+
+def _percentile(values: list[float], pct: float) -> float | None:
+    if not values:
+        return None
+    sv = sorted(values)
+    if len(sv) == 1:
+        return sv[0]
+    # linear interpolation
+    k = (len(sv) - 1) * (pct / 100.0)
+    f, c = int(k), min(int(k) + 1, len(sv) - 1)
+    if f == c:
+        return sv[f]
+    return sv[f] + (sv[c] - sv[f]) * (k - f)
+
+
+def compute_velocity(history: dict, now: datetime,
+                     owner_filter: set[str] | None = None) -> dict:
+    projects_map = history.get("projects") or {}
+    proj_iter = []
+    for record_id, entry in projects_map.items():
+        if owner_filter and entry.get("owner") not in owner_filter:
+            continue
+        proj_iter.append((record_id, entry))
+
+    # Per-stage dwell: only count spans that are NOT truncated. Closed spans
+    # use their full duration; currently-open spans contribute their running
+    # duration up to "now" (useful for stages where projects tend to pile up,
+    # like Interconnection).
+    dwell_samples: dict[str, list[float]] = {s: [] for s in VELOCITY_STAGE_ORDER}
+    dwell_open: dict[str, int] = {s: 0 for s in VELOCITY_STAGE_ORDER}
+
+    for _, entry in proj_iter:
+        for sp in entry.get("spans") or []:
+            if sp.get("truncated"):
+                continue
+            stage = sp.get("stage")
+            if stage not in dwell_samples:
+                continue
+            start = _parse_iso_utc(sp.get("entered_at"))
+            end = _parse_iso_utc(sp.get("exited_at")) or now
+            if not start or end <= start:
+                continue
+            if sp.get("exited_at") is None:
+                dwell_open[stage] += 1
+            days = (end - start).total_seconds() / 86400.0
+            dwell_samples[stage].append(days)
+
+    dwell_rows = []
+    for s in VELOCITY_STAGE_ORDER:
+        vals = dwell_samples[s]
+        dwell_rows.append({
+            "stage": s,
+            "sample_count": len(vals),
+            "open_count": dwell_open[s],
+            "median_days": _percentile(vals, 50),
+            "p75_days": _percentile(vals, 75),
+        })
+
+    # Named transitions.
+    transitions = []
+    for label, from_stage, to_stage in KEY_TRANSITIONS:
+        samples = []
+        for _, entry in proj_iter:
+            spans = entry.get("spans") or []
+            if not spans:
+                continue
+            # Locate the "from" anchor
+            if from_stage == "__creation__":
+                first = spans[0]
+                if first.get("truncated"):
+                    continue  # real creation date unknown
+                from_dt = _parse_iso_utc(first.get("entered_at"))
+            else:
+                from_dt = None
+                for sp in spans:
+                    if sp.get("stage") == from_stage and not sp.get("truncated"):
+                        from_dt = _parse_iso_utc(sp.get("entered_at"))
+                        break
+            if not from_dt:
+                continue
+            # Locate the "to" entry that follows from_dt
+            to_dt = None
+            for sp in spans:
+                if sp.get("stage") != to_stage:
+                    continue
+                candidate = _parse_iso_utc(sp.get("entered_at"))
+                if candidate and candidate >= from_dt:
+                    to_dt = candidate
+                    break
+            if not to_dt:
+                continue
+            total_seconds = (to_dt - from_dt).total_seconds()
+            if total_seconds <= 0:
+                continue
+            on_hold = _on_hold_overlap_seconds(from_dt, to_dt, spans)
+            samples.append(max(0.0, (total_seconds - on_hold) / 86400.0))
+        transitions.append({
+            "label": label,
+            "from": from_stage,
+            "to": to_stage,
+            "sample_count": len(samples),
+            "median_days": _percentile(samples, 50),
+            "p75_days": _percentile(samples, 75),
+        })
+
+    return {
+        "generated_at": _iso_utc(now),
+        "cutoff": VELOCITY_CUTOFF_TS,
+        "project_count": len(proj_iter),
+        "transitions": transitions,
+        "dwell_per_stage": dwell_rows,
+        "notes": [
+            "Tracking started 2026-04-16. Projects with a stage entered before the cutoff "
+            "are excluded from that span's stats (but still count in later transitions).",
+            "On Hold time is subtracted from transition durations; On Hold itself is not "
+            "plotted as a dwell stage.",
+            "Currently-open spans contribute their running duration to dwell stats.",
+        ],
+    }
+
+
+def _write_velocity(path: Path, payload: dict, view_label: str | None = None) -> None:
+    if view_label is not None:
+        payload = dict(payload)  # shallow copy so the per-view label doesn't leak
+        payload["view_label"] = view_label
+    path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
 def main() -> int:
     token = get_access_token()
     raw = fetch_installs(token)
@@ -250,6 +555,24 @@ def main() -> int:
     # Always write the full data.json (admin / default view).
     _write_payload(repo_root / "data.json", projects, now)
     print(f"Wrote {len(projects)} projects → data.json")
+
+    # Update the persistent stage-history store and derive velocity stats.
+    history_path = repo_root / "stage_history.json"
+    history = load_stage_history(history_path)
+    update_stage_history(history, raw, now)
+    history_path.write_text(
+        json.dumps(history, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    total_spans = sum(len(p.get("spans") or []) for p in history["projects"].values())
+    print(f"Wrote {len(history['projects'])} project histories "
+          f"({total_spans} spans) → stage_history.json")
+
+    # Default (admin) velocity file: no owner filter.
+    velocity = compute_velocity(history, now)
+    _write_velocity(repo_root / "pipeline_velocity.json", velocity)
+    print(f"Wrote pipeline_velocity.json "
+          f"(projects in scope: {velocity['project_count']})")
 
     # Write per-view filtered files if views.json exists. Each view gets
     # its own data-{slug}.json containing only the matching projects, so a
@@ -272,6 +595,15 @@ def main() -> int:
             out_path = repo_root / f"data-{slug}.json"
             _write_payload(out_path, filtered, now, view_label=label)
             print(f"Wrote {len(filtered):3d} projects → {out_path.name} ({label})")
+
+            # Per-view velocity uses only owner-filter for now. Rep filter is
+            # easy to add later if we ever ship rep-scoped share links.
+            owner_set = set(flt.get("owners") or []) or None
+            v_payload = compute_velocity(history, now, owner_filter=owner_set)
+            v_out = repo_root / f"pipeline_velocity-{slug}.json"
+            _write_velocity(v_out, v_payload, view_label=label)
+            print(f"Wrote velocity {v_out.name} "
+                  f"({v_payload['project_count']} projects scope)")
 
     print(f"(raw Zoho rows fetched: {len(raw)})")
     return 0
