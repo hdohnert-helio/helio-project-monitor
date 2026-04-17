@@ -31,21 +31,21 @@
   .card.green .value{color:#22a85a}.card.yellow .value{color:#f5a623}.card.red .value{color:#e53935}.card.total .value{color:#1a1a2e}
   .card .sub{font-size:11px;color:#aaa;margin-top:4px}
   .section-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#555;margin-bottom:12px}
-  /* CHART */
-  .chart-section{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:24px}
-  .chart-row{display:flex;align-items:center;gap:12px;margin-bottom:7px;cursor:pointer;border-radius:6px;padding:3px 6px;transition:background 0.15s}
+  /* CHART — compact horizontal bars, sits below the Stage Breakdown tiles */
+  .chart-section{background:white;border-radius:12px;padding:14px 20px;box-shadow:0 1px 4px rgba(0,0,0,0.08);margin-bottom:24px}
+  .chart-row{display:flex;align-items:center;gap:10px;margin-bottom:3px;cursor:pointer;border-radius:4px;padding:1px 6px;transition:background 0.15s}
   .chart-row:hover{background:#f5f7ff}
   .chart-row.cr-empty{opacity:0.35;cursor:default}
   .chart-row.cr-empty:hover{background:transparent}
   .chart-row.chart-active{background:#eef2ff;outline:2px solid #4f6ef5}
-  .cr-label{width:190px;font-size:12px;color:#444;font-weight:500;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .cr-bar{flex:1;height:22px;display:flex;align-items:center}
-  .cb-track{display:flex;height:22px;border-radius:4px;overflow:hidden;min-width:6px;transition:width 0.3s}
+  .cr-label{width:170px;font-size:11px;color:#444;font-weight:500;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cr-bar{flex:1;height:12px;display:flex;align-items:center}
+  .cb-track{display:flex;height:12px;border-radius:3px;overflow:hidden;min-width:6px;transition:width 0.3s}
   .cb-green{background:#22a85a;min-width:2px}.cb-yellow{background:#f5a623;min-width:2px}.cb-red{background:#e53935;min-width:2px}
   .cb-empty{height:2px;width:20px;background:#e0e0e0;border-radius:2px}
-  .cr-count{width:28px;font-size:12px;font-weight:700;color:#333;text-align:right}
+  .cr-count{width:26px;font-size:11px;font-weight:700;color:#333;text-align:right}
   /* LEGEND */
-  .chart-legend{display:flex;gap:16px;margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0}
+  .chart-legend{display:flex;gap:16px;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0}
   .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#666}
   .legend-dot{width:10px;height:10px;border-radius:2px}
   .ld-green{background:#22a85a}.ld-yellow{background:#f5a623}.ld-red{background:#e53935}
@@ -165,28 +165,6 @@
     <div class="card yellow"><div class="label">🟡 Yellow</div><div class="value">0</div><div class="sub">approaching limit</div></div>
     <div class="card red"><div class="label">🔴 Red</div><div class="value">0</div><div class="sub">past SLA</div></div>
   </div>
-  <div class="section-title">Pipeline at a Glance — click a stage to filter</div>
-  <div class="chart-section">
-    
-      <div class="chart-row" onclick="filterByStage('Sales Ops Review',this)" data-stage="Sales Ops Review"><div class="cr-label">Sales Ops Review</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
-      <div class="chart-row cr-empty" onclick="filterByStage('Project Intake',this)" data-stage="Project Intake"><div class="cr-label">Project Intake</div><div class="cr-bar"><div class="cb-empty"></div></div><div class="cr-count"></div></div>
-      <div class="chart-row cr-empty" onclick="filterByStage('Site Survey',this)" data-stage="Site Survey"><div class="cr-label">Site Survey</div><div class="cr-bar"><div class="cb-empty"></div></div><div class="cr-count"></div></div>
-      <div class="chart-row" onclick="filterByStage('Engineering',this)" data-stage="Engineering"><div class="cr-label">Engineering</div><div class="cr-bar"><div class="cb-track" style="width:4.8%"><div class="cb-green" style="flex:2" title="2 green"></div></div></div><div class="cr-count">2</div></div>
-      <div class="chart-row" onclick="filterByStage('Plan Review',this)" data-stage="Plan Review"><div class="cr-label">Plan Review</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
-      <div class="chart-row" onclick="filterByStage('Interconnection',this)" data-stage="Interconnection"><div class="cr-label">Interconnection</div><div class="cr-bar"><div class="cb-track" style="width:7.1%"><div class="cb-green" style="flex:3" title="3 green"></div></div></div><div class="cr-count">3</div></div>
-      <div class="chart-row" onclick="filterByStage('Permitting',this)" data-stage="Permitting"><div class="cr-label">Permitting</div><div class="cr-bar"><div class="cb-track" style="width:9.5%"><div class="cb-green" style="flex:4" title="4 green"></div></div></div><div class="cr-count">4</div></div>
-      <div class="chart-row" onclick="filterByStage('Procurement & Scheduling',this)" data-stage="Procurement & Scheduling"><div class="cr-label">Procurement & Scheduling</div><div class="cr-bar"><div class="cb-track" style="width:4.8%"><div class="cb-green" style="flex:2" title="2 green"></div></div></div><div class="cr-count">2</div></div>
-      <div class="chart-row" onclick="filterByStage('Active Installation',this)" data-stage="Active Installation"><div class="cr-label">Active Installation</div><div class="cr-bar"><div class="cb-track" style="width:9.5%"><div class="cb-green" style="flex:4" title="4 green"></div></div></div><div class="cr-count">4</div></div>
-      <div class="chart-row" onclick="filterByStage('Inspection',this)" data-stage="Inspection"><div class="cr-label">Inspection</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
-      <div class="chart-row" onclick="filterByStage('Witness Test / PTO',this)" data-stage="Witness Test / PTO"><div class="cr-label">Witness Test / PTO</div><div class="cr-bar"><div class="cb-track" style="width:19.0%"><div class="cb-green" style="flex:8" title="8 green"></div></div></div><div class="cr-count">8</div></div>
-      <div class="chart-row" onclick="filterByStage('Energized',this)" data-stage="Energized"><div class="cr-label">Energized</div><div class="cr-bar"><div class="cb-track" style="width:100.0%"><div class="cb-green" style="flex:42" title="42 green"></div></div></div><div class="cr-count">42</div></div>
-      <div class="chart-row" onclick="filterByStage('On Hold',this)" data-stage="On Hold"><div class="cr-label">On Hold</div><div class="cr-bar"><div class="cb-track" style="width:21.4%"><div class="cb-green" style="flex:9" title="9 green"></div></div></div><div class="cr-count">9</div></div>
-    <div class="chart-legend">
-      <div class="legend-item"><div class="legend-dot ld-green"></div> Within SLA</div>
-      <div class="legend-item"><div class="legend-dot ld-yellow"></div> Approaching limit</div>
-      <div class="legend-item"><div class="legend-dot ld-red"></div> Past SLA</div>
-    </div>
-  </div>
   <div class="alert-box alert-green"><div class="alert-icon">✅</div><div class="alert-text"><h3>All projects within SLA</h3><p>No projects require immediate attention.</p></div></div>
   <div class="section-title">Stage Breakdown — click a stage to filter</div>
   <div class="stage-grid">
@@ -203,6 +181,27 @@
     <div class="stage-card all-green" onclick="filterByStage('Witness Test / PTO',this)" role="button" tabindex="0"><div class="stage-name">Witness Test / PTO</div><div class="stage-count">8</div><div class="stage-sla"><span class="dot-green">● 8 green</span></div></div>
     <div class="stage-card all-green" onclick="filterByStage('Energized',this)" role="button" tabindex="0"><div class="stage-name">Energized</div><div class="stage-count">42</div><div class="stage-sla"><span class="dot-green">● 42 green</span></div></div>
     <div class="stage-card all-green" onclick="filterByStage('On Hold',this)" role="button" tabindex="0"><div class="stage-name">On Hold</div><div class="stage-count">9</div><div class="stage-sla"><span class="dot-green">● 9 green</span></div></div></div>
+  <div class="section-title">Pipeline at a Glance — click a stage to filter</div>
+  <div class="chart-section">
+      <div class="chart-row" onclick="filterByStage('Sales Ops Review',this)" data-stage="Sales Ops Review"><div class="cr-label">Sales Ops Review</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
+      <div class="chart-row cr-empty" onclick="filterByStage('Project Intake',this)" data-stage="Project Intake"><div class="cr-label">Project Intake</div><div class="cr-bar"><div class="cb-empty"></div></div><div class="cr-count"></div></div>
+      <div class="chart-row cr-empty" onclick="filterByStage('Site Survey',this)" data-stage="Site Survey"><div class="cr-label">Site Survey</div><div class="cr-bar"><div class="cb-empty"></div></div><div class="cr-count"></div></div>
+      <div class="chart-row" onclick="filterByStage('Engineering',this)" data-stage="Engineering"><div class="cr-label">Engineering</div><div class="cr-bar"><div class="cb-track" style="width:4.8%"><div class="cb-green" style="flex:2" title="2 green"></div></div></div><div class="cr-count">2</div></div>
+      <div class="chart-row" onclick="filterByStage('Plan Review',this)" data-stage="Plan Review"><div class="cr-label">Plan Review</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
+      <div class="chart-row" onclick="filterByStage('Interconnection',this)" data-stage="Interconnection"><div class="cr-label">Interconnection</div><div class="cr-bar"><div class="cb-track" style="width:7.1%"><div class="cb-green" style="flex:3" title="3 green"></div></div></div><div class="cr-count">3</div></div>
+      <div class="chart-row" onclick="filterByStage('Permitting',this)" data-stage="Permitting"><div class="cr-label">Permitting</div><div class="cr-bar"><div class="cb-track" style="width:9.5%"><div class="cb-green" style="flex:4" title="4 green"></div></div></div><div class="cr-count">4</div></div>
+      <div class="chart-row" onclick="filterByStage('Procurement & Scheduling',this)" data-stage="Procurement & Scheduling"><div class="cr-label">Procurement &amp; Scheduling</div><div class="cr-bar"><div class="cb-track" style="width:4.8%"><div class="cb-green" style="flex:2" title="2 green"></div></div></div><div class="cr-count">2</div></div>
+      <div class="chart-row" onclick="filterByStage('Active Installation',this)" data-stage="Active Installation"><div class="cr-label">Active Installation</div><div class="cr-bar"><div class="cb-track" style="width:9.5%"><div class="cb-green" style="flex:4" title="4 green"></div></div></div><div class="cr-count">4</div></div>
+      <div class="chart-row" onclick="filterByStage('Inspection',this)" data-stage="Inspection"><div class="cr-label">Inspection</div><div class="cr-bar"><div class="cb-track" style="width:2.4%"><div class="cb-green" style="flex:1" title="1 green"></div></div></div><div class="cr-count">1</div></div>
+      <div class="chart-row" onclick="filterByStage('Witness Test / PTO',this)" data-stage="Witness Test / PTO"><div class="cr-label">Witness Test / PTO</div><div class="cr-bar"><div class="cb-track" style="width:19.0%"><div class="cb-green" style="flex:8" title="8 green"></div></div></div><div class="cr-count">8</div></div>
+      <div class="chart-row" onclick="filterByStage('Energized',this)" data-stage="Energized"><div class="cr-label">Energized</div><div class="cr-bar"><div class="cb-track" style="width:100.0%"><div class="cb-green" style="flex:42" title="42 green"></div></div></div><div class="cr-count">42</div></div>
+      <div class="chart-row" onclick="filterByStage('On Hold',this)" data-stage="On Hold"><div class="cr-label">On Hold</div><div class="cr-bar"><div class="cb-track" style="width:21.4%"><div class="cb-green" style="flex:9" title="9 green"></div></div></div><div class="cr-count">9</div></div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot ld-green"></div> Within SLA</div>
+      <div class="legend-item"><div class="legend-dot ld-yellow"></div> Approaching limit</div>
+      <div class="legend-item"><div class="legend-dot ld-red"></div> Past SLA</div>
+    </div>
+  </div>
   <div class="velocity-section" id="velocitySection" style="display:none">
     <div class="velocity-header">
       <h2>Pipeline Velocity</h2>
