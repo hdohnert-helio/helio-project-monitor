@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-04-17T16:15:38.616503Z",
+  "generated_at_label": "Fri Apr 17, 2026 · 12:15 PM ET",
+  "canvas_id": "5264387000040853100",
+  "project_count": 10,
+  "projects": [
+    {
+      "project_id": "PROJ-1605",
+      "customer": "Kevin Andersen",
+      "stage": "Engineering",
+      "days_in_stage": 0,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000085058051"
+    },
+    {
+      "project_id": "PROJ-1604",
+      "customer": "Charles Thomas",
+      "stage": "On Hold",
+      "days_in_stage": 2,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000084583001"
+    },
+    {
+      "project_id": "PROJ-1599",
+      "customer": "Jacob Rastegar",
+      "stage": "Permitting",
+      "days_in_stage": 1,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000083195007"
+    },
+    {
+      "project_id": "PROJ-1572",
+      "customer": "Gregory Lippert",
+      "stage": "Energized",
+      "days_in_stage": 1,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000070723058"
+    },
+    {
+      "project_id": "PROJ-1517",
+      "customer": "Melissa Conte",
+      "stage": "Energized",
+      "days_in_stage": 1,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000065253003"
+    },
+    {
+      "project_id": "PROJ-1505",
+      "customer": "Julie Rusch/Vasile & David Rusch",
+      "stage": "Energized",
+      "days_in_stage": 1,
+      "rep": "",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000064402103"
+    },
+    {
+      "project_id": "PROJ-1373",
+      "customer": "Tripp Killin",
+      "stage": "Energized",
+      "days_in_stage": 1,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000053763001"
+    },
+    {
+      "project_id": "PROJ-1372",
+      "customer": "Daniel Ghazal",
+      "stage": "Witness Test / PTO",
+      "days_in_stage": 1,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000053567062"
+    },
+    {
+      "project_id": "PROJ-1360",
+      "customer": "Nicole Lara",
+      "stage": "Energized",
+      "days_in_stage": 1,
+      "rep": "Doug Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000050609019"
+    },
+    {
+      "project_id": "PROJ-1356",
+      "customer": "Olumide Adebayo",
+      "stage": "Energized",
+      "days_in_stage": 1,
+      "rep": "Douglas Hoffman",
+      "owner": "Tiffany Vilayphonh",
+      "zoho_record_id": "5264387000049898092"
+    }
+  ],
+  "view_label": "Tiffany Vilayphonh"
+}
