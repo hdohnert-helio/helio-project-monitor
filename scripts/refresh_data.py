@@ -77,13 +77,14 @@ VELOCITY_STAGE_ORDER = [s for s in ACTIVE_STAGES if s != "On Hold"]
 # Transitions the dashboard highlights. Each entry is (label, from, to);
 # "__creation__" means "from the first observed stage in a project's timeline"
 # (only counts if the first span is NOT truncated to the cutoff).
+# Labels use Helio's business terminology — internal Zoho stage names (e.g.
+# "Active Installation", "Inspection") are mapped to customer-facing terms
+# ("Install Ready", "Install Complete") for the velocity cards only.
 KEY_TRANSITIONS = [
-    ("Creation → Active Installation", "__creation__", "Active Installation"),
-    ("Creation → Inspection", "__creation__", "Inspection"),
-    ("Creation → Energized", "__creation__", "Energized"),
-    ("Permitting → Active Installation", "Permitting", "Active Installation"),
-    ("Active Installation → Inspection", "Active Installation", "Inspection"),
-    ("Witness Test / PTO → Energized", "Witness Test / PTO", "Energized"),
+    ("Sold to Install Ready",          "__creation__", "Active Installation"),
+    ("Sold to Install Complete",       "__creation__", "Inspection"),
+    ("Sold to Energized",              "__creation__", "Energized"),
+    ("Install Complete to Energized",  "Inspection",   "Energized"),
 ]
 
 CANVAS_ID = "5264387000040853100"  # layout ID used for the Zoho "open" link
