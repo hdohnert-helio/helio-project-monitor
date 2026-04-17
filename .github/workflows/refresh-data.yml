@@ -41,10 +41,13 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # nullglob so data-*.json expands to nothing (not a literal) when
-          # no per-view files exist yet (e.g. first run, or empty views.json).
+          # nullglob so data-*.json / pipeline_velocity-*.json expand to
+          # nothing (not a literal) when no per-view files exist yet
+          # (e.g. first run, or empty views.json).
           shopt -s nullglob
-          git add data.json data-*.json
+          git add data.json data-*.json \
+                  stage_history.json \
+                  pipeline_velocity.json pipeline_velocity-*.json
           if git diff --cached --quiet; then
             echo "No data changes this run — skipping commit."
           else
