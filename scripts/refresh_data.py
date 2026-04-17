@@ -206,12 +206,24 @@ def build_projects(rows: list[dict]) -> list[dict]:
     return out
 
 
-def main() -> int:
-    token = get_access_token()
-    raw = fetch_installs(token)
-    projects = build_projects(raw)
+def _apply_filter(projects: list[dict], flt: dict) -> list[dict]:
+    """Apply a view filter to the project list. Within a field values are
+    OR-ed (owner in ['A','B']); between fields they are AND-ed. An empty
+    or missing filter field is treated as 'no restriction on this field'."""
+    owners = set(flt.get("owners") or [])
+    reps = set(flt.get("reps") or [])
+    out = []
+    for p in projects:
+        if owners and p.get("owner") not in owners:
+            continue
+        if reps and p.get("rep") not in reps:
+            continue
+        out.append(p)
+    return out
 
-    now = datetime.now(timezone.utc)
+
+def _write_payload(path: Path, projects: list[dict], now: datetime,
+                   view_label: str | None = None) -> None:
     payload = {
         "generated_at": now.isoformat().replace("+00:00", "Z"),
         "generated_at_label": _format_label(now),
@@ -219,14 +231,48 @@ def main() -> int:
         "project_count": len(projects),
         "projects": projects,
     }
-
-    repo_root = Path(__file__).resolve().parent.parent
-    out_path = repo_root / "data.json"
-    out_path.write_text(
+    if view_label is not None:
+        payload["view_label"] = view_label
+    path.write_text(
         json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
-    print(f"Wrote {len(projects)} projects → {out_path}")
+
+
+def main() -> int:
+    token = get_access_token()
+    raw = fetch_installs(token)
+    projects = build_projects(raw)
+
+    now = datetime.now(timezone.utc)
+    repo_root = Path(__file__).resolve().parent.parent
+
+    # Always write the full data.json (admin / default view).
+    _write_payload(repo_root / "data.json", projects, now)
+    print(f"Wrote {len(projects)} projects → data.json")
+
+    # Write per-view filtered files if views.json exists. Each view gets
+    # its own data-{slug}.json containing only the matching projects, so a
+    # shared ?view=<slug> URL's payload is strictly scoped to that view.
+    views_path = repo_root / "views.json"
+    if views_path.exists():
+        try:
+            views = json.loads(views_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            print(f"views.json is invalid: {e}", file=sys.stderr)
+            return 1
+        for v in views:
+            slug = str(v.get("slug") or "").strip()
+            label = str(v.get("label") or slug)
+            flt = v.get("filter") or {}
+            if not slug:
+                print(f"Skipping view without slug: {v}", file=sys.stderr)
+                continue
+            filtered = _apply_filter(projects, flt)
+            out_path = repo_root / f"data-{slug}.json"
+            _write_payload(out_path, filtered, now, view_label=label)
+            print(f"Wrote {len(filtered):3d} projects → {out_path.name} ({label})")
+
     print(f"(raw Zoho rows fetched: {len(raw)})")
     return 0
 
