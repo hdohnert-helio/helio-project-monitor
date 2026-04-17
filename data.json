@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-17T00:27:18.226604Z",
-  "generated_at_label": "Thu Apr 16, 2026 · 8:27 PM ET",
+  "generated_at": "2026-04-17T00:29:57.937050Z",
+  "generated_at_label": "Thu Apr 16, 2026 · 8:29 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 77,
   "projects": [
@@ -34,7 +34,7 @@
     {
       "project_id": "PROJ-1603",
       "customer": "Harry Dohnert",
-      "stage": "On Hold",
+      "stage": "Site Survey",
       "days_in_stage": 0,
       "rep": "Harry Dohnert",
       "owner": "Harry Dohnert",
