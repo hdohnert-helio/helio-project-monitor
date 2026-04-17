@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-04-17T19:38:22.836202Z",
+  "cutoff": "2026-04-16T00:00:00-04:00",
+  "project_count": 77,
+  "transitions": [
+    {
+      "label": "Creation → Active Installation",
+      "from": "__creation__",
+      "to": "Active Installation",
+      "sample_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "label": "Creation → Inspection",
+      "from": "__creation__",
+      "to": "Inspection",
+      "sample_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "label": "Creation → Energized",
+      "from": "__creation__",
+      "to": "Energized",
+      "sample_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "label": "Permitting → Active Installation",
+      "from": "Permitting",
+      "to": "Active Installation",
+      "sample_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "label": "Active Installation → Inspection",
+      "from": "Active Installation",
+      "to": "Inspection",
+      "sample_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "label": "Witness Test / PTO → Energized",
+      "from": "Witness Test / PTO",
+      "to": "Energized",
+      "sample_count": 0,
+      "median_days": null,
+      "p75_days": null
+    }
+  ],
+  "dwell_per_stage": [
+    {
+      "stage": "Sales Ops Review",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Project Intake",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Site Survey",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Engineering",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Plan Review",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Interconnection",
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 0.06484764122685185,
+      "p75_days": 0.06484764122685185
+    },
+    {
+      "stage": "Permitting",
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 0.1620698634490741,
+      "p75_days": 0.1620698634490741
+    },
+    {
+      "stage": "Procurement & Scheduling",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Active Installation",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Inspection",
+      "sample_count": 0,
+      "open_count": 0,
+      "median_days": null,
+      "p75_days": null
+    },
+    {
+      "stage": "Witness Test / PTO",
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 1.0842920856712963,
+      "p75_days": 1.0842920856712963
+    },
+    {
+      "stage": "Energized",
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 0.0891531967824074,
+      "p75_days": 0.0891531967824074
+    }
+  ],
+  "notes": [
+    "Tracking started 2026-04-16. Projects with a stage entered before the cutoff are excluded from that span's stats (but still count in later transitions).",
+    "On Hold time is subtracted from transition durations; On Hold itself is not plotted as a dwell stage.",
+    "Currently-open spans contribute their running duration to dwell stats."
+  ]
+}
