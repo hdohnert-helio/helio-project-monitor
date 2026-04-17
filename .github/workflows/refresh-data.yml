@@ -1,13 +1,13 @@
 name: Refresh pipeline data
 
-# Runs twice a day on weekdays: 11:00 UTC and 18:00 UTC
+# Runs twice a day, every day: 11:00 UTC and 18:00 UTC
 # (≈ 7:00 AM and 2:00 PM US Eastern during EDT,
 #   6:00 AM and 1:00 PM US Eastern during EST).
 # Also runs on demand from the Actions tab.
 
 on:
   schedule:
-    - cron: '0 11,18 * * 1-5'
+    - cron: '0 11,18 * * *'
   workflow_dispatch: {}
 
 permissions:
