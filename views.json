@@ -10,8 +10,8 @@
     "filter": { "owners": ["Walter Carmona"] }
   },
   {
-    "slug": "doug-team",
-    "label": "Doug Hoffman + Team",
+    "slug": "hoffman-tiffany-top-priority-always",
+    "label": "Douglas Hoffman + Team",
     "filter": { "owners": ["Douglas Hoffman", "Tiffany Vilayphonh"] }
   }
 ]
