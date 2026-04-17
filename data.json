@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-17T15:32:15.827398Z",
-  "generated_at_label": "Fri Apr 17, 2026 · 11:32 AM ET",
+  "generated_at": "2026-04-17T15:57:30.012857Z",
+  "generated_at_label": "Fri Apr 17, 2026 · 11:57 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 77,
   "projects": [
@@ -61,8 +61,8 @@
     {
       "project_id": "PROJ-1600",
       "customer": "Scott Webb",
-      "stage": "Interconnection",
-      "days_in_stage": 1,
+      "stage": "Permitting",
+      "days_in_stage": 0,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000083838050"
