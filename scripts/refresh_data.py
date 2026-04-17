@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
 """Refresh Helio Install pipeline data from Zoho CRM.
 
+Runs via GitHub Actions on a cron schedule. Exchanges the stored refresh
+token for an access token, pulls the Installs module + user map from Zoho
+CRM, and writes the result to ../data.json at the repo root. The dashboard
+(index.html) fetches data.json on load and renders the table, chart, and
+cards client-side.
+
 Required env vars (GitHub Secrets):
   ZOHO_CLIENT_ID
   ZOHO_CLIENT_SECRET
   ZOHO_REFRESH_TOKEN
-  ZOHO_DC (optional, default 'com')
+  ZOHO_DC (optional, default 'com'; also 'eu', 'in', 'com.au', 'jp')
+
+No external dependencies — uses only stdlib, so the workflow doesn't need
+a pip install step.
 """
 from __future__ import annotations
 
 import json
 import os
 import sys
-import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -22,39 +30,41 @@ DC = os.environ.get("ZOHO_DC", "com").strip()
 ACCOUNTS_HOST = f"accounts.zoho.{DC}"
 API_HOST = f"www.zohoapis.{DC}"
 
+# Stages shown on the dashboard. Any other stage (e.g. Closed/Cancelled)
+# is filtered out when building data.json.
 ACTIVE_STAGES = [
-    "Sales Ops Review", "Project Intake", "Site Survey", "Engineering",
-    "Plan Review", "Interconnection", "Permitting",
-    "Procurement & Scheduling", "Active Installation", "Inspection",
-    "Witness Test / PTO", "Energized", "On Hold",
+    "Sales Ops Review",
+    "Project Intake",
+    "Site Survey",
+    "Engineering",
+    "Plan Review",
+    "Interconnection",
+    "Permitting",
+    "Procurement & Scheduling",
+    "Active Installation",
+    "Inspection",
+    "Witness Test / PTO",
+    "Energized",
+    "On Hold",
 ]
 ACTIVE_STAGES_SET = set(ACTIVE_STAGES)
 
-# Owner is a default field in v7 (always returned), so we don't list it here.
 FIELDS = (
     "Project_ID,Name,Project_Stage,Sales_Representative,"
-    "Project_Owner,Date_of_Stage_Change"
+    "Owner,Project_Owner,Date_of_Stage_Change"
 )
 
-CANVAS_ID = "5264387000040853100"
+CANVAS_ID = "5264387000040853100"  # layout ID used for the Zoho "open" link
 
 
 def _http_json(req: urllib.request.Request) -> dict:
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            if resp.status == 204:
-                return {}
-            raw = resp.read()
-            return json.loads(raw) if raw else {}
-    except urllib.error.HTTPError as e:
-        body = ""
-        try:
-            body = e.read().decode("utf-8", errors="replace")
-        except Exception:
-            pass
-        print(f"HTTP {e.code} {e.reason} for {req.full_url}", file=sys.stderr)
-        print(f"Response body: {body}", file=sys.stderr)
-        raise
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        if resp.status == 204:
+            return {}
+        raw = resp.read()
+        if not raw:
+            return {}
+        return json.loads(raw)
 
 
 def get_access_token() -> str:
@@ -101,6 +111,8 @@ def fetch_installs(token: str) -> list[dict]:
             "fields": FIELDS,
             "page": page,
             "per_page": 200,
+            "sort_by": "Project_ID",
+            "sort_order": "desc",
         })
         batch = resp.get("data") or []
         rows.extend(batch)
@@ -108,7 +120,7 @@ def fetch_installs(token: str) -> list[dict]:
         if not info.get("more_records"):
             break
         page += 1
-        if page > 50:
+        if page > 50:  # hard safety cap
             break
     return rows
 
@@ -145,12 +157,16 @@ def build_projects(rows: list[dict]) -> list[dict]:
         stage = r.get("Project_Stage") or ""
         if stage not in ACTIVE_STAGES_SET:
             continue
+
+        # Resolve owner: prefer Zoho system Owner (lookup), fall back to the
+        # Project_Owner text field if the system owner is empty.
         owner_name = ""
         owner_obj = r.get("Owner")
         if isinstance(owner_obj, dict):
             owner_name = (owner_obj.get("name") or "").strip()
         if not owner_name:
             owner_name = (r.get("Project_Owner") or "").strip()
+
         out.append({
             "project_id": (r.get("Project_ID") or "").strip(),
             "customer": (r.get("Name") or "").strip(),
@@ -184,7 +200,7 @@ def main() -> int:
         json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
-    print(f"Wrote {len(projects)} projects to {out_path}")
+    print(f"Wrote {len(projects)} projects → {out_path}")
     print(f"(raw Zoho rows fetched: {len(raw)})")
     return 0
 
