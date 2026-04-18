@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-18T11:39:46.186785Z",
-  "generated_at_label": "Sat Apr 18, 2026 · 7:39 AM ET",
+  "generated_at": "2026-04-18T19:00:36.534668Z",
+  "generated_at_label": "Sat Apr 18, 2026 · 3:00 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 19,
   "projects": [
@@ -17,7 +17,7 @@
       "project_id": "PROJ-1600",
       "customer": "Scott Webb",
       "stage": "Permitting",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000083838050"
@@ -53,7 +53,7 @@
       "project_id": "PROJ-1583",
       "customer": "Nilo Torres",
       "stage": "On Hold",
-      "days_in_stage": 2,
+      "days_in_stage": 3,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000077493323"

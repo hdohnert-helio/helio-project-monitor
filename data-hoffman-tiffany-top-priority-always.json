@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-18T11:39:46.186785Z",
-  "generated_at_label": "Sat Apr 18, 2026 · 7:39 AM ET",
+  "generated_at": "2026-04-18T19:00:36.534668Z",
+  "generated_at_label": "Sat Apr 18, 2026 · 3:00 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 20,
   "projects": [
@@ -8,7 +8,7 @@
       "project_id": "PROJ-1605",
       "customer": "Kevin Andersen",
       "stage": "Interconnection",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000085058051"
@@ -17,7 +17,7 @@
       "project_id": "PROJ-1604",
       "customer": "Charles Thomas",
       "stage": "On Hold",
-      "days_in_stage": 2,
+      "days_in_stage": 3,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000084583001"
@@ -62,7 +62,7 @@
       "project_id": "PROJ-1478",
       "customer": "Randy Brown | Sandra Spencer",
       "stage": "Energized",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "Douglas hoffman",
       "owner": "Douglas Hoffman",
       "zoho_record_id": "5264387000063065205"
