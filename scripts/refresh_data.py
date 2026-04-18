@@ -358,30 +358,40 @@ def update_stage_history(history: dict, raw_rows: list[dict], now: datetime) -> 
         if owner_name: entry["owner"] = owner_name
         if r.get("Sales_Representative"): entry["rep"] = (r["Sales_Representative"] or "").strip()
 
-        spans = entry["spans"]
-        if not spans:
-            spans.append({
-                "stage": stage,
-                "entered_at": clamped_iso,
-                "exited_at": None,
-                "truncated": was_truncated,
-            })
-            continue
+       spans = entry["spans"]
+if not spans:
+    # We don't trust Zoho's Date_of_Stage_Change as a proxy for
+    # "when did this project enter this stage" — that field gets
+    # bumped on non-stage saves (blueprints, field edits, etc.).
+    # On first-time seed we admit we don't know: stamp entered_at
+    # at the cutoff and mark truncated so this span is excluded
+    # from dwell/transition stats. Only stage changes observed
+    # across subsequent runs will contribute real data.
+    spans.append({
+        "stage": stage,
+        "entered_at": _iso_utc(VELOCITY_CUTOFF_DT),
+        "exited_at": None,
+        "truncated": True,
+    })
+    continue
 
         last = spans[-1]
         if last["stage"] == stage and last["exited_at"] is None:
             continue  # still in the same stage, nothing to update
 
-        # Stage has changed since our last snapshot. Close the last open span
-        # at the reported transition time (clamped forward to cutoff if
-        # needed), and open a new span for the current stage.
-        last["exited_at"] = clamped_iso
-        spans.append({
-            "stage": stage,
-            "entered_at": clamped_iso,
-            "exited_at": None,
-            "truncated": False,  # transition observed after cutoff = real data
-        })
+      # Stage has changed since our last snapshot. Use `now` as the
+# transition time — we observed the change at this run, and we
+# don't trust Zoho's Date_of_Stage_Change (see first-seed comment).
+# The true transition happened sometime between last_run and now;
+# stamping at now is a small overestimate of the previous stage's
+# dwell and a small underestimate of this one, which averages out.
+last["exited_at"] = now_iso
+spans.append({
+    "stage": stage,
+    "entered_at": now_iso,
+    "exited_at": None,
+    "truncated": False,  # transition observed after cutoff = real data
+})
 
     # Close spans for records that have left the active feed entirely.
     for record_id, entry in projects.items():
