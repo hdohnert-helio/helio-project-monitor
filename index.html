@@ -76,8 +76,12 @@
   td{padding:11px 14px;font-size:13px;border-bottom:1px solid #f8f8f8}
   tr:last-child td{border-bottom:none}
   tr:hover td{background:#fafbff}
-  .badge{display:inline-block;padding:3px 8px;border-radius:12px;font-size:11px;font-weight:600}
+  .badge{display:inline-block;padding:3px 8px;border-radius:12px;font-size:11px;font-weight:600;white-space:nowrap}
   .badge-green{background:#e8f8ef;color:#1a8a45}.badge-yellow{background:#fff8e7;color:#b37d00}.badge-red{background:#fdecea;color:#c62828}
+  .badge-stale{box-shadow:0 0 0 2px #c62828 inset;padding:2px 7px}
+  .ack-check{color:#1a8a45;font-weight:700;margin-left:4px;font-size:11px}
+  .review-meta{display:block;font-size:10px;color:#888;margin-top:3px;line-height:1.3}
+  .review-meta.review-none{color:#c62828;font-weight:500}
   .proj-id{font-family:monospace;font-size:12px;color:#888}
   .link-cell{text-align:center;width:40px}
   .zoho-link{display:inline-block;color:#4f6ef5;font-size:14px;font-weight:700;text-decoration:none;opacity:0.7;transition:opacity 0.15s}
@@ -225,6 +229,7 @@
         <select class="filter-select" id="repFilter" onchange="applyFilters()"><option value="">All reps</option></select>
         <select class="filter-select" id="ownerFilter" onchange="applyFilters()"><option value="">All owners</option></select>
         <button class="filter-btn active" onclick="filterByStatus('all',this)">All (77)</button>
+        <button class="filter-btn" onclick="filterByStatus('stale',this)" title="Past or approaching SLA AND not reviewed since entering current stage">⚠️ Stale (0)</button>
         <button class="filter-btn" onclick="filterByStatus('green',this)">🟢 Green (77)</button>
         <button class="filter-btn" onclick="filterByStatus('yellow',this)">🟡 Yellow (0)</button>
         <button class="filter-btn" onclick="filterByStatus('red',this)">🔴 Red (0)</button>
@@ -233,7 +238,7 @@
     <table><thead><tr>
       <th onclick="sortTable(0)">Project ↕</th><th onclick="sortTable(1)">Customer ↕</th>
       <th onclick="sortTable(2)">Stage ↕</th><th onclick="sortTable(3)">Days in Stage ↕</th>
-      <th onclick="sortTable(4)">SLA Status ↕</th>
+      <th onclick="sortTable(4)" title="Default sort: stale first (unreviewed since entering current stage), then acknowledged, then green">Status ↕</th>
       <th onclick="sortTable(5)">Sales Rep ↕</th><th onclick="sortTable(6)">Owner ↕</th>
       <th style="cursor:default">Zoho</th>
     </tr></thead>
@@ -267,7 +272,13 @@
     const repVal=repSel?repSel.value:'';
     const ownerVal=ownerSel?ownerSel.value:'';
     document.querySelectorAll('#tableBody tr').forEach(row=>{
-      const statusOk=currentStatusFilter==='all'||row.dataset.status===currentStatusFilter;
+      // 'stale' is a pseudo-status: any row (red or yellow) that hasn't been
+      // reviewed since it entered its current stage. Base color is in
+      // data-status; staleness is on data-review.
+      let statusOk;
+      if (currentStatusFilter==='all') statusOk=true;
+      else if (currentStatusFilter==='stale') statusOk=row.dataset.review==='stale';
+      else statusOk=row.dataset.status===currentStatusFilter;
       const stageOk=!activeStageFilter||row.dataset.stage===activeStageFilter;
       const repOk=!repVal||row.dataset.rep===repVal;
       const ownerOk=!ownerVal||row.dataset.owner===ownerVal;
@@ -313,12 +324,43 @@
     document.getElementById('stage-filter-badge').classList.add('hidden');
   }
 
+  // Composite rank for the Status column: lower rank = more urgent, so the
+  // default desc sort puts 🔴 Stale on top, 🟢 Green on the bottom. Order:
+  //   0  🔴 Stale   (red + unreviewed since stage entry)
+  //   1  🔴 Ack'd   (red + reviewed)
+  //   2  🟡 Stale   (yellow + unreviewed)
+  //   3  🟡 Ack'd   (yellow + reviewed)
+  //   4  🟢 Green
+  function _statusRank(row){
+    const s = row.dataset.status, r = row.dataset.review;
+    if (s === 'red')    return r === 'stale' ? 0 : 1;
+    if (s === 'yellow') return r === 'stale' ? 2 : 3;
+    return 4;
+  }
   function sortTable(col){
     const tbody=document.getElementById('tableBody');
     const rows=Array.from(tbody.querySelectorAll('tr'));
-    const asc=tbody.dataset.sortCol==col&&tbody.dataset.sortDir==='asc'?false:true;
+    // Status column: default click is descending urgency (stale red first).
+    // Re-click flips to ascending (green first).
+    const defaultDesc = (col === 4);
+    const prevCol = tbody.dataset.sortCol;
+    const prevDir = tbody.dataset.sortDir;
+    let asc;
+    if (prevCol == col){
+      asc = prevDir === 'asc' ? false : true;
+    } else {
+      asc = !defaultDesc;
+    }
     tbody.dataset.sortCol=col;tbody.dataset.sortDir=asc?'asc':'desc';
     rows.sort((a,b)=>{
+      if (col === 4){
+        const ar=_statusRank(a), br=_statusRank(b);
+        if (ar !== br) return asc ? br - ar : ar - br;
+        // Tie-break: days-in-stage descending (more days = more urgent)
+        const ad=parseInt(a.querySelectorAll('td')[3]?.textContent||'0',10)||0;
+        const bd=parseInt(b.querySelectorAll('td')[3]?.textContent||'0',10)||0;
+        return bd - ad;
+      }
       const av=a.querySelectorAll('td')[col]?.textContent.trim()||'';
       const bv=b.querySelectorAll('td')[col]?.textContent.trim()||'';
       const an=parseFloat(av),bn=parseFloat(bv);
@@ -395,23 +437,75 @@
     return 'red';
   }
 
+  // Parse a Zoho datetime string — either bare ISO ("2026-04-20T11:59:00-04:00")
+  // or null/empty — into a Date, or null if it can't be parsed.
+  function _parseZohoDt(s){
+    if (!s) return null;
+    const d = new Date(s);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  // Classify review state. Returns:
+  //   'reviewed'    — reviewed after (or at) current stage entry
+  //   'stale'       — red or yellow, and NOT reviewed after current stage entry
+  //   'na'          — green (review state doesn't surface on green rows)
+  function classifyReview(slaStatus, stageEnteredAt, lastReviewedAt){
+    if (slaStatus === 'green') return 'na';
+    const entered = _parseZohoDt(stageEnteredAt);
+    const reviewed = _parseZohoDt(lastReviewedAt);
+    // No stage-entry timestamp (shouldn't happen) → treat as stale so it
+    // surfaces for triage rather than silently counting as reviewed.
+    if (!entered) return reviewed ? 'reviewed' : 'stale';
+    if (!reviewed) return 'stale';
+    return reviewed >= entered ? 'reviewed' : 'stale';
+  }
+
+  function _fmtReviewDate(s){
+    const d = _parseZohoDt(s);
+    if (!d) return '';
+    return d.toLocaleString('en-US', {month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit'});
+  }
+
   function applyClassification(){
     const slas = loadSLAs();
     const rows = document.querySelectorAll('#tableBody tr');
     const stageCounts = {};
-    let totalGreen = 0, totalYellow = 0, totalRed = 0;
+    let totalGreen = 0, totalYellow = 0, totalRed = 0, totalStale = 0;
     rows.forEach(row => {
       const cells = row.querySelectorAll('td');
       const stage = row.dataset.stage;
       const days = parseInt(cells[3] ? cells[3].textContent : '0', 10) || 0;
       const status = classify(stage, days, slas);
       row.dataset.status = status;
+
+      const review = classifyReview(status, row.dataset.stageEnteredAt, row.dataset.lastReviewedAt);
+      row.dataset.review = review;
+      if (review === 'stale') totalStale++;
+
       const badgeCell = cells[4];
       if (badgeCell){
         const color = status === 'green' ? 'green' : status === 'yellow' ? 'yellow' : 'red';
         const emoji = status === 'green' ? '🟢' : status === 'yellow' ? '🟡' : '🔴';
         const label = status.charAt(0).toUpperCase() + status.slice(1);
-        badgeCell.innerHTML = '<span class="badge badge-' + color + '">' + emoji + ' ' + label + '</span>';
+        const staleClass = review === 'stale' ? ' badge-stale' : '';
+        const ackMark = review === 'reviewed' ? '<span class="ack-check" title="Reviewed since entering this stage">✓</span>' : '';
+
+        // Review metadata line under the badge — only on non-green rows.
+        let meta = '';
+        if (status !== 'green'){
+          const reviewer = row.dataset.lastReviewedBy || '';
+          const reviewedAt = _fmtReviewDate(row.dataset.lastReviewedAt);
+          const notes = row.dataset.lastReviewNotes || '';
+          if (reviewedAt){
+            const who = reviewer ? ' by ' + esc(reviewer) : '';
+            const title = notes ? ' title="' + esc(notes) + '"' : '';
+            meta = '<span class="review-meta"' + title + '>Reviewed ' + esc(reviewedAt) + who
+                 + (notes ? ' 🗒' : '') + '</span>';
+          } else {
+            meta = '<span class="review-meta review-none">Not yet reviewed</span>';
+          }
+        }
+        badgeCell.innerHTML = '<span class="badge badge-' + color + staleClass + '">' + emoji + ' ' + label + ackMark + '</span>' + meta;
       }
       if (!stageCounts[stage]) stageCounts[stage] = {green:0, yellow:0, red:0};
       stageCounts[stage][status] += 1;
@@ -499,13 +593,14 @@
         if (slaEl) slaEl.innerHTML = parts.join('<br>');
       }
     });
-    // Status filter button counts
+    // Status filter button counts (order: All, Stale, Green, Yellow, Red)
     const statusBtns = document.querySelectorAll('.filter-btn');
     const total = rows.length;
     if (statusBtns[0]) statusBtns[0].textContent = 'All (' + total + ')';
-    if (statusBtns[1]) statusBtns[1].textContent = '🟢 Green (' + totalGreen + ')';
-    if (statusBtns[2]) statusBtns[2].textContent = '🟡 Yellow (' + totalYellow + ')';
-    if (statusBtns[3]) statusBtns[3].textContent = '🔴 Red (' + totalRed + ')';
+    if (statusBtns[1]) statusBtns[1].textContent = '⚠️ Stale (' + totalStale + ')';
+    if (statusBtns[2]) statusBtns[2].textContent = '🟢 Green (' + totalGreen + ')';
+    if (statusBtns[3]) statusBtns[3].textContent = '🟡 Yellow (' + totalYellow + ')';
+    if (statusBtns[4]) statusBtns[4].textContent = '🔴 Red (' + totalRed + ')';
     applyFilters();
   }
 
@@ -605,8 +700,14 @@
       const url = 'https://crm.zoho.com/crm/heliosolar/tab/CustomModule6/'
                   + encodeURIComponent(p.zoho_record_id || '')
                   + '/canvas/' + encodeURIComponent(canvasId);
-      return '<tr data-status="green" data-stage="' + esc(p.stage) + '"'
-           + ' data-rep="' + esc(rep) + '" data-owner="' + esc(owner) + '">'
+      // Stash raw review fields on the row so applyClassification can read
+      // them without re-parsing. Empty string = never reviewed.
+      return '<tr data-status="green" data-review="unknown" data-stage="' + esc(p.stage) + '"'
+           + ' data-rep="' + esc(rep) + '" data-owner="' + esc(owner) + '"'
+           + ' data-stage-entered-at="' + esc(p.stage_entered_at || '') + '"'
+           + ' data-last-reviewed-at="' + esc(p.last_reviewed_at || '') + '"'
+           + ' data-last-reviewed-by="' + esc(p.last_reviewed_by || '') + '"'
+           + ' data-last-review-notes="' + esc(p.last_review_notes || '') + '">'
            + '<td class="proj-id">' + esc(p.project_id) + '</td>'
            + '<td>' + esc(p.customer) + '</td>'
            + '<td>' + esc(p.stage) + '</td>'
@@ -756,6 +857,9 @@
       renderRows(payload);
       populateFilterDropdowns();
       applyClassification();
+      // Default sort by Status column, most-urgent first (stale red → green).
+      // applyClassification() writes data-status/data-review; sort after.
+      sortTable(4);
     } catch (e){
       console.error('Dashboard load failed:', e);
       const msg = VIEW_SLUG

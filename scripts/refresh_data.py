@@ -53,7 +53,8 @@ ACTIVE_STAGES_SET = set(ACTIVE_STAGES)
 
 FIELDS = (
     "Project_ID,Name,Project_Stage,Sales_Representative,"
-    "Project_Owner,Date_of_Stage_Change"
+    "Project_Owner,Date_of_Stage_Change,"
+    "Last_Reviewed_At,Last_Reviewed_By,Last_Review_Notes"
 )
 
 # Stage-change tracking was enabled in Zoho on 2026-04-16. Records that
@@ -218,13 +219,28 @@ def build_projects(rows: list[dict]) -> list[dict]:
             else:
                 stage_change_ts = STAGE_TRACKING_LAUNCH_TS
 
+        # PM-review fields (stamped by the "Mark as Reviewed" button in Zoho).
+        # Last_Reviewed_By is a user lookup — returned as {"name": "...",
+        # "id": "..."} or null. We expose the display name; the dashboard uses
+        # the timestamp + name for the tooltip and the staleness comparison.
+        last_reviewed_at = r.get("Last_Reviewed_At") or None
+        reviewer_obj = r.get("Last_Reviewed_By")
+        last_reviewed_by = ""
+        if isinstance(reviewer_obj, dict):
+            last_reviewed_by = (reviewer_obj.get("name") or "").strip()
+        last_review_notes = (r.get("Last_Review_Notes") or "").strip()
+
         out.append({
             "project_id": (r.get("Project_ID") or "").strip(),
             "customer": (r.get("Name") or "").strip(),
             "stage": stage,
+            "stage_entered_at": stage_change_ts,
             "days_in_stage": _days_since(stage_change_ts),
             "rep": (r.get("Sales_Representative") or "").strip(),
             "owner": owner_name,
+            "last_reviewed_at": last_reviewed_at,
+            "last_reviewed_by": last_reviewed_by,
+            "last_review_notes": last_review_notes,
             "zoho_record_id": r.get("id") or "",
         })
     out.sort(key=_proj_id_sort_key, reverse=True)
