@@ -53,7 +53,7 @@ ACTIVE_STAGES_SET = set(ACTIVE_STAGES)
 
 FIELDS = (
     "Project_ID,Name,Project_Stage,Sales_Representative,"
-    "Project_Owner,Date_of_Stage_Change,"
+    "Project_Owner,Project_Manager,Date_of_Stage_Change,"
     "Last_Reviewed_At,Last_Reviewed_By,Last_Review_Notes"
 )
 
@@ -230,6 +230,15 @@ def build_projects(rows: list[dict]) -> list[dict]:
             last_reviewed_by = (reviewer_obj.get("name") or "").strip()
         last_review_notes = (r.get("Last_Review_Notes") or "").strip()
 
+        # Project Manager — separate from install Owner. On this dashboard
+        # the "Reviewed by X" attribution uses the assigned PM rather than
+        # whoever clicked the button (Last_Reviewed_By), because reviews
+        # are effectively "on behalf of" the PM. Same userlookup shape.
+        pm_obj = r.get("Project_Manager")
+        project_manager = ""
+        if isinstance(pm_obj, dict):
+            project_manager = (pm_obj.get("name") or "").strip()
+
         out.append({
             "project_id": (r.get("Project_ID") or "").strip(),
             "customer": (r.get("Name") or "").strip(),
@@ -238,6 +247,7 @@ def build_projects(rows: list[dict]) -> list[dict]:
             "days_in_stage": _days_since(stage_change_ts),
             "rep": (r.get("Sales_Representative") or "").strip(),
             "owner": owner_name,
+            "project_manager": project_manager,
             "last_reviewed_at": last_reviewed_at,
             "last_reviewed_by": last_reviewed_by,
             "last_review_notes": last_review_notes,

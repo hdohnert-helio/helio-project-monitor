@@ -491,18 +491,23 @@
         const ackMark = review === 'reviewed' ? '<span class="ack-check" title="Reviewed since entering this stage">✓</span>' : '';
 
         // Review metadata line under the badge — only on non-green rows.
+        // Attribution uses the assigned Project Manager (data-project-manager),
+        // NOT Last_Reviewed_By (which is whoever clicked the button — that
+        // field is still there for audit, but the dashboard surfaces the PM
+        // responsible for the project).
         let meta = '';
         if (status !== 'green'){
-          const reviewer = row.dataset.lastReviewedBy || '';
+          const pm = row.dataset.projectManager || '';
           const reviewedAt = _fmtReviewDate(row.dataset.lastReviewedAt);
           const notes = row.dataset.lastReviewNotes || '';
           if (reviewedAt){
-            const who = reviewer ? ' by ' + esc(reviewer) : '';
+            const who = pm ? ' · PM: ' + esc(pm) : '';
             const title = notes ? ' title="' + esc(notes) + '"' : '';
             meta = '<span class="review-meta"' + title + '>Reviewed ' + esc(reviewedAt) + who
                  + (notes ? ' 🗒' : '') + '</span>';
           } else {
-            meta = '<span class="review-meta review-none">Not yet reviewed</span>';
+            const who = pm ? ' · PM: ' + esc(pm) : '';
+            meta = '<span class="review-meta review-none">Not yet reviewed' + who + '</span>';
           }
         }
         badgeCell.innerHTML = '<span class="badge badge-' + color + staleClass + '">' + emoji + ' ' + label + ackMark + '</span>' + meta;
@@ -704,6 +709,7 @@
       // them without re-parsing. Empty string = never reviewed.
       return '<tr data-status="green" data-review="unknown" data-stage="' + esc(p.stage) + '"'
            + ' data-rep="' + esc(rep) + '" data-owner="' + esc(owner) + '"'
+           + ' data-project-manager="' + esc(p.project_manager || '') + '"'
            + ' data-stage-entered-at="' + esc(p.stage_entered_at || '') + '"'
            + ' data-last-reviewed-at="' + esc(p.last_reviewed_at || '') + '"'
            + ' data-last-reviewed-by="' + esc(p.last_reviewed_by || '') + '"'
