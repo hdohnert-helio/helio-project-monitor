@@ -23,6 +23,11 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
+        with:
+          # Full history so `git pull --rebase` in the push-retry loop
+          # below has enough to rebase onto if another commit lands on
+          # main between checkout and push.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -50,8 +55,24 @@ jobs:
                   pipeline_velocity.json pipeline_velocity-*.json
           if git diff --cached --quiet; then
             echo "No data changes this run — skipping commit."
-          else
-            stamp=$(date -u +%Y-%m-%dT%H:%MZ)
-            git commit -m "Refresh pipeline data ($stamp)"
-            git push
+            exit 0
           fi
+
+          stamp=$(date -u +%Y-%m-%dT%H:%MZ)
+          git commit -m "Refresh pipeline data ($stamp)"
+
+          # Push with rebase-and-retry. The concurrency guard keeps two
+          # scheduled runs from racing each other, but a manual commit
+          # to main during an in-flight run will still cause a
+          # non-fast-forward rejection. Rebase our single data commit
+          # onto whatever landed and try again, up to 5 times.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt) — rebasing on origin/main and retrying."
+            git pull --rebase --autostash origin main
+          done
+
+          echo "Push still failing after 5 attempts — giving up." >&2
+          exit 1
