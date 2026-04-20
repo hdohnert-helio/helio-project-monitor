@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-19T19:00:50.840739Z",
-  "generated_at_label": "Sun Apr 19, 2026 · 3:00 PM ET",
+  "generated_at": "2026-04-20T12:08:38.822085Z",
+  "generated_at_label": "Mon Apr 20, 2026 · 8:08 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 10,
   "projects": [
@@ -26,7 +26,7 @@
       "project_id": "PROJ-1599",
       "customer": "Jacob Rastegar",
       "stage": "Permitting",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000083195007"
@@ -35,7 +35,7 @@
       "project_id": "PROJ-1572",
       "customer": "Gregory Lippert",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000070723058"
@@ -44,7 +44,7 @@
       "project_id": "PROJ-1517",
       "customer": "Melissa Conte",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000065253003"
@@ -53,7 +53,7 @@
       "project_id": "PROJ-1505",
       "customer": "Julie Rusch/Vasile & David Rusch",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000064402103"
@@ -62,7 +62,7 @@
       "project_id": "PROJ-1373",
       "customer": "Tripp Killin",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000053763001"
@@ -71,7 +71,7 @@
       "project_id": "PROJ-1372",
       "customer": "Daniel Ghazal",
       "stage": "Witness Test / PTO",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000053567062"
@@ -80,7 +80,7 @@
       "project_id": "PROJ-1360",
       "customer": "Nicole Lara",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000050609019"
@@ -89,7 +89,7 @@
       "project_id": "PROJ-1356",
       "customer": "Olumide Adebayo",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "zoho_record_id": "5264387000049898092"

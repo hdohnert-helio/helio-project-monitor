@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-19T19:00:50.840739Z",
-  "generated_at_label": "Sun Apr 19, 2026 · 3:00 PM ET",
+  "generated_at": "2026-04-20T12:08:38.822085Z",
+  "generated_at_label": "Mon Apr 20, 2026 · 8:08 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 19,
   "projects": [
@@ -8,7 +8,7 @@
       "project_id": "PROJ-1602",
       "customer": "Marion Hinze",
       "stage": "Interconnection",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Scott Webb",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000084118015"
@@ -26,7 +26,7 @@
       "project_id": "PROJ-1596",
       "customer": "Marie Souffrant",
       "stage": "Permitting",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000082755001"
@@ -35,7 +35,7 @@
       "project_id": "PROJ-1592",
       "customer": "Gerold Rajesh",
       "stage": "Procurement & Scheduling",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000081037027"
@@ -44,7 +44,7 @@
       "project_id": "PROJ-1586",
       "customer": "Charles Casey | Crystal Casey",
       "stage": "Interconnection",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000079311044"
@@ -62,7 +62,7 @@
       "project_id": "PROJ-1581",
       "customer": "Sanjay Patel",
       "stage": "Procurement & Scheduling",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000075613005"
@@ -71,7 +71,7 @@
       "project_id": "PROJ-1576",
       "customer": "Frank & Josephine LaFauci",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000072342015"
@@ -80,7 +80,7 @@
       "project_id": "PROJ-1567",
       "customer": "Dumitru Pamint",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000068422033"
@@ -89,7 +89,7 @@
       "project_id": "PROJ-1563",
       "customer": "James Quilter",
       "stage": "Witness Test / PTO",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000067666066"
@@ -98,7 +98,7 @@
       "project_id": "PROJ-1555",
       "customer": "Lukasz Grazda",
       "stage": "Witness Test / PTO",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000067213061"
@@ -107,7 +107,7 @@
       "project_id": "PROJ-1528",
       "customer": "Maritza Estremera | Jermaine Jorge",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000065662048"
@@ -116,7 +116,7 @@
       "project_id": "PROJ-1506",
       "customer": "Nelda Garcia",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000064588067"
@@ -125,7 +125,7 @@
       "project_id": "PROJ-1475",
       "customer": "Angelica Bryan - NJ",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000063042027"
@@ -134,7 +134,7 @@
       "project_id": "PROJ-1472",
       "customer": "Vijaya Chilukuri",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Michael D'Angelo",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000062575179"
@@ -143,7 +143,7 @@
       "project_id": "PROJ-1461",
       "customer": "Mahlon Stewart",
       "stage": "Active Installation",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000061531063"
@@ -152,7 +152,7 @@
       "project_id": "PROJ-1444",
       "customer": "Thomas Ajello",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Butch Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000060390063"
@@ -161,7 +161,7 @@
       "project_id": "PROJ-1375",
       "customer": "Peter & Leeann Tebben",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000054414060"
@@ -170,7 +170,7 @@
       "project_id": "PROJ-1325",
       "customer": "Kerry Hensley | Craig Stearns",
       "stage": "Energized",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "zoho_record_id": "5264387000047077013"
