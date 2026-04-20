@@ -273,11 +273,13 @@
     const ownerVal=ownerSel?ownerSel.value:'';
     document.querySelectorAll('#tableBody tr').forEach(row=>{
       // 'stale' is a pseudo-status: any row (red or yellow) that hasn't been
-      // reviewed since it entered its current stage. Base color is in
-      // data-status; staleness is on data-review.
+      // reviewed since it entered its current stage. Green rows can also carry
+      // data-review="stale" now (to drive the ack-check on reviewed greens),
+      // but they don't count toward the Stale filter — green + stale is
+      // informational, not actionable.
       let statusOk;
       if (currentStatusFilter==='all') statusOk=true;
-      else if (currentStatusFilter==='stale') statusOk=row.dataset.review==='stale';
+      else if (currentStatusFilter==='stale') statusOk=(row.dataset.review==='stale' && row.dataset.status!=='green');
       else statusOk=row.dataset.status===currentStatusFilter;
       const stageOk=!activeStageFilter||row.dataset.stage===activeStageFilter;
       const repOk=!repVal||row.dataset.rep===repVal;
@@ -447,10 +449,12 @@
 
   // Classify review state. Returns:
   //   'reviewed'    — reviewed after (or at) current stage entry
-  //   'stale'       — red or yellow, and NOT reviewed after current stage entry
-  //   'na'          — green (review state doesn't surface on green rows)
-  function classifyReview(slaStatus, stageEnteredAt, lastReviewedAt){
-    if (slaStatus === 'green') return 'na';
+  //   'stale'       — NOT reviewed after current stage entry
+  // Computed for all rows, including green. The filter/badge logic below
+  // only applies the *urgent* stale treatment (red outline, stale filter,
+  // alert counts) to red+yellow rows — green + stale is informational, not
+  // actionable.
+  function classifyReview(stageEnteredAt, lastReviewedAt){
     const entered = _parseZohoDt(stageEnteredAt);
     const reviewed = _parseZohoDt(lastReviewedAt);
     // No stage-entry timestamp (shouldn't happen) → treat as stale so it
@@ -478,37 +482,44 @@
       const status = classify(stage, days, slas);
       row.dataset.status = status;
 
-      const review = classifyReview(status, row.dataset.stageEnteredAt, row.dataset.lastReviewedAt);
+      const review = classifyReview(row.dataset.stageEnteredAt, row.dataset.lastReviewedAt);
       row.dataset.review = review;
-      if (review === 'stale') totalStale++;
+      // "Stale" count + filter only applies to non-green rows — a green
+      // project that's never been reviewed isn't actionable.
+      const urgentStale = (review === 'stale' && status !== 'green');
+      if (urgentStale) totalStale++;
 
       const badgeCell = cells[4];
       if (badgeCell){
         const color = status === 'green' ? 'green' : status === 'yellow' ? 'yellow' : 'red';
         const emoji = status === 'green' ? '🟢' : status === 'yellow' ? '🟡' : '🔴';
         const label = status.charAt(0).toUpperCase() + status.slice(1);
-        const staleClass = review === 'stale' ? ' badge-stale' : '';
+        // Red outline only on actionable-stale rows (non-green).
+        const staleClass = urgentStale ? ' badge-stale' : '';
+        // Ack-check on any row that's been reviewed since entering current
+        // stage, green included (positive affirmation on green rows).
         const ackMark = review === 'reviewed' ? '<span class="ack-check" title="Reviewed since entering this stage">✓</span>' : '';
 
-        // Review metadata line under the badge — only on non-green rows.
+        // Review metadata line under the badge — shown on EVERY row now.
         // Attribution uses the assigned Project Manager (data-project-manager),
         // NOT Last_Reviewed_By (which is whoever clicked the button — that
         // field is still there for audit, but the dashboard surfaces the PM
         // responsible for the project).
-        let meta = '';
-        if (status !== 'green'){
-          const pm = row.dataset.projectManager || '';
-          const reviewedAt = _fmtReviewDate(row.dataset.lastReviewedAt);
-          const notes = row.dataset.lastReviewNotes || '';
-          if (reviewedAt){
-            const who = pm ? ' · PM: ' + esc(pm) : '';
-            const title = notes ? ' title="' + esc(notes) + '"' : '';
-            meta = '<span class="review-meta"' + title + '>Reviewed ' + esc(reviewedAt) + who
-                 + (notes ? ' 🗒' : '') + '</span>';
-          } else {
-            const who = pm ? ' · PM: ' + esc(pm) : '';
-            meta = '<span class="review-meta review-none">Not yet reviewed' + who + '</span>';
-          }
+        const pm = row.dataset.projectManager || '';
+        const reviewedAt = _fmtReviewDate(row.dataset.lastReviewedAt);
+        const notes = row.dataset.lastReviewNotes || '';
+        const who = pm ? ' · PM: ' + esc(pm) : '';
+        let meta;
+        if (reviewedAt){
+          const title = notes ? ' title="' + esc(notes) + '"' : '';
+          meta = '<span class="review-meta"' + title + '>Reviewed ' + esc(reviewedAt) + who
+               + (notes ? ' 🗒' : '') + '</span>';
+        } else {
+          // Red "Not yet reviewed" only on actionable-stale (non-green) rows.
+          // On green rows keep it neutral grey — informational, not a call
+          // to action.
+          const cls = urgentStale ? 'review-meta review-none' : 'review-meta';
+          meta = '<span class="' + cls + '">Not yet reviewed' + who + '</span>';
         }
         badgeCell.innerHTML = '<span class="badge badge-' + color + staleClass + '">' + emoji + ' ' + label + ackMark + '</span>' + meta;
       }
