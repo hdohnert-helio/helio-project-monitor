@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-20T17:17:24.645336Z",
+  "generated_at": "2026-04-20T17:35:10.786992Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 77,
   "transitions": [
@@ -47,9 +47,9 @@
     {
       "stage": "Project Intake",
       "sample_count": 1,
-      "open_count": 1,
-      "median_days": 0.011765497372685186,
-      "p75_days": 0.011765497372685186
+      "open_count": 0,
+      "median_days": 0.024105099872685186,
+      "p75_days": 0.024105099872685186
     },
     {
       "stage": "Site Survey",
