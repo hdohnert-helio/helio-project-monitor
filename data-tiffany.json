@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-21T12:03:25.555144Z",
-  "generated_at_label": "Tue Apr 21, 2026 · 8:03 AM ET",
+  "generated_at": "2026-04-21T19:21:32.810955Z",
+  "generated_at_label": "Tue Apr 21, 2026 · 3:21 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 10,
   "projects": [
@@ -9,7 +9,7 @@
       "customer": "Kevin Andersen",
       "stage": "Interconnection",
       "stage_entered_at": "2026-04-17T14:05:00-04:00",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -23,7 +23,7 @@
       "customer": "Charles Thomas",
       "stage": "On Hold",
       "stage_entered_at": "2026-04-20T11:13:00-04:00",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",

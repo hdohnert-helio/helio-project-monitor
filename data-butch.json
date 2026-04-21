@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-21T12:03:25.555144Z",
-  "generated_at_label": "Tue Apr 21, 2026 · 8:03 AM ET",
+  "generated_at": "2026-04-21T19:21:32.810955Z",
+  "generated_at_label": "Tue Apr 21, 2026 · 3:21 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 19,
   "projects": [
@@ -23,7 +23,7 @@
       "customer": "Scott Webb",
       "stage": "Permitting",
       "stage_entered_at": "2026-04-17T11:45:00-04:00",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -79,7 +79,7 @@
       "customer": "Nilo Torres",
       "stage": "On Hold",
       "stage_entered_at": "2026-04-15T11:00:00-04:00",
-      "days_in_stage": 5,
+      "days_in_stage": 6,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
