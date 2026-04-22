@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21T19:21:32.810955Z",
+  "generated_at": "2026-04-22T12:02:10.442506Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 77,
   "transitions": [
@@ -90,8 +90,8 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 1.0033011646412038,
-      "p75_days": 1.0033011646412038
+      "median_days": 1.6981811594444443,
+      "p75_days": 1.6981811594444443
     },
     {
       "stage": "Active Installation",
