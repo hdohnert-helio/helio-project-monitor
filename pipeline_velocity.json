@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-23T12:02:29.765277Z",
+  "generated_at": "2026-04-23T19:21:52.467080Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "project_count": 77,
+  "project_count": 78,
   "transitions": [
     {
       "label": "Sold to Install Ready",
@@ -90,8 +90,8 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 1.6960540255266205,
-      "p75_days": 2.1972294140769675
+      "median_days": 2.0011778889872684,
+      "p75_days": 2.5023532775376154
     },
     {
       "stage": "Active Installation",
