@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-23T19:21:52.467080Z",
+  "generated_at": "2026-04-24T12:01:14.771906Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "project_count": 78,
+  "project_count": 79,
   "transitions": [
     {
       "label": "Sold to Install Ready",
@@ -90,15 +90,15 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 2.0011778889872684,
-      "p75_days": 2.5023532775376154
+      "median_days": 2.6951860466956017,
+      "p75_days": 3.196361435245949
     },
     {
       "stage": "Active Installation",
-      "sample_count": 0,
-      "open_count": 0,
-      "median_days": null,
-      "p75_days": null
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 0.6940081577083334,
+      "p75_days": 0.6940081577083334
     },
     {
       "stage": "Inspection",
@@ -116,10 +116,10 @@
     },
     {
       "stage": "Energized",
-      "sample_count": 0,
-      "open_count": 0,
-      "median_days": null,
-      "p75_days": null
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 0.6940081577083334,
+      "p75_days": 0.6940081577083334
     }
   ],
   "notes": [
