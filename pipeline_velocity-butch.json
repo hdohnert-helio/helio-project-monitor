@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-25T11:42:53.665074Z",
+  "generated_at": "2026-04-25T19:02:57.611854Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "project_count": 20,
+  "project_count": 21,
   "transitions": [
     {
       "label": "Sold to Install Ready",
@@ -48,8 +48,8 @@
       "stage": "Project Intake",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 0.9872557079629629,
-      "p75_days": 0.9872557079629629
+      "median_days": 1.2928569438425925,
+      "p75_days": 1.2928569438425925
     },
     {
       "stage": "Site Survey",
@@ -97,8 +97,8 @@
       "stage": "Active Installation",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 1.6812638656712962,
-      "p75_days": 1.6812638656712962
+      "median_days": 1.9868651015509258,
+      "p75_days": 1.9868651015509258
     },
     {
       "stage": "Inspection",
