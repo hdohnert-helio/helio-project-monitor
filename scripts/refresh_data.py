@@ -54,7 +54,11 @@ ACTIVE_STAGES_SET = set(ACTIVE_STAGES)
 FIELDS = (
     "Project_ID,Name,Project_Stage,Sales_Representative,"
     "Project_Owner,Project_Manager,Date_of_Stage_Change,"
-    "Last_Reviewed_At,Last_Reviewed_By,Last_Review_Notes"
+    "Last_Reviewed_At,Last_Reviewed_By,Last_Review_Notes,"
+    # Cash flow tracker fields (consumed by scripts/cashflow.py).
+    "Contract_Total,Financing_Type,Lending_Status,"
+    "Substantial_Completion,Utility_PTO,Permit_Approved,"
+    "ICA_Contingent_Approval,Projected_Install_Date,Project_Created_Date"
 )
 
 # Stage-change tracking was enabled in Zoho on 2026-04-16. Records that
@@ -582,6 +586,10 @@ def _write_velocity(path: Path, payload: dict, view_label: str | None = None) ->
 
 
 def main() -> int:
+    # Local import so the cashflow module's import-time work doesn't run
+    # for any caller that imports refresh_data without invoking main().
+    from cashflow import compute_cashflow, apply_filter as cf_apply_filter
+
     token = get_access_token()
     raw = fetch_installs(token)
     projects = build_projects(raw)
@@ -592,6 +600,19 @@ def main() -> int:
     # Always write the full data.json (admin / default view).
     _write_payload(repo_root / "data.json", projects, now)
     print(f"Wrote {len(projects)} projects → data.json")
+
+    # Compute the cash flow forecast (separate concern from velocity / pipeline
+    # tracking — see scripts/cashflow.py for the schedule rules and lender
+    # lag assumptions). Writes cashflow.json and per-view cashflow-{slug}.json.
+    cashflow_payload = compute_cashflow(raw, now)
+    cf_path = repo_root / "cashflow.json"
+    cf_path.write_text(
+        json.dumps(cashflow_payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    print(f"Wrote {cashflow_payload['summary']['project_count']} cash flow "
+          f"projects → cashflow.json "
+          f"(outstanding ${cashflow_payload['summary']['total_outstanding']:,.0f})")
 
     # Update the persistent stage-history store and derive velocity stats.
     history_path = repo_root / "stage_history.json"
@@ -641,6 +662,20 @@ def main() -> int:
             _write_velocity(v_out, v_payload, view_label=label)
             print(f"Wrote velocity {v_out.name} "
                   f"({v_payload['project_count']} projects scope)")
+
+            # Per-view cash flow file. Uses the same owners/reps filter the
+            # data and velocity payloads use, so a ?view=<slug> URL is
+            # consistently scoped across all three datasets.
+            cf_view = cf_apply_filter(cashflow_payload, flt)
+            cf_view["view_label"] = label
+            cf_view_path = repo_root / f"cashflow-{slug}.json"
+            cf_view_path.write_text(
+                json.dumps(cf_view, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+            print(f"Wrote cashflow {cf_view_path.name} "
+                  f"({cf_view['summary']['project_count']} projects, "
+                  f"${cf_view['summary']['total_outstanding']:,.0f} outstanding)")
 
     print(f"(raw Zoho rows fetched: {len(raw)})")
     return 0
