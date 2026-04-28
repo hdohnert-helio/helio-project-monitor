@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-28T12:25:49.645846Z",
+  "generated_at": "2026-04-28T19:04:28.346117Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 21,
   "transitions": [
@@ -46,10 +46,10 @@
     },
     {
       "stage": "Project Intake",
-      "sample_count": 1,
-      "open_count": 1,
-      "median_days": 4.017070300231482,
-      "p75_days": 4.017070300231482
+      "sample_count": 2,
+      "open_count": 2,
+      "median_days": 2.2853719588078705,
+      "p75_days": 3.289639533865741
     },
     {
       "stage": "Site Survey",
@@ -96,9 +96,9 @@
     {
       "stage": "Active Installation",
       "sample_count": 1,
-      "open_count": 1,
-      "median_days": 4.7110784579398155,
-      "p75_days": 4.7110784579398155
+      "open_count": 0,
+      "median_days": 4.987915266631944,
+      "p75_days": 4.987915266631944
     },
     {
       "stage": "Inspection",

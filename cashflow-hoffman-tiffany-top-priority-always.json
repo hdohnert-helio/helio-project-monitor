@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-04-28T19:04:28.346117Z",
+  "today": "2026-04-28",
+  "weeks": [
+    {
+      "index": 0,
+      "start": "2026-04-27",
+      "end": "2026-05-03",
+      "label": "Wk 04/27"
+    },
+    {
+      "index": 1,
+      "start": "2026-05-04",
+      "end": "2026-05-10",
+      "label": "Wk 05/04"
+    },
+    {
+      "index": 2,
+      "start": "2026-05-11",
+      "end": "2026-05-17",
+      "label": "Wk 05/11"
+    },
+    {
+      "index": 3,
+      "start": "2026-05-18",
+      "end": "2026-05-24",
+      "label": "Wk 05/18"
+    },
+    {
+      "index": 4,
+      "start": "2026-05-25",
+      "end": "2026-05-31",
+      "label": "Wk 05/25"
+    },
+    {
+      "index": 5,
+      "start": "2026-06-01",
+      "end": "2026-06-07",
+      "label": "Wk 06/01"
+    },
+    {
+      "index": 6,
+      "start": "2026-06-08",
+      "end": "2026-06-14",
+      "label": "Wk 06/08"
+    },
+    {
+      "index": 7,
+      "start": "2026-06-15",
+      "end": "2026-06-21",
+      "label": "Wk 06/15"
+    },
+    {
+      "index": 8,
+      "start": "2026-06-22",
+      "end": "2026-06-28",
+      "label": "Wk 06/22"
+    },
+    {
+      "index": 9,
+      "start": "2026-06-29",
+      "end": "2026-07-05",
+      "label": "Wk 06/29"
+    },
+    {
+      "index": 10,
+      "start": "2026-07-06",
+      "end": "2026-07-12",
+      "label": "Wk 07/06"
+    },
+    {
+      "index": 11,
+      "start": "2026-07-13",
+      "end": "2026-07-19",
+      "label": "Wk 07/13"
+    }
+  ],
+  "weekly_totals": {
+    "Wk 04/27": 0.0,
+    "Wk 05/04": 0.0,
+    "Wk 05/11": 27720.32,
+    "Wk 05/18": 19452.0,
+    "Wk 05/25": 0.0,
+    "Wk 06/01": 0.0,
+    "Wk 06/08": 0.0,
+    "Wk 06/15": 0.0,
+    "Wk 06/22": 0.0,
+    "Wk 06/29": 0.0,
+    "Wk 07/06": 0.0,
+    "Wk 07/13": 0.0,
+    "Past-due": 19437.76,
+    "Unscheduled": 0.0,
+    "Beyond 12 wks": 0.0
+  },
+  "summary": {
+    "project_count": 4,
+    "total_outstanding": 109727.18,
+    "total_collected": 54532.0,
+    "this_week": 0.0,
+    "next_30_days": 47172.32,
+    "past_due": 19437.76,
+    "unscheduled": 0.0
+  },
+  "projects": [
+    {
+      "project_id": "PROJ-1605",
+      "customer": "Kevin Andersen",
+      "stage": "Interconnection",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Doug Hoffman",
+      "project_manager": "David Fargnoli",
+      "zoho_record_id": "5264387000085058051",
+      "financing_type": "Cash",
+      "lending_status": "Cash - 20PCT deposit paid",
+      "lender": "Cash",
+      "contract_total": 32420.0,
+      "pct_collected": 0.2,
+      "dollars_collected": 6484.0,
+      "dollars_outstanding": 25936.0,
+      "next_milestone": "Pre-install (60%)",
+      "next_milestone_pct": 0.6,
+      "next_dollar": 19452.0,
+      "forecast_date": "2026-05-22",
+      "anchor_source": "Project_Created_Date + 45d (heuristic) − 7d",
+      "flags": [],
+      "bucket": "Wk 05/18"
+    },
+    {
+      "project_id": "PROJ-1599",
+      "customer": "Jacob Rastegar",
+      "stage": "Active Installation",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Douglas Hoffman",
+      "project_manager": "David Fargnoli",
+      "zoho_record_id": "5264387000083195007",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
+      "contract_total": 34650.4,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 34650.4,
+      "next_milestone": "Install package",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 27720.32,
+      "forecast_date": "2026-05-14",
+      "anchor_source": "Projected_Install_Date + 14d",
+      "flags": [],
+      "bucket": "Wk 05/11"
+    },
+    {
+      "project_id": "PROJ-1538",
+      "customer": "Richard Desrochers",
+      "stage": "Sales Ops Review",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Doug Hoffman",
+      "project_manager": "David Fargnoli",
+      "zoho_record_id": "5264387000066249125",
+      "financing_type": "Cash",
+      "lending_status": "Cash - 20PCT deposit invoiced",
+      "lender": "Cash",
+      "contract_total": 37128.78,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 37128.78,
+      "next_milestone": "Deposit (20%) — invoiced",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 7425.76,
+      "forecast_date": "2025-09-30",
+      "anchor_source": "Project_Created_Date",
+      "flags": [],
+      "bucket": "Past-due"
+    },
+    {
+      "project_id": "PROJ-1372",
+      "customer": "Daniel Ghazal",
+      "stage": "Witness Test / PTO",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Douglas Hoffman",
+      "project_manager": "David Fargnoli",
+      "zoho_record_id": "5264387000053567062",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - Install Package Paid",
+      "lender": "LR",
+      "contract_total": 60060.0,
+      "pct_collected": 0.8,
+      "dollars_collected": 48048.0,
+      "dollars_outstanding": 12012.0,
+      "next_milestone": "Activation package",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 12012.0,
+      "forecast_date": "2026-04-02",
+      "anchor_source": "Substantial_Completion + 30d + 14d (rough)",
+      "flags": [],
+      "bucket": "Past-due"
+    }
+  ],
+  "view_label": "Douglas Hoffman + Team"
+}
