@@ -142,8 +142,15 @@
   .modal-footer button.primary{background:#1a1a2e;color:white;border-color:#1a1a2e}
   .modal-footer button.primary:hover{background:#f5a623;color:#1a1a2e;border-color:#f5a623}
   .modal-footer button:hover{border-color:#1a1a2e}
-  /* CASH FLOW — sits below the project table */
-  .cashflow-section{margin-top:8px}
+  /* TAB BAR */
+  .tab-bar{display:flex;gap:0;margin-bottom:18px;border-bottom:1px solid #e0e0e0;padding-top:4px}
+  .tab-btn{padding:12px 24px;border:none;background:transparent;color:#888;font-size:14px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color 0.15s,border-color 0.15s}
+  .tab-btn:hover{color:#1a1a2e}
+  .tab-btn.active{color:#1a1a2e;border-bottom-color:#1a1a2e}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+  /* CASH FLOW — its own tab */
+  .cashflow-section{margin-top:0}
   .cf-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
   .cf-summary .card .value{font-size:24px}
   .cf-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:12px;cursor:default;padding:1px 4px;border-radius:4px;transition:background 0.15s}
@@ -182,6 +189,11 @@
   </div>
 </header>
 <div class="container">
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="pipeline" onclick="switchTab('pipeline')">📊 Pipeline</button>
+    <button class="tab-btn" data-tab="cashflow" onclick="switchTab('cashflow')">💵 Cash Flow</button>
+  </div>
+  <div id="pipelineTab" class="tab-panel active">
   <div class="summary">
     <div class="card total"><div class="label">Active Projects</div><div class="value">77</div><div class="sub">across active stages</div></div>
     <div class="card green"><div class="label">🟢 Green</div><div class="value">77</div><div class="sub">within SLA</div></div>
@@ -265,10 +277,11 @@
         <tr id="loadingRow"><td colspan="8" style="text-align:center;padding:32px;color:#888;font-size:13px">Loading pipeline data…</td></tr>
       </tbody></table>
   </div>
+  </div>
+  <div id="cashflowTab" class="tab-panel">
   <!-- Cash Flow Forecast — populated from cashflow.json (or cashflow-{slug}.json
-       for per-rep views). Hidden on load until renderCashflow runs; if the file
-       is missing the section stays hidden so we don't ship an empty shell. -->
-  <div class="cashflow-section" id="cashflowSection" style="display:none">
+       for per-rep views). Visibility now controlled by the tab-panel class. -->
+  <div class="cashflow-section" id="cashflowSection">
     <div class="section-title">Cash Flow Forecast — next 12 weeks</div>
     <div class="cf-summary" id="cfSummary"></div>
     <div class="chart-section" style="margin-bottom:18px">
@@ -298,6 +311,7 @@
         </tbody>
       </table>
     </div>
+  </div>
   </div>
 </div>
 <footer>Helio Solar Install Pipeline Monitor · <span id="footerTimestamp">loading…</span> · hdohnert@helio.solar</footer>
@@ -933,7 +947,9 @@
   function renderCashflow(payload){
     const section = document.getElementById('cashflowSection');
     if (!section || !payload) return;
-    section.style.display = 'block';
+    // Tab visibility is controlled by the tab-panel class; just clear any
+    // legacy display:none on the section itself.
+    section.style.display = '';
 
     // ---- Summary cards (5) ----
     const s = payload.summary || {};
@@ -941,8 +957,8 @@
       {label:'Total Outstanding',  value:_fmtMoney(s.total_outstanding), klass:'total',  sub:(s.project_count|0)+' projects'},
       {label:'This Week',          value:_fmtMoney(s.this_week),         klass:'green',  sub:''},
       {label:'Next 30 Days',       value:_fmtMoney(s.next_30_days),      klass:'yellow', sub:''},
-      {label:'Past-Due',           value:_fmtMoney(s.past_due),          klass:'red',    sub:'forecast in past'},
-      {label:'Unscheduled',        value:_fmtMoney(s.unscheduled),       klass:'total',  sub:'no anchor date'},
+      {label:'Past-Due',           value:_fmtMoney(s.past_due),          klass:'red',    sub:'real chase'},
+      {label:'Beyond 12 wks',      value:_fmtMoney(s.beyond_12_wks),     klass:'total',  sub:'further out'},
     ];
     document.getElementById('cfSummary').innerHTML = cards.map(c =>
       '<div class="card ' + c.klass + '">'
@@ -952,9 +968,9 @@
       + '</div>'
     ).join('');
 
-    // ---- Bar chart: Past-due | Wk 1..12 | Unscheduled ----
+    // ---- Bar chart: Past-due | Wk 1..12 | Beyond 12 wks ----
     const totals = payload.weekly_totals || {};
-    const labels = ['Past-due'].concat((payload.weeks || []).map(w => w.label)).concat(['Unscheduled']);
+    const labels = ['Past-due'].concat((payload.weeks || []).map(w => w.label)).concat(['Beyond 12 wks']);
     const values = labels.map(l => totals[l] || 0);
     const maxv = Math.max.apply(null, values.concat([1]));
     const firstWeekLabel = (payload.weeks && payload.weeks[0]) ? payload.weeks[0].label : null;
@@ -963,7 +979,7 @@
       const pct = maxv > 0 ? Math.max(0, (v / maxv) * 100) : 0;
       let klass = '';
       if (label === 'Past-due') klass = 'cf-past-due';
-      else if (label === 'Unscheduled') klass = 'cf-unscheduled';
+      else if (label === 'Beyond 12 wks') klass = 'cf-unscheduled';
       else if (label === firstWeekLabel) klass = 'cf-this-week';
       const empty = v <= 0;
       return '<div class="cf-bar-row' + (empty ? ' cf-empty' : '') + '">'
@@ -995,7 +1011,7 @@
       const url = 'https://crm.zoho.com/crm/heliosolar/tab/CustomModule6/'
         + encodeURIComponent(p.zoho_record_id || '') + '/canvas/' + canvasId;
       const rowClass = p.bucket === 'Past-due' ? 'cf-row-past-due'
-                     : (p.bucket === 'Unscheduled' || p.bucket === 'Beyond 12 wks') ? 'cf-row-unscheduled'
+                     : (p.bucket === 'Beyond 12 wks') ? 'cf-row-unscheduled'
                      : '';
       return '<tr class="' + rowClass + '">'
         + '<td><strong>' + esc(p.customer) + '</strong></td>'
@@ -1049,6 +1065,24 @@
     loadVelocity();
     // Cash flow is also optional and independent of pipeline classification.
     loadCashflow();
+  }
+
+  // -------- Tab switching --------
+  function switchTab(name){
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.tab === name);
+    });
+    document.querySelectorAll('.tab-panel').forEach(p => {
+      p.classList.toggle('active', p.id === name + 'Tab');
+    });
+    // Update URL hash so the active tab survives a refresh.
+    try { history.replaceState(null, '', '#' + name); } catch(e){}
+  }
+
+  // Honor #cashflow / #pipeline hash on initial load (e.g. shared links).
+  if (typeof window !== 'undefined' && window.location.hash){
+    const h = window.location.hash.replace('#', '').toLowerCase();
+    if (h === 'cashflow' || h === 'pipeline') switchTab(h);
   }
 
   bootstrapDashboard();

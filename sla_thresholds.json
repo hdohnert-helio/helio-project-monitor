@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "description": "Helio Install Pipeline SLA thresholds (days in stage). The 'green' value is the expected dwell — projects within this many days are green. The 'yellow' value is the SLA ceiling — exceeding it flags the project red on the dashboard. cashflow.py uses 'yellow' values as the expected dwell time when forecasting cash flow for projects that haven't yet reached the trigger stage. To adjust, edit this file and commit.",
+  "stages": {
+    "Sales Ops Review":          {"green": 1,  "yellow": 2},
+    "Project Intake":            {"green": 1,  "yellow": 2},
+    "Site Survey":               {"green": 3,  "yellow": 4},
+    "Engineering":               {"green": 2,  "yellow": 4},
+    "Plan Review":               {"green": 1,  "yellow": 2},
+    "Interconnection":           {"green": 10, "yellow": 14},
+    "Permitting":                {"green": 7,  "yellow": 10},
+    "Procurement & Scheduling":  {"green": 3,  "yellow": 5},
+    "Active Installation":       {"green": 14, "yellow": 21},
+    "Inspection":                {"green": 3,  "yellow": 5},
+    "Witness Test / PTO":        {"green": 14, "yellow": 28},
+    "Energized":                 {"green": 15, "yellow": 20},
+    "On Hold":                   {"green": 14, "yellow": 30}
+  }
+}

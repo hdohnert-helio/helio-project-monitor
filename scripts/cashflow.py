@@ -1,54 +1,41 @@
 #!/usr/bin/env python3
 """Cash flow forecast layer for the Helio Install pipeline.
 
-Consumes the same raw Zoho Installs rows that refresh_data.py fetches and
-produces a cashflow.json payload that the dashboard can render.
+Consumes raw Zoho Installs rows (the same feed refresh_data.py fetches) and
+produces a cashflow.json payload for the dashboard. The forecast model is
+stage-aware:
 
-Forecast model (Harry confirmed 2026-04-28):
+  Each cash milestone fires at a *trigger event* — almost always a stage
+  transition in the Zoho Installs blueprint (substantial completion =
+  Inspection entry, PTO = Energized entry, etc.). Resolution rules:
 
-  Each milestone fires at a *trigger event* — almost always a stage transition
-  in the Zoho Installs blueprint (substantial completion = Inspection entry,
-  PTO = Energized entry, etc.). For each project we compare the project's
-  current Project_Stage to the trigger's stage rank and route the milestone
-  into one of three states:
+    * If the trigger has fired and the lender lag has elapsed but
+      Lending_Status hasn't advanced to "Paid" / "Funded": Past-due.
+      This is the only path to past-due. Stage-time / SLA Red has zero
+      bearing — that's a velocity concern, not a cash collection one.
 
-    * trigger fired + lender lag elapsed + status not advanced → Past-due
-        (real chase: cash should already be in but isn't)
-    * trigger fired + payment expected in a near-future week → forecast bucket
-    * trigger NOT fired → estimate using current-stage signals and route to
-        a future weekly bucket (if estimate is realistic) or to the
-        "Awaiting [event]" bucket (if the estimate has already lapsed —
-        meaning the project is running slower than the heuristic predicted,
-        and surfacing it as past-due would be a false alarm because no
-        chase is warranted yet).
+    * If the trigger has fired and we're within the lag window or beyond:
+      forecast = trigger date + lender lag.
 
-  Trigger-event mapping (lender → milestone → trigger):
+    * If the trigger has not fired yet: forecast =
+        today + (sum of Yellow SLA dwells for current stage and every stage
+                 between here and the trigger stage) + lender lag.
+      Yellow values come from sla_thresholds.json at the repo root —
+      single source of truth shared with the dashboard's SLA system.
 
-    Cash 20% deposit      → signing (Project_Created_Date), 7-day grace
-    Cash 60% pre-install  → Active Installation entry (install start)
-    Cash 20% subst comp   → Inspection entry (substantial completion)
-    LR 80% install        → Inspection entry, +14d lender lag
-    LR 20% activation     → Energized entry, +14d lender lag
-    SG 90% install        → Inspection entry, +5d
-    SG 10% PTO            → Energized entry, +5d
-    CF 50% Phase 1        → Permit_Approved date, +5d
-    CF 50% Phase 2        → Witness Test / PTO entry, +5d
-    SE 1/3 loan docs      → Project_Created_Date + 14d (proxy)
-    SE 1/3 interconnection→ ICA_Contingent_Approval date, +5d
-    SE 1/3 PTO            → Energized entry, +5d
+  This means projects that are stuck in a stage stay forecastable (we
+  estimate "from today, full SLA timeline through remaining stages").
+  No more "Awaiting" buckets — every forecastable project lands on a
+  real future week or in Past-due.
 
-  Awaiting-stage estimates (when the trigger stage hasn't yet been entered):
+Schedule constants (Harry confirmed 2026-04-28):
 
-    For Energized-trigger milestones (LR/SG activation, SE PTO):
-      forecast = WT/PTO entry + 21d + lender lag
-      WT/PTO entry: Date_of_Stage_Change if currently at WT/PTO, else
-                    Substantial_Completion + 28d (Inspection takes a few
-                    weeks before WT/PTO entry).
-
-    For install-trigger milestones (LR/SG install, Cash 60%/20%subst,
-    CF Phase 2): standard install-anchor lookup —
-      Substantial_Completion → Projected_Install_Date → Permit_Approved + 7d
-      → Project_Created_Date + 45d.
+  Cash:    20% deposit (signing) / 60% pre-install / 20% subst comp.
+           Deposit gets a 7-day grace before flagging past-due.
+  LR:      80% install / 20% activation. Lender pays Helio. 14d processing.
+  SG:      90% install / 10% PTO. 5d processing.
+  CF:      50% Phase 1 (permit approved) / 50% Phase 2 (WT/PTO entry). 5d.
+  SE:      1/3 loan docs / 1/3 ICA approval / 1/3 PTO. 5d.
 """
 from __future__ import annotations
 
@@ -57,26 +44,14 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
-# Stages the cash flow tracker covers (pre-Energized). Energized appears in
-# STAGE_RANKS for trigger comparisons but isn't a current-state filter target —
-# Energized projects are out of cash-flow scope (their final milestone has
-# already paid, by the time the project gets there).
+# Stages the cash flow tracker covers (pre-Energized).
 ACTIVE_STAGES = {
-    "Sales Ops Review",
-    "Project Intake",
-    "Site Survey",
-    "Engineering",
-    "Plan Review",
-    "Interconnection",
-    "Permitting",
-    "Procurement & Scheduling",
-    "Active Installation",
-    "Inspection",
-    "Witness Test / PTO",
+    "Sales Ops Review", "Project Intake", "Site Survey", "Engineering",
+    "Plan Review", "Interconnection", "Permitting", "Procurement & Scheduling",
+    "Active Installation", "Inspection", "Witness Test / PTO",
 }
 
-# Pipeline-order ranks. Used for "has the trigger stage been entered yet?"
-# comparisons. On Hold = 0 because it's a side branch, not a forward step.
+# Pipeline-order ranks. On Hold = 0 (side branch).
 STAGE_RANKS: dict[str, int] = {
     "On Hold":                   0,
     "Sales Ops Review":          1,
@@ -94,38 +69,39 @@ STAGE_RANKS: dict[str, int] = {
     "Project Closeout":          13,
 }
 
-# Lending_Status (current Zoho picklist value) → (lender_code, % collected,
-# next milestone description, next milestone %).
+# Stages in pipeline order (excluding On Hold side branch).
+PIPELINE_STAGES = [
+    "Sales Ops Review", "Project Intake", "Site Survey", "Engineering",
+    "Plan Review", "Interconnection", "Permitting", "Procurement & Scheduling",
+    "Active Installation", "Inspection", "Witness Test / PTO", "Energized",
+]
+
+# Lending_Status → (lender_code, % collected, next milestone, next %).
 STATUS_MAP: dict[str, tuple[str, float, str, float]] = {
-    # Cash schedule: 20% deposit / 60% pre-install / 20% substantial completion
     "Cash - 20PCT deposit invoiced":          ("Cash", 0.00, "Deposit (20%) — invoiced",                0.20),
     "Cash - 20PCT deposit paid":              ("Cash", 0.20, "Pre-install (60%)",                       0.60),
     "Cash - 60PCT invoiced":                  ("Cash", 0.20, "Pre-install (60%) — invoiced",            0.60),
     "Cash - 60PCT paid":                      ("Cash", 0.80, "Substantial completion (20%)",            0.20),
     "Cash - 20PCT final invoiced":            ("Cash", 0.80, "Substantial completion (20%) — invoiced", 0.20),
     "Cash - paid in full":                    ("Cash", 1.00, "—",                                       0.00),
-    # Lightreach (Lease/PPA): 80% at install / 20% at PTO
     "LightReach":                             ("LR",   0.00, "Install package",                  0.80),
     "LR - NTP":                               ("LR",   0.00, "Install package",                  0.80),
     "LR - Install Package Submitted":         ("LR",   0.00, "Install package — submitted",      0.80),
     "LR - Install Package Paid":              ("LR",   0.80, "Activation package",               0.20),
     "LR - Activation Package Submitted":      ("LR",   0.80, "Activation package — submitted",   0.20),
     "LR - Activation Package Paid":           ("LR",   1.00, "—",                                0.00),
-    # Sungage (loan): 90% at install / 10% at PTO
     "Sungage":                                ("SG",   0.00, "Install package",                  0.90),
     "SG - NTP":                               ("SG",   0.00, "Install package",                  0.90),
     "SG - Install Package Submitted":         ("SG",   0.00, "Install package — submitted",      0.90),
     "SG - Install Package Paid":              ("SG",   0.90, "PTO package",                      0.10),
     "SG - PTO Package Submitted":             ("SG",   0.90, "PTO package — submitted",          0.10),
     "SG - PTO Package Paid":                  ("SG",   1.00, "—",                                0.00),
-    # ClimateFirst (loan): 50% at permit issue / 50% at WT/PTO entry
     "ClimateFirst":                           ("CF",   0.00, "Phase 1 (50%) — permit issued",    0.50),
     "CF - NTP":                               ("CF",   0.00, "Phase 1 (50%) — permit issued",    0.50),
     "CF - Phase 1 Submitted":                 ("CF",   0.00, "Phase 1 funded (50%)",             0.50),
     "CF - Phase 1 Funded":                    ("CF",   0.50, "Phase 2 (50%) — WT/PTO entry",     0.50),
     "CF - Phase 2 Submitted":                 ("CF",   0.50, "Phase 2 funded (50%)",             0.50),
     "CF - Phase 2 Funded":                    ("CF",   1.00, "—",                                0.00),
-    # Smart-E (loan): 1/3 loan docs / 1/3 interconnection / 1/3 PTO
     "SE - Application Submitted":             ("SE",   0.00,   "1/3 — loan docs signed",           0.3333),
     "SE - Loan Closed 1/3 Payment Funded":    ("SE",   0.3333, "1/3 — interconnection approval",   0.3333),
     "SE- Final 1/3 Payment Funded":           ("SE",   0.6667, "1/3 — PTO (CHECK mapping)",        0.3333),
@@ -133,14 +109,67 @@ STATUS_MAP: dict[str, tuple[str, float, str, float]] = {
 }
 
 LENDER_LAGS = {"LR": 14, "SG": 5, "CF": 5, "SE": 5, "Cash": 0}
+CASH_DEPOSIT_GRACE_DAYS = 7
+SE_LOAN_DOCS_PROXY_DAYS = 14   # Project_Created + 14d (no native field)
 
-# Heuristic constants.
-PERMIT_TO_INSTALL_DAYS = 7        # Permit_Approved → est. install
-CREATION_TO_INSTALL_DAYS = 45     # Project_Created → est. install
-SC_TO_WT_PTO_DAYS = 28            # Substantial_Completion → est. WT/PTO entry
-WT_PTO_TO_ENERGIZED_DAYS = 21     # WT/PTO entry → est. Energized entry
-CASH_DEPOSIT_GRACE_DAYS = 7       # Project_Created → deposit-overdue threshold
-SE_LOAN_DOCS_PROXY_DAYS = 14      # Project_Created → est. loan docs signed
+
+def _load_sla_thresholds() -> dict:
+    """Load Yellow SLA values from sla_thresholds.json at repo root.
+
+    The 'yellow' field is the SLA ceiling per stage — used here as the
+    expected dwell time when forecasting forward. Falls back to 14d per
+    stage if the file is missing (defensive default for first deploy)."""
+    repo_root = Path(__file__).resolve().parent.parent
+    path = repo_root / "sla_thresholds.json"
+    if not path.exists():
+        return {s: {"green": 7, "yellow": 14} for s in PIPELINE_STAGES}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {s: {"green": 7, "yellow": 14} for s in PIPELINE_STAGES}
+    return data.get("stages", {})
+
+
+_SLA_CACHE: Optional[dict] = None
+
+
+def _sla() -> dict:
+    global _SLA_CACHE
+    if _SLA_CACHE is None:
+        _SLA_CACHE = _load_sla_thresholds()
+    return _SLA_CACHE
+
+
+def _yellow(stage: str) -> int:
+    """Yellow SLA value for a stage, in days. Defaults to 14 if missing."""
+    s = _sla().get(stage)
+    if not s:
+        return 14
+    return int(s.get("yellow", 14))
+
+
+def _remaining_days_to_rank(current_stage: str, target_rank: int) -> int:
+    """Sum Yellow dwells for stages from current_stage's rank up to (but
+    not including) target_rank. Used to estimate "from today, how many
+    days until the project enters the trigger stage."
+
+    Example: at Interconnection (rank 6), target rank 10 (Inspection):
+      Yellow(Interconnection) + Yellow(Permitting) + Yellow(P&S) + Yellow(AI)
+      = 14 + 10 + 5 + 21 = 50 days.
+
+    If the current stage's rank is already >= target, returns 0.
+    """
+    if current_stage not in STAGE_RANKS:
+        return 0
+    current_rank = STAGE_RANKS[current_stage]
+    if current_rank >= target_rank:
+        return 0
+    total = 0
+    for s in PIPELINE_STAGES:
+        rank = STAGE_RANKS.get(s, 0)
+        if current_rank <= rank < target_rank:
+            total += _yellow(s)
+    return total
 
 
 def _parse_date(s: Optional[str]) -> Optional[date]:
@@ -160,7 +189,6 @@ def _add_days(d: Optional[date], n: int) -> Optional[date]:
 
 
 def _infer_financing_type(financing_type: Optional[str], lending_status: Optional[str]) -> str:
-    """Derive Financing_Type from Lending_Status when the field is null."""
     if financing_type:
         return financing_type
     if not lending_status:
@@ -174,82 +202,49 @@ def _infer_financing_type(financing_type: Optional[str], lending_status: Optiona
     return ""
 
 
-# ---------------------------------------------------------------------------
-# Trigger metadata per milestone
-# ---------------------------------------------------------------------------
-# Returns (trigger_event_label, trigger_stage_rank, awaiting_label_for_bucket).
-# trigger_stage_rank is None for date-driven triggers (CF Phase 1 = Permit_Approved
-# is set, SE interconnection = ICA_Contingent_Approval set) — those use a date
-# field instead of a stage rank.
-
-def _trigger_for(lender: str, next_desc: str) -> tuple[str, Optional[int], str]:
+def _trigger_for(lender: str, next_desc: str) -> tuple[str, Optional[int]]:
+    """Returns (trigger_event_label, trigger_stage_rank). trigger_stage_rank
+    is None for date-driven triggers (CF Phase 1 = Permit_Approved,
+    SE interconnection = ICA_Contingent_Approval)."""
     nd = next_desc.lower()
     if lender == "Cash":
-        if "deposit" in nd:        return ("signing",                 0,  "Awaiting deposit settlement")
-        if "pre-install" in nd:    return ("install start",           9,  "Awaiting install start")
-        if "substantial" in nd:    return ("substantial completion",  10, "Awaiting substantial completion")
+        if "deposit" in nd:        return ("signing",                 0)
+        if "pre-install" in nd:    return ("install start",           9)
+        if "substantial" in nd:    return ("substantial completion",  10)
     elif lender in ("LR", "SG"):
-        if "install" in nd:        return ("substantial completion",  10, "Awaiting substantial completion")
+        if "install" in nd:        return ("substantial completion",  10)
         if "activation" in nd or "PTO" in next_desc:
-            return ("Energized (PTO granted)", 12, "Awaiting PTO")
+            return ("Energized (PTO granted)", 12)
     elif lender == "CF":
-        if "phase 1" in nd:        return ("permit approval",         None, "Awaiting permit approval")
-        if "phase 2" in nd:        return ("WT/PTO submission",       11, "Awaiting WT/PTO submission")
+        if "phase 1" in nd:        return ("permit approval",         None)
+        if "phase 2" in nd:        return ("WT/PTO submission",       11)
     elif lender == "SE":
-        if "loan docs" in nd:      return ("loan documents signed",   0,  "Awaiting loan docs")
-        if "interconnection" in nd:return ("ICA approval",            None, "Awaiting ICA approval")
-        if "PTO" in next_desc:     return ("PTO",                     12, "Awaiting PTO")
-    return ("unmapped", None, "Awaiting [unmapped]")
-
-
-def _resolve_install_anchor(subst, projected_install, permit_approved, project_created):
-    """For install-driven forecasts, return (date, source_label) using the
-    standard fallback chain. None if no signal at all."""
-    if subst:
-        return subst, "Substantial_Completion"
-    if projected_install:
-        return projected_install, "Projected_Install_Date"
-    if permit_approved:
-        return _add_days(permit_approved, PERMIT_TO_INSTALL_DAYS), \
-               f"Permit_Approved + {PERMIT_TO_INSTALL_DAYS}d"
-    if project_created:
-        return _add_days(project_created, CREATION_TO_INSTALL_DAYS), \
-               f"Project_Created_Date + {CREATION_TO_INSTALL_DAYS}d"
-    return None, "no anchor"
-
-
-def _resolve_wt_pto_entry(stage, date_of_stage_change, subst):
-    """Best estimate of when the project entered (or will enter) Witness Test / PTO.
-    Used both for Energized-trigger awaiting estimates and CF Phase 2 trigger."""
-    if stage == "Witness Test / PTO" and date_of_stage_change:
-        return date_of_stage_change, "Date_of_Stage_Change (current WT/PTO)"
-    if subst:
-        return _add_days(subst, SC_TO_WT_PTO_DAYS), \
-               f"Substantial_Completion + {SC_TO_WT_PTO_DAYS}d"
-    return None, "no SC anchor"
+        if "loan docs" in nd:      return ("loan documents signed",   0)
+        if "interconnection" in nd:return ("ICA approval",            None)
+        if "PTO" in next_desc:     return ("PTO",                     12)
+    return ("unmapped", None)
 
 
 def _compute(lender: str, next_desc: str, next_pct: float, today: date,
              stage: str, lending_status: Optional[str],
              project_created: Optional[date],
              subst: Optional[date],
-             projected_install: Optional[date],
              permit_approved: Optional[date],
              ica_approval: Optional[date],
              utility_pto: Optional[date],
+             projected_install: Optional[date],
              date_of_stage_change: Optional[date]) -> dict:
-    """Returns a dict with: forecast_date, anchor_source, status (one of
-    'on_track' | 'past_due' | 'awaiting' | 'paid'), awaiting_label."""
+    """Returns dict: forecast_date (str|None), anchor_source, status
+    (paid|on_track|past_due)."""
     if next_pct in (None, 0):
-        return {"forecast_date": None, "anchor_source": "100% collected",
-                "status": "paid", "awaiting_label": ""}
+        return {"forecast_date": None, "anchor_source": "100% collected", "status": "paid"}
 
-    trigger_label, trigger_rank, awaiting_label = _trigger_for(lender, next_desc)
+    trigger_label, trigger_rank = _trigger_for(lender, next_desc)
     project_rank = STAGE_RANKS.get(stage, 0)
     lag = LENDER_LAGS.get(lender, 0)
     nd = next_desc.lower()
 
-    # Decide whether the trigger has fired.
+    # Has the trigger fired?
     if trigger_label == "permit approval":
         trigger_fired = permit_approved is not None
     elif trigger_label == "ICA approval":
@@ -257,151 +252,115 @@ def _compute(lender: str, next_desc: str, next_pct: float, today: date,
     elif trigger_label == "signing":
         trigger_fired = project_created is not None
     elif trigger_label == "loan documents signed":
-        # Approximate: assume signed shortly after project creation.
-        trigger_fired = project_created is not None
+        trigger_fired = project_created is not None  # proxy: signed shortly after creation
     elif trigger_rank is not None:
         trigger_fired = project_rank >= trigger_rank
     else:
         trigger_fired = False
 
-    # Compute forecast date based on whether the trigger fired.
+    # ---- Trigger has fired: use the actual trigger date ----
     if trigger_fired:
-        if trigger_label == "signing":  # Cash deposit
+        if trigger_label == "signing":
             forecast = project_created
-            anchor_src = "Project_Created_Date (signing)"
-        elif trigger_label == "loan documents signed":  # SE 1/3 docs
+            src = "Project_Created_Date (signing)"
+        elif trigger_label == "loan documents signed":
             forecast = _add_days(project_created, SE_LOAN_DOCS_PROXY_DAYS)
-            anchor_src = f"Project_Created_Date + {SE_LOAN_DOCS_PROXY_DAYS}d (proxy)"
-        elif trigger_label == "permit approval":  # CF Phase 1
+            src = f"Project_Created_Date + {SE_LOAN_DOCS_PROXY_DAYS}d (proxy)"
+        elif trigger_label == "permit approval":
             forecast = _add_days(permit_approved, lag)
-            anchor_src = f"Permit_Approved + {lag}d"
-        elif trigger_label == "ICA approval":  # SE interconnection
+            src = f"Permit_Approved + {lag}d"
+        elif trigger_label == "ICA approval":
             forecast = _add_days(ica_approval, lag)
-            anchor_src = f"ICA_Contingent_Approval + {lag}d"
-        elif trigger_label == "install start":  # Cash 60% — fires at AI entry
-            anchor, src = _resolve_install_anchor(subst, projected_install, permit_approved, project_created)
+            src = f"ICA_Contingent_Approval + {lag}d"
+        elif trigger_label == "install start":  # Cash 60%
+            # Past Active Installation — install has happened. Use SC if available.
+            anchor = subst or projected_install
             forecast = _add_days(anchor, -7) if anchor else None
-            anchor_src = (src + " − 7d") if anchor else src
+            src = ("Substantial_Completion − 7d" if subst else
+                   ("Projected_Install_Date − 7d" if projected_install else "no install anchor"))
         elif trigger_label == "substantial completion":  # LR/SG install, Cash 20% subst
-            anchor, src = _resolve_install_anchor(subst, projected_install, permit_approved, project_created)
-            if "substantial" in nd:  # Cash 20% subst — pays at SC, no lag
+            anchor = subst or projected_install
+            if "substantial" in nd:  # Cash 20% — no lag
                 forecast = anchor
-                anchor_src = src
-            else:  # LR/SG 80%/90% — pays at SC + lender lag
+                src = "Substantial_Completion" if subst else ("Projected_Install_Date" if projected_install else "no SC anchor")
+            else:  # LR/SG install — + lender lag
                 forecast = _add_days(anchor, lag) if anchor else None
-                anchor_src = (src + f" + {lag}d") if anchor else src
+                src = (("Substantial_Completion + " if subst else "Projected_Install_Date + ") + f"{lag}d") if anchor else "no SC anchor"
         elif trigger_label == "WT/PTO submission":  # CF Phase 2
-            entry, src = _resolve_wt_pto_entry(stage, date_of_stage_change, subst)
-            forecast = _add_days(entry, lag) if entry else None
-            anchor_src = (src + f" + {lag}d") if entry else src
-        elif trigger_label == "Energized (PTO granted)" or trigger_label == "PTO":
-            # Project at Energized — but Energized isn't in ACTIVE_STAGES so this
-            # is rare in practice. Fall back to Date_of_Stage_Change + lag.
+            # Past WT/PTO entry. Use Date_of_Stage_Change if available, else SC + a small adjustment.
+            if stage == "Witness Test / PTO" and date_of_stage_change:
+                forecast = _add_days(date_of_stage_change, lag)
+                src = f"WT/PTO entry (Date_of_Stage_Change) + {lag}d"
+            elif subst:
+                # SC happened, then project moved through Inspection (Yellow=5d) into WT/PTO
+                approx_entry = _add_days(subst, _yellow("Inspection"))
+                forecast = _add_days(approx_entry, lag)
+                src = f"Substantial_Completion + {_yellow('Inspection')}d (Inspection SLA) + {lag}d"
+            else:
+                forecast = None
+                src = "no WT/PTO anchor"
+        elif trigger_label in ("Energized (PTO granted)", "PTO"):
+            # Past Energized — out of active scope, but defensive fallback.
             if stage == "Energized" and date_of_stage_change:
                 forecast = _add_days(date_of_stage_change, lag)
-                anchor_src = f"Energized entry + {lag}d"
+                src = f"Energized entry + {lag}d"
             else:
-                # Project should be at Energized but isn't — defensive fallback.
                 forecast = None
-                anchor_src = "no Energized anchor"
+                src = "no Energized anchor"
         else:
             forecast = None
-            anchor_src = "unmapped trigger"
+            src = "unmapped trigger"
 
         # Past-due decision.
         if forecast and forecast < today:
-            # Cash deposit gets 7-day grace from signing.
             if trigger_label == "signing":
-                threshold = _add_days(forecast, CASH_DEPOSIT_GRACE_DAYS)
-                if today > threshold:
-                    return {"forecast_date": forecast.isoformat(), "anchor_source": anchor_src,
-                            "status": "past_due", "awaiting_label": ""}
-                else:
-                    return {"forecast_date": forecast.isoformat(), "anchor_source": anchor_src,
-                            "status": "on_track", "awaiting_label": ""}
-            else:
-                return {"forecast_date": forecast.isoformat(), "anchor_source": anchor_src,
-                        "status": "past_due", "awaiting_label": ""}
+                if today > _add_days(forecast, CASH_DEPOSIT_GRACE_DAYS):
+                    return {"forecast_date": forecast.isoformat(), "anchor_source": src, "status": "past_due"}
+                return {"forecast_date": forecast.isoformat(), "anchor_source": src, "status": "on_track"}
+            return {"forecast_date": forecast.isoformat(), "anchor_source": src, "status": "past_due"}
         return {"forecast_date": forecast.isoformat() if forecast else None,
-                "anchor_source": anchor_src,
-                "status": "on_track" if forecast else "awaiting",
-                "awaiting_label": "" if forecast else awaiting_label}
+                "anchor_source": src, "status": "on_track" if forecast else "past_due"}
 
-    # ---- Trigger has NOT fired: build an estimate ----
-    if trigger_label == "Energized (PTO granted)":
-        # Project at WT/PTO (or earlier) awaiting Energized.
-        # Forecast = WT/PTO entry + 21d + lender lag.
-        wt_entry, src = _resolve_wt_pto_entry(stage, date_of_stage_change, subst)
-        if not wt_entry:
-            # Pre-WT/PTO and no SC yet: estimate via install anchor + 28d + 21d + lag
-            anchor, anchor_src = _resolve_install_anchor(subst, projected_install, permit_approved, project_created)
-            if anchor:
-                est = _add_days(anchor, SC_TO_WT_PTO_DAYS + WT_PTO_TO_ENERGIZED_DAYS + lag)
-                src = f"{anchor_src} + {SC_TO_WT_PTO_DAYS}d (SC→WT/PTO) + {WT_PTO_TO_ENERGIZED_DAYS}d (WT/PTO→Energized) + {lag}d"
-            else:
-                est = None
-        else:
-            est = _add_days(wt_entry, WT_PTO_TO_ENERGIZED_DAYS + lag)
-            src = f"{src} + {WT_PTO_TO_ENERGIZED_DAYS}d + {lag}d"
-        if est and est >= today:
-            return {"forecast_date": est.isoformat(), "anchor_source": src,
-                    "status": "on_track", "awaiting_label": ""}
-        return {"forecast_date": est.isoformat() if est else None,
-                "anchor_source": src,
-                "status": "awaiting", "awaiting_label": awaiting_label}
+    # ---- Trigger has not fired: forward-looking estimate using SLA Yellow values ----
+    # Stage-aware "remaining time to trigger stage" based on Yellow dwells.
+    if trigger_rank is not None:
+        remaining = _remaining_days_to_rank(stage, trigger_rank)
+        # Special case: Cash 60% pre-install fires when entering Active Installation.
+        # The 60% gets invoiced ~7 days BEFORE install, so forecast = trigger - 7.
+        adjustment = -7 if "pre-install" in nd else 0
+        forecast = _add_days(today, remaining + lag + adjustment)
+        # Build source string
+        path_stages = []
+        cr = STAGE_RANKS.get(stage, 0)
+        for s in PIPELINE_STAGES:
+            r = STAGE_RANKS.get(s, 0)
+            if cr <= r < trigger_rank:
+                path_stages.append(f"{s}({_yellow(s)}d)")
+        src = f"today + {remaining}d ({' + '.join(path_stages)}) + {lag}d lag"
+        if adjustment:
+            src += f" − 7d (pre-install)"
+        return {"forecast_date": forecast.isoformat(), "anchor_source": src, "status": "on_track"}
 
-    if trigger_label in ("substantial completion", "install start", "WT/PTO submission"):
-        anchor, src = _resolve_install_anchor(subst, projected_install, permit_approved, project_created)
-        if not anchor:
-            return {"forecast_date": None, "anchor_source": src,
-                    "status": "awaiting", "awaiting_label": awaiting_label}
-        if trigger_label == "WT/PTO submission":  # CF Phase 2 — anchor + 28d + lag
-            est = _add_days(anchor, SC_TO_WT_PTO_DAYS + lag)
-            src = f"{src} + {SC_TO_WT_PTO_DAYS}d (SC→WT/PTO) + {lag}d"
-        elif trigger_label == "install start":
-            est = _add_days(anchor, -7)
-            src = f"{src} − 7d"
-        elif "substantial" in nd:  # Cash 20% subst comp
-            est = anchor
-        else:  # LR/SG install
-            est = _add_days(anchor, lag)
-            src = f"{src} + {lag}d"
-        if est and est >= today:
-            return {"forecast_date": est.isoformat(), "anchor_source": src,
-                    "status": "on_track", "awaiting_label": ""}
-        return {"forecast_date": est.isoformat() if est else None,
-                "anchor_source": src,
-                "status": "awaiting", "awaiting_label": awaiting_label}
-
+    # Date-based triggers awaiting their date field.
     if trigger_label == "permit approval":
-        # CF Phase 1 — no permit yet. Use install-anchor heuristic for permit timing
-        # (the Permit_Approved field gets set when permit lands; in the meantime
-        # we don't have a great signal). Estimate = Project_Created + 30d.
-        if project_created:
-            est = _add_days(project_created, 30)  # rough permit-from-creation
-            est_with_lag = _add_days(est, lag)
-            if est_with_lag >= today:
-                return {"forecast_date": est_with_lag.isoformat(),
-                        "anchor_source": f"Project_Created + 30d + {lag}d (rough permit estimate)",
-                        "status": "on_track", "awaiting_label": ""}
-            return {"forecast_date": est_with_lag.isoformat(),
-                    "anchor_source": f"Project_Created + 30d + {lag}d (estimate elapsed)",
-                    "status": "awaiting", "awaiting_label": awaiting_label}
-        return {"forecast_date": None, "anchor_source": "no creation date",
-                "status": "awaiting", "awaiting_label": awaiting_label}
+        # Estimate when Permit_Approved gets set: through end of Permitting stage.
+        permit_rank = STAGE_RANKS["Permitting"]
+        # Sum dwells to reach Permitting + Permitting itself
+        remaining = _remaining_days_to_rank(stage, permit_rank + 1)
+        forecast = _add_days(today, remaining + lag)
+        return {"forecast_date": forecast.isoformat(),
+                "anchor_source": f"today + {remaining}d (through Permitting) + {lag}d",
+                "status": "on_track"}
 
     if trigger_label == "ICA approval":
-        if project_created:
-            est = _add_days(project_created, 60)
-            return {"forecast_date": est.isoformat(),
-                    "anchor_source": f"Project_Created + 60d + {lag}d (rough ICA estimate)",
-                    "status": "on_track" if est >= today else "awaiting",
-                    "awaiting_label": "" if est >= today else awaiting_label}
-        return {"forecast_date": None, "anchor_source": "no signals",
-                "status": "awaiting", "awaiting_label": awaiting_label}
+        ica_rank = STAGE_RANKS["Interconnection"]
+        remaining = _remaining_days_to_rank(stage, ica_rank + 1)
+        forecast = _add_days(today, remaining + lag)
+        return {"forecast_date": forecast.isoformat(),
+                "anchor_source": f"today + {remaining}d (through Interconnection) + {lag}d",
+                "status": "on_track"}
 
-    return {"forecast_date": None, "anchor_source": "unmapped",
-            "status": "awaiting", "awaiting_label": awaiting_label}
+    return {"forecast_date": None, "anchor_source": "unmapped", "status": "on_track"}
 
 
 def _resolve_owner(row: dict) -> str:
@@ -451,14 +410,13 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
         forecast = _compute(
             lender, next_desc, next_pct, today,
             stage, lending_status,
-            project_created, subst, projected_install, permit_approved,
-            ica_approval, utility_pto, date_of_stage_change,
+            project_created, subst, permit_approved, ica_approval,
+            utility_pto, projected_install, date_of_stage_change,
         )
 
         next_dollar = (contract_total * next_pct) if (contract_total and next_pct) else 0.0
         dollars_collected = (contract_total * pct_collected) if (contract_total and pct_collected) else 0.0
         dollars_outstanding = (contract_total - dollars_collected) if contract_total else 0.0
-
         ftype = _infer_financing_type(r.get("Financing_Type"), lending_status)
 
         flags: list[str] = []
@@ -489,8 +447,7 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
             "next_dollar": round(next_dollar, 2) if next_pct > 0 else 0.0,
             "forecast_date": forecast["forecast_date"],
             "anchor_source": forecast["anchor_source"],
-            "status": forecast["status"],            # paid | on_track | past_due | awaiting
-            "awaiting_label": forecast["awaiting_label"],
+            "status": forecast["status"],            # paid | on_track | past_due
             "flags": flags,
         })
     return out
@@ -511,29 +468,24 @@ def _build_weeks(today: date, n_weeks: int = 12) -> list[dict]:
 
 
 def _bucket_for(p: dict, weeks: list[dict]) -> str:
-    """Place a project into a display bucket based on its status + forecast."""
     status = p.get("status")
     if status == "paid":
-        return "Paid"  # excluded from chart but visible in summary
+        return "Paid"
     if status == "past_due":
         return "Past-due"
-    if status == "awaiting":
-        return p.get("awaiting_label") or "Awaiting"
-    # on_track: place in the appropriate week
     fd = _parse_date(p.get("forecast_date"))
     if not fd:
-        return "Awaiting"
+        return "Past-due"  # status=on_track but no date — defensive
     first_start = _parse_date(weeks[0]["start"])
     last_end = _parse_date(weeks[-1]["end"])
     if fd < first_start:
-        # Should not happen for on_track, but defensive — treat as past-due.
         return "Past-due"
     if fd > last_end:
         return "Beyond 12 wks"
     for w in weeks:
         if _parse_date(w["start"]) <= fd <= _parse_date(w["end"]):
             return w["label"]
-    return "Awaiting"
+    return "Beyond 12 wks"
 
 
 def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
@@ -544,7 +496,6 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
     weekly_totals: dict[str, float] = {w["label"]: 0.0 for w in weeks}
     weekly_totals["Past-due"] = 0.0
     weekly_totals["Beyond 12 wks"] = 0.0
-    awaiting_totals: dict[str, float] = {}
 
     total_outstanding = 0.0
     total_collected = 0.0
@@ -559,17 +510,15 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
         bucket = _bucket_for(p, weeks)
         p["bucket"] = bucket
         amt = p.get("next_dollar") or 0
-        if bucket.startswith("Awaiting"):
-            awaiting_totals[bucket] = awaiting_totals.get(bucket, 0) + amt
-        elif bucket in weekly_totals:
+        if bucket in weekly_totals:
             weekly_totals[bucket] += amt
         total_outstanding += p["dollars_outstanding"] or 0
         total_collected += p["dollars_collected"] or 0
-        if p["forecast_date"]:
+        if p["forecast_date"] and p["status"] == "on_track":
             fd = _parse_date(p["forecast_date"])
-            if fd and first_week_start <= fd <= first_week_end and p["status"] == "on_track":
+            if fd and first_week_start <= fd <= first_week_end:
                 this_week_total += amt
-            if fd and today <= fd <= cutoff_30 and p["status"] == "on_track":
+            if fd and today <= fd <= cutoff_30:
                 next_30_days += amt
 
     return {
@@ -577,7 +526,6 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
         "today": today.isoformat(),
         "weeks": weeks,
         "weekly_totals": {k: round(v, 2) for k, v in weekly_totals.items()},
-        "awaiting_totals": {k: round(v, 2) for k, v in awaiting_totals.items()},
         "summary": {
             "project_count": len(projects),
             "total_outstanding": round(total_outstanding, 2),
@@ -585,7 +533,7 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
             "this_week": round(this_week_total, 2),
             "next_30_days": round(next_30_days, 2),
             "past_due": round(weekly_totals.get("Past-due", 0.0), 2),
-            "awaiting": round(sum(awaiting_totals.values()), 2),
+            "beyond_12_wks": round(weekly_totals.get("Beyond 12 wks", 0.0), 2),
         },
         "projects": projects,
     }
@@ -594,20 +542,15 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
 def apply_filter(payload: dict, view_filter: dict) -> dict:
     owners = set(view_filter.get("owners") or [])
     reps = set(view_filter.get("reps") or [])
-    out_projects = []
-    for p in payload["projects"]:
-        if owners and p.get("owner") not in owners:
-            continue
-        if reps and p.get("rep") not in reps:
-            continue
-        out_projects.append(p)
+    out_projects = [p for p in payload["projects"]
+                    if (not owners or p.get("owner") in owners)
+                    and (not reps or p.get("rep") in reps)]
 
     today = _parse_date(payload["today"])
     weeks = payload["weeks"]
     weekly_totals = {w["label"]: 0.0 for w in weeks}
     weekly_totals["Past-due"] = 0.0
     weekly_totals["Beyond 12 wks"] = 0.0
-    awaiting_totals: dict[str, float] = {}
 
     total_outstanding = 0.0
     total_collected = 0.0
@@ -618,19 +561,17 @@ def apply_filter(payload: dict, view_filter: dict) -> dict:
     first_week_end = _parse_date(weeks[0]["end"])
 
     for p in out_projects:
-        bucket = p.get("bucket") or "Awaiting"
+        bucket = p.get("bucket") or "Past-due"
         amt = p.get("next_dollar") or 0
-        if bucket.startswith("Awaiting"):
-            awaiting_totals[bucket] = awaiting_totals.get(bucket, 0) + amt
-        elif bucket in weekly_totals:
+        if bucket in weekly_totals:
             weekly_totals[bucket] += amt
         total_outstanding += p.get("dollars_outstanding", 0) or 0
         total_collected += p.get("dollars_collected", 0) or 0
-        if p.get("forecast_date"):
+        if p.get("forecast_date") and p.get("status") == "on_track":
             fd = _parse_date(p["forecast_date"])
-            if fd and first_week_start <= fd <= first_week_end and p.get("status") == "on_track":
+            if fd and first_week_start <= fd <= first_week_end:
                 this_week_total += amt
-            if fd and today <= fd <= cutoff_30 and p.get("status") == "on_track":
+            if fd and today <= fd <= cutoff_30:
                 next_30_days += amt
 
     return {
@@ -638,7 +579,6 @@ def apply_filter(payload: dict, view_filter: dict) -> dict:
         "today": payload["today"],
         "weeks": weeks,
         "weekly_totals": {k: round(v, 2) for k, v in weekly_totals.items()},
-        "awaiting_totals": {k: round(v, 2) for k, v in awaiting_totals.items()},
         "summary": {
             "project_count": len(out_projects),
             "total_outstanding": round(total_outstanding, 2),
@@ -646,7 +586,7 @@ def apply_filter(payload: dict, view_filter: dict) -> dict:
             "this_week": round(this_week_total, 2),
             "next_30_days": round(next_30_days, 2),
             "past_due": round(weekly_totals.get("Past-due", 0.0), 2),
-            "awaiting": round(sum(awaiting_totals.values()), 2),
+            "beyond_12_wks": round(weekly_totals.get("Beyond 12 wks", 0.0), 2),
         },
         "projects": out_projects,
     }
