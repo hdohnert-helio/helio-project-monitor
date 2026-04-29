@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T13:28:00.349161Z",
+  "generated_at": "2026-04-29T14:40:37.508857Z",
   "today": "2026-04-29",
   "weeks": [
     {
@@ -88,9 +88,11 @@
     "Wk 06/29": 0.0,
     "Wk 07/06": 0.0,
     "Wk 07/13": 0.0,
-    "Past-due": 19437.76,
-    "Unscheduled": 0.0,
+    "Past-due": 7425.76,
     "Beyond 12 wks": 0.0
+  },
+  "awaiting_totals": {
+    "Awaiting PTO": 12012.0
   },
   "summary": {
     "project_count": 4,
@@ -98,8 +100,8 @@
     "total_collected": 54532.0,
     "this_week": 0.0,
     "next_30_days": 47172.32,
-    "past_due": 19437.76,
-    "unscheduled": 0.0
+    "past_due": 7425.76,
+    "awaiting": 12012.0
   },
   "projects": [
     {
@@ -121,7 +123,9 @@
       "next_milestone_pct": 0.6,
       "next_dollar": 19452.0,
       "forecast_date": "2026-05-22",
-      "anchor_source": "Project_Created_Date + 45d (heuristic) − 7d",
+      "anchor_source": "Project_Created_Date + 45d − 7d",
+      "status": "on_track",
+      "awaiting_label": "",
       "flags": [],
       "bucket": "Wk 05/18"
     },
@@ -145,6 +149,8 @@
       "next_dollar": 27720.32,
       "forecast_date": "2026-05-14",
       "anchor_source": "Projected_Install_Date + 14d",
+      "status": "on_track",
+      "awaiting_label": "",
       "flags": [],
       "bucket": "Wk 05/11"
     },
@@ -167,7 +173,9 @@
       "next_milestone_pct": 0.2,
       "next_dollar": 7425.76,
       "forecast_date": "2025-09-30",
-      "anchor_source": "Project_Created_Date",
+      "anchor_source": "Project_Created_Date (signing)",
+      "status": "past_due",
+      "awaiting_label": "",
       "flags": [],
       "bucket": "Past-due"
     },
@@ -189,10 +197,12 @@
       "next_milestone": "Activation package",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-04-02",
-      "anchor_source": "Substantial_Completion + 30d + 14d (rough)",
+      "forecast_date": "2026-04-21",
+      "anchor_source": "Substantial_Completion + 28d + 21d + 14d",
+      "status": "awaiting",
+      "awaiting_label": "Awaiting PTO",
       "flags": [],
-      "bucket": "Past-due"
+      "bucket": "Awaiting PTO"
     }
   ],
   "view_label": "Tiffany Vilayphonh"

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-29T13:28:00.349161Z",
-  "generated_at_label": "Wed Apr 29, 2026 · 9:28 AM ET",
+  "generated_at": "2026-04-29T14:40:37.508857Z",
+  "generated_at_label": "Wed Apr 29, 2026 · 10:40 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 21,
   "projects": [
@@ -37,7 +37,7 @@
       "customer": "Jacob Rastegar",
       "stage": "Active Installation",
       "stage_entered_at": "2026-04-27T10:14:00-04:00",
-      "days_in_stage": 1,
+      "days_in_stage": 2,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
