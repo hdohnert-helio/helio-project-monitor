@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-29T19:03:39.132802Z",
-  "generated_at_label": "Wed Apr 29, 2026 · 3:03 PM ET",
+  "generated_at": "2026-04-29T19:44:59.171367Z",
+  "generated_at_label": "Wed Apr 29, 2026 · 3:44 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 82,
   "projects": [
@@ -261,7 +261,7 @@
       "customer": "Sanjay Patel",
       "stage": "On Hold",
       "stage_entered_at": "2026-04-20T15:39:00-04:00",
-      "days_in_stage": 8,
+      "days_in_stage": 9,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
