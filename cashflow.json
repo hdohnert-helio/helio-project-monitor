@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T14:40:37.508857Z",
+  "generated_at": "2026-04-29T15:16:35.701227Z",
   "today": "2026-04-29",
   "weeks": [
     {
@@ -78,31 +78,27 @@
   "weekly_totals": {
     "Wk 04/27": 0.0,
     "Wk 05/04": 91558.88,
-    "Wk 05/11": 56312.92,
-    "Wk 05/18": 84784.72,
+    "Wk 05/11": 0.0,
+    "Wk 05/18": 31303.2,
     "Wk 05/25": 0.0,
-    "Wk 06/01": 30856.8,
-    "Wk 06/08": 31168.8,
-    "Wk 06/15": 43135.12,
-    "Wk 06/22": 20828.4,
-    "Wk 06/29": 0.0,
+    "Wk 06/01": 62807.67,
+    "Wk 06/08": 82715.36,
+    "Wk 06/15": 0.0,
+    "Wk 06/22": 0.0,
+    "Wk 06/29": 120418.8,
     "Wk 07/06": 0.0,
-    "Wk 07/13": 0.0,
+    "Wk 07/13": 63963.52,
     "Past-due": 7425.76,
     "Beyond 12 wks": 0.0
-  },
-  "awaiting_totals": {
-    "Awaiting substantial completion": 70244.4,
-    "Awaiting PTO": 23877.39
   },
   "summary": {
     "project_count": 27,
     "total_outstanding": 599351.98,
     "total_collected": 700337.25,
     "this_week": 0.0,
-    "next_30_days": 232656.52,
+    "next_30_days": 122862.08,
     "past_due": 7425.76,
-    "awaiting": 94121.79
+    "beyond_12_wks": 0.0
   },
   "projects": [
     {
@@ -126,7 +122,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [
         "Contract_Total missing or zero",
         "Lending_Status missing"
@@ -154,7 +149,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [
         "Contract_Total missing or zero",
         "Lending_Status missing"
@@ -182,7 +176,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [
         "Contract_Total missing or zero",
         "Lending_Status missing"
@@ -207,12 +200,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 20828.4,
-      "forecast_date": "2026-06-23",
-      "anchor_source": "Project_Created_Date + 45d + 14d",
+      "forecast_date": "2026-07-14",
+      "anchor_source": "today + 62d (Project Intake(2d) + Site Survey(4d) + Engineering(4d) + Plan Review(2d) + Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 06/22"
+      "bucket": "Wk 07/13"
     },
     {
       "project_id": "PROJ-1607",
@@ -232,12 +224,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 43135.12,
-      "forecast_date": "2026-06-21",
-      "anchor_source": "Project_Created_Date + 45d + 14d",
+      "forecast_date": "2026-07-14",
+      "anchor_source": "today + 62d (Project Intake(2d) + Site Survey(4d) + Engineering(4d) + Plan Review(2d) + Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 06/15"
+      "bucket": "Wk 07/13"
     },
     {
       "project_id": "PROJ-1606",
@@ -257,12 +248,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 31168.8,
-      "forecast_date": "2026-06-14",
-      "anchor_source": "Project_Created_Date + 45d + 14d",
+      "forecast_date": "2026-07-02",
+      "anchor_source": "today + 50d (Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 06/08"
+      "bucket": "Wk 06/29"
     },
     {
       "project_id": "PROJ-1605",
@@ -282,10 +272,9 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 19452.0,
-      "forecast_date": "2026-05-22",
-      "anchor_source": "Project_Created_Date + 45d − 7d",
+      "forecast_date": "2026-05-21",
+      "anchor_source": "today + 29d (Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Wk 05/18"
     },
@@ -307,12 +296,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 30856.8,
-      "forecast_date": "2026-06-04",
-      "anchor_source": "Project_Created_Date + 45d + 14d",
+      "forecast_date": "2026-07-02",
+      "anchor_source": "today + 50d (Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 06/01"
+      "bucket": "Wk 06/29"
     },
     {
       "project_id": "PROJ-1600",
@@ -332,12 +320,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 22793.28,
-      "forecast_date": "2026-05-19",
-      "anchor_source": "Permit_Approved + 7d + 14d",
+      "forecast_date": "2026-06-08",
+      "anchor_source": "today + 26d (Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 05/18"
+      "bucket": "Wk 06/08"
     },
     {
       "project_id": "PROJ-1599",
@@ -357,12 +344,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 27720.32,
-      "forecast_date": "2026-05-14",
-      "anchor_source": "Projected_Install_Date + 14d",
+      "forecast_date": "2026-06-03",
+      "anchor_source": "today + 21d (Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 05/11"
+      "bucket": "Wk 06/01"
     },
     {
       "project_id": "PROJ-1596",
@@ -382,12 +368,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 34199.68,
-      "forecast_date": "2026-05-19",
-      "anchor_source": "Permit_Approved + 7d + 14d",
+      "forecast_date": "2026-06-08",
+      "anchor_source": "today + 26d (Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 05/18"
+      "bucket": "Wk 06/08"
     },
     {
       "project_id": "PROJ-1592",
@@ -410,7 +395,6 @@
       "forecast_date": "2026-05-07",
       "anchor_source": "Substantial_Completion + 14d",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Wk 05/04"
     },
@@ -432,12 +416,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 58393.2,
-      "forecast_date": "2026-04-12",
-      "anchor_source": "Project_Created_Date + 45d + 14d",
-      "status": "awaiting",
-      "awaiting_label": "Awaiting substantial completion",
+      "forecast_date": "2026-07-02",
+      "anchor_source": "today + 50d (Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Awaiting substantial completion"
+      "bucket": "Wk 06/29"
     },
     {
       "project_id": "PROJ-1582",
@@ -460,7 +443,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Paid"
     },
@@ -482,12 +464,11 @@
       "next_milestone": "Activation package",
       "next_milestone_pct": 0.2,
       "next_dollar": 5370.64,
-      "forecast_date": "2026-04-13",
-      "anchor_source": "Substantial_Completion + 28d + 21d + 14d",
-      "status": "awaiting",
-      "awaiting_label": "Awaiting PTO",
+      "forecast_date": "2026-06-10",
+      "anchor_source": "today + 28d (Witness Test / PTO(28d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Awaiting PTO"
+      "bucket": "Wk 06/08"
     },
     {
       "project_id": "PROJ-1555",
@@ -510,7 +491,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Paid"
     },
@@ -535,7 +515,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Paid"
     },
@@ -560,7 +539,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Paid"
     },
@@ -585,7 +563,6 @@
       "forecast_date": "2025-09-30",
       "anchor_source": "Project_Created_Date (signing)",
       "status": "past_due",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Past-due"
     },
@@ -607,12 +584,11 @@
       "next_milestone": "Activation package — submitted",
       "next_milestone_pct": 0.2,
       "next_dollar": 8339.76,
-      "forecast_date": "2026-05-22",
-      "anchor_source": "Substantial_Completion + 28d + 21d + 14d",
+      "forecast_date": "2026-06-10",
+      "anchor_source": "today + 28d (Witness Test / PTO(28d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 05/18"
+      "bucket": "Wk 06/08"
     },
     {
       "project_id": "PROJ-1501",
@@ -632,12 +608,11 @@
       "next_milestone": "PTO package",
       "next_milestone_pct": 0.1,
       "next_dollar": 6494.75,
-      "forecast_date": "2026-03-07",
-      "anchor_source": "Substantial_Completion + 28d + 21d + 5d",
-      "status": "awaiting",
-      "awaiting_label": "Awaiting PTO",
+      "forecast_date": "2026-06-01",
+      "anchor_source": "today + 28d (Witness Test / PTO(28d)) + 5d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Awaiting PTO"
+      "bucket": "Wk 06/01"
     },
     {
       "project_id": "PROJ-1466",
@@ -660,7 +635,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Paid"
     },
@@ -685,7 +659,6 @@
       "forecast_date": null,
       "anchor_source": "100% collected",
       "status": "paid",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Paid"
     },
@@ -707,12 +680,11 @@
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 11851.2,
-      "forecast_date": "2026-04-27",
-      "anchor_source": "Projected_Install_Date",
-      "status": "awaiting",
-      "awaiting_label": "Awaiting substantial completion",
+      "forecast_date": "2026-05-20",
+      "anchor_source": "today + 21d (Active Installation(21d)) + 0d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Awaiting substantial completion"
+      "bucket": "Wk 05/18"
     },
     {
       "project_id": "PROJ-1437",
@@ -732,12 +704,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 28592.6,
-      "forecast_date": "2026-05-12",
-      "anchor_source": "Projected_Install_Date + 14d",
+      "forecast_date": "2026-06-03",
+      "anchor_source": "today + 21d (Active Installation(21d)) + 14d lag",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
-      "bucket": "Wk 05/11"
+      "bucket": "Wk 06/01"
     },
     {
       "project_id": "PROJ-1378",
@@ -757,10 +728,9 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 67920.0,
-      "forecast_date": "2026-05-05",
-      "anchor_source": "Projected_Install_Date − 7d",
+      "forecast_date": "2026-05-07",
+      "anchor_source": "today + 15d (Permitting(10d) + Procurement & Scheduling(5d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
-      "awaiting_label": "",
       "flags": [],
       "bucket": "Wk 05/04"
     },
@@ -782,12 +752,11 @@
       "next_milestone": "Activation package",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-04-21",
-      "anchor_source": "Substantial_Completion + 28d + 21d + 14d",
-      "status": "awaiting",
-      "awaiting_label": "Awaiting PTO",
+      "forecast_date": "2026-06-10",
+      "anchor_source": "today + 28d (Witness Test / PTO(28d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Awaiting PTO"
+      "bucket": "Wk 06/08"
     }
   ]
 }
