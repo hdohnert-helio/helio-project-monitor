@@ -142,6 +142,25 @@
   .modal-footer button.primary{background:#1a1a2e;color:white;border-color:#1a1a2e}
   .modal-footer button.primary:hover{background:#f5a623;color:#1a1a2e;border-color:#f5a623}
   .modal-footer button:hover{border-color:#1a1a2e}
+  /* CASH FLOW — sits below the project table */
+  .cashflow-section{margin-top:8px}
+  .cf-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
+  .cf-summary .card .value{font-size:24px}
+  .cf-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:12px;cursor:default;padding:1px 4px;border-radius:4px;transition:background 0.15s}
+  .cf-bar-row:hover{background:#f5f7ff}
+  .cf-bar-label{width:130px;color:#444;font-weight:500;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cf-bar-track{flex:1;height:14px;background:#f0f2f5;border-radius:3px;overflow:hidden}
+  .cf-bar-fill{height:100%;background:#22a85a;transition:width 0.3s;min-width:1px}
+  .cf-bar-fill.cf-past-due{background:#e53935}
+  .cf-bar-fill.cf-unscheduled{background:#aab}
+  .cf-bar-fill.cf-this-week{background:#1a8a45}
+  .cf-bar-amount{width:110px;color:#333;font-weight:600;text-align:left;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .cf-bar-row.cf-empty .cf-bar-fill{background:#e0e0e0}
+  .cf-bar-row.cf-empty .cf-bar-amount{color:#bbb;font-weight:400}
+  #cfTableBody tr.cf-row-past-due{background:#fdecea}
+  #cfTableBody tr.cf-row-unscheduled{background:#fff8e7}
+  #cfTableBody td{font-variant-numeric:tabular-nums}
+  @media(max-width:920px){.cf-summary{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -245,6 +264,40 @@
     <tbody id="tableBody">
         <tr id="loadingRow"><td colspan="8" style="text-align:center;padding:32px;color:#888;font-size:13px">Loading pipeline data…</td></tr>
       </tbody></table>
+  </div>
+  <!-- Cash Flow Forecast — populated from cashflow.json (or cashflow-{slug}.json
+       for per-rep views). Hidden on load until renderCashflow runs; if the file
+       is missing the section stays hidden so we don't ship an empty shell. -->
+  <div class="cashflow-section" id="cashflowSection" style="display:none">
+    <div class="section-title">Cash Flow Forecast — next 12 weeks</div>
+    <div class="cf-summary" id="cfSummary"></div>
+    <div class="chart-section" style="margin-bottom:18px">
+      <div id="cfBars"></div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot ld-green"></div> On schedule</div>
+        <div class="legend-item"><div class="legend-dot ld-red"></div> Past-due (forecast in past)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#aab"></div> Unscheduled</div>
+      </div>
+    </div>
+    <div class="table-wrap" id="cfTable">
+      <div class="table-header">
+        <div class="table-header-left">
+          <h2>Project Detail — sorted by forecast date</h2>
+        </div>
+      </div>
+      <table>
+        <thead><tr>
+          <th>Customer</th><th>Stage</th><th>Lender</th>
+          <th>Lending Status</th><th>Next Milestone</th>
+          <th style="text-align:right">Next $</th>
+          <th>Forecast Date</th><th>Bucket</th>
+          <th style="cursor:default">Zoho</th>
+        </tr></thead>
+        <tbody id="cfTableBody">
+          <tr><td colspan="9" style="text-align:center;padding:32px;color:#888;font-size:13px">Loading cash flow…</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 <footer>Helio Solar Install Pipeline Monitor · <span id="footerTimestamp">loading…</span> · hdohnert@helio.solar</footer>
@@ -696,6 +749,9 @@
   const VELOCITY_URL = (VIEW_SLUG
       ? ('pipeline_velocity-' + VIEW_SLUG + '.json')
       : 'pipeline_velocity.json') + '?v=' + Date.now();
+  const CASHFLOW_URL = (VIEW_SLUG
+      ? ('cashflow-' + VIEW_SLUG + '.json')
+      : 'cashflow.json') + '?v=' + Date.now();
 
   function esc(s){
     return String(s == null ? '' : s)
@@ -864,6 +920,111 @@
     }
   }
 
+  // -------- cash flow forecast (cashflow.json) --------
+  // Money formatter: returns "$1,234" or "—" for null/zero/NaN. Avoids
+  // showing "$0" everywhere on rows where a milestone has no dollar value
+  // (paid in full, or contract_total missing).
+  function _fmtMoney(v){
+    if (v == null || isNaN(v) || v === 0) return '—';
+    const sign = v < 0 ? '-' : '';
+    return sign + '$' + Math.round(Math.abs(v)).toLocaleString();
+  }
+
+  function renderCashflow(payload){
+    const section = document.getElementById('cashflowSection');
+    if (!section || !payload) return;
+    section.style.display = 'block';
+
+    // ---- Summary cards (5) ----
+    const s = payload.summary || {};
+    const cards = [
+      {label:'Total Outstanding',  value:_fmtMoney(s.total_outstanding), klass:'total',  sub:(s.project_count|0)+' projects'},
+      {label:'This Week',          value:_fmtMoney(s.this_week),         klass:'green',  sub:''},
+      {label:'Next 30 Days',       value:_fmtMoney(s.next_30_days),      klass:'yellow', sub:''},
+      {label:'Past-Due',           value:_fmtMoney(s.past_due),          klass:'red',    sub:'forecast in past'},
+      {label:'Unscheduled',        value:_fmtMoney(s.unscheduled),       klass:'total',  sub:'no anchor date'},
+    ];
+    document.getElementById('cfSummary').innerHTML = cards.map(c =>
+      '<div class="card ' + c.klass + '">'
+      + '<div class="label">' + esc(c.label) + '</div>'
+      + '<div class="value">' + esc(c.value) + '</div>'
+      + (c.sub ? ('<div class="sub">' + esc(c.sub) + '</div>') : '')
+      + '</div>'
+    ).join('');
+
+    // ---- Bar chart: Past-due | Wk 1..12 | Unscheduled ----
+    const totals = payload.weekly_totals || {};
+    const labels = ['Past-due'].concat((payload.weeks || []).map(w => w.label)).concat(['Unscheduled']);
+    const values = labels.map(l => totals[l] || 0);
+    const maxv = Math.max.apply(null, values.concat([1]));
+    const firstWeekLabel = (payload.weeks && payload.weeks[0]) ? payload.weeks[0].label : null;
+    document.getElementById('cfBars').innerHTML = labels.map((label, i) => {
+      const v = values[i];
+      const pct = maxv > 0 ? Math.max(0, (v / maxv) * 100) : 0;
+      let klass = '';
+      if (label === 'Past-due') klass = 'cf-past-due';
+      else if (label === 'Unscheduled') klass = 'cf-unscheduled';
+      else if (label === firstWeekLabel) klass = 'cf-this-week';
+      const empty = v <= 0;
+      return '<div class="cf-bar-row' + (empty ? ' cf-empty' : '') + '">'
+        + '<div class="cf-bar-label">' + esc(label) + '</div>'
+        + '<div class="cf-bar-track"><div class="cf-bar-fill ' + klass + '" style="width:' + pct.toFixed(1) + '%"></div></div>'
+        + '<div class="cf-bar-amount">' + esc(_fmtMoney(v)) + '</div>'
+        + '</div>';
+    }).join('');
+
+    // ---- Detail table — past-due first, then by forecast date asc, unscheduled last ----
+    const canvasId = '5264387000040853100';
+    const projects = (payload.projects || []).filter(p => p.next_dollar > 0).slice().sort((a, b) => {
+      const aPD = a.bucket === 'Past-due', bPD = b.bucket === 'Past-due';
+      if (aPD && !bPD) return -1;
+      if (bPD && !aPD) return 1;
+      const aU = !a.forecast_date, bU = !b.forecast_date;
+      if (aU && !bU) return 1;
+      if (bU && !aU) return -1;
+      if (a.forecast_date && b.forecast_date) return a.forecast_date.localeCompare(b.forecast_date);
+      return 0;
+    });
+
+    const tbody = document.getElementById('cfTableBody');
+    if (!projects.length){
+      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:32px;color:#888;font-size:13px">No projects with forecastable next milestones.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = projects.map(p => {
+      const url = 'https://crm.zoho.com/crm/heliosolar/tab/CustomModule6/'
+        + encodeURIComponent(p.zoho_record_id || '') + '/canvas/' + canvasId;
+      const rowClass = p.bucket === 'Past-due' ? 'cf-row-past-due'
+                     : (p.bucket === 'Unscheduled' || p.bucket === 'Beyond 12 wks') ? 'cf-row-unscheduled'
+                     : '';
+      return '<tr class="' + rowClass + '">'
+        + '<td><strong>' + esc(p.customer) + '</strong></td>'
+        + '<td>' + esc(p.stage) + '</td>'
+        + '<td>' + esc(p.lender) + '</td>'
+        + '<td style="font-size:12px;color:#666">' + esc(p.lending_status || '—') + '</td>'
+        + '<td>' + esc(p.next_milestone) + '</td>'
+        + '<td style="text-align:right;font-weight:600">' + esc(_fmtMoney(p.next_dollar)) + '</td>'
+        + '<td>' + esc(p.forecast_date || '—') + '</td>'
+        + '<td>' + esc(p.bucket || '—') + '</td>'
+        + '<td class="link-cell"><a href="' + url + '" target="_blank" rel="noopener" class="zoho-link" title="Open in Zoho CRM">↗</a></td>'
+        + '</tr>';
+    }).join('');
+  }
+
+  async function loadCashflow(){
+    try {
+      const r = await fetch(CASHFLOW_URL, {cache: 'no-store'});
+      if (!r.ok){
+        console.info('No cash flow data yet:', r.status);
+        return;
+      }
+      const payload = await r.json();
+      renderCashflow(payload);
+    } catch (e){
+      console.warn('Cash flow load skipped:', e);
+    }
+  }
+
   async function bootstrapDashboard(){
     try {
       const r = await fetch(DATA_URL, {cache: 'no-store'});
@@ -886,6 +1047,8 @@
     }
     // Velocity is optional — don't block the main dashboard if it fails.
     loadVelocity();
+    // Cash flow is also optional and independent of pipeline classification.
+    loadCashflow();
   }
 
   bootstrapDashboard();
