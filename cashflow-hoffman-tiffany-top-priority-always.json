@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T18:42:27.169208Z",
+  "generated_at": "2026-04-29T19:03:39.132802Z",
   "today": "2026-04-29",
   "weeks": [
     {
@@ -76,14 +76,14 @@
     }
   ],
   "weekly_totals": {
-    "Wk 04/27": 19452.0,
+    "Wk 04/27": 41729.27,
     "Wk 05/04": 0.0,
-    "Wk 05/11": 0.0,
-    "Wk 05/18": 27720.32,
+    "Wk 05/11": 7425.76,
+    "Wk 05/18": 34204.32,
     "Wk 05/25": 0.0,
     "Wk 06/01": 12012.0,
     "Wk 06/08": 0.0,
-    "Wk 06/15": 0.0,
+    "Wk 06/15": 6930.08,
     "Wk 06/22": 0.0,
     "Wk 06/29": 0.0,
     "Wk 07/06": 0.0,
@@ -96,7 +96,7 @@
     "total_outstanding": 109727.18,
     "total_collected": 54532.0,
     "this_week": 19452.0,
-    "next_30_days": 47172.32,
+    "next_30_days": 61082.08,
     "past_due": 7425.76,
     "beyond_12_wks": 0.0
   },
@@ -116,6 +116,26 @@
       "pct_collected": 0.2,
       "dollars_collected": 6484.0,
       "dollars_outstanding": 25936.0,
+      "milestones": [
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 19452.0,
+          "forecast_date": "2026-05-03",
+          "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 04/27"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 6484.0,
+          "forecast_date": "2026-05-20",
+          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 05/18"
+        }
+      ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 19452.0,
@@ -140,7 +160,27 @@
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 34650.4,
-      "next_milestone": "Install package",
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 27720.32,
+          "forecast_date": "2026-05-23",
+          "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 05/18"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 6930.08,
+          "forecast_date": "2026-06-18",
+          "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 06/15"
+        }
+      ],
+      "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 27720.32,
       "forecast_date": "2026-05-23",
@@ -164,7 +204,36 @@
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 37128.78,
-      "next_milestone": "Deposit (20%) — invoiced",
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 7425.76,
+          "forecast_date": "2025-09-30",
+          "anchor_source": "Project_Created_Date (signing)",
+          "status": "past_due",
+          "bucket": "Past-due"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 22277.27,
+          "forecast_date": "2026-04-26",
+          "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 04/27"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 7425.76,
+          "forecast_date": "2026-05-13",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 05/11"
+        }
+      ],
+      "next_milestone": "Deposit (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 7425.76,
       "forecast_date": "2025-09-30",
@@ -188,7 +257,18 @@
       "pct_collected": 0.8,
       "dollars_collected": 48048.0,
       "dollars_outstanding": 12012.0,
-      "next_milestone": "Activation package",
+      "milestones": [
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 12012.0,
+          "forecast_date": "2026-06-03",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 06/01"
+        }
+      ],
+      "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
       "forecast_date": "2026-06-03",
