@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T15:32:44.873106Z",
+  "generated_at": "2026-04-29T18:42:27.169208Z",
   "today": "2026-04-29",
   "weeks": [
     {
@@ -77,17 +77,17 @@
   ],
   "weekly_totals": {
     "Wk 04/27": 0.0,
-    "Wk 05/04": 23638.88,
+    "Wk 05/04": 35490.08,
     "Wk 05/11": 0.0,
-    "Wk 05/18": 11851.2,
-    "Wk 05/25": 0.0,
-    "Wk 06/01": 0.0,
-    "Wk 06/08": 62363.6,
-    "Wk 06/15": 0.0,
-    "Wk 06/22": 0.0,
-    "Wk 06/29": 89250.0,
+    "Wk 05/18": 34199.68,
+    "Wk 05/25": 22793.28,
+    "Wk 06/01": 5370.64,
+    "Wk 06/08": 0.0,
+    "Wk 06/15": 89250.0,
+    "Wk 06/22": 63963.52,
+    "Wk 06/29": 0.0,
     "Wk 07/06": 0.0,
-    "Wk 07/13": 63963.52,
+    "Wk 07/13": 0.0,
     "Past-due": 0.0,
     "Beyond 12 wks": 0.0
   },
@@ -96,7 +96,7 @@
     "total_outstanding": 309528.54,
     "total_collected": 103102.36,
     "this_week": 0.0,
-    "next_30_days": 35490.08,
+    "next_30_days": 92483.04,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
@@ -104,39 +104,38 @@
     {
       "project_id": "PROJ-1611",
       "customer": "Mustaque Nabi",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086050003",
-      "financing_type": "",
-      "lending_status": "",
-      "lender": "?",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LightReach",
+      "lender": "LR",
       "contract_total": null,
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
+      "next_milestone": "Install package",
+      "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
+      "forecast_date": "2026-06-26",
+      "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
-      "bucket": "Paid"
+      "bucket": "Wk 06/22"
     },
     {
       "project_id": "PROJ-1609",
       "customer": "Mustak Ahmed",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086036001",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": null,
@@ -158,12 +157,12 @@
     {
       "project_id": "PROJ-1610",
       "customer": "Mohammed Noor",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086034006",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": null,
@@ -200,11 +199,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 20828.4,
-      "forecast_date": "2026-07-14",
-      "anchor_source": "today + 62d (Project Intake(2d) + Site Survey(4d) + Engineering(4d) + Plan Review(2d) + Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
+      "forecast_date": "2026-06-26",
+      "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 07/13"
+      "bucket": "Wk 06/22"
     },
     {
       "project_id": "PROJ-1607",
@@ -212,7 +211,7 @@
       "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
-      "project_manager": "",
+      "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000085757025",
       "financing_type": "Lease / PPA",
       "lending_status": "LightReach",
@@ -224,11 +223,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 43135.12,
-      "forecast_date": "2026-07-14",
-      "anchor_source": "today + 62d (Project Intake(2d) + Site Survey(4d) + Engineering(4d) + Plan Review(2d) + Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
+      "forecast_date": "2026-06-26",
+      "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 07/13"
+      "bucket": "Wk 06/22"
     },
     {
       "project_id": "PROJ-1602",
@@ -248,11 +247,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 30856.8,
-      "forecast_date": "2026-07-02",
-      "anchor_source": "today + 50d (Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
+      "forecast_date": "2026-06-17",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/29"
+      "bucket": "Wk 06/15"
     },
     {
       "project_id": "PROJ-1600",
@@ -272,16 +271,16 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 22793.28,
-      "forecast_date": "2026-06-08",
-      "anchor_source": "today + 26d (Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
+      "forecast_date": "2026-05-27",
+      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/08"
+      "bucket": "Wk 05/25"
     },
     {
       "project_id": "PROJ-1596",
       "customer": "Marie Souffrant",
-      "stage": "Procurement & Scheduling",
+      "stage": "Active Installation",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -296,11 +295,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 34199.68,
-      "forecast_date": "2026-06-08",
-      "anchor_source": "today + 26d (Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
+      "forecast_date": "2026-05-23",
+      "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/08"
+      "bucket": "Wk 05/18"
     },
     {
       "project_id": "PROJ-1592",
@@ -344,11 +343,11 @@
       "next_milestone": "Install package",
       "next_milestone_pct": 0.8,
       "next_dollar": 58393.2,
-      "forecast_date": "2026-07-02",
-      "anchor_source": "today + 50d (Interconnection(14d) + Permitting(10d) + Procurement & Scheduling(5d) + Active Installation(21d)) + 14d lag",
+      "forecast_date": "2026-06-17",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/29"
+      "bucket": "Wk 06/15"
     },
     {
       "project_id": "PROJ-1563",
@@ -368,11 +367,11 @@
       "next_milestone": "Activation package",
       "next_milestone_pct": 0.2,
       "next_dollar": 5370.64,
-      "forecast_date": "2026-06-10",
-      "anchor_source": "today + 28d (Witness Test / PTO(28d)) + 14d lag",
+      "forecast_date": "2026-06-03",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/08"
+      "bucket": "Wk 06/01"
     },
     {
       "project_id": "PROJ-1555",
@@ -416,11 +415,11 @@
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 11851.2,
-      "forecast_date": "2026-05-20",
-      "anchor_source": "today + 21d (Active Installation(21d)) + 0d lag",
+      "forecast_date": "2026-05-09",
+      "anchor_source": "today + 10d (Active Installation(10d)) + 0d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 05/18"
+      "bucket": "Wk 05/04"
     }
   ],
   "view_label": "Butch Carmona"

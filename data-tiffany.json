@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-04-29T15:32:44.873106Z",
-  "generated_at_label": "Wed Apr 29, 2026 · 11:32 AM ET",
+  "generated_at": "2026-04-29T18:42:27.169208Z",
+  "generated_at_label": "Wed Apr 29, 2026 · 2:42 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 11,
   "projects": [
     {
       "project_id": "PROJ-1605",
       "customer": "Kevin Andersen",
-      "stage": "Interconnection",
-      "stage_entered_at": "2026-04-17T14:05:00-04:00",
-      "days_in_stage": 11,
+      "stage": "Permitting",
+      "stage_entered_at": "2026-04-29T12:17:00-04:00",
+      "days_in_stage": 0,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
