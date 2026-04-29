@@ -461,26 +461,47 @@
 </div>
 
 <script>
-  const SLA_DEFAULTS = {
+  // SLA defaults are fetched from sla_thresholds.json at load time (canonical
+  // server-side config, shared with cashflow.py). The hardcoded values below
+  // are a defensive fallback only — they should never be the source of truth.
+  let SLA_DEFAULTS = {
     'Sales Ops Review':        {green: 1,  yellow: 2},
     'Project Intake':          {green: 1,  yellow: 2},
-    'Site Survey':             {green: 7,  yellow: 10},
+    'Site Survey':             {green: 3,  yellow: 4},
     'Engineering':             {green: 2,  yellow: 4},
     'Plan Review':             {green: 1,  yellow: 2},
     'Interconnection':         {green: 10, yellow: 14},
-    'Permitting':              {green: 5,  yellow: 7},
+    'Permitting':              {green: 7,  yellow: 10},
     'Procurement & Scheduling':{green: 3,  yellow: 5},
     'Active Installation':     {green: 14, yellow: 21},
     'Inspection':              {green: 3,  yellow: 5},
     'Witness Test / PTO':      {green: 14, yellow: 28},
-    'Energized':               {green: 5,  yellow: 7},
+    'Energized':               {green: 15, yellow: 20},
     'On Hold':                 {green: 14, yellow: 30}
   };
   const SLA_STORAGE_KEY = 'helio_sla_overrides_v1';
 
+  // Fetch canonical SLA thresholds from sla_thresholds.json. Replaces the
+  // hardcoded fallback above on success. Called from bootstrapDashboard
+  // before classification runs.
+  async function loadSLADefaults(){
+    try {
+      const r = await fetch('sla_thresholds.json?v=' + Date.now(), {cache: 'no-store'});
+      if (!r.ok) return;
+      const data = await r.json();
+      if (data && data.stages) SLA_DEFAULTS = data.stages;
+    } catch(e){
+      console.warn('SLA defaults fetch failed, using hardcoded fallback:', e);
+    }
+  }
+
   function loadSLAs(){
+    // Per-view users (VIEW_SLUG set) read canonical SLAs only — no per-user
+    // overrides. The Settings modal is hidden for them on render.
     let overrides = {};
-    try { overrides = JSON.parse(localStorage.getItem(SLA_STORAGE_KEY) || '{}'); } catch(e){}
+    if (!VIEW_SLUG){
+      try { overrides = JSON.parse(localStorage.getItem(SLA_STORAGE_KEY) || '{}'); } catch(e){}
+    }
     const merged = {};
     for (const stage in SLA_DEFAULTS){
       merged[stage] = Object.assign({}, SLA_DEFAULTS[stage], overrides[stage] || {});
@@ -1042,6 +1063,15 @@
   }
 
   async function bootstrapDashboard(){
+    // Hide the Settings button for per-view users — only the admin (no
+    // ?view= slug) can edit SLA thresholds (and even then, only as their
+    // own browser-local override; canonical values live in sla_thresholds.json).
+    if (VIEW_SLUG){
+      const btn = document.querySelector('.settings-btn');
+      if (btn) btn.style.display = 'none';
+    }
+    // Fetch canonical SLA defaults BEFORE rendering classifications.
+    await loadSLADefaults();
     try {
       const r = await fetch(DATA_URL, {cache: 'no-store'});
       if (!r.ok) throw new Error('HTTP ' + r.status);
