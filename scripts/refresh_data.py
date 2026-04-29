@@ -58,7 +58,7 @@ FIELDS = (
     # Cash flow tracker fields (consumed by scripts/cashflow.py).
     "Contract_Total,Financing_Type,Lending_Status,"
     "Substantial_Completion,Utility_PTO,Permit_Approved,"
-    "ICA_Contingent_Approval,Projected_Install_Date,Project_Created_Date"
+    "ICA_Contingent_Approval,Project_Created_Date"
 )
 
 # Stage-change tracking was enabled in Zoho on 2026-04-16. Records that

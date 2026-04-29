@@ -32,6 +32,10 @@ Schedule constants (Harry confirmed 2026-04-28):
 
   Cash:    20% deposit (signing) / 60% pre-install / 20% subst comp.
            Deposit gets a 7-day grace before flagging past-due.
+
+Projected_Install_Date is intentionally NOT consulted: it's an unreliable
+scheduled date that doesn't track actual install completion. The framework
+relies on Substantial_Completion + Project_Stage transitions instead.
   LR:      80% install / 20% activation. Lender pays Helio. 14d processing.
   SG:      90% install / 10% PTO. 5d processing.
   CF:      50% Phase 1 (permit approved) / 50% Phase 2 (WT/PTO entry). 5d.
@@ -232,7 +236,6 @@ def _compute(lender: str, next_desc: str, next_pct: float, today: date,
              permit_approved: Optional[date],
              ica_approval: Optional[date],
              utility_pto: Optional[date],
-             projected_install: Optional[date],
              date_of_stage_change: Optional[date]) -> dict:
     """Returns dict: forecast_date (str|None), anchor_source, status
     (paid|on_track|past_due)."""
@@ -273,19 +276,21 @@ def _compute(lender: str, next_desc: str, next_pct: float, today: date,
             forecast = _add_days(ica_approval, lag)
             src = f"ICA_Contingent_Approval + {lag}d"
         elif trigger_label == "install start":  # Cash 60%
-            # Past Active Installation — install has happened. Use SC if available.
-            anchor = subst or projected_install
+            # Past Active Installation. Use SC if available; else fall back to
+            # current stage entry date (when project is at AI itself).
+            anchor = subst or date_of_stage_change
             forecast = _add_days(anchor, -7) if anchor else None
-            src = ("Substantial_Completion − 7d" if subst else
-                   ("Projected_Install_Date − 7d" if projected_install else "no install anchor"))
+            src = ("Substantial_Completion − 7d" if subst
+                   else ("Date_of_Stage_Change − 7d" if date_of_stage_change else "no install anchor"))
         elif trigger_label == "substantial completion":  # LR/SG install, Cash 20% subst
-            anchor = subst or projected_install
+            # Project is past Inspection — SC should be set. If null, that's a
+            # data hygiene issue; mark forecast unknown rather than guessing.
             if "substantial" in nd:  # Cash 20% — no lag
-                forecast = anchor
-                src = "Substantial_Completion" if subst else ("Projected_Install_Date" if projected_install else "no SC anchor")
+                forecast = subst
+                src = "Substantial_Completion" if subst else "no SC anchor (data hygiene)"
             else:  # LR/SG install — + lender lag
-                forecast = _add_days(anchor, lag) if anchor else None
-                src = (("Substantial_Completion + " if subst else "Projected_Install_Date + ") + f"{lag}d") if anchor else "no SC anchor"
+                forecast = _add_days(subst, lag) if subst else None
+                src = f"Substantial_Completion + {lag}d" if subst else "no SC anchor (data hygiene)"
         elif trigger_label == "WT/PTO submission":  # CF Phase 2
             # Past WT/PTO entry. Use Date_of_Stage_Change if available, else SC + a small adjustment.
             if stage == "Witness Test / PTO" and date_of_stage_change:
@@ -400,7 +405,6 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
             lender, pct_collected, next_desc, next_pct = ("?", 0.0, "Unmapped", 0.0)
 
         subst = _parse_date(r.get("Substantial_Completion"))
-        projected_install = _parse_date(r.get("Projected_Install_Date"))
         permit_approved = _parse_date(r.get("Permit_Approved"))
         project_created = _parse_date(r.get("Project_Created_Date"))
         utility_pto = _parse_date(r.get("Utility_PTO"))
@@ -411,7 +415,7 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
             lender, next_desc, next_pct, today,
             stage, lending_status,
             project_created, subst, permit_approved, ica_approval,
-            utility_pto, projected_install, date_of_stage_change,
+            utility_pto, date_of_stage_change,
         )
 
         next_dollar = (contract_total * next_pct) if (contract_total and next_pct) else 0.0
