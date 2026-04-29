@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-28T19:49:37.835244Z",
-  "today": "2026-04-28",
+  "generated_at": "2026-04-29T12:20:03.122474Z",
+  "today": "2026-04-29",
   "weeks": [
     {
       "index": 0,
@@ -151,7 +151,7 @@
     {
       "project_id": "PROJ-1538",
       "customer": "Richard Desrochers",
-      "stage": "Sales Ops Review",
+      "stage": "Procurement & Scheduling",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "David Fargnoli",
