@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-29T12:20:03.122474Z",
-  "generated_at_label": "Wed Apr 29, 2026 · 8:20 AM ET",
+  "generated_at": "2026-04-29T13:28:00.349161Z",
+  "generated_at_label": "Wed Apr 29, 2026 · 9:28 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 79,
   "projects": [
@@ -359,7 +359,7 @@
       "customer": "Sample Project",
       "stage": "On Hold",
       "stage_entered_at": "2026-04-21T09:21:00-04:00",
-      "days_in_stage": 7,
+      "days_in_stage": 8,
       "rep": "Brian Tilford",
       "owner": "",
       "project_manager": "David Fargnoli",
