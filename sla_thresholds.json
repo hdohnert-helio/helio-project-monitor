@@ -8,12 +8,12 @@
     "Engineering":               {"green": 2,  "yellow": 4},
     "Plan Review":               {"green": 1,  "yellow": 2},
     "Interconnection":           {"green": 10, "yellow": 14},
-    "Permitting":                {"green": 7,  "yellow": 10},
-    "Procurement & Scheduling":  {"green": 3,  "yellow": 5},
-    "Active Installation":       {"green": 14, "yellow": 21},
+    "Permitting":                {"green": 4,  "yellow": 7},
+    "Procurement & Scheduling":  {"green": 2,  "yellow": 4},
+    "Active Installation":       {"green": 5, "yellow": 10},
     "Inspection":                {"green": 3,  "yellow": 5},
-    "Witness Test / PTO":        {"green": 14, "yellow": 28},
-    "Energized":                 {"green": 15, "yellow": 20},
+    "Witness Test / PTO":        {"green": 10, "yellow": 21},
+    "Energized":                 {"green": 1, "yellow": 5},
     "On Hold":                   {"green": 14, "yellow": 30}
   }
 }
