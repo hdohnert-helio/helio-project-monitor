@@ -152,9 +152,13 @@
   /* CASH FLOW — its own tab */
   .cashflow-section{margin-top:0}
   .cf-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
+  .cf-summary .card{cursor:pointer;transition:box-shadow 0.15s,transform 0.1s,outline 0.15s;outline:2px solid transparent}
+  .cf-summary .card:hover{box-shadow:0 3px 12px rgba(0,0,0,0.13);transform:translateY(-1px)}
+  .cf-summary .card.cf-card-active{outline-color:#4f6ef5;box-shadow:0 3px 12px rgba(79,110,245,0.25)}
   .cf-summary .card .value{font-size:24px}
-  .cf-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:12px;cursor:default;padding:1px 4px;border-radius:4px;transition:background 0.15s}
+  .cf-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:12px;cursor:pointer;padding:1px 4px;border-radius:4px;transition:background 0.15s,outline 0.15s;outline:2px solid transparent}
   .cf-bar-row:hover{background:#f5f7ff}
+  .cf-bar-row.cf-bar-active{background:#eef2ff;outline-color:#4f6ef5}
   .cf-bar-label{width:130px;color:#444;font-weight:500;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .cf-bar-track{flex:1;height:14px;background:#f0f2f5;border-radius:3px;overflow:hidden}
   .cf-bar-fill{height:100%;background:#22a85a;transition:width 0.3s;min-width:1px}
@@ -965,9 +969,30 @@
     return sign + '$' + Math.round(Math.abs(v)).toLocaleString();
   }
 
+  // Cash flow filter state — null = no filter, or one of:
+  //   'all'        → all milestones (Total Outstanding card)
+  //   'this_week'  → milestones forecasted in the current week
+  //   'next_30'    → milestones forecasted in next 30 days from today
+  //   'past_due'   → bucket = Past-due
+  //   'beyond_12'  → bucket = Beyond 12 wks
+  //   '<week label>' → bucket exactly matches (e.g., 'Wk 04/27')
+  let _cfPayload = null;
+  let _cfFilter = null;
+
+  function setCashflowFilter(f){
+    // Toggle: clicking the active filter clears it. 'all' always clears.
+    if (f === 'all' || _cfFilter === f) {
+      _cfFilter = null;
+    } else {
+      _cfFilter = f;
+    }
+    if (_cfPayload) renderCashflow(_cfPayload);
+  }
+
   function renderCashflow(payload){
     const section = document.getElementById('cashflowSection');
     if (!section || !payload) return;
+    _cfPayload = payload;
     // Tab visibility is controlled by the tab-panel class; just clear any
     // legacy display:none on the section itself.
     section.style.display = '';
@@ -975,19 +1000,21 @@
     // ---- Summary cards (5) ----
     const s = payload.summary || {};
     const cards = [
-      {label:'Total Outstanding',  value:_fmtMoney(s.total_outstanding), klass:'total',  sub:(s.project_count|0)+' projects'},
-      {label:'This Week',          value:_fmtMoney(s.this_week),         klass:'green',  sub:''},
-      {label:'Next 30 Days',       value:_fmtMoney(s.next_30_days),      klass:'yellow', sub:''},
-      {label:'Past-Due',           value:_fmtMoney(s.past_due),          klass:'red',    sub:'real chase'},
-      {label:'Beyond 12 wks',      value:_fmtMoney(s.beyond_12_wks),     klass:'total',  sub:'further out'},
+      {label:'Total Outstanding',  value:_fmtMoney(s.total_outstanding), klass:'total',  sub:(s.project_count|0)+' projects', filter:'all'},
+      {label:'This Week',          value:_fmtMoney(s.this_week),         klass:'green',  sub:'',                              filter:'this_week'},
+      {label:'Next 30 Days',       value:_fmtMoney(s.next_30_days),      klass:'yellow', sub:'',                              filter:'next_30'},
+      {label:'Past-Due',           value:_fmtMoney(s.past_due),          klass:'red',    sub:'real chase',                    filter:'past_due'},
+      {label:'Beyond 12 wks',      value:_fmtMoney(s.beyond_12_wks),     klass:'total',  sub:'further out',                   filter:'beyond_12'},
     ];
-    document.getElementById('cfSummary').innerHTML = cards.map(c =>
-      '<div class="card ' + c.klass + '">'
-      + '<div class="label">' + esc(c.label) + '</div>'
-      + '<div class="value">' + esc(c.value) + '</div>'
-      + (c.sub ? ('<div class="sub">' + esc(c.sub) + '</div>') : '')
-      + '</div>'
-    ).join('');
+    document.getElementById('cfSummary').innerHTML = cards.map(c => {
+      const active = (_cfFilter === c.filter) ? ' cf-card-active' : '';
+      return '<div class="card ' + c.klass + active + '"'
+        + ' onclick="setCashflowFilter(\'' + c.filter + '\')">'
+        + '<div class="label">' + esc(c.label) + '</div>'
+        + '<div class="value">' + esc(c.value) + '</div>'
+        + (c.sub ? ('<div class="sub">' + esc(c.sub) + '</div>') : '')
+        + '</div>';
+    }).join('');
 
     // ---- Bar chart: Past-due | Wk 1..12 | Beyond 12 wks ----
     const totals = payload.weekly_totals || {};
@@ -1003,46 +1030,109 @@
       else if (label === 'Beyond 12 wks') klass = 'cf-unscheduled';
       else if (label === firstWeekLabel) klass = 'cf-this-week';
       const empty = v <= 0;
-      return '<div class="cf-bar-row' + (empty ? ' cf-empty' : '') + '">'
+      // Map chart label → filter token. Past-due / Beyond 12 wks have
+      // dedicated filter values; weekly labels are filtered by exact match.
+      const filterToken = label === 'Past-due'      ? 'past_due'
+                        : label === 'Beyond 12 wks' ? 'beyond_12'
+                        : label;
+      const active = (_cfFilter === filterToken
+                      || (label === firstWeekLabel && _cfFilter === 'this_week'))
+                     ? ' cf-bar-active' : '';
+      return '<div class="cf-bar-row' + (empty ? ' cf-empty' : '') + active + '"'
+        + ' onclick="setCashflowFilter(\'' + filterToken + '\')">'
         + '<div class="cf-bar-label">' + esc(label) + '</div>'
         + '<div class="cf-bar-track"><div class="cf-bar-fill ' + klass + '" style="width:' + pct.toFixed(1) + '%"></div></div>'
         + '<div class="cf-bar-amount">' + esc(_fmtMoney(v)) + '</div>'
         + '</div>';
     }).join('');
 
-    // ---- Detail table — past-due first, then by forecast date asc, unscheduled last ----
+    // ---- Detail table — one row per (project, milestone) pair.
+    // Past-due rows first, then by forecast date ascending. The active
+    // _cfFilter narrows the rendered set (set by clicking a card or bar).
     const canvasId = '5264387000040853100';
-    const projects = (payload.projects || []).filter(p => p.next_dollar > 0).slice().sort((a, b) => {
+    const today = payload.today;
+    const todayDate = today ? new Date(today + 'T00:00:00') : null;
+    const cutoff30 = todayDate ? new Date(todayDate.getTime() + 30 * 86400 * 1000) : null;
+
+    function rowMatchesFilter(row){
+      if (!_cfFilter) return true;
+      if (_cfFilter === 'all') return true;
+      if (_cfFilter === 'past_due') return row.bucket === 'Past-due';
+      if (_cfFilter === 'beyond_12') return row.bucket === 'Beyond 12 wks';
+      if (_cfFilter === 'this_week') return row.bucket === firstWeekLabel;
+      if (_cfFilter === 'next_30'){
+        if (!row.forecast_date || !todayDate || !cutoff30) return false;
+        const fd = new Date(row.forecast_date + 'T00:00:00');
+        return fd >= todayDate && fd <= cutoff30;
+      }
+      // Otherwise: filter is a specific bucket label like 'Wk 04/27'
+      return row.bucket === _cfFilter;
+    }
+
+    const allRows = [];
+    for (const p of (payload.projects || [])){
+      for (const m of (p.milestones || [])){
+        if (!(m.dollars > 0)) continue;
+        allRows.push({
+          customer: p.customer,
+          stage: p.stage,
+          lender: p.lender,
+          lending_status: p.lending_status,
+          zoho_record_id: p.zoho_record_id,
+          milestone: m.label,
+          dollars: m.dollars,
+          forecast_date: m.forecast_date,
+          bucket: m.bucket,
+          status: m.status,
+        });
+      }
+    }
+    allRows.sort((a, b) => {
       const aPD = a.bucket === 'Past-due', bPD = b.bucket === 'Past-due';
       if (aPD && !bPD) return -1;
       if (bPD && !aPD) return 1;
-      const aU = !a.forecast_date, bU = !b.forecast_date;
-      if (aU && !bU) return 1;
-      if (bU && !aU) return -1;
       if (a.forecast_date && b.forecast_date) return a.forecast_date.localeCompare(b.forecast_date);
+      if (!a.forecast_date) return 1;
+      if (!b.forecast_date) return -1;
       return 0;
     });
+    const rows = allRows.filter(rowMatchesFilter);
+
+    // Update the table-header h2 to reflect the active filter (so it's
+    // obvious why fewer rows are visible).
+    const headerH2 = document.querySelector('#cfTable .table-header h2');
+    if (headerH2){
+      const filterDesc = !_cfFilter ? 'sorted by forecast date'
+        : _cfFilter === 'all'       ? 'sorted by forecast date'
+        : _cfFilter === 'past_due'  ? 'filtered: Past-due'
+        : _cfFilter === 'beyond_12' ? 'filtered: Beyond 12 wks'
+        : _cfFilter === 'this_week' ? 'filtered: this week'
+        : _cfFilter === 'next_30'   ? 'filtered: next 30 days'
+        :                             'filtered: ' + _cfFilter;
+      headerH2.textContent = 'Project detail — ' + filterDesc
+        + ' (' + rows.length + (rows.length === 1 ? ' row' : ' rows') + ')';
+    }
 
     const tbody = document.getElementById('cfTableBody');
-    if (!projects.length){
-      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:32px;color:#888;font-size:13px">No projects with forecastable next milestones.</td></tr>';
+    if (!rows.length){
+      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:32px;color:#888;font-size:13px">No milestones match the current filter.</td></tr>';
       return;
     }
-    tbody.innerHTML = projects.map(p => {
+    tbody.innerHTML = rows.map(r => {
       const url = 'https://crm.zoho.com/crm/heliosolar/tab/CustomModule6/'
-        + encodeURIComponent(p.zoho_record_id || '') + '/canvas/' + canvasId;
-      const rowClass = p.bucket === 'Past-due' ? 'cf-row-past-due'
-                     : (p.bucket === 'Beyond 12 wks') ? 'cf-row-unscheduled'
+        + encodeURIComponent(r.zoho_record_id || '') + '/canvas/' + canvasId;
+      const rowClass = r.bucket === 'Past-due' ? 'cf-row-past-due'
+                     : (r.bucket === 'Beyond 12 wks') ? 'cf-row-unscheduled'
                      : '';
       return '<tr class="' + rowClass + '">'
-        + '<td><strong>' + esc(p.customer) + '</strong></td>'
-        + '<td>' + esc(p.stage) + '</td>'
-        + '<td>' + esc(p.lender) + '</td>'
-        + '<td style="font-size:12px;color:#666">' + esc(p.lending_status || '—') + '</td>'
-        + '<td>' + esc(p.next_milestone) + '</td>'
-        + '<td style="text-align:right;font-weight:600">' + esc(_fmtMoney(p.next_dollar)) + '</td>'
-        + '<td>' + esc(p.forecast_date || '—') + '</td>'
-        + '<td>' + esc(p.bucket || '—') + '</td>'
+        + '<td><strong>' + esc(r.customer) + '</strong></td>'
+        + '<td>' + esc(r.stage) + '</td>'
+        + '<td>' + esc(r.lender) + '</td>'
+        + '<td style="font-size:12px;color:#666">' + esc(r.lending_status || '—') + '</td>'
+        + '<td>' + esc(r.milestone) + '</td>'
+        + '<td style="text-align:right;font-weight:600">' + esc(_fmtMoney(r.dollars)) + '</td>'
+        + '<td>' + esc(r.forecast_date || '—') + '</td>'
+        + '<td>' + esc(r.bucket || '—') + '</td>'
         + '<td class="link-cell"><a href="' + url + '" target="_blank" rel="noopener" class="zoho-link" title="Open in Zoho CRM">↗</a></td>'
         + '</tr>';
     }).join('');

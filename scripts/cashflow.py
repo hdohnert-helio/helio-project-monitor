@@ -112,6 +112,37 @@ STATUS_MAP: dict[str, tuple[str, float, str, float]] = {
     "SE- PTO Package Submitted":              ("SE",   0.6667, "1/3 — PTO funded",                 0.3333),
 }
 
+# Full milestone breakdown per lender. Used to forecast EVERY remaining
+# milestone (not just the "next" one). The order matches the natural
+# pipeline progression — Cash deposit comes first, then 60% pre-install,
+# etc. Each milestone label is matched by _trigger_for to determine its
+# trigger event ("deposit"/"pre-install"/"substantial"/"install"/"activation"/etc.)
+# so the existing forecast logic works unchanged.
+FINANCING_SCHEDULES: dict[str, list[tuple[str, float]]] = {
+    "Cash": [
+        ("Deposit (20%)",                  0.20),
+        ("Pre-install (60%)",              0.60),
+        ("Substantial completion (20%)",   0.20),
+    ],
+    "LR": [
+        ("Install package (80%)",          0.80),
+        ("Activation package (20%)",       0.20),
+    ],
+    "SG": [
+        ("Install package (90%)",          0.90),
+        ("PTO package (10%)",              0.10),
+    ],
+    "CF": [
+        ("Phase 1 (50%)",                  0.50),
+        ("Phase 2 (50%)",                  0.50),
+    ],
+    "SE": [
+        ("1/3 loan docs signed",           0.3333),
+        ("1/3 interconnection approval",   0.3333),
+        ("1/3 PTO",                        0.3334),
+    ],
+}
+
 LENDER_LAGS = {"LR": 14, "SG": 5, "CF": 5, "SE": 5, "Cash": 0}
 CASH_DEPOSIT_GRACE_DAYS = 7
 SE_LOAN_DOCS_PROXY_DAYS = 14   # Project_Created + 14d (no native field)
@@ -400,9 +431,9 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
             contract_total = None
 
         if sm:
-            lender, pct_collected, next_desc, next_pct = sm
+            lender, pct_collected = sm[0], sm[1]
         else:
-            lender, pct_collected, next_desc, next_pct = ("?", 0.0, "Unmapped", 0.0)
+            lender, pct_collected = "?", 0.0
 
         subst = _parse_date(r.get("Substantial_Completion"))
         permit_approved = _parse_date(r.get("Permit_Approved"))
@@ -411,14 +442,44 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
         ica_approval = _parse_date(r.get("ICA_Contingent_Approval"))
         date_of_stage_change = _parse_date(r.get("Date_of_Stage_Change"))
 
-        forecast = _compute(
-            lender, next_desc, next_pct, today,
-            stage, lending_status,
-            project_created, subst, permit_approved, ica_approval,
-            utility_pto, date_of_stage_change,
-        )
+        # Build the full milestone list for this project — every uncollected
+        # milestone gets its own forecast. Walk the schedule for this lender
+        # and skip milestones already covered by pct_collected.
+        schedule = FINANCING_SCHEDULES.get(lender, [])
+        milestones: list[dict] = []
+        cum_pct = 0.0
+        TOL = 0.005
+        for label, pct in schedule:
+            cum_pct += pct
+            if cum_pct <= pct_collected + TOL:
+                continue  # this milestone is already paid
+            ms_dollars = (contract_total * pct) if contract_total else 0.0
+            forecast = _compute(
+                lender, label, pct, today,
+                stage, lending_status,
+                project_created, subst, permit_approved, ica_approval,
+                utility_pto, date_of_stage_change,
+            )
+            milestones.append({
+                "label": label,
+                "pct": round(pct, 4),
+                "dollars": round(ms_dollars, 2),
+                "forecast_date": forecast["forecast_date"],
+                "anchor_source": forecast["anchor_source"],
+                "status": forecast["status"],
+            })
 
-        next_dollar = (contract_total * next_pct) if (contract_total and next_pct) else 0.0
+        # Project-level "next" fields surface the FIRST outstanding milestone
+        # (matches the legacy single-milestone-per-project view for the
+        # dashboard's summary cards / backward compat).
+        first = milestones[0] if milestones else None
+        next_milestone = first["label"] if first else "—"
+        next_pct = first["pct"] if first else 0.0
+        next_dollar = first["dollars"] if first else 0.0
+        next_forecast_date = first["forecast_date"] if first else None
+        next_anchor_source = first["anchor_source"] if first else "100% collected"
+        next_status = first["status"] if first else "paid"
+
         dollars_collected = (contract_total * pct_collected) if (contract_total and pct_collected) else 0.0
         dollars_outstanding = (contract_total - dollars_collected) if contract_total else 0.0
         ftype = _infer_financing_type(r.get("Financing_Type"), lending_status)
@@ -446,12 +507,14 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
             "pct_collected": round(pct_collected, 4),
             "dollars_collected": round(dollars_collected, 2),
             "dollars_outstanding": round(dollars_outstanding, 2),
-            "next_milestone": next_desc if next_pct > 0 else "—",
-            "next_milestone_pct": round(next_pct, 4),
-            "next_dollar": round(next_dollar, 2) if next_pct > 0 else 0.0,
-            "forecast_date": forecast["forecast_date"],
-            "anchor_source": forecast["anchor_source"],
-            "status": forecast["status"],            # paid | on_track | past_due
+            "milestones": milestones,
+            # Backward-compat single-milestone fields (= first outstanding).
+            "next_milestone": next_milestone,
+            "next_milestone_pct": next_pct,
+            "next_dollar": next_dollar,
+            "forecast_date": next_forecast_date,
+            "anchor_source": next_anchor_source,
+            "status": next_status,
             "flags": flags,
         })
     return out
@@ -471,19 +534,27 @@ def _build_weeks(today: date, n_weeks: int = 12) -> list[dict]:
     } for i in range(n_weeks)]
 
 
-def _bucket_for(p: dict, weeks: list[dict]) -> str:
-    status = p.get("status")
+def _bucket_for(m: dict, weeks: list[dict]) -> str:
+    """Bucket a milestone into a week / Past-due / Beyond 12wks.
+
+    Past-due is reserved for real chases (status="past_due"). When a
+    pre-trigger heuristic forecast happens to land in the past (because
+    of stage-buffer math, e.g. Cash 60% pre-install with a "− 7 days"
+    adjustment), we bucket it into the CURRENT week — the trigger is
+    imminent, not overdue."""
+    status = m.get("status")
     if status == "paid":
         return "Paid"
     if status == "past_due":
         return "Past-due"
-    fd = _parse_date(p.get("forecast_date"))
+    fd = _parse_date(m.get("forecast_date"))
     if not fd:
         return "Past-due"  # status=on_track but no date — defensive
     first_start = _parse_date(weeks[0]["start"])
     last_end = _parse_date(weeks[-1]["end"])
     if fd < first_start:
-        return "Past-due"
+        # Pre-trigger heuristic landed in the past — clamp to current week.
+        return weeks[0]["label"]
     if fd > last_end:
         return "Beyond 12 wks"
     for w in weeks:
@@ -511,19 +582,25 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
     first_week_end = _parse_date(weeks[0]["end"])
 
     for p in projects:
-        bucket = _bucket_for(p, weeks)
-        p["bucket"] = bucket
-        amt = p.get("next_dollar") or 0
-        if bucket in weekly_totals:
-            weekly_totals[bucket] += amt
+        # Bucket EVERY uncollected milestone for this project (not just "next").
+        # The project-level bucket field still mirrors the first milestone for
+        # backward-compat with anything that reads project.bucket directly.
+        for m in p.get("milestones", []):
+            m["bucket"] = _bucket_for(m, weeks)
+            amt = m.get("dollars") or 0
+            if m["bucket"] in weekly_totals:
+                weekly_totals[m["bucket"]] += amt
+            if m["forecast_date"] and m["status"] == "on_track":
+                fd = _parse_date(m["forecast_date"])
+                if fd and first_week_start <= fd <= first_week_end:
+                    this_week_total += amt
+                if fd and today <= fd <= cutoff_30:
+                    next_30_days += amt
+        # Project-level bucket = first milestone's bucket (or Paid if none).
+        first = (p.get("milestones") or [{}])[0]
+        p["bucket"] = first.get("bucket", "Paid")
         total_outstanding += p["dollars_outstanding"] or 0
         total_collected += p["dollars_collected"] or 0
-        if p["forecast_date"] and p["status"] == "on_track":
-            fd = _parse_date(p["forecast_date"])
-            if fd and first_week_start <= fd <= first_week_end:
-                this_week_total += amt
-            if fd and today <= fd <= cutoff_30:
-                next_30_days += amt
 
     return {
         "generated_at": now.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
@@ -565,18 +642,19 @@ def apply_filter(payload: dict, view_filter: dict) -> dict:
     first_week_end = _parse_date(weeks[0]["end"])
 
     for p in out_projects:
-        bucket = p.get("bucket") or "Past-due"
-        amt = p.get("next_dollar") or 0
-        if bucket in weekly_totals:
-            weekly_totals[bucket] += amt
+        for m in p.get("milestones", []):
+            bucket = m.get("bucket") or "Past-due"
+            amt = m.get("dollars") or 0
+            if bucket in weekly_totals:
+                weekly_totals[bucket] += amt
+            if m.get("forecast_date") and m.get("status") == "on_track":
+                fd = _parse_date(m["forecast_date"])
+                if fd and first_week_start <= fd <= first_week_end:
+                    this_week_total += amt
+                if fd and today <= fd <= cutoff_30:
+                    next_30_days += amt
         total_outstanding += p.get("dollars_outstanding", 0) or 0
         total_collected += p.get("dollars_collected", 0) or 0
-        if p.get("forecast_date") and p.get("status") == "on_track":
-            fd = _parse_date(p["forecast_date"])
-            if fd and first_week_start <= fd <= first_week_end:
-                this_week_total += amt
-            if fd and today <= fd <= cutoff_30:
-                next_30_days += amt
 
     return {
         "generated_at": payload["generated_at"],
