@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-30T12:17:47.375560Z",
+  "generated_at": "2026-04-30T19:42:03.447146Z",
   "today": "2026-04-30",
   "weeks": [
     {
@@ -83,13 +83,13 @@
     "Wk 05/25": 29288.03,
     "Wk 06/01": 25722.4,
     "Wk 06/08": 5909.72,
-    "Wk 06/15": 143046.95,
-    "Wk 06/22": 69661.84,
+    "Wk 06/15": 186182.07,
+    "Wk 06/22": 26526.72,
     "Wk 06/29": 0.0,
     "Wk 07/06": 0.0,
-    "Wk 07/13": 30104.7,
+    "Wk 07/13": 40888.48,
     "Past-due": 7425.76,
-    "Beyond 12 wks": 15990.88
+    "Beyond 12 wks": 5207.1
   },
   "summary": {
     "project_count": 31,
@@ -98,18 +98,18 @@
     "this_week": 22277.27,
     "next_30_days": 279212.47,
     "past_due": 7425.76,
-    "beyond_12_wks": 15990.88
+    "beyond_12_wks": 5207.1
   },
   "projects": [
     {
       "project_id": "PROJ-1615",
       "customer": "Nusrat Nisan",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086090012",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": null,
@@ -132,12 +132,12 @@
     {
       "project_id": "PROJ-1616",
       "customer": "Nasima Majid",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086077022",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": null,
@@ -398,7 +398,7 @@
     {
       "project_id": "PROJ-1607",
       "customer": "Justin Kane",
-      "stage": "Project Intake",
+      "stage": "Interconnection",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -415,29 +415,29 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 43135.12,
-          "forecast_date": "2026-06-27",
-          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-06-18",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 06/22"
+          "bucket": "Wk 06/15"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 10783.78,
-          "forecast_date": "2026-07-23",
-          "anchor_source": "today + 70d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-07-14",
+          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Beyond 12 wks"
+          "bucket": "Wk 07/13"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 43135.12,
-      "forecast_date": "2026-06-27",
-      "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-06-18",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/22"
+      "bucket": "Wk 06/15"
     },
     {
       "project_id": "PROJ-1606",
