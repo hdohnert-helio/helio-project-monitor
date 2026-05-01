@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T15:00:16.835014Z",
+  "generated_at": "2026-05-01T17:13:24.961609Z",
   "today": "2026-05-01",
   "weeks": [
     {
@@ -92,8 +92,8 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 36,
-    "total_outstanding": 652314.08,
+    "project_count": 35,
+    "total_outstanding": 599351.98,
     "total_collected": 700337.25,
     "this_week": 22277.27,
     "next_30_days": 279212.47,
@@ -104,12 +104,12 @@
     {
       "project_id": "PROJ-1619",
       "customer": "Abdul Mabud",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086240028",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": 0.0,
@@ -132,12 +132,12 @@
     {
       "project_id": "PROJ-1620",
       "customer": "Mohammed Alamgir",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086228054",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": 0.0,
@@ -160,12 +160,12 @@
     {
       "project_id": "PROJ-1618",
       "customer": "Moriam Khatun",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086202032",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": 0.0,
@@ -209,33 +209,6 @@
       "status": "paid",
       "flags": [
         "Contract_Total missing or zero",
-        "Lending_Status missing"
-      ],
-      "bucket": "Paid"
-    },
-    {
-      "project_id": "PROJ-1617",
-      "customer": "Harry Dohnert - Test",
-      "stage": "Sales Ops Review",
-      "owner": "Harry Dohnert",
-      "rep": "Harry",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086181045",
-      "financing_type": "",
-      "lending_status": "",
-      "lender": "?",
-      "contract_total": 52962.1,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 52962.1,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
         "Lending_Status missing"
       ],
       "bucket": "Paid"
@@ -299,12 +272,12 @@
     {
       "project_id": "PROJ-1613",
       "customer": "Mohammad Gafur",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086059021",
-      "financing_type": "",
+      "financing_type": "Lease / PPA",
       "lending_status": "",
       "lender": "?",
       "contract_total": null,

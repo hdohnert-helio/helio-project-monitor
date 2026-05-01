@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T15:00:16.835014Z",
+  "generated_at": "2026-05-01T17:13:24.961609Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 32,
   "transitions": [
@@ -46,10 +46,10 @@
     },
     {
       "stage": "Project Intake",
-      "sample_count": 7,
-      "open_count": 2,
+      "sample_count": 8,
+      "open_count": 3,
       "median_days": 1.7222909339930554,
-      "p75_days": 2.4147750339409724
+      "p75_days": 2.130244379273727
     },
     {
       "stage": "Site Survey",
@@ -60,10 +60,10 @@
     },
     {
       "stage": "Engineering",
-      "sample_count": 2,
-      "open_count": 2,
-      "median_days": 0.12342279061342593,
-      "p75_days": 0.12342279061342593
+      "sample_count": 3,
+      "open_count": 3,
+      "median_days": 0.21587795953703706,
+      "p75_days": 0.21587795953703706
     },
     {
       "stage": "Plan Review",
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 0.46387220472800933,
-      "p75_days": 0.634096911785301
+      "median_days": 0.5563273736516204,
+      "p75_days": 0.7265520807089121
     },
     {
       "stage": "Permitting",
@@ -90,22 +90,22 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 2,
       "open_count": 1,
-      "median_days": 1.9075654628935186,
-      "p75_days": 2.368993894045139
+      "median_days": 1.9537930473553242,
+      "p75_days": 2.438335270737847
     },
     {
       "stage": "Active Installation",
       "sample_count": 2,
       "open_count": 1,
-      "median_days": 3.416814495619213,
-      "p75_days": 4.202364881125579
+      "median_days": 3.4630420800810184,
+      "p75_days": 4.2254786733564815
     },
     {
       "stage": "Inspection",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 2.8304223251967593,
-      "p75_days": 2.8304223251967593
+      "median_days": 2.9228774941203706,
+      "p75_days": 2.9228774941203706
     },
     {
       "stage": "Witness Test / PTO",
