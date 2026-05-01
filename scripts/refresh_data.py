@@ -53,7 +53,7 @@ ACTIVE_STAGES_SET = set(ACTIVE_STAGES)
 
 FIELDS = (
     "Project_ID,Name,Project_Stage,Sales_Representative,"
-    "Project_Owner,Project_Manager,Date_of_Stage_Change,"
+    "Project_Owner,Project_Manager,Date_of_Stage_Change,Created_Time,"
     "Last_Reviewed_At,Last_Reviewed_By,Last_Review_Notes,"
     # Cash flow tracker fields (consumed by scripts/cashflow.py).
     "Contract_Total,Financing_Type,Lending_Status,"
