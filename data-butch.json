@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-01T17:13:24.961609Z",
-  "generated_at_label": "Fri May 1, 2026 · 1:13 PM ET",
+  "generated_at": "2026-05-01T19:20:06.185057Z",
+  "generated_at_label": "Fri May 1, 2026 · 3:20 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 32,
   "projects": [
@@ -20,7 +20,7 @@
     },
     {
       "project_id": "PROJ-1620",
-      "customer": "Mohammed Alamgir",
+      "customer": "Mohammed Alamgir - SS1",
       "stage": "Project Intake",
       "stage_entered_at": "2026-05-01T12:08:00-04:00",
       "days_in_stage": 0,
@@ -48,7 +48,7 @@
     },
     {
       "project_id": "PROJ-1618",
-      "customer": "Moriam Khatun",
+      "customer": "Moriam Khatun - SS2",
       "stage": "Project Intake",
       "stage_entered_at": "2026-05-01T11:53:00-04:00",
       "days_in_stage": 0,
@@ -76,7 +76,7 @@
     },
     {
       "project_id": "PROJ-1615",
-      "customer": "Nusrat Nisan",
+      "customer": "Nusrat Nisan - SS1",
       "stage": "Project Intake",
       "stage_entered_at": "2026-04-30T08:29:00-04:00",
       "days_in_stage": 1,
@@ -104,7 +104,7 @@
     },
     {
       "project_id": "PROJ-1613",
-      "customer": "Mohammad Gafur",
+      "customer": "Mohammad Gafur - SS1",
       "stage": "Project Intake",
       "stage_entered_at": "2026-05-01T12:16:00-04:00",
       "days_in_stage": 0,
@@ -177,7 +177,7 @@
       "customer": "Justin Kane",
       "stage": "Interconnection",
       "stage_entered_at": "2026-04-30T14:39:00-04:00",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
