@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-04-30T19:42:03.447146Z",
+  "last_run": "2026-05-01T12:02:33.105905Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -158,6 +158,12 @@
         {
           "stage": "Active Installation",
           "entered_at": "2026-04-27T19:41:54.122176Z",
+          "exited_at": "2026-05-01T12:02:33.105905Z",
+          "truncated": false
+        },
+        {
+          "stage": "Inspection",
+          "entered_at": "2026-05-01T12:02:33.105905Z",
           "exited_at": null,
           "truncated": false
         }
@@ -776,6 +782,12 @@
         {
           "stage": "Active Installation",
           "entered_at": "2026-04-27T19:41:54.122176Z",
+          "exited_at": "2026-05-01T12:02:33.105905Z",
+          "truncated": false
+        },
+        {
+          "stage": "Inspection",
+          "entered_at": "2026-05-01T12:02:33.105905Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1268,6 +1280,12 @@
         {
           "stage": "Project Intake",
           "entered_at": "2026-04-28T12:25:49.645846Z",
+          "exited_at": "2026-05-01T12:02:33.105905Z",
+          "truncated": false
+        },
+        {
+          "stage": "Interconnection",
+          "entered_at": "2026-05-01T12:02:33.105905Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1288,6 +1306,12 @@
         {
           "stage": "Project Intake",
           "entered_at": "2026-04-29T18:42:27.169208Z",
+          "exited_at": "2026-05-01T12:02:33.105905Z",
+          "truncated": false
+        },
+        {
+          "stage": "Engineering",
+          "entered_at": "2026-05-01T12:02:33.105905Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1308,6 +1332,12 @@
         {
           "stage": "Project Intake",
           "entered_at": "2026-04-29T18:42:27.169208Z",
+          "exited_at": "2026-05-01T12:02:33.105905Z",
+          "truncated": false
+        },
+        {
+          "stage": "Engineering",
+          "entered_at": "2026-05-01T12:02:33.105905Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1395,6 +1425,76 @@
       "spans": [
         {
           "stage": "Project Intake",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
+        }
+      ]
+    },
+    "5264387000086240028": {
+      "project_id": "PROJ-1619",
+      "customer": "Abdul Mabud",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
+        }
+      ]
+    },
+    "5264387000086228054": {
+      "project_id": "PROJ-1620",
+      "customer": "Mohammed Alamgir",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
+        }
+      ]
+    },
+    "5264387000086202032": {
+      "project_id": "PROJ-1618",
+      "customer": "Moriam Khatun",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
+        }
+      ]
+    },
+    "5264387000086201069": {
+      "project_id": "PROJ-1621",
+      "customer": "Mohammed Ali",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
+        }
+      ]
+    },
+    "5264387000086181045": {
+      "project_id": "PROJ-1617",
+      "customer": "Harry Dohnert - Test",
+      "owner": "Harry Dohnert",
+      "rep": "Harry",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
           "entered_at": "2026-04-16T04:00:00Z",
           "exited_at": null,
           "truncated": true
