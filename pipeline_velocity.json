@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-03T11:50:41.163051Z",
+  "generated_at": "2026-05-03T19:09:07.099152Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 97,
   "transitions": [
@@ -46,10 +46,10 @@
     },
     {
       "stage": "Project Intake",
-      "sample_count": 13,
-      "open_count": 7,
-      "median_days": 1.7758819611342591,
-      "p75_days": 2.6726587489004627
+      "sample_count": 15,
+      "open_count": 9,
+      "median_days": 2.0803488141550925,
+      "p75_days": 2.5749647925000003
     },
     {
       "stage": "Site Survey",
@@ -62,8 +62,8 @@
       "stage": "Engineering",
       "sample_count": 3,
       "open_count": 3,
-      "median_days": 1.9917599206712964,
-      "p75_days": 1.9917599206712964
+      "median_days": 2.29622677369213,
+      "p75_days": 2.29622677369213
     },
     {
       "stage": "Plan Review",
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 3,
       "open_count": 3,
-      "median_days": 2.6726587489004627,
-      "p75_days": 3.685709102077546
+      "median_days": 2.9771256019212964,
+      "p75_days": 3.9901759550983797
     },
     {
       "stage": "Permitting",
@@ -90,22 +90,22 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 6,
       "open_count": 3,
-      "median_days": 4.339183203188657,
-      "p75_days": 4.934241231548032
+      "median_days": 4.6436500562094905,
+      "p75_days": 5.010357944803241
     },
     {
       "stage": "Active Installation",
       "sample_count": 4,
       "open_count": 1,
-      "median_days": 3.6975288053935182,
-      "p75_days": 4.03251695765625
+      "median_days": 3.8497622319039353,
+      "p75_days": 4.260867097421875
     },
     {
       "stage": "Inspection",
       "sample_count": 7,
       "open_count": 7,
-      "median_days": 4.6987594552546295,
-      "p75_days": 4.6987594552546295
+      "median_days": 5.003226308275463,
+      "p75_days": 5.003226308275463
     },
     {
       "stage": "Witness Test / PTO",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 9.686674721886574,
-      "p75_days": 9.686674721886574
+      "median_days": 9.991141574907406,
+      "p75_days": 9.991141574907406
     }
   ],
   "notes": [
