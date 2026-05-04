@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-03T19:09:07.099152Z",
+  "generated_at": "2026-05-04T12:22:29.941672Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 11,
   "transitions": [
@@ -90,8 +90,8 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 3,
       "open_count": 2,
-      "median_days": 4.284073804143518,
-      "p75_days": 4.648404480561343
+      "median_days": 5.001699296273149,
+      "p75_days": 5.007217226626158
     },
     {
       "stage": "Active Installation",
@@ -104,8 +104,8 @@
       "stage": "Inspection",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 2.29622677369213,
-      "p75_days": 2.29622677369213
+      "median_days": 3.0138522658217592,
+      "p75_days": 3.0138522658217592
     },
     {
       "stage": "Witness Test / PTO",

@@ -1,93 +1,93 @@
 {
-  "generated_at": "2026-05-03T19:09:07.099152Z",
-  "today": "2026-05-03",
+  "generated_at": "2026-05-04T12:22:29.941672Z",
+  "today": "2026-05-04",
   "weeks": [
     {
       "index": 0,
-      "start": "2026-04-27",
-      "end": "2026-05-03",
-      "label": "Wk 04/27"
-    },
-    {
-      "index": 1,
       "start": "2026-05-04",
       "end": "2026-05-10",
       "label": "Wk 05/04"
     },
     {
-      "index": 2,
+      "index": 1,
       "start": "2026-05-11",
       "end": "2026-05-17",
       "label": "Wk 05/11"
     },
     {
-      "index": 3,
+      "index": 2,
       "start": "2026-05-18",
       "end": "2026-05-24",
       "label": "Wk 05/18"
     },
     {
-      "index": 4,
+      "index": 3,
       "start": "2026-05-25",
       "end": "2026-05-31",
       "label": "Wk 05/25"
     },
     {
-      "index": 5,
+      "index": 4,
       "start": "2026-06-01",
       "end": "2026-06-07",
       "label": "Wk 06/01"
     },
     {
-      "index": 6,
+      "index": 5,
       "start": "2026-06-08",
       "end": "2026-06-14",
       "label": "Wk 06/08"
     },
     {
-      "index": 7,
+      "index": 6,
       "start": "2026-06-15",
       "end": "2026-06-21",
       "label": "Wk 06/15"
     },
     {
-      "index": 8,
+      "index": 7,
       "start": "2026-06-22",
       "end": "2026-06-28",
       "label": "Wk 06/22"
     },
     {
-      "index": 9,
+      "index": 8,
       "start": "2026-06-29",
       "end": "2026-07-05",
       "label": "Wk 06/29"
     },
     {
-      "index": 10,
+      "index": 9,
       "start": "2026-07-06",
       "end": "2026-07-12",
       "label": "Wk 07/06"
     },
     {
-      "index": 11,
+      "index": 10,
       "start": "2026-07-13",
       "end": "2026-07-19",
       "label": "Wk 07/13"
+    },
+    {
+      "index": 11,
+      "start": "2026-07-20",
+      "end": "2026-07-26",
+      "label": "Wk 07/20"
     }
   ],
   "weekly_totals": {
-    "Wk 04/27": 41729.27,
-    "Wk 05/04": 0.0,
-    "Wk 05/11": 41630.08,
-    "Wk 05/18": 0.0,
+    "Wk 05/04": 41729.27,
+    "Wk 05/11": 27720.32,
+    "Wk 05/18": 13909.76,
     "Wk 05/25": 0.0,
-    "Wk 06/01": 12012.0,
-    "Wk 06/08": 6930.08,
+    "Wk 06/01": 0.0,
+    "Wk 06/08": 18942.08,
     "Wk 06/15": 0.0,
     "Wk 06/22": 0.0,
     "Wk 06/29": 0.0,
     "Wk 07/06": 0.0,
     "Wk 07/13": 0.0,
+    "Wk 07/20": 0.0,
     "Past-due": 7425.76,
     "Beyond 12 wks": 0.0
   },
@@ -95,7 +95,7 @@
     "project_count": 4,
     "total_outstanding": 109727.18,
     "total_collected": 54532.0,
-    "this_week": 41729.27,
+    "this_week": 0.0,
     "next_30_days": 41630.08,
     "past_due": 7425.76,
     "beyond_12_wks": 0.0
@@ -121,29 +121,29 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 19452.0,
-          "forecast_date": "2026-04-30",
+          "forecast_date": "2026-05-01",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 04/27"
+          "bucket": "Wk 05/04"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 6484.0,
-          "forecast_date": "2026-05-17",
+          "forecast_date": "2026-05-18",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 05/11"
+          "bucket": "Wk 05/18"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 19452.0,
-      "forecast_date": "2026-04-30",
+      "forecast_date": "2026-05-01",
       "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 04/27"
+      "bucket": "Wk 05/04"
     },
     {
       "project_id": "PROJ-1599",
@@ -174,7 +174,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 6930.08,
-          "forecast_date": "2026-06-12",
+          "forecast_date": "2026-06-13",
           "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/08"
@@ -218,19 +218,19 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 22277.27,
-          "forecast_date": "2026-04-30",
+          "forecast_date": "2026-05-01",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 04/27"
+          "bucket": "Wk 05/04"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 7425.76,
-          "forecast_date": "2026-05-17",
+          "forecast_date": "2026-05-18",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 05/11"
+          "bucket": "Wk 05/18"
         }
       ],
       "next_milestone": "Deposit (20%)",
@@ -262,20 +262,20 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 12012.0,
-          "forecast_date": "2026-06-07",
+          "forecast_date": "2026-06-08",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 06/01"
+          "bucket": "Wk 06/08"
         }
       ],
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-06-07",
+      "forecast_date": "2026-06-08",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/01"
+      "bucket": "Wk 06/08"
     }
   ],
   "view_label": "Douglas Hoffman + Team"
