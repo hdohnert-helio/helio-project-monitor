@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T12:07:00.627691Z",
+  "generated_at": "2026-05-05T19:43:40.289459Z",
   "today": "2026-05-05",
   "weeks": [
     {
@@ -77,7 +77,7 @@
   ],
   "weekly_totals": {
     "Wk 05/04": 23638.88,
-    "Wk 05/11": 11851.2,
+    "Wk 05/11": 0.0,
     "Wk 05/18": 0.0,
     "Wk 05/25": 34199.68,
     "Wk 06/01": 22793.28,
@@ -92,11 +92,11 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 27,
-    "total_outstanding": 309528.54,
-    "total_collected": 103102.36,
+    "project_count": 24,
+    "total_outstanding": 217722.94,
+    "total_collected": 114953.56,
     "this_week": 23638.88,
-    "next_30_days": 92483.04,
+    "next_30_days": 80631.84,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
@@ -104,30 +104,48 @@
     {
       "project_id": "PROJ-1627",
       "customer": "Mohammed Alamgir",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086387039",
-      "financing_type": "",
-      "lending_status": "",
-      "lender": "?",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
       "contract_total": 0.0,
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-02",
+          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 06/29"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-28",
+          "anchor_source": "today + 70d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Beyond 12 wks"
+        }
       ],
-      "bucket": "Paid"
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 0.0,
+      "forecast_date": "2026-07-02",
+      "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
+      "bucket": "Wk 06/29"
     },
     {
       "project_id": "PROJ-1625",
@@ -566,83 +584,6 @@
       "bucket": "Wk 06/22"
     },
     {
-      "project_id": "PROJ-1610",
-      "customer": "Mohammed Noor",
-      "stage": "Interconnection",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086034006",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Needs NTP",
-      "lender": "?",
-      "contract_total": null,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
-      "bucket": "Paid"
-    },
-    {
-      "project_id": "PROJ-1608",
-      "customer": "Hartley Mannion",
-      "stage": "Interconnection",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000085875055",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Needs NTP",
-      "lender": "?",
-      "contract_total": 26035.5,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 26035.5,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [],
-      "bucket": "Paid"
-    },
-    {
-      "project_id": "PROJ-1607",
-      "customer": "Justin Kane",
-      "stage": "Interconnection",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000085757025",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Needs NTP",
-      "lender": "?",
-      "contract_total": 53918.9,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 53918.9,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [],
-      "bucket": "Paid"
-    },
-    {
       "project_id": "PROJ-1602",
       "customer": "Marion Hinze",
       "stage": "Interconnection",
@@ -925,37 +866,27 @@
     {
       "project_id": "PROJ-1461",
       "customer": "Mahlon Stewart",
-      "stage": "Active Installation",
+      "stage": "Inspection",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000061531063",
       "financing_type": "Cash",
-      "lending_status": "Cash - 60PCT paid",
+      "lending_status": "Cash - paid in full",
       "lender": "Cash",
       "contract_total": 59256.0,
-      "pct_collected": 0.8,
-      "dollars_collected": 47404.8,
-      "dollars_outstanding": 11851.2,
-      "milestones": [
-        {
-          "label": "Substantial completion (20%)",
-          "pct": 0.2,
-          "dollars": 11851.2,
-          "forecast_date": "2026-05-15",
-          "anchor_source": "today + 10d (Active Installation(10d)) + 0d lag",
-          "status": "on_track",
-          "bucket": "Wk 05/11"
-        }
-      ],
-      "next_milestone": "Substantial completion (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 11851.2,
-      "forecast_date": "2026-05-15",
-      "anchor_source": "today + 10d (Active Installation(10d)) + 0d lag",
-      "status": "on_track",
+      "pct_collected": 1.0,
+      "dollars_collected": 59256.0,
+      "dollars_outstanding": 0.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
       "flags": [],
-      "bucket": "Wk 05/11"
+      "bucket": "Paid"
     }
   ],
   "view_label": "Butch Carmona"

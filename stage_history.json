@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-05-05T12:07:00.627691Z",
+  "last_run": "2026-05-05T19:43:40.289459Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -734,8 +734,14 @@
         {
           "stage": "Active Installation",
           "entered_at": "2026-04-16T04:00:00Z",
-          "exited_at": null,
+          "exited_at": "2026-05-05T19:43:40.289459Z",
           "truncated": true
+        },
+        {
+          "stage": "Inspection",
+          "entered_at": "2026-05-05T19:43:40.289459Z",
+          "exited_at": null,
+          "truncated": false
         }
       ]
     },
@@ -1246,6 +1252,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-04-30T19:42:03.447146Z",
+          "exited_at": "2026-05-05T19:43:40.289459Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-05-05T19:43:40.289459Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1266,6 +1278,12 @@
         {
           "stage": "Procurement & Scheduling",
           "entered_at": "2026-04-29T12:20:03.122474Z",
+          "exited_at": "2026-05-05T19:43:40.289459Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-05-05T19:43:40.289459Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1292,6 +1310,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-05-01T12:02:33.105905Z",
+          "exited_at": "2026-05-05T19:43:40.289459Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-05-05T19:43:40.289459Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1388,6 +1412,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-05-05T12:07:00.627691Z",
+          "exited_at": "2026-05-05T19:43:40.289459Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-05-05T19:43:40.289459Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1669,6 +1699,40 @@
       "spans": [
         {
           "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": "2026-05-05T19:43:40.289459Z",
+          "truncated": true
+        },
+        {
+          "stage": "Project Intake",
+          "entered_at": "2026-05-05T19:43:40.289459Z",
+          "exited_at": null,
+          "truncated": false
+        }
+      ]
+    },
+    "5264387000086571001": {
+      "project_id": "PROJ-1629",
+      "customer": "Kim & James Murphy",
+      "owner": "Jenna Stockwell",
+      "rep": "Jenna Stockwell",
+      "spans": [
+        {
+          "stage": "Project Intake",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
+        }
+      ]
+    },
+    "5264387000086552001": {
+      "project_id": "PROJ-1628",
+      "customer": "Harry Dohnert",
+      "owner": "",
+      "rep": "Harry Dohnert",
+      "spans": [
+        {
+          "stage": "Site Survey",
           "entered_at": "2026-04-16T04:00:00Z",
           "exited_at": null,
           "truncated": true
