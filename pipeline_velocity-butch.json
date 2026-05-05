@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-04T19:49:03.599752Z",
+  "generated_at": "2026-05-05T12:07:00.627691Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "project_count": 37,
+  "project_count": 38,
   "transitions": [
     {
       "label": "Sold to Install Ready",
@@ -46,10 +46,10 @@
     },
     {
       "stage": "Project Intake",
-      "sample_count": 14,
-      "open_count": 9,
-      "median_days": 3.1080860896180558,
-      "p75_days": 3.177427466310764
+      "sample_count": 17,
+      "open_count": 12,
+      "median_days": 2.983836343275463,
+      "p75_days": 3.7872183574305556
     },
     {
       "stage": "Site Survey",
@@ -61,9 +61,9 @@
     {
       "stage": "Engineering",
       "sample_count": 3,
-      "open_count": 3,
-      "median_days": 3.3239640491550926,
-      "p75_days": 3.3239640491550926
+      "open_count": 0,
+      "median_days": 4.003096316967593,
+      "p75_days": 4.003096316967593
     },
     {
       "stage": "Plan Review",
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 3.664413463269676,
-      "p75_days": 3.8346381703269676
+      "median_days": 4.343545731082176,
+      "p75_days": 4.513770438139467
     },
     {
       "stage": "Permitting",
@@ -90,22 +90,22 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 2,
       "open_count": 1,
-      "median_days": 3.507836092164352,
-      "p75_days": 4.769399837951388
+      "median_days": 3.8474022260706024,
+      "p75_days": 5.278749038810764
     },
     {
       "stage": "Active Installation",
       "sample_count": 2,
       "open_count": 1,
-      "median_days": 5.0170851248900465,
-      "p75_days": 5.031670054019097
+      "median_days": 5.356651258796296,
+      "p75_days": 5.5410192548784725
     },
     {
       "stage": "Inspection",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 6.0309635837384254,
-      "p75_days": 6.0309635837384254
+      "median_days": 6.710095851550927,
+      "p75_days": 6.710095851550927
     },
     {
       "stage": "Witness Test / PTO",
