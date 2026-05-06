@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T19:43:40.289459Z",
+  "generated_at": "2026-05-06T12:58:14.612167Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 11,
   "transitions": [
@@ -104,8 +104,8 @@
       "stage": "Inspection",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 4.320222031875,
-      "p75_days": 4.320222031875
+      "median_days": 5.0386748409953706,
+      "p75_days": 5.0386748409953706
     },
     {
       "stage": "Witness Test / PTO",
