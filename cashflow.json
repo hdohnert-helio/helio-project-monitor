@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T12:58:14.612167Z",
+  "generated_at": "2026-05-06T19:54:03.287262Z",
   "today": "2026-05-06",
   "weeks": [
     {
@@ -92,7 +92,7 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 39,
+    "project_count": 38,
     "total_outstanding": 500972.6,
     "total_collected": 712188.45,
     "this_week": 91558.88,
@@ -104,13 +104,13 @@
     {
       "project_id": "PROJ-1629",
       "customer": "Kim & James Murphy",
-      "stage": "Project Intake",
+      "stage": "Site Survey",
       "owner": "Jenna Stockwell",
       "rep": "Jenna Stockwell",
       "project_manager": "",
       "zoho_record_id": "5264387000086571001",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": null,
       "pct_collected": 0.0,
@@ -124,8 +124,7 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
@@ -156,7 +155,7 @@
     },
     {
       "project_id": "PROJ-1627",
-      "customer": "Mohammed Alamgir",
+      "customer": "Mohammed Alamgir | 28",
       "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
@@ -209,24 +208,42 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086384004",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
-      "lender": "?",
+      "lending_status": "LightReach",
+      "lender": "LR",
       "contract_total": 0.0,
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-03",
+          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 06/29"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-29",
+          "anchor_source": "today + 70d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Beyond 12 wks"
+        }
       ],
-      "bucket": "Paid"
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 0.0,
+      "forecast_date": "2026-07-03",
+      "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
+      "bucket": "Wk 06/29"
     },
     {
       "project_id": "PROJ-1626",
@@ -237,7 +254,7 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086358009",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -251,8 +268,7 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
@@ -265,7 +281,7 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086240028",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -279,21 +295,20 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1620",
-      "customer": "Mohammed Alamgir - SS1",
-      "stage": "Project Intake",
+      "customer": "Mohammed Alamgir | 458",
+      "stage": "Site Survey",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086228054",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -307,21 +322,20 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1618",
-      "customer": "Moriam Khatun - SS2",
+      "customer": "Moriam Khatun | 58",
       "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086202032",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -335,8 +349,7 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
@@ -349,7 +362,7 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086201069",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -363,21 +376,20 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1622",
-      "customer": "Moriam Khatun",
+      "customer": "Moriam Khatun | 42",
       "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086193116",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -391,21 +403,20 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1624",
-      "customer": "Nusrat Jahan",
+      "customer": "Nusrat Nisan | 198",
       "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086181098",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -419,8 +430,7 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
@@ -433,7 +443,7 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086180065",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 0.0,
       "pct_collected": 0.0,
@@ -447,21 +457,20 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1615",
-      "customer": "Nusrat Nisan - SS1",
+      "customer": "Nusrat Nisan | 227",
       "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086090012",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": null,
       "pct_collected": 0.0,
@@ -475,38 +484,55 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1616",
       "customer": "Nasima Majid",
-      "stage": "Project Intake",
+      "stage": "Site Survey",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086077022",
       "financing_type": "Lease / PPA",
-      "lending_status": "",
-      "lender": "?",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
       "contract_total": null,
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-01",
+          "anchor_source": "today + 42d (Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 06/29"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-27",
+          "anchor_source": "today + 68d (Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Beyond 12 wks"
+        }
       ],
-      "bucket": "Paid"
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 0.0,
+      "forecast_date": "2026-07-01",
+      "anchor_source": "today + 42d (Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
+      "bucket": "Wk 06/29"
     },
     {
       "project_id": "PROJ-1613",
@@ -516,34 +542,6 @@
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000086059021",
-      "financing_type": "Lease / PPA",
-      "lending_status": "",
-      "lender": "?",
-      "contract_total": null,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
-      ],
-      "bucket": "Paid"
-    },
-    {
-      "project_id": "PROJ-1611",
-      "customer": "Mustaque Nabi",
-      "stage": "Interconnection",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086050003",
       "financing_type": "Lease / PPA",
       "lending_status": "LR - Needs NTP",
       "lender": "?",
@@ -821,7 +819,7 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000083195007",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
+      "lending_status": "LR - Install Package Submitted",
       "lender": "LR",
       "contract_total": 34650.4,
       "pct_collected": 0.0,

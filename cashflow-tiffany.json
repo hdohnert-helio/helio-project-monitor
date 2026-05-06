@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T12:58:14.612167Z",
+  "generated_at": "2026-05-06T19:54:03.287262Z",
   "today": "2026-05-06",
   "weeks": [
     {
@@ -154,7 +154,7 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000083195007",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
+      "lending_status": "LR - Install Package Submitted",
       "lender": "LR",
       "contract_total": 34650.4,
       "pct_collected": 0.0,
