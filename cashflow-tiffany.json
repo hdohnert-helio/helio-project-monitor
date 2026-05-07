@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-06T19:54:03.287262Z",
-  "today": "2026-05-06",
+  "generated_at": "2026-05-07T12:59:29.479878Z",
+  "today": "2026-05-07",
   "weeks": [
     {
       "index": 0,
@@ -92,15 +92,43 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 3,
+    "project_count": 4,
     "total_outstanding": 72598.4,
     "total_collected": 54532.0,
-    "this_week": 0.0,
+    "this_week": 19452.0,
     "next_30_days": 34204.32,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
   "projects": [
+    {
+      "project_id": "PROJ-1630",
+      "customer": "Steve Kerschner",
+      "stage": "Sales Ops Review",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Doug Hoffman",
+      "project_manager": "",
+      "zoho_record_id": "5264387000086572119",
+      "financing_type": "",
+      "lending_status": "",
+      "lender": "?",
+      "contract_total": null,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 0.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
+      "flags": [
+        "Contract_Total missing or zero",
+        "Lending_Status missing"
+      ],
+      "bucket": "Paid"
+    },
     {
       "project_id": "PROJ-1605",
       "customer": "Kevin Andersen",
@@ -121,7 +149,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 19452.0,
-          "forecast_date": "2026-05-03",
+          "forecast_date": "2026-05-04",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 05/04"
@@ -130,7 +158,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 6484.0,
-          "forecast_date": "2026-05-20",
+          "forecast_date": "2026-05-21",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 05/18"
@@ -139,7 +167,7 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 19452.0,
-      "forecast_date": "2026-05-03",
+      "forecast_date": "2026-05-04",
       "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [],
@@ -174,7 +202,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 6930.08,
-          "forecast_date": "2026-06-15",
+          "forecast_date": "2026-06-16",
           "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/15"
@@ -209,7 +237,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 12012.0,
-          "forecast_date": "2026-06-10",
+          "forecast_date": "2026-06-11",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/08"
@@ -218,7 +246,7 @@
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-06-10",
+      "forecast_date": "2026-06-11",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
