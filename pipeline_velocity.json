@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T12:59:29.479878Z",
+  "generated_at": "2026-05-07T19:48:24.616415Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 102,
   "transitions": [
@@ -48,15 +48,15 @@
       "stage": "Project Intake",
       "sample_count": 19,
       "open_count": 10,
-      "median_days": 4.047781444756945,
-      "p75_days": 5.823663405891204
+      "median_days": 4.331752932453704,
+      "p75_days": 6.107634893587963
     },
     {
       "stage": "Site Survey",
-      "sample_count": 3,
-      "open_count": 3,
-      "median_days": 0.7121087108333334,
-      "p75_days": 0.7121087108333334
+      "sample_count": 4,
+      "open_count": 4,
+      "median_days": 0.9960801985300926,
+      "p75_days": 0.9960801985300926
     },
     {
       "stage": "Engineering",
@@ -74,10 +74,10 @@
     },
     {
       "stage": "Interconnection",
-      "sample_count": 6,
-      "open_count": 2,
-      "median_days": 3.178333540167824,
-      "p75_days": 4.830896153046875
+      "sample_count": 7,
+      "open_count": 3,
+      "median_days": 2.320416536157407,
+      "p75_days": 4.660671445989584
     },
     {
       "stage": "Permitting",
@@ -90,7 +90,7 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 6,
       "open_count": 2,
-      "median_days": 5.677543447488427,
+      "median_days": 5.819529191336805,
       "p75_days": 6.840094798967014
     },
     {
@@ -98,14 +98,14 @@
       "sample_count": 4,
       "open_count": 1,
       "median_days": 4.334461011377314,
-      "p75_days": 5.681394524829282
+      "p75_days": 5.7523873967534715
     },
     {
       "stage": "Inspection",
       "sample_count": 8,
       "open_count": 8,
-      "median_days": 8.746540900011574,
-      "p75_days": 8.746540900011574
+      "median_days": 9.030512387708333,
+      "p75_days": 9.030512387708333
     },
     {
       "stage": "Witness Test / PTO",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 13.734456166643517,
-      "p75_days": 13.734456166643517
+      "median_days": 14.018427654340277,
+      "p75_days": 14.018427654340277
     }
   ],
   "notes": [

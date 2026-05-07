@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T12:59:29.479878Z",
+  "generated_at": "2026-05-07T19:48:24.616415Z",
   "today": "2026-05-07",
   "weeks": [
     {
@@ -104,13 +104,13 @@
     {
       "project_id": "PROJ-1630",
       "customer": "Steve Kerschner",
-      "stage": "Sales Ops Review",
+      "stage": "Site Survey",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
-      "project_manager": "",
+      "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000086572119",
-      "financing_type": "",
-      "lending_status": "",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR Stipulation",
       "lender": "?",
       "contract_total": null,
       "pct_collected": 0.0,
@@ -124,8 +124,7 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Contract_Total missing or zero",
-        "Lending_Status missing"
+        "Contract_Total missing or zero"
       ],
       "bucket": "Paid"
     },
