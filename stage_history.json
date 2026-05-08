@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-05-07T19:48:24.616415Z",
+  "last_run": "2026-05-08T12:12:52.549751Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -1812,6 +1812,20 @@
           "entered_at": "2026-05-07T19:48:24.616415Z",
           "exited_at": null,
           "truncated": false
+        }
+      ]
+    },
+    "5264387000086759003": {
+      "project_id": "PROJ-1635",
+      "customer": "Mohammed Noor | 54",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
         }
       ]
     }
