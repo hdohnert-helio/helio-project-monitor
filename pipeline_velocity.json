@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T13:08:30.433665Z",
+  "generated_at": "2026-05-12T20:01:32.414630Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 104,
   "transitions": [
@@ -54,30 +54,30 @@
     {
       "stage": "Site Survey",
       "sample_count": 9,
-      "open_count": 5,
+      "open_count": 4,
       "median_days": 3.020125552268518,
-      "p75_days": 4.7222895515046295
+      "p75_days": 5.009118034895834
     },
     {
       "stage": "Engineering",
       "sample_count": 14,
       "open_count": 6,
-      "median_days": 3.3784795622858796,
-      "p75_days": 3.736833572303241
+      "median_days": 3.4498995393113425,
+      "p75_days": 4.0185206210127316
     },
     {
       "stage": "Plan Review",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 0.7167080200347222,
-      "p75_days": 0.7167080200347222
+      "median_days": 1.0035365034259258,
+      "p75_days": 1.0035365034259258
     },
     {
       "stage": "Interconnection",
       "sample_count": 11,
       "open_count": 6,
       "median_days": 1.3243363376273147,
-      "p75_days": 5.0036909496527775
+      "p75_days": 5.14710519134838
     },
     {
       "stage": "Permitting",
@@ -91,21 +91,21 @@
       "sample_count": 7,
       "open_count": 3,
       "median_days": 6.308069062326389,
-      "p75_days": 8.535357791516203
+      "p75_days": 8.678772033211805
     },
     {
       "stage": "Active Installation",
       "sample_count": 4,
       "open_count": 1,
       "median_days": 4.334461011377314,
-      "p75_days": 6.932959784629629
+      "p75_days": 7.00466690547743
     },
     {
       "stage": "Inspection",
       "sample_count": 8,
       "open_count": 8,
-      "median_days": 13.752801939212963,
-      "p75_days": 13.752801939212963
+      "median_days": 14.039630422604166,
+      "p75_days": 14.039630422604166
     },
     {
       "stage": "Witness Test / PTO",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 18.74071720584491,
-      "p75_days": 18.74071720584491
+      "median_days": 19.02754568923611,
+      "p75_days": 19.02754568923611
     }
   ],
   "notes": [
