@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-12T20:01:32.414630Z",
-  "today": "2026-05-12",
+  "generated_at": "2026-05-13T13:20:52.779704Z",
+  "today": "2026-05-13",
   "weeks": [
     {
       "index": 0,
@@ -81,8 +81,8 @@
     "Wk 05/25": 6484.0,
     "Wk 06/01": 0.0,
     "Wk 06/08": 0.0,
-    "Wk 06/15": 18942.08,
-    "Wk 06/22": 0.0,
+    "Wk 06/15": 12012.0,
+    "Wk 06/22": 6930.08,
     "Wk 06/29": 0.0,
     "Wk 07/06": 0.0,
     "Wk 07/13": 0.0,
@@ -121,7 +121,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-03",
+          "forecast_date": "2026-07-04",
           "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/29"
@@ -130,7 +130,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-07-29",
+          "forecast_date": "2026-07-30",
           "anchor_source": "today + 64d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 07/27"
@@ -139,7 +139,7 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-03",
+      "forecast_date": "2026-07-04",
       "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
@@ -167,7 +167,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 19452.0,
-          "forecast_date": "2026-05-09",
+          "forecast_date": "2026-05-10",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 05/11"
@@ -176,7 +176,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 6484.0,
-          "forecast_date": "2026-05-26",
+          "forecast_date": "2026-05-27",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 05/25"
@@ -185,7 +185,7 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 19452.0,
-      "forecast_date": "2026-05-09",
+      "forecast_date": "2026-05-10",
       "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [],
@@ -220,10 +220,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 6930.08,
-          "forecast_date": "2026-06-21",
+          "forecast_date": "2026-06-22",
           "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 06/15"
+          "bucket": "Wk 06/22"
         }
       ],
       "next_milestone": "Install package (80%)",
@@ -255,7 +255,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 12012.0,
-          "forecast_date": "2026-06-16",
+          "forecast_date": "2026-06-17",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/15"
@@ -264,7 +264,7 @@
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-06-16",
+      "forecast_date": "2026-06-17",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
