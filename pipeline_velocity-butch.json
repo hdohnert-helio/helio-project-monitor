@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13T13:20:52.779704Z",
+  "generated_at": "2026-05-13T20:03:01.782186Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 40,
   "transitions": [
@@ -47,23 +47,23 @@
     {
       "stage": "Project Intake",
       "sample_count": 20,
-      "open_count": 2,
+      "open_count": 1,
       "median_days": 5.317208911655093,
       "p75_days": 7.0271204697771985
     },
     {
       "stage": "Site Survey",
       "sample_count": 7,
-      "open_count": 3,
-      "median_days": 1.9815361777314815,
+      "open_count": 2,
+      "median_days": 2.004570850138889,
       "p75_days": 3.020125552268518
     },
     {
       "stage": "Engineering",
       "sample_count": 14,
-      "open_count": 6,
+      "open_count": 4,
       "median_days": 3.4498995393113425,
-      "p75_days": 4.559843234502315
+      "p75_days": 4.769296381047454
     },
     {
       "stage": "Plan Review",
@@ -75,8 +75,8 @@
     {
       "stage": "Interconnection",
       "sample_count": 11,
-      "open_count": 7,
-      "median_days": 1.7252999880787037,
+      "open_count": 6,
+      "median_days": 2.004570850138889,
       "p75_days": 4.660671445989584
     },
     {
@@ -90,22 +90,22 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 3,
       "open_count": 2,
-      "median_days": 4.745425540347222,
-      "p75_days": 9.753409723802083
+      "median_days": 5.0246964024074074,
+      "p75_days": 10.03268058586227
     },
     {
       "stage": "Active Installation",
       "sample_count": 2,
       "open_count": 1,
-      "median_days": 9.382300286649304,
-      "p75_days": 11.579492796657986
+      "median_days": 9.521935717679398,
+      "p75_days": 11.788945943203125
     },
     {
       "stage": "Inspection",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 11.247783124027778,
-      "p75_days": 13.00458851564236
+      "median_days": 11.527053986087964,
+      "p75_days": 13.283859377702548
     },
     {
       "stage": "Witness Test / PTO",
