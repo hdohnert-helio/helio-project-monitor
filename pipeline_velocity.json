@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T11:56:06.060985Z",
+  "generated_at": "2026-05-16T19:14:22.765597Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 106,
   "transitions": [
@@ -62,8 +62,8 @@
       "stage": "Engineering",
       "sample_count": 16,
       "open_count": 4,
-      "median_days": 3.771281475879629,
-      "p75_days": 4.755993547225116
+      "median_days": 3.923461479421296,
+      "p75_days": 4.984263552537616
     },
     {
       "stage": "Plan Review",
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 17,
       "open_count": 11,
-      "median_days": 3.6628894254050923,
-      "p75_days": 4.666425928831019
+      "median_days": 3.967249432488426,
+      "p75_days": 4.970785935914352
     },
     {
       "stage": "Permitting",
@@ -91,21 +91,21 @@
       "sample_count": 8,
       "open_count": 3,
       "median_days": 6.660763905289352,
-      "p75_days": 8.763826728547453
+      "p75_days": 8.839916730318286
     },
     {
       "stage": "Active Installation",
       "sample_count": 4,
       "open_count": 1,
       "median_days": 4.334461011377314,
-      "p75_days": 7.920389261828703
+      "p75_days": 7.996479263599537
     },
     {
       "stage": "Inspection",
       "sample_count": 9,
       "open_count": 9,
-      "median_days": 17.70251984800926,
-      "p75_days": 17.70251984800926
+      "median_days": 18.006879855092592,
+      "p75_days": 18.006879855092592
     },
     {
       "stage": "Witness Test / PTO",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 22.690435114641204,
-      "p75_days": 22.690435114641204
+      "median_days": 22.994795121724536,
+      "p75_days": 22.994795121724536
     }
   ],
   "notes": [

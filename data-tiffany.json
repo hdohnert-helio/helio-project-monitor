@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-16T11:56:06.060985Z",
-  "generated_at_label": "Sat May 16, 2026 · 7:56 AM ET",
+  "generated_at": "2026-05-16T19:14:22.765597Z",
+  "generated_at_label": "Sat May 16, 2026 · 3:14 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 11,
   "projects": [
@@ -9,7 +9,7 @@
       "customer": "Steve Kerschner",
       "stage": "Engineering",
       "stage_entered_at": "2026-05-12T13:13:00-04:00",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -65,7 +65,7 @@
       "customer": "Richard Desrochers",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-05T14:33:00-04:00",
-      "days_in_stage": 10,
+      "days_in_stage": 11,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
