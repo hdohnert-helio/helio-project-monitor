@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T14:34:26.269645Z",
+  "generated_at": "2026-05-18T19:52:02.408274Z",
   "today": "2026-05-18",
   "weeks": [
     {
@@ -79,7 +79,7 @@
     "Wk 05/18": 87372.0,
     "Wk 05/25": 21411.84,
     "Wk 06/01": 6484.0,
-    "Wk 06/08": 63334.43,
+    "Wk 06/08": 56839.68,
     "Wk 06/15": 53962.08,
     "Wk 06/22": 51063.31,
     "Wk 06/29": 0.0,
@@ -92,11 +92,11 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 44,
-    "total_outstanding": 766561.4,
-    "total_collected": 712188.45,
+    "project_count": 43,
+    "total_outstanding": 760066.65,
+    "total_collected": 653735.7,
     "this_week": 67920.0,
-    "next_30_days": 213112.35,
+    "next_30_days": 206617.6,
     "past_due": 79951.8,
     "beyond_12_wks": 0.0
   },
@@ -1526,41 +1526,6 @@
       "status": "on_track",
       "flags": [],
       "bucket": "Wk 06/22"
-    },
-    {
-      "project_id": "PROJ-1501",
-      "customer": "Jack Johnson",
-      "stage": "Witness Test / PTO",
-      "owner": "Laura Beth Collinson",
-      "rep": "Laura Beth Collinson",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000064374046",
-      "financing_type": "Solar Loan (No Deposit)",
-      "lending_status": "SG - Install Package Paid",
-      "lender": "SG",
-      "contract_total": 64947.5,
-      "pct_collected": 0.9,
-      "dollars_collected": 58452.75,
-      "dollars_outstanding": 6494.75,
-      "milestones": [
-        {
-          "label": "PTO package (10%)",
-          "pct": 0.1,
-          "dollars": 6494.75,
-          "forecast_date": "2026-06-13",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 5d lag",
-          "status": "on_track",
-          "bucket": "Wk 06/08"
-        }
-      ],
-      "next_milestone": "PTO package (10%)",
-      "next_milestone_pct": 0.1,
-      "next_dollar": 6494.75,
-      "forecast_date": "2026-06-13",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 5d lag",
-      "status": "on_track",
-      "flags": [],
-      "bucket": "Wk 06/08"
     },
     {
       "project_id": "PROJ-1466",
