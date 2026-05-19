@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T13:56:37.346297Z",
+  "generated_at": "2026-05-19T18:33:23.853746Z",
   "today": "2026-05-19",
   "weeks": [
     {
@@ -150,13 +150,13 @@
     {
       "project_id": "PROJ-1638",
       "customer": "Mohammed Sohel",
-      "stage": "Project Intake",
+      "stage": "Site Survey",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000087473007",
-      "financing_type": "",
-      "lending_status": "",
+      "financing_type": "Lease / PPA (inferred)",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 41563.8,
       "pct_collected": 0.0,
@@ -170,20 +170,20 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Lending_Status missing"
+        "Financing_Type inferred from Lending_Status"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1637",
       "customer": "Kari Webb",
-      "stage": "Project Intake",
+      "stage": "Site Survey",
       "owner": "Walter Carmona",
       "rep": "Scott Webb",
       "project_manager": "",
       "zoho_record_id": "5264387000087270008",
-      "financing_type": "",
-      "lending_status": "",
+      "financing_type": "Lease / PPA (inferred)",
+      "lending_status": "LR - Needs NTP",
       "lender": "?",
       "contract_total": 48160.0,
       "pct_collected": 0.0,
@@ -197,14 +197,14 @@
       "anchor_source": "100% collected",
       "status": "paid",
       "flags": [
-        "Lending_Status missing"
+        "Financing_Type inferred from Lending_Status"
       ],
       "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1635",
       "customer": "Mohammed Noor | 54",
-      "stage": "Site Survey",
+      "stage": "Interconnection",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -232,7 +232,7 @@
     {
       "project_id": "PROJ-1631",
       "customer": "Bishuja Deb",
-      "stage": "Project Intake",
+      "stage": "Site Survey",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -260,7 +260,7 @@
     {
       "project_id": "PROJ-1627",
       "customer": "Mohammed Alamgir | 28",
-      "stage": "Engineering",
+      "stage": "Interconnection",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -277,8 +277,8 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-10",
-          "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-07-07",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 07/06"
         },
@@ -286,17 +286,17 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-08-05",
-          "anchor_source": "today + 64d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-08-02",
+          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 08/03"
+          "bucket": "Wk 07/27"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-10",
-      "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-07-07",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
