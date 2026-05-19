@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T18:33:23.853746Z",
+  "generated_at": "2026-05-19T19:58:45.402935Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 107,
   "transitions": [
@@ -53,10 +53,10 @@
     },
     {
       "stage": "Site Survey",
-      "sample_count": 10,
-      "open_count": 1,
-      "median_days": 3.020125552268518,
-      "p75_days": 5.705596102126736
+      "sample_count": 13,
+      "open_count": 4,
+      "median_days": 2.998122728634259,
+      "p75_days": 5.009118034895834
     },
     {
       "stage": "Engineering",
@@ -74,10 +74,10 @@
     },
     {
       "stage": "Interconnection",
-      "sample_count": 18,
-      "open_count": 11,
-      "median_days": 4.944203579375,
-      "p75_days": 7.942326308009259
+      "sample_count": 20,
+      "open_count": 13,
+      "median_days": 5.002300814583333,
+      "p75_days": 8.00160349769676
     },
     {
       "stage": "Permitting",
@@ -95,31 +95,31 @@
     },
     {
       "stage": "Active Installation",
-      "sample_count": 4,
-      "open_count": 0,
-      "median_days": 4.334461011377314,
-      "p75_days": 8.691313119791666
+      "sample_count": 5,
+      "open_count": 1,
+      "median_days": 3.6810067561226854,
+      "p75_days": 4.987915266631944
     },
     {
       "stage": "Inspection",
       "sample_count": 10,
       "open_count": 9,
-      "median_days": 19.624920459895833,
-      "p75_days": 20.978420227187502
+      "median_days": 19.684197649583332,
+      "p75_days": 21.037697416875
     },
     {
       "stage": "Witness Test / PTO",
-      "sample_count": 0,
-      "open_count": 0,
-      "median_days": null,
-      "p75_days": null
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 0.0592771896875,
+      "p75_days": 0.0592771896875
     },
     {
       "stage": "Energized",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 13.455861297094906,
-      "p75_days": 19.711098395457174
+      "median_days": 13.515138486782407,
+      "p75_days": 19.770375585144674
     }
   ],
   "notes": [
