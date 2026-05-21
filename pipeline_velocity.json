@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T14:15:49.689091Z",
+  "generated_at": "2026-05-21T20:01:24.221886Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 107,
   "transitions": [
@@ -31,9 +31,9 @@
       "label": "Install Complete to Energized",
       "from": "Inspection",
       "to": "Energized",
-      "sample_count": 0,
-      "median_days": null,
-      "p75_days": null
+      "sample_count": 1,
+      "median_days": 16.012314032719907,
+      "p75_days": 16.012314032719907
     }
   ],
   "dwell_per_stage": [
@@ -54,7 +54,7 @@
     {
       "stage": "Site Survey",
       "sample_count": 13,
-      "open_count": 3,
+      "open_count": 2,
       "median_days": 2.998122728634259,
       "p75_days": 5.009118034895834
     },
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 22,
       "open_count": 12,
-      "median_days": 5.770125465555555,
-      "p75_days": 8.939992809259259
+      "median_days": 6.010108484016204,
+      "p75_days": 8.999988563874421
     },
     {
       "stage": "Permitting",
@@ -97,29 +97,29 @@
       "stage": "Active Installation",
       "sample_count": 8,
       "open_count": 4,
-      "median_days": 2.751069554826389,
+      "median_days": 2.871061064056713,
       "p75_days": 4.00773388375
     },
     {
       "stage": "Inspection",
       "sample_count": 10,
       "open_count": 8,
-      "median_days": 21.446052813425926,
-      "p75_days": 22.79955258071759
+      "median_days": 21.686035831886574,
+      "p75_days": 23.03953559917824
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 2,
-      "open_count": 2,
-      "median_days": 1.2922873277141202,
-      "p75_days": 1.5567098406221065
+      "open_count": 1,
+      "median_days": 1.5322703461747686,
+      "p75_days": 1.796692859082755
     },
     {
       "stage": "Energized",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 15.276993650625,
-      "p75_days": 21.532230748987267
+      "median_days": 15.516976669085649,
+      "p75_days": 21.772213767447916
     }
   ],
   "notes": [
