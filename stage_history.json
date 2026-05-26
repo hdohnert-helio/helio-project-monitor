@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-05-25T19:49:41.574523Z",
+  "last_run": "2026-05-26T13:58:03.147098Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -122,8 +122,14 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-04-16T04:00:00Z",
-          "exited_at": null,
+          "exited_at": "2026-05-26T13:58:03.147098Z",
           "truncated": true
+        },
+        {
+          "stage": "Procurement & Scheduling",
+          "entered_at": "2026-05-26T13:58:03.147098Z",
+          "exited_at": null,
+          "truncated": false
         }
       ]
     },
@@ -2278,6 +2284,20 @@
           "entered_at": "2026-05-19T13:56:37.346297Z",
           "exited_at": null,
           "truncated": false
+        }
+      ]
+    },
+    "5264387000087906013": {
+      "project_id": "PROJ-1640",
+      "customer": "Farid Ahmed",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
         }
       ]
     }
