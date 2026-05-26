@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T13:58:03.147098Z",
+  "generated_at": "2026-05-26T20:20:54.545664Z",
   "today": "2026-05-26",
   "weeks": [
     {
@@ -156,7 +156,7 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000085058051",
       "financing_type": "Cash",
-      "lending_status": "Cash - 60PCT paid",
+      "lending_status": "Cash - 20PCT final invoiced",
       "lender": "Cash",
       "contract_total": 32420.0,
       "pct_collected": 0.8,

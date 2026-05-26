@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T13:58:03.147098Z",
+  "generated_at": "2026-05-26T20:20:54.545664Z",
   "today": "2026-05-26",
   "weeks": [
     {
@@ -104,7 +104,7 @@
     {
       "project_id": "PROJ-1640",
       "customer": "Farid Ahmed",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -1022,7 +1022,7 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000085058051",
       "financing_type": "Cash",
-      "lending_status": "Cash - 60PCT paid",
+      "lending_status": "Cash - 20PCT final invoiced",
       "lender": "Cash",
       "contract_total": 32420.0,
       "pct_collected": 0.8,
@@ -1274,7 +1274,7 @@
     {
       "project_id": "PROJ-1592",
       "customer": "Gerold Rajesh",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -1300,8 +1300,8 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 5909.72,
-          "forecast_date": "2026-07-05",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-06-30",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/29"
         }
