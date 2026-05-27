@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-26T20:20:54.545664Z",
-  "today": "2026-05-26",
+  "generated_at": "2026-05-27T14:31:02.974460Z",
+  "today": "2026-05-27",
   "weeks": [
     {
       "index": 0,
@@ -77,7 +77,7 @@
   ],
   "weekly_totals": {
     "Wk 05/25": 0.0,
-    "Wk 06/01": 6484.0,
+    "Wk 06/01": 0.0,
     "Wk 06/08": 0.0,
     "Wk 06/15": 0.0,
     "Wk 06/22": 0.0,
@@ -88,7 +88,7 @@
     "Wk 07/27": 0.0,
     "Wk 08/03": 0.0,
     "Wk 08/10": 0.0,
-    "Past-due": 27720.32,
+    "Past-due": 34204.32,
     "Beyond 12 wks": 0.0
   },
   "summary": {
@@ -96,8 +96,8 @@
     "total_outstanding": 53146.4,
     "total_collected": 73984.0,
     "this_week": 0.0,
-    "next_30_days": 6484.0,
-    "past_due": 27720.32,
+    "next_30_days": 0.0,
+    "past_due": 34204.32,
     "beyond_12_wks": 0.0
   },
   "projects": [
@@ -121,7 +121,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-17",
+          "forecast_date": "2026-07-18",
           "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 07/13"
@@ -130,7 +130,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-08-12",
+          "forecast_date": "2026-08-13",
           "anchor_source": "today + 64d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/10"
@@ -139,7 +139,7 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-17",
+      "forecast_date": "2026-07-18",
       "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
@@ -150,7 +150,7 @@
     {
       "project_id": "PROJ-1605",
       "customer": "Kevin Andersen",
-      "stage": "Active Installation",
+      "stage": "Inspection",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "David Fargnoli",
@@ -167,20 +167,20 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 6484.0,
-          "forecast_date": "2026-06-05",
-          "anchor_source": "today + 10d (Active Installation(10d)) + 0d lag",
-          "status": "on_track",
-          "bucket": "Wk 06/01"
+          "forecast_date": "2026-05-22",
+          "anchor_source": "Substantial_Completion",
+          "status": "past_due",
+          "bucket": "Past-due"
         }
       ],
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 6484.0,
-      "forecast_date": "2026-06-05",
-      "anchor_source": "today + 10d (Active Installation(10d)) + 0d lag",
-      "status": "on_track",
+      "forecast_date": "2026-05-22",
+      "anchor_source": "Substantial_Completion",
+      "status": "past_due",
       "flags": [],
-      "bucket": "Wk 06/01"
+      "bucket": "Past-due"
     },
     {
       "project_id": "PROJ-1599",
@@ -211,7 +211,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 6930.08,
-          "forecast_date": "2026-06-30",
+          "forecast_date": "2026-07-01",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/29"
@@ -246,7 +246,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 12012.0,
-          "forecast_date": "2026-06-30",
+          "forecast_date": "2026-07-01",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 06/29"
@@ -255,7 +255,7 @@
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-06-30",
+      "forecast_date": "2026-07-01",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
