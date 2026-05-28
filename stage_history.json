@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-05-27T20:25:13.337217Z",
+  "last_run": "2026-05-28T14:40:05.635185Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -1568,6 +1568,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-05-14T19:53:44.664488Z",
+          "exited_at": "2026-05-28T14:40:05.635185Z",
+          "truncated": false
+        },
+        {
+          "stage": "Plan Review",
+          "entered_at": "2026-05-28T14:40:05.635185Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2334,6 +2340,20 @@
           "entered_at": "2026-05-26T20:20:54.545664Z",
           "exited_at": null,
           "truncated": false
+        }
+      ]
+    },
+    "5264387000088301001": {
+      "project_id": "PROJ-1641",
+      "customer": "James Proctor",
+      "owner": "Brian Tilford",
+      "rep": "Robert Goncalves",
+      "spans": [
+        {
+          "stage": "Project Intake",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
         }
       ]
     }
