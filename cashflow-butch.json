@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T14:11:22.191795Z",
+  "generated_at": "2026-05-29T20:33:40.167778Z",
   "today": "2026-05-29",
   "weeks": [
     {
@@ -81,8 +81,8 @@
     "Wk 06/08": 0.0,
     "Wk 06/15": 0.0,
     "Wk 06/22": 30856.8,
-    "Wk 06/29": 19830.28,
-    "Wk 07/06": 11051.28,
+    "Wk 06/29": 25183.24,
+    "Wk 07/06": 5698.32,
     "Wk 07/13": 169599.04,
     "Wk 07/20": 7714.2,
     "Wk 07/27": 0.0,
@@ -690,7 +690,7 @@
     {
       "project_id": "PROJ-1609",
       "customer": "Mustak Ahmed",
-      "stage": "Active Installation",
+      "stage": "Inspection",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -707,31 +707,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-06-22",
-          "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-06-12",
+          "anchor_source": "Substantial_Completion + 14d",
           "status": "on_track",
-          "bucket": "Wk 06/22"
+          "bucket": "Wk 06/08"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-07-18",
-          "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-07-08",
+          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 07/13"
+          "bucket": "Wk 07/06"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-06-22",
-      "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-06-12",
+      "anchor_source": "Substantial_Completion + 14d",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 06/22"
+      "bucket": "Wk 06/08"
     },
     {
       "project_id": "PROJ-1610",
@@ -1046,7 +1046,7 @@
     {
       "project_id": "PROJ-1581",
       "customer": "Sanjay Patel",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -1072,10 +1072,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 5352.96,
-          "forecast_date": "2026-07-08",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-07-03",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 07/06"
+          "bucket": "Wk 06/29"
         }
       ],
       "next_milestone": "Install package (80%)",
