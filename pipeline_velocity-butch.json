@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T20:33:40.167778Z",
+  "generated_at": "2026-05-30T12:06:35.508184Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 44,
   "transitions": [
@@ -76,21 +76,21 @@
       "stage": "Interconnection",
       "sample_count": 22,
       "open_count": 12,
-      "median_days": 10.053883558304399,
-      "p75_days": 14.065218387526041
+      "median_days": 10.701746294484956,
+      "p75_days": 14.680378001354168
     },
     {
       "stage": "Permitting",
       "sample_count": 2,
       "open_count": 1,
-      "median_days": 1.125603903935185,
-      "p75_days": 1.1877494514467593
+      "median_days": 1.4495352720254628,
+      "p75_days": 1.5493554085590278
     },
     {
       "stage": "Procurement & Scheduling",
       "sample_count": 4,
       "open_count": 1,
-      "median_days": 5.144096391950232,
+      "median_days": 5.46802776004051,
       "p75_days": 10.704416171059028
     },
     {
@@ -102,24 +102,24 @@
     },
     {
       "stage": "Inspection",
-      "sample_count": 5,
-      "open_count": 1,
-      "median_days": 14.03251526517361,
-      "p75_days": 15.008888712361111
+      "sample_count": 6,
+      "open_count": 2,
+      "median_days": 11.028211499270832,
+      "p75_days": 14.764795350564235
     },
     {
       "stage": "Witness Test / PTO",
-      "sample_count": 3,
-      "open_count": 2,
-      "median_days": 2.2518193671064815,
-      "p75_days": 2.6303403670833334
+      "sample_count": 4,
+      "open_count": 3,
+      "median_days": 1.9515537118229167,
+      "p75_days": 3.0889426032754628
     },
     {
       "stage": "Energized",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 8.022406781157407,
-      "p75_days": 8.022406781157407
+      "median_days": 8.670269517337964,
+      "p75_days": 8.670269517337964
     }
   ],
   "notes": [

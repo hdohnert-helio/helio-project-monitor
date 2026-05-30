@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T20:33:40.167778Z",
+  "generated_at": "2026-05-30T12:06:35.508184Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 110,
   "transitions": [
@@ -46,10 +46,10 @@
     },
     {
       "stage": "Project Intake",
-      "sample_count": 23,
-      "open_count": 1,
-      "median_days": 5.11155469505787,
-      "p75_days": 7.049110604114583
+      "sample_count": 24,
+      "open_count": 2,
+      "median_days": 4.548279739114583,
+      "p75_days": 7.0271204697771985
     },
     {
       "stage": "Site Survey",
@@ -76,15 +76,15 @@
       "stage": "Interconnection",
       "sample_count": 25,
       "open_count": 14,
-      "median_days": 10.024244963460648,
-      "p75_days": 14.03251526517361
+      "median_days": 10.672107699641204,
+      "p75_days": 14.680378001354168
     },
     {
       "stage": "Permitting",
       "sample_count": 5,
       "open_count": 2,
-      "median_days": 1.001312808912037,
-      "p75_days": 1.2498949989583332
+      "median_days": 1.6491755450925925,
+      "p75_days": 1.6491755450925925
     },
     {
       "stage": "Procurement & Scheduling",
@@ -102,24 +102,24 @@
     },
     {
       "stage": "Inspection",
-      "sample_count": 12,
-      "open_count": 7,
-      "median_days": 23.162250852939817,
-      "p75_days": 31.06194238033565
+      "sample_count": 13,
+      "open_count": 8,
+      "median_days": 18.271420692604167,
+      "p75_days": 31.7098051165162
     },
     {
       "stage": "Witness Test / PTO",
-      "sample_count": 5,
-      "open_count": 4,
-      "median_days": 2.2518193671064815,
-      "p75_days": 3.0088613670601854
+      "sample_count": 6,
+      "open_count": 5,
+      "median_days": 2.2744288241898145,
+      "p75_days": 3.467463603252315
     },
     {
       "stage": "Energized",
       "sample_count": 3,
       "open_count": 3,
-      "median_days": 11.028909253518519,
-      "p75_days": 23.53938345024305
+      "median_days": 11.676771989699073,
+      "p75_days": 24.187246186423614
     }
   ],
   "notes": [
