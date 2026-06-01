@@ -546,7 +546,16 @@ def compute_velocity(history: dict, now: datetime,
             if from_stage == "__creation__":
                 first = spans[0]
                 if first.get("truncated"):
-                    continue  # real creation date unknown
+                    # Projects first observed in Sales Ops Review or Project
+                    # Intake were effectively just sold at that point — using
+                    # the cutoff date (Apr 16) as the "from" anchor is a
+                    # reasonable floor and gives meaningful velocity data.
+                    # Projects already deeper in the pipeline when first seen
+                    # (Interconnection, Permitting, etc.) are excluded because
+                    # their real sold date is unknown and could be months earlier.
+                    PIPELINE_ENTRY_STAGES = {"Sales Ops Review", "Project Intake"}
+                    if first.get("stage") not in PIPELINE_ENTRY_STAGES:
+                        continue
                 from_dt = _parse_iso_utc(first.get("entered_at"))
             else:
                 from_dt = None
