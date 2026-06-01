@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-06-01T13:22:35.515087Z",
+  "last_run": "2026-06-01T13:36:21.882246Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -57,7 +57,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-16"
     },
     "5264387000085058051": {
       "project_id": "PROJ-1605",
@@ -95,7 +96,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-14"
     },
     "5264387000084583001": {
       "project_id": "PROJ-1604",
@@ -143,7 +145,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-06"
     },
     "5264387000084065005": {
       "project_id": "PROJ-1601",
@@ -175,7 +178,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-03"
     },
     "5264387000083838050": {
       "project_id": "PROJ-1600",
@@ -207,7 +211,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-01"
     },
     "5264387000083195007": {
       "project_id": "PROJ-1599",
@@ -245,7 +250,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-03-26"
     },
     "5264387000082755001": {
       "project_id": "PROJ-1596",
@@ -283,7 +289,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-03-23"
     },
     "5264387000081323025": {
       "project_id": "PROJ-1593",
@@ -329,7 +336,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-03-03"
     },
     "5264387000079311044": {
       "project_id": "PROJ-1586",
@@ -343,7 +351,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2026-02-12"
     },
     "5264387000077493323": {
       "project_id": "PROJ-1583",
@@ -357,7 +366,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2026-01-28"
     },
     "5264387000075629013": {
       "project_id": "PROJ-1582",
@@ -371,7 +381,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2026-01-07"
     },
     "5264387000075613005": {
       "project_id": "PROJ-1581",
@@ -409,7 +420,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-01-07"
     },
     "5264387000074759001": {
       "project_id": "PROJ-1579",
@@ -423,7 +435,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-12-26"
     },
     "5264387000074568005": {
       "project_id": "PROJ-1578",
@@ -437,7 +450,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-12-23"
     },
     "5264387000073964033": {
       "project_id": "PROJ-1577",
@@ -451,7 +465,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-12-18"
     },
     "5264387000072342015": {
       "project_id": "PROJ-1576",
@@ -465,7 +480,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-12-04"
     },
     "5264387000070723058": {
       "project_id": "PROJ-1572",
@@ -479,7 +495,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-11-18"
     },
     "5264387000070089017": {
       "project_id": "PROJ-1570",
@@ -493,7 +510,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-11-11"
     },
     "5264387000068422033": {
       "project_id": "PROJ-1567",
@@ -507,7 +525,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-10-24"
     },
     "5264387000067666066": {
       "project_id": "PROJ-1563",
@@ -521,7 +540,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-10-15"
     },
     "5264387000067409023": {
       "project_id": "PROJ-1558",
@@ -535,7 +555,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-10-13"
     },
     "5264387000067351627": {
       "project_id": "PROJ-1556",
@@ -569,7 +590,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-10-10"
     },
     "5264387000066739039": {
       "project_id": "PROJ-1550",
@@ -589,7 +611,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-10-07"
     },
     "5264387000066495049": {
       "project_id": "PROJ-1547",
@@ -609,7 +632,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-10-06"
     },
     "5264387000066300013": {
       "project_id": "PROJ-1532",
@@ -623,7 +647,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-09-30"
     },
     "5264387000066267127": {
       "project_id": "PROJ-1540",
@@ -637,7 +662,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-10-01"
     },
     "5264387000066264151": {
       "project_id": "PROJ-1542",
@@ -651,7 +677,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-10-02"
     },
     "5264387000065662048": {
       "project_id": "PROJ-1528",
@@ -665,7 +692,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-09-25"
     },
     "5264387000065253003": {
       "project_id": "PROJ-1517",
@@ -679,7 +707,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-09-22"
     },
     "5264387000065083043": {
       "project_id": "PROJ-1513",
@@ -693,7 +722,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-09-20"
     },
     "5264387000064588067": {
       "project_id": "PROJ-1506",
@@ -707,7 +737,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-09-16"
     },
     "5264387000064402103": {
       "project_id": "PROJ-1505",
@@ -721,7 +752,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-09-12"
     },
     "5264387000064374046": {
       "project_id": "PROJ-1501",
@@ -741,7 +773,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-09-11"
     },
     "5264387000063235103": {
       "project_id": "PROJ-1491",
@@ -755,7 +788,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-08-31"
     },
     "5264387000063065205": {
       "project_id": "PROJ-1478",
@@ -769,7 +803,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-08-26"
     },
     "5264387000063042027": {
       "project_id": "PROJ-1475",
@@ -783,7 +818,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-08-25"
     },
     "5264387000062575179": {
       "project_id": "PROJ-1472",
@@ -797,7 +833,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-08-21"
     },
     "5264387000062176077": {
       "project_id": "PROJ-1466",
@@ -817,7 +854,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-08-18"
     },
     "5264387000061688021": {
       "project_id": "PROJ-1462",
@@ -837,7 +875,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-08-13"
     },
     "5264387000061531063": {
       "project_id": "PROJ-1461",
@@ -869,7 +908,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-08-12"
     },
     "5264387000060390063": {
       "project_id": "PROJ-1444",
@@ -883,7 +923,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-07-30"
     },
     "5264387000060179015": {
       "project_id": "PROJ-1441",
@@ -894,10 +935,17 @@
         {
           "stage": "On Hold",
           "entered_at": "2026-04-16T04:00:00Z",
-          "exited_at": null,
+          "exited_at": "2026-06-01T13:36:21.882246Z",
           "truncated": true
+        },
+        {
+          "stage": "Interconnection",
+          "entered_at": "2026-06-01T13:36:21.882246Z",
+          "exited_at": null,
+          "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-07-28"
     },
     "5264387000059619037": {
       "project_id": "PROJ-1437",
@@ -929,7 +977,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-07-22"
     },
     "5264387000056261013": {
       "project_id": "PROJ-1408",
@@ -943,7 +992,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-12-01"
     },
     "5264387000055860035": {
       "project_id": "PROJ-1390",
@@ -957,7 +1007,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-06-23"
     },
     "5264387000055817178": {
       "project_id": "PROJ-1392",
@@ -999,7 +1050,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-05-29"
     },
     "5264387000053763001": {
       "project_id": "PROJ-1373",
@@ -1013,7 +1065,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-05-22"
     },
     "5264387000053567062": {
       "project_id": "PROJ-1372",
@@ -1027,7 +1080,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-05-17"
     },
     "5264387000052250029": {
       "project_id": "PROJ-1367",
@@ -1041,7 +1095,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-05-07"
     },
     "5264387000050609019": {
       "project_id": "PROJ-1360",
@@ -1055,7 +1110,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-04-22"
     },
     "5264387000049898092": {
       "project_id": "PROJ-1356",
@@ -1069,7 +1125,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-04-16"
     },
     "5264387000048743017": {
       "project_id": "PROJ-1349",
@@ -1083,7 +1140,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-04-08"
     },
     "5264387000048296023": {
       "project_id": "PROJ-1339",
@@ -1097,7 +1155,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-02-26"
     },
     "5264387000048230036": {
       "project_id": "PROJ-1337",
@@ -1111,7 +1170,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-06-11"
     },
     "5264387000048213080": {
       "project_id": "PROJ-1340",
@@ -1125,7 +1185,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-04-05"
     },
     "5264387000047963039": {
       "project_id": "PROJ-1333",
@@ -1139,7 +1200,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-04-15"
     },
     "5264387000047077013": {
       "project_id": "PROJ-1325",
@@ -1153,7 +1215,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-03-19"
     },
     "5264387000046736003": {
       "project_id": "PROJ-1321",
@@ -1167,7 +1230,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-02-13"
     },
     "5264387000046723013": {
       "project_id": "PROJ-1323",
@@ -1181,7 +1245,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-03-11"
     },
     "5264387000046466012": {
       "project_id": "PROJ-1313",
@@ -1195,7 +1260,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-04-04"
     },
     "5264387000046409087": {
       "project_id": "PROJ-1319",
@@ -1209,7 +1275,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-02-25"
     },
     "5264387000046222055": {
       "project_id": "PROJ-1305",
@@ -1223,7 +1290,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2025-03-12"
     },
     "5264387000044538001": {
       "project_id": "PROJ-1257",
@@ -1237,7 +1305,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-10-26"
     },
     "5264387000044440001": {
       "project_id": "PROJ-1249",
@@ -1251,7 +1320,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-08-27"
     },
     "5264387000044423005": {
       "project_id": "PROJ-1250",
@@ -1265,7 +1335,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-08-20"
     },
     "5264387000044384001": {
       "project_id": "PROJ-1246",
@@ -1279,7 +1350,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-12-16"
     },
     "5264387000044325011": {
       "project_id": "PROJ-1243",
@@ -1293,7 +1365,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-12-10"
     },
     "5264387000044150001": {
       "project_id": "PROJ-1233",
@@ -1307,7 +1380,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-10-21"
     },
     "5264387000044090003": {
       "project_id": "PROJ-1227",
@@ -1321,7 +1395,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-10-01"
     },
     "5264387000044074003": {
       "project_id": "PROJ-1228",
@@ -1335,7 +1410,8 @@
           "exited_at": null,
           "truncated": true
         }
-      ]
+      ],
+      "project_created_date": "2024-11-01"
     },
     "5264387000043945001": {
       "project_id": "PROJ-1224",
@@ -1393,7 +1469,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-23"
     },
     "5264387000066249125": {
       "project_id": "PROJ-1538",
@@ -1419,7 +1496,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2025-09-30"
     },
     "5264387000085875055": {
       "project_id": "PROJ-1608",
@@ -1451,7 +1529,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-25"
     },
     "5264387000086050003": {
       "project_id": "PROJ-1611",
@@ -1495,7 +1574,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-29"
     },
     "5264387000086036001": {
       "project_id": "PROJ-1609",
@@ -1545,7 +1625,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-29"
     },
     "5264387000086034006": {
       "project_id": "PROJ-1610",
@@ -1601,7 +1682,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-29"
     },
     "5264387000086090012": {
       "project_id": "PROJ-1615",
@@ -1645,7 +1727,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-29"
     },
     "5264387000086077022": {
       "project_id": "PROJ-1616",
@@ -1683,7 +1766,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-29"
     },
     "5264387000086059021": {
       "project_id": "PROJ-1613",
@@ -1718,10 +1802,17 @@
         {
           "stage": "On Hold",
           "entered_at": "2026-05-20T19:56:28.274207Z",
+          "exited_at": "2026-06-01T13:36:21.882246Z",
+          "truncated": false
+        },
+        {
+          "stage": "Interconnection",
+          "entered_at": "2026-06-01T13:36:21.882246Z",
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-29"
     },
     "5264387000086043016": {
       "project_id": "PROJ-1614",
@@ -1753,7 +1844,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-29"
     },
     "5264387000086240028": {
       "project_id": "PROJ-1619",
@@ -1785,7 +1877,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-30"
     },
     "5264387000086228054": {
       "project_id": "PROJ-1620",
@@ -1823,7 +1916,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-30"
     },
     "5264387000086202032": {
       "project_id": "PROJ-1618",
@@ -1867,7 +1961,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-30"
     },
     "5264387000086201069": {
       "project_id": "PROJ-1621",
@@ -1911,7 +2006,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-04-30"
     },
     "5264387000086181045": {
       "project_id": "PROJ-1617",
@@ -1969,7 +2065,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-01"
     },
     "5264387000086181098": {
       "project_id": "PROJ-1624",
@@ -1998,10 +2095,17 @@
         {
           "stage": "On Hold",
           "entered_at": "2026-05-13T20:03:01.782186Z",
+          "exited_at": "2026-06-01T13:36:21.882246Z",
+          "truncated": false
+        },
+        {
+          "stage": "Interconnection",
+          "entered_at": "2026-06-01T13:36:21.882246Z",
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-01"
     },
     "5264387000086180065": {
       "project_id": "PROJ-1623",
@@ -2033,7 +2137,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-01"
     },
     "5264387000086384004": {
       "project_id": "PROJ-1625",
@@ -2071,7 +2176,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-02"
     },
     "5264387000086358009": {
       "project_id": "PROJ-1626",
@@ -2103,7 +2209,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-02"
     },
     "5264387000086387039": {
       "project_id": "PROJ-1627",
@@ -2135,7 +2242,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-04"
     },
     "5264387000086571001": {
       "project_id": "PROJ-1629",
@@ -2167,7 +2275,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-05"
     },
     "5264387000086552001": {
       "project_id": "PROJ-1628",
@@ -2213,7 +2322,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-06"
     },
     "5264387000086572119": {
       "project_id": "PROJ-1630",
@@ -2245,7 +2355,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-06"
     },
     "5264387000086759003": {
       "project_id": "PROJ-1635",
@@ -2289,7 +2400,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-07"
     },
     "5264387000086859013": {
       "project_id": "PROJ-1636",
@@ -2335,7 +2447,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-14"
     },
     "5264387000087473007": {
       "project_id": "PROJ-1638",
@@ -2367,7 +2480,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-15"
     },
     "5264387000087486019": {
       "project_id": "PROJ-1639",
@@ -2393,7 +2507,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-18"
     },
     "5264387000087906013": {
       "project_id": "PROJ-1640",
@@ -2413,7 +2528,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-25"
     },
     "5264387000088301001": {
       "project_id": "PROJ-1641",
@@ -2433,7 +2549,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-28"
     },
     "5264387000088383005": {
       "project_id": "PROJ-1642",
@@ -2453,7 +2570,8 @@
           "exited_at": null,
           "truncated": false
         }
-      ]
+      ],
+      "project_created_date": "2026-05-29"
     }
   }
 }

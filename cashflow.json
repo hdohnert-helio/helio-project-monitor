@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T13:22:35.515087Z",
+  "generated_at": "2026-06-01T13:36:21.882246Z",
   "today": "2026-06-01",
   "weeks": [
     {
@@ -78,10 +78,10 @@
   "weekly_totals": {
     "Wk 06/01": 95478.48,
     "Wk 06/08": 31168.8,
-    "Wk 06/15": 0.0,
+    "Wk 06/15": 84969.6,
     "Wk 06/22": 36935.6,
     "Wk 06/29": 30856.8,
-    "Wk 07/06": 77868.95,
+    "Wk 07/06": 106192.15,
     "Wk 07/13": 0.0,
     "Wk 07/20": 177313.24,
     "Wk 07/27": 0.0,
@@ -92,11 +92,11 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 44,
-    "total_outstanding": 788843.15,
-    "total_collected": 613931.7,
+    "project_count": 47,
+    "total_outstanding": 902135.95,
+    "total_collected": 642254.9,
     "this_week": 90713.28,
-    "next_30_days": 189674.48,
+    "next_30_days": 274644.08,
     "past_due": 142047.32,
     "beyond_12_wks": 0.0
   },
@@ -800,6 +800,52 @@
       "bucket": "Wk 07/27"
     },
     {
+      "project_id": "PROJ-1624",
+      "customer": "Nusrat Nisan | 198",
+      "stage": "Interconnection",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "project_manager": "",
+      "zoho_record_id": "5264387000086181098",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
+      "contract_total": 0.0,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 0.0,
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-20",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 07/20"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": "2026-08-15",
+          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 08/10"
+        }
+      ],
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 0.0,
+      "forecast_date": "2026-07-20",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
+      "bucket": "Wk 07/20"
+    },
+    {
       "project_id": "PROJ-1615",
       "customer": "Nusrat Nisan | 227",
       "stage": "Interconnection",
@@ -887,6 +933,52 @@
       "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
+      "bucket": "Wk 07/20"
+    },
+    {
+      "project_id": "PROJ-1613",
+      "customer": "Mohammad Gafur",
+      "stage": "Interconnection",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "project_manager": "",
+      "zoho_record_id": "5264387000086059021",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
+      "contract_total": null,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 0.0,
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 0.0,
+          "forecast_date": "2026-07-20",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 07/20"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": "2026-08-15",
+          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 08/10"
+        }
+      ],
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 0.0,
+      "forecast_date": "2026-07-20",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
       "bucket": "Wk 07/20"
     },
     {
@@ -1726,6 +1818,52 @@
       "status": "paid",
       "flags": [],
       "bucket": "Paid"
+    },
+    {
+      "project_id": "PROJ-1441",
+      "customer": "Jan Berman",
+      "stage": "Interconnection",
+      "owner": "Fred Stevens",
+      "rep": "Fred Stevens",
+      "project_manager": "David Fargnoli",
+      "zoho_record_id": "5264387000060179015",
+      "financing_type": "Cash (inferred)",
+      "lending_status": "Cash - 20PCT deposit paid",
+      "lender": "Cash",
+      "contract_total": 141616.0,
+      "pct_collected": 0.2,
+      "dollars_collected": 28323.2,
+      "dollars_outstanding": 113292.8,
+      "milestones": [
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 84969.6,
+          "forecast_date": "2026-06-19",
+          "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 06/15"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 28323.2,
+          "forecast_date": "2026-07-06",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 07/06"
+        }
+      ],
+      "next_milestone": "Pre-install (60%)",
+      "next_milestone_pct": 0.6,
+      "next_dollar": 84969.6,
+      "forecast_date": "2026-06-19",
+      "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 06/15"
     },
     {
       "project_id": "PROJ-1437",
