@@ -557,12 +557,21 @@ def compute_velocity(history: dict, now: datetime,
                 # Best source: Project_Created_Date (custom Zoho field — the
                 # actual contract/sold date). Use it if it's on or after the
                 # tracking cutoff so we have a reliable anchor.
+                # Compare as dates (not datetimes) to avoid timezone-offset
+                # issues: a date of "2026-04-16" parsed as midnight UTC would
+                # fall before the cutoff of midnight ET (04:00 UTC) and get
+                # incorrectly rejected.
                 pcd = entry.get("project_created_date")
                 if pcd:
-                    # Date-only field: treat as midnight UTC on that date.
-                    pcd_dt = _parse_iso_utc(pcd + "T00:00:00+00:00")
-                    if pcd_dt and pcd_dt >= VELOCITY_CUTOFF_DT:
-                        from_dt = pcd_dt
+                    try:
+                        from datetime import date as _date
+                        pcd_date = _date.fromisoformat(pcd)
+                        cutoff_date = VELOCITY_CUTOFF_DT.date()
+                        if pcd_date >= cutoff_date:
+                            # Treat as start-of-day ET for a consistent anchor
+                            from_dt = _parse_iso_utc(pcd + "T04:00:00+00:00")
+                    except ValueError:
+                        pass
 
                 # Fallback: projects first observed in Sales Ops Review or
                 # Project Intake (the pipeline entry stages) with no
