@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T13:36:21.882246Z",
+  "generated_at": "2026-06-01T16:20:10.254048Z",
   "today": "2026-06-01",
   "weeks": [
     {
@@ -79,8 +79,8 @@
     "Wk 06/01": 22793.28,
     "Wk 06/08": 0.0,
     "Wk 06/15": 0.0,
-    "Wk 06/22": 0.0,
-    "Wk 06/29": 30856.8,
+    "Wk 06/22": 30856.8,
+    "Wk 06/29": 0.0,
     "Wk 07/06": 30881.56,
     "Wk 07/13": 0.0,
     "Wk 07/20": 177313.24,
@@ -1011,7 +1011,7 @@
     {
       "project_id": "PROJ-1602",
       "customer": "Marion Hinze",
-      "stage": "Procurement & Scheduling",
+      "stage": "Active Installation",
       "owner": "Walter Carmona",
       "rep": "Scott Webb",
       "project_manager": "David Fargnoli",
@@ -1028,17 +1028,17 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 30856.8,
-          "forecast_date": "2026-06-29",
-          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-06-25",
+          "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 06/29"
+          "bucket": "Wk 06/22"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 7714.2,
-          "forecast_date": "2026-07-25",
-          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-07-21",
+          "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 07/20"
         }
@@ -1046,11 +1046,11 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 30856.8,
-      "forecast_date": "2026-06-29",
-      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-06-25",
+      "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 06/29"
+      "bucket": "Wk 06/22"
     },
     {
       "project_id": "PROJ-1600",
