@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-01T16:20:10.254048Z",
-  "generated_at_label": "Mon Jun 1, 2026 · 12:20 PM ET",
+  "generated_at": "2026-06-01T16:34:09.582538Z",
+  "generated_at_label": "Mon Jun 1, 2026 · 12:34 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 104,
   "projects": [
@@ -455,9 +455,9 @@
     {
       "project_id": "PROJ-1601",
       "customer": "Elsa Ortiz",
-      "stage": "Interconnection",
-      "stage_entered_at": "2026-05-21T15:28:00-04:00",
-      "days_in_stage": 10,
+      "stage": "Permitting",
+      "stage_entered_at": "2026-06-01T12:31:00-04:00",
+      "days_in_stage": 0,
       "rep": "Kenny Crosby",
       "owner": "Jenna Stockwell",
       "project_manager": "David Fargnoli",
