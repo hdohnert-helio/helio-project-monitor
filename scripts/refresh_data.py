@@ -389,6 +389,17 @@ def update_stage_history(history: dict, raw_rows: list[dict], now: datetime) -> 
         if r.get("Sales_Representative"): entry["rep"] = (r["Sales_Representative"] or "").strip()
 
         spans = entry["spans"]
+
+        # One-time repair: projects created after the cutoff were incorrectly
+        # seeded with truncated=True on the first run (the old code always
+        # truncated). Fix the first span in-place so they can contribute to
+        # __creation__ velocity transitions going forward.
+        real_created_dt = _parse_iso_utc(r.get("Created_Time"))
+        if (spans and spans[0].get("truncated")
+                and real_created_dt and real_created_dt >= VELOCITY_CUTOFF_DT):
+            spans[0]["truncated"] = False
+            spans[0]["entered_at"] = _iso_utc(real_created_dt)
+
         if not spans:
             # We don't trust Zoho's Date_of_Stage_Change as a proxy for
             # "when did this project enter this stage" — that field gets
