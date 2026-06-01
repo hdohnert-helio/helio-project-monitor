@@ -375,6 +375,11 @@ def update_stage_history(history: dict, raw_rows: list[dict], now: datetime) -> 
         clamped_iso = _iso_utc(clamped_dt)
         was_truncated = transition_dt < VELOCITY_CUTOFF_DT
 
+        # Project_Created_Date is a custom Date field (YYYY-MM-DD) representing
+        # when the project was sold/contracted — the most reliable "sold" anchor
+        # for __creation__ velocity transitions.
+        project_created_date = (r.get("Project_Created_Date") or "").strip()
+
         entry = projects.setdefault(record_id, {
             "project_id": (r.get("Project_ID") or "").strip(),
             "customer": (r.get("Name") or "").strip(),
@@ -387,6 +392,9 @@ def update_stage_history(history: dict, raw_rows: list[dict], now: datetime) -> 
         if r.get("Name"): entry["customer"] = (r["Name"] or "").strip()
         if owner_name: entry["owner"] = owner_name
         if r.get("Sales_Representative"): entry["rep"] = (r["Sales_Representative"] or "").strip()
+        # Always refresh project_created_date — it can be backfilled in Zoho
+        if project_created_date:
+            entry["project_created_date"] = project_created_date
 
         spans = entry["spans"]
 
@@ -544,19 +552,31 @@ def compute_velocity(history: dict, now: datetime,
                 continue
             # Locate the "from" anchor
             if from_stage == "__creation__":
-                first = spans[0]
-                if first.get("truncated"):
-                    # Projects first observed in Sales Ops Review or Project
-                    # Intake were effectively just sold at that point — using
-                    # the cutoff date (Apr 16) as the "from" anchor is a
-                    # reasonable floor and gives meaningful velocity data.
-                    # Projects already deeper in the pipeline when first seen
-                    # (Interconnection, Permitting, etc.) are excluded because
-                    # their real sold date is unknown and could be months earlier.
+                from_dt = None
+
+                # Best source: Project_Created_Date (custom Zoho field — the
+                # actual contract/sold date). Use it if it's on or after the
+                # tracking cutoff so we have a reliable anchor.
+                pcd = entry.get("project_created_date")
+                if pcd:
+                    # Date-only field: treat as midnight UTC on that date.
+                    pcd_dt = _parse_iso_utc(pcd + "T00:00:00+00:00")
+                    if pcd_dt and pcd_dt >= VELOCITY_CUTOFF_DT:
+                        from_dt = pcd_dt
+
+                # Fallback: projects first observed in Sales Ops Review or
+                # Project Intake (the pipeline entry stages) with no
+                # Project_Created_Date — use the cutoff as a floor, which
+                # gives a lower-bound measurement rather than nothing.
+                if not from_dt:
+                    first = spans[0]
                     PIPELINE_ENTRY_STAGES = {"Sales Ops Review", "Project Intake"}
-                    if first.get("stage") not in PIPELINE_ENTRY_STAGES:
+                    if first.get("truncated") and first.get("stage") not in PIPELINE_ENTRY_STAGES:
                         continue
-                from_dt = _parse_iso_utc(first.get("entered_at"))
+                    from_dt = _parse_iso_utc(first.get("entered_at"))
+
+                if not from_dt:
+                    continue
             else:
                 from_dt = None
                 for sp in spans:
