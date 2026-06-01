@@ -393,16 +393,27 @@ def update_stage_history(history: dict, raw_rows: list[dict], now: datetime) -> 
             # We don't trust Zoho's Date_of_Stage_Change as a proxy for
             # "when did this project enter this stage" — that field gets
             # bumped on non-stage saves (blueprints, field edits, etc.).
-            # On first-time seed we admit we don't know: stamp entered_at
-            # at the cutoff and mark truncated so this span is excluded
-            # from dwell/transition stats. Only stage changes observed
-            # across subsequent runs will contribute real data.
-            spans.append({
-                "stage": stage,
-                "entered_at": _iso_utc(VELOCITY_CUTOFF_DT),
-                "exited_at": None,
-                "truncated": True,
-            })
+            # However, Created_Time (when the Install record was first created
+            # in Zoho) IS a reliable "entered the pipeline" timestamp. If the
+            # project was created after the cutoff, use that as entered_at and
+            # mark it non-truncated so it contributes to __creation__ velocity
+            # transitions (Sold to Install Ready, etc.) once it reaches the
+            # target stage. Projects created before the cutoff remain truncated.
+            real_created_dt = _parse_iso_utc(r.get("Created_Time"))
+            if real_created_dt and real_created_dt >= VELOCITY_CUTOFF_DT:
+                spans.append({
+                    "stage": stage,
+                    "entered_at": _iso_utc(real_created_dt),
+                    "exited_at": None,
+                    "truncated": False,
+                })
+            else:
+                spans.append({
+                    "stage": stage,
+                    "entered_at": _iso_utc(VELOCITY_CUTOFF_DT),
+                    "exited_at": None,
+                    "truncated": True,
+                })
             continue
 
         last = spans[-1]
