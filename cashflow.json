@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T16:43:21.800785Z",
+  "generated_at": "2026-06-01T16:57:32.388542Z",
   "today": "2026-06-01",
   "weeks": [
     {
@@ -84,12 +84,12 @@
     "Wk 07/06": 106192.15,
     "Wk 07/13": 0.0,
     "Wk 07/20": 177313.24,
-    "Wk 07/27": 20124.0,
+    "Wk 07/27": 58050.0,
     "Wk 08/03": 0.0,
     "Wk 08/10": 42399.76,
     "Wk 08/17": 0.0,
     "Past-due": 142047.32,
-    "Beyond 12 wks": 5031.0
+    "Beyond 12 wks": 14512.5
   },
   "summary": {
     "project_count": 46,
@@ -98,7 +98,7 @@
     "this_week": 90713.28,
     "next_30_days": 274644.08,
     "past_due": 142047.32,
-    "beyond_12_wks": 5031.0
+    "beyond_12_wks": 14512.5
   },
   "projects": [
     {
@@ -109,24 +109,43 @@
       "rep": "Doug Hoffman",
       "project_manager": "",
       "zoho_record_id": "5264387000088383005",
-      "financing_type": "",
-      "lending_status": "",
-      "lender": "?",
+      "financing_type": "Lease / PPA (inferred)",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
       "contract_total": 47407.49999999999,
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 47407.5,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Lending_Status missing"
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 37926.0,
+          "forecast_date": "2026-07-29",
+          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 07/27"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 9481.5,
+          "forecast_date": "2026-08-24",
+          "anchor_source": "today + 70d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Beyond 12 wks"
+        }
       ],
-      "bucket": "Paid"
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 37926.0,
+      "forecast_date": "2026-07-29",
+      "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1641",
@@ -1202,7 +1221,7 @@
     {
       "project_id": "PROJ-1605",
       "customer": "Kevin Andersen",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "David Fargnoli",

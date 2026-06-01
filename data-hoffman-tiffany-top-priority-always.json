@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-01T16:43:21.800785Z",
-  "generated_at_label": "Mon Jun 1, 2026 · 12:43 PM ET",
+  "generated_at": "2026-06-01T16:57:32.388542Z",
+  "generated_at_label": "Mon Jun 1, 2026 · 12:57 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 22,
   "projects": [
@@ -35,9 +35,9 @@
     {
       "project_id": "PROJ-1605",
       "customer": "Kevin Andersen",
-      "stage": "Inspection",
-      "stage_entered_at": "2026-05-27T09:54:00-04:00",
-      "days_in_stage": 5,
+      "stage": "Witness Test / PTO",
+      "stage_entered_at": "2026-06-01T12:49:00-04:00",
+      "days_in_stage": 0,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
