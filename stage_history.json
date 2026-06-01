@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-06-01T16:57:32.388542Z",
+  "last_run": "2026-06-01T21:39:11.827451Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -1648,7 +1648,7 @@
     },
     "5264387000086034006": {
       "project_id": "PROJ-1610",
-      "customer": "Mohammed Noor",
+      "customer": "Mohammed Noor | 19",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "spans": [
@@ -1742,6 +1742,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-05-15T19:46:50.848867Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1781,6 +1787,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-05-19T13:56:37.346297Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "Permitting",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2257,6 +2269,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-05-19T18:33:23.853746Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2343,6 +2361,12 @@
         {
           "stage": "Engineering",
           "entered_at": "2026-05-28T20:31:46.741088Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "Interconnection",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2501,6 +2525,12 @@
         {
           "stage": "Engineering",
           "entered_at": "2026-05-28T20:31:46.741088Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2528,6 +2558,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-05-28T20:31:46.741088Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2549,6 +2585,12 @@
         {
           "stage": "Project Intake",
           "entered_at": "2026-05-26T20:20:54.545664Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "Site Survey",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2570,6 +2612,12 @@
         {
           "stage": "Engineering",
           "entered_at": "2026-05-28T20:31:46.741088Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "Interconnection",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2591,6 +2639,12 @@
         {
           "stage": "Project Intake",
           "entered_at": "2026-05-29T20:33:40.167778Z",
+          "exited_at": "2026-06-01T21:39:11.827451Z",
+          "truncated": false
+        },
+        {
+          "stage": "Site Survey",
+          "entered_at": "2026-06-01T21:39:11.827451Z",
           "exited_at": null,
           "truncated": false
         }
