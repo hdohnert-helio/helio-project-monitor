@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T14:06:45.385920Z",
+  "generated_at": "2026-06-04T20:11:44.100172Z",
   "today": "2026-06-04",
   "weeks": [
     {
@@ -83,13 +83,13 @@
     "Wk 06/29": 0.0,
     "Wk 07/06": 18942.08,
     "Wk 07/13": 0.0,
-    "Wk 07/20": 0.0,
-    "Wk 07/27": 37926.0,
+    "Wk 07/20": 37926.0,
+    "Wk 07/27": 0.0,
     "Wk 08/03": 0.0,
     "Wk 08/10": 0.0,
-    "Wk 08/17": 0.0,
+    "Wk 08/17": 9481.5,
     "Past-due": 34204.32,
-    "Beyond 12 wks": 9481.5
+    "Beyond 12 wks": 0.0
   },
   "summary": {
     "project_count": 5,
@@ -98,13 +98,13 @@
     "this_week": 0.0,
     "next_30_days": 0.0,
     "past_due": 34204.32,
-    "beyond_12_wks": 9481.5
+    "beyond_12_wks": 0.0
   },
   "projects": [
     {
       "project_id": "PROJ-1642",
       "customer": "Ronald Muriel",
-      "stage": "Site Survey",
+      "stage": "Engineering",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -121,31 +121,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 37926.0,
-          "forecast_date": "2026-07-30",
-          "anchor_source": "today + 42d (Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-07-26",
+          "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 07/27"
+          "bucket": "Wk 07/20"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-08-25",
-          "anchor_source": "today + 68d (Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-08-21",
+          "anchor_source": "today + 64d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Beyond 12 wks"
+          "bucket": "Wk 08/17"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 37926.0,
-      "forecast_date": "2026-07-30",
-      "anchor_source": "today + 42d (Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-07-26",
+      "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 07/27"
+      "bucket": "Wk 07/20"
     },
     {
       "project_id": "PROJ-1630",
