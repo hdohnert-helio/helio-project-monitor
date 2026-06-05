@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-04T20:11:44.100172Z",
-  "today": "2026-06-04",
+  "generated_at": "2026-06-05T13:54:17.453573Z",
+  "today": "2026-06-05",
   "weeks": [
     {
       "index": 0,
@@ -83,8 +83,8 @@
     "Wk 06/29": 0.0,
     "Wk 07/06": 18942.08,
     "Wk 07/13": 0.0,
-    "Wk 07/20": 37926.0,
-    "Wk 07/27": 0.0,
+    "Wk 07/20": 0.0,
+    "Wk 07/27": 37926.0,
     "Wk 08/03": 0.0,
     "Wk 08/10": 0.0,
     "Wk 08/17": 9481.5,
@@ -121,16 +121,16 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 37926.0,
-          "forecast_date": "2026-07-26",
+          "forecast_date": "2026-07-27",
           "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 07/20"
+          "bucket": "Wk 07/27"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-08-21",
+          "forecast_date": "2026-08-22",
           "anchor_source": "today + 64d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/17"
@@ -139,13 +139,13 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 37926.0,
-      "forecast_date": "2026-07-26",
+      "forecast_date": "2026-07-27",
       "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 07/20"
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1630",
@@ -167,7 +167,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-09",
+          "forecast_date": "2026-07-10",
           "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 07/06"
@@ -176,7 +176,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-08-04",
+          "forecast_date": "2026-08-05",
           "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/03"
@@ -185,7 +185,7 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-09",
+      "forecast_date": "2026-07-10",
       "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
@@ -257,7 +257,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 6930.08,
-          "forecast_date": "2026-07-09",
+          "forecast_date": "2026-07-10",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 07/06"
@@ -292,7 +292,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 12012.0,
-          "forecast_date": "2026-07-09",
+          "forecast_date": "2026-07-10",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 07/06"
@@ -301,7 +301,7 @@
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-07-09",
+      "forecast_date": "2026-07-10",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],

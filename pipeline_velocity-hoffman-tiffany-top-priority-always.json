@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T20:11:44.100172Z",
+  "generated_at": "2026-06-05T13:54:17.453573Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 23,
   "transitions": [
@@ -60,10 +60,10 @@
     },
     {
       "stage": "Engineering",
-      "sample_count": 1,
-      "open_count": 0,
-      "median_days": 16.020999148819445,
-      "p75_days": 16.020999148819445
+      "sample_count": 2,
+      "open_count": 1,
+      "median_days": 8.379442591776622,
+      "p75_days": 12.200220870298033
     },
     {
       "stage": "Plan Review",
@@ -83,8 +83,8 @@
       "stage": "Permitting",
       "sample_count": 2,
       "open_count": 1,
-      "median_days": 4.8504475058622685,
-      "p75_days": 5.918264025407987
+      "median_days": 5.219390523229167,
+      "p75_days": 6.471678551458334
     },
     {
       "stage": "Procurement & Scheduling",
@@ -111,8 +111,8 @@
       "stage": "Witness Test / PTO",
       "sample_count": 2,
       "open_count": 2,
-      "median_days": 9.601573831342591,
-      "p75_days": 12.834931860266202
+      "median_days": 10.339459866076389,
+      "p75_days": 13.572817895
     },
     {
       "stage": "Energized",
