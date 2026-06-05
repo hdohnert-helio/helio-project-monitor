@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T13:54:17.453573Z",
+  "generated_at": "2026-06-05T20:02:17.093600Z",
   "today": "2026-06-05",
   "weeks": [
     {
@@ -92,8 +92,8 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 24,
-    "total_outstanding": 408650.04,
+    "project_count": 25,
+    "total_outstanding": 434685.54,
     "total_collected": 55697.56,
     "this_week": 0.0,
     "next_30_days": 30856.8,
@@ -790,6 +790,31 @@
         "Contract_Total missing or zero"
       ],
       "bucket": "Wk 07/06"
+    },
+    {
+      "project_id": "PROJ-1608",
+      "customer": "Hartley Mannion",
+      "stage": "Interconnection",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "project_manager": "David Fargnoli",
+      "zoho_record_id": "5264387000085875055",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - Needs NTP",
+      "lender": "?",
+      "contract_total": 26035.5,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 26035.5,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
+      "flags": [],
+      "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1607",
