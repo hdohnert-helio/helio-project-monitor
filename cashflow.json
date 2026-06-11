@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T14:43:33.182351Z",
+  "generated_at": "2026-06-11T20:28:44.964021Z",
   "today": "2026-06-11",
   "weeks": [
     {
@@ -82,22 +82,22 @@
     "Wk 06/29": 121905.2,
     "Wk 07/06": 0.0,
     "Wk 07/13": 204551.52,
-    "Wk 07/20": 20560.67,
+    "Wk 07/20": 14862.35,
     "Wk 07/27": 116443.2,
     "Wk 08/03": 0.0,
     "Wk 08/10": 27801.46,
     "Wk 08/17": 0.0,
     "Wk 08/24": 29110.8,
-    "Past-due": 200774.6,
+    "Past-due": 177981.32,
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 38,
-    "total_outstanding": 883197.75,
+    "project_count": 37,
+    "total_outstanding": 854706.15,
     "total_collected": 642254.9,
     "this_week": 0.0,
     "next_30_days": 220682.0,
-    "past_due": 200774.6,
+    "past_due": 177981.32,
     "beyond_12_wks": 0.0
   },
   "projects": [
@@ -972,50 +972,6 @@
         "Financing_Type inferred from Lending_Status"
       ],
       "bucket": "Wk 07/13"
-    },
-    {
-      "project_id": "PROJ-1600",
-      "customer": "Scott Webb",
-      "stage": "Inspection",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000083838050",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
-      "lender": "LR",
-      "contract_total": 28491.6,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 28491.6,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 22793.28,
-          "forecast_date": "2026-06-03",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 5698.32,
-          "forecast_date": "2026-07-21",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 07/20"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 22793.28,
-      "forecast_date": "2026-06-03",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
-      "flags": [],
-      "bucket": "Past-due"
     },
     {
       "project_id": "PROJ-1599",
