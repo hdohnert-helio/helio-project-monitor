@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T14:11:49.997862Z",
+  "generated_at": "2026-06-12T20:19:09.588292Z",
   "today": "2026-06-12",
   "weeks": [
     {
@@ -81,8 +81,8 @@
     "Wk 06/22": 0.0,
     "Wk 06/29": 121905.2,
     "Wk 07/06": 0.0,
-    "Wk 07/13": 204551.52,
-    "Wk 07/20": 14862.35,
+    "Wk 07/13": 212265.72,
+    "Wk 07/20": 7148.15,
     "Wk 07/27": 116443.2,
     "Wk 08/03": 0.0,
     "Wk 08/10": 27801.46,
@@ -885,7 +885,7 @@
     {
       "project_id": "PROJ-1602",
       "customer": "Marion Hinze",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Scott Webb",
       "project_manager": "David Fargnoli",
@@ -911,10 +911,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 7714.2,
-          "forecast_date": "2026-07-22",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-07-17",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 07/20"
+          "bucket": "Wk 07/13"
         }
       ],
       "next_milestone": "Install package (80%)",
