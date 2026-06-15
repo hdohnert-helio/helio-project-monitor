@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T16:20:19.528947Z",
+  "generated_at": "2026-06-15T21:11:45.327879Z",
   "today": "2026-06-15",
   "weeks": [
     {
@@ -92,8 +92,8 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 37,
-    "total_outstanding": 854706.15,
+    "project_count": 38,
+    "total_outstanding": 877694.15,
     "total_collected": 642254.9,
     "this_week": 113072.4,
     "next_30_days": 225447.2,
@@ -102,9 +102,36 @@
   },
   "projects": [
     {
+      "project_id": "PROJ-1644",
+      "customer": "Jonathan Wong",
+      "stage": "Sales Ops Review",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Doug Hoffman",
+      "project_manager": "",
+      "zoho_record_id": "5264387000089677014",
+      "financing_type": "",
+      "lending_status": "",
+      "lender": "?",
+      "contract_total": 22987.9999944,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 22988.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
+      "flags": [
+        "Lending_Status missing"
+      ],
+      "bucket": "Paid"
+    },
+    {
       "project_id": "PROJ-1643",
       "customer": "Ryan Hopley & Anginieka Jackman",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Laura Beth Collinson",
       "rep": "Laura Beth Collinson",
       "project_manager": "",
@@ -691,7 +718,7 @@
     {
       "project_id": "PROJ-1610",
       "customer": "Mohammed Noor | 19",
-      "stage": "Permitting",
+      "stage": "Procurement & Scheduling",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -708,31 +735,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-20",
-          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-07-13",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 07/20"
+          "bucket": "Wk 07/13"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-08-15",
-          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-08-08",
+          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 08/10"
+          "bucket": "Wk 08/03"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-20",
-      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-07-13",
+      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 07/20"
+      "bucket": "Wk 07/13"
     },
     {
       "project_id": "PROJ-1608",

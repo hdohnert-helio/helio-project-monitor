@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T16:20:19.528947Z",
+  "generated_at": "2026-06-15T21:11:45.327879Z",
   "today": "2026-06-15",
   "weeks": [
     {
@@ -92,8 +92,8 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 5,
-    "total_outstanding": 100553.9,
+    "project_count": 6,
+    "total_outstanding": 123541.9,
     "total_collected": 73984.0,
     "this_week": 0.0,
     "next_30_days": 0.0,
@@ -101,6 +101,33 @@
     "beyond_12_wks": 0.0
   },
   "projects": [
+    {
+      "project_id": "PROJ-1644",
+      "customer": "Jonathan Wong",
+      "stage": "Sales Ops Review",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Doug Hoffman",
+      "project_manager": "",
+      "zoho_record_id": "5264387000089677014",
+      "financing_type": "",
+      "lending_status": "",
+      "lender": "?",
+      "contract_total": 22987.9999944,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 22988.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
+      "flags": [
+        "Lending_Status missing"
+      ],
+      "bucket": "Paid"
+    },
     {
       "project_id": "PROJ-1642",
       "customer": "Ronald Muriel",
