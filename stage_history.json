@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-06-16T16:00:47.131597Z",
+  "last_run": "2026-06-16T21:10:25.352863Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -390,8 +390,14 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-04-16T04:00:00Z",
-          "exited_at": null,
+          "exited_at": "2026-06-16T21:10:25.352863Z",
           "truncated": true
+        },
+        {
+          "stage": "Procurement & Scheduling",
+          "entered_at": "2026-06-16T21:10:25.352863Z",
+          "exited_at": null,
+          "truncated": false
         }
       ],
       "project_created_date": "2026-02-12"
@@ -1637,6 +1643,12 @@
         {
           "stage": "Permitting",
           "entered_at": "2026-06-03T21:22:41.296822Z",
+          "exited_at": "2026-06-16T21:10:25.352863Z",
+          "truncated": false
+        },
+        {
+          "stage": "On Hold",
+          "entered_at": "2026-06-16T21:10:25.352863Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2422,6 +2434,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-06-04T20:11:44.100172Z",
+          "exited_at": "2026-06-16T21:10:25.352863Z",
+          "truncated": false
+        },
+        {
+          "stage": "Plan Review",
+          "entered_at": "2026-06-16T21:10:25.352863Z",
           "exited_at": null,
           "truncated": false
         }
@@ -2824,6 +2842,21 @@
         }
       ],
       "project_created_date": "2026-06-15"
+    },
+    "5264387000089834001": {
+      "project_id": "PROJ-1645",
+      "customer": "Kevin Gill",
+      "owner": "Laura Beth Collinson",
+      "rep": "Laura Beth Collinson",
+      "spans": [
+        {
+          "stage": "Sales Ops Review",
+          "entered_at": "2026-04-16T04:00:00Z",
+          "exited_at": null,
+          "truncated": true
+        }
+      ],
+      "project_created_date": "2026-06-16"
     }
   }
 }

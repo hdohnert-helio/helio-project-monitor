@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T16:00:47.131597Z",
+  "generated_at": "2026-06-16T21:10:25.352863Z",
   "today": "2026-06-16",
   "weeks": [
     {
@@ -80,23 +80,23 @@
     "Wk 06/22": 0.0,
     "Wk 06/29": 0.0,
     "Wk 07/06": 0.0,
-    "Wk 07/13": 0.0,
+    "Wk 07/13": 58393.2,
     "Wk 07/20": 144103.28,
     "Wk 07/27": 0.0,
-    "Wk 08/03": 78517.2,
+    "Wk 08/03": 34722.3,
     "Wk 08/10": 27801.46,
     "Wk 08/17": 0.0,
-    "Wk 08/24": 19629.3,
+    "Wk 08/24": 5031.0,
     "Wk 08/31": 0.0,
     "Past-due": 79250.4,
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 18,
+    "project_count": 17,
     "total_outstanding": 406193.94,
     "total_collected": 55697.56,
     "this_week": 30856.8,
-    "next_30_days": 30856.8,
+    "next_30_days": 89250.0,
     "past_due": 79250.4,
     "beyond_12_wks": 0.0
   },
@@ -374,52 +374,6 @@
       "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 07/20"
-    },
-    {
-      "project_id": "PROJ-1611",
-      "customer": "Mustaque Nabi",
-      "stage": "Permitting",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086050003",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
-      "lender": "LR",
-      "contract_total": null,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": "2026-07-21",
-          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 07/20"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-08-16",
-          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 08/10"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-07-21",
-      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
-      "status": "on_track",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
       "bucket": "Wk 07/20"
     },
     {
@@ -718,7 +672,7 @@
     {
       "project_id": "PROJ-1586",
       "customer": "Charles Casey | Crystal Casey",
-      "stage": "Interconnection",
+      "stage": "Procurement & Scheduling",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -735,29 +689,29 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 58393.2,
-          "forecast_date": "2026-08-04",
-          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-07-14",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 08/03"
+          "bucket": "Wk 07/13"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 14598.3,
-          "forecast_date": "2026-08-30",
-          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-08-09",
+          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 08/24"
+          "bucket": "Wk 08/03"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 58393.2,
-      "forecast_date": "2026-08-04",
-      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-07-14",
+      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 08/03"
+      "bucket": "Wk 07/13"
     },
     {
       "project_id": "PROJ-1581",
