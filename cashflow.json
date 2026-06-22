@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T15:57:37.164900Z",
+  "generated_at": "2026-06-22T20:55:53.867824Z",
   "today": "2026-06-22",
   "weeks": [
     {
@@ -81,23 +81,23 @@
     "Wk 07/06": 84969.6,
     "Wk 07/13": 27405.2,
     "Wk 07/20": 58393.2,
-    "Wk 07/27": 214648.67,
+    "Wk 07/27": 200938.27,
     "Wk 08/03": 0.0,
     "Wk 08/10": 102438.7,
     "Wk 08/17": 27801.46,
     "Wk 08/24": 0.0,
     "Wk 08/31": 21960.1,
     "Wk 09/07": 0.0,
-    "Past-due": 202354.12,
+    "Past-due": 33357.8,
     "Beyond 12 wks": 0.0
   },
   "summary": {
     "project_count": 36,
-    "total_outstanding": 926093.75,
-    "total_collected": 616318.9,
+    "total_outstanding": 743387.03,
+    "total_collected": 799025.62,
     "this_week": 82215.6,
     "next_30_days": 252983.6,
-    "past_due": 202354.12,
+    "past_due": 33357.8,
     "beyond_12_wks": 0.0
   },
   "projects": [
@@ -131,7 +131,7 @@
     {
       "project_id": "PROJ-1644",
       "customer": "Jonathan Wong",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -793,22 +793,13 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000085244029",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 38961.0,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 38961.0,
+      "pct_collected": 0.8,
+      "dollars_collected": 31168.8,
+      "dollars_outstanding": 7792.2,
       "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 31168.8,
-          "forecast_date": "2026-06-09",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
@@ -819,14 +810,14 @@
           "bucket": "Wk 07/27"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 31168.8,
-      "forecast_date": "2026-06-09",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 7792.2,
+      "forecast_date": "2026-07-27",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Past-due"
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1602",
@@ -837,22 +828,13 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000084118015",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 38571.0,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 38571.0,
+      "pct_collected": 0.8,
+      "dollars_collected": 30856.8,
+      "dollars_outstanding": 7714.2,
       "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 30856.8,
-          "forecast_date": "2026-06-17",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
@@ -863,14 +845,14 @@
           "bucket": "Wk 07/27"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 30856.8,
-      "forecast_date": "2026-06-17",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 7714.2,
+      "forecast_date": "2026-07-27",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Past-due"
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1601",
@@ -928,22 +910,13 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000083195007",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 34650.4,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 34650.4,
+      "pct_collected": 0.8,
+      "dollars_collected": 27720.32,
+      "dollars_outstanding": 6930.08,
       "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 27720.32,
-          "forecast_date": "2026-05-14",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
@@ -954,14 +927,14 @@
           "bucket": "Wk 07/27"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 27720.32,
-      "forecast_date": "2026-05-14",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 6930.08,
+      "forecast_date": "2026-07-27",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Past-due"
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1596",
@@ -972,22 +945,13 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000082755001",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 42749.6,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 42749.6,
+      "pct_collected": 0.8,
+      "dollars_collected": 34199.68,
+      "dollars_outstanding": 8549.92,
       "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 34199.68,
-          "forecast_date": "2026-05-26",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
@@ -998,14 +962,14 @@
           "bucket": "Wk 07/27"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 34199.68,
-      "forecast_date": "2026-05-26",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 8549.92,
+      "forecast_date": "2026-07-27",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Past-due"
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1592",
@@ -1016,22 +980,13 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000081037027",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 29548.6,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 29548.6,
+      "pct_collected": 0.8,
+      "dollars_collected": 23638.88,
+      "dollars_outstanding": 5909.72,
       "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 23638.88,
-          "forecast_date": "2026-05-07",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
@@ -1042,14 +997,14 @@
           "bucket": "Wk 07/27"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 23638.88,
-      "forecast_date": "2026-05-07",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 5909.72,
+      "forecast_date": "2026-07-27",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Past-due"
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1586",
@@ -1129,22 +1084,13 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000075613005",
       "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 26764.8,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 26764.8,
+      "pct_collected": 0.8,
+      "dollars_collected": 21411.84,
+      "dollars_outstanding": 5352.96,
       "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 21411.84,
-          "forecast_date": "2026-05-29",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
@@ -1155,16 +1101,16 @@
           "bucket": "Wk 07/27"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 21411.84,
-      "forecast_date": "2026-05-29",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 5352.96,
+      "forecast_date": "2026-07-27",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Past-due"
+      "bucket": "Wk 07/27"
     },
     {
       "project_id": "PROJ-1563",
@@ -1175,31 +1121,21 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000067666066",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Paid",
+      "lending_status": "LR - Activation Package Paid",
       "lender": "LR",
       "contract_total": 26853.2,
-      "pct_collected": 0.8,
-      "dollars_collected": 21482.56,
-      "dollars_outstanding": 5370.64,
-      "milestones": [
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 5370.64,
-          "forecast_date": "2026-07-27",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 07/27"
-        }
-      ],
-      "next_milestone": "Activation package (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 5370.64,
-      "forecast_date": "2026-07-27",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-      "status": "on_track",
+      "pct_collected": 1.0,
+      "dollars_collected": 26853.2,
+      "dollars_outstanding": 0.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
       "flags": [],
-      "bucket": "Wk 07/27"
+      "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1555",
@@ -1285,31 +1221,21 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000065083043",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Activation Package Submitted",
+      "lending_status": "LR - Activation Package Paid",
       "lender": "LR",
       "contract_total": 41698.8,
-      "pct_collected": 0.8,
-      "dollars_collected": 33359.04,
-      "dollars_outstanding": 8339.76,
-      "milestones": [
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 8339.76,
-          "forecast_date": "2026-07-27",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 07/27"
-        }
-      ],
-      "next_milestone": "Activation package (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 8339.76,
-      "forecast_date": "2026-07-27",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-      "status": "on_track",
+      "pct_collected": 1.0,
+      "dollars_collected": 41698.8,
+      "dollars_outstanding": 0.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
       "flags": [],
-      "bucket": "Wk 07/27"
+      "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1466",
