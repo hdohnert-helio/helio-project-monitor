@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T20:55:53.867824Z",
+  "generated_at": "2026-06-23T13:44:04.169272Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 113,
   "transitions": [
@@ -46,10 +46,10 @@
     },
     {
       "stage": "Project Intake",
-      "sample_count": 27,
-      "open_count": 1,
+      "sample_count": 28,
+      "open_count": 2,
       "median_days": 5.317208911655093,
-      "p75_days": 7.049110604114583
+      "p75_days": 7.0271204697771985
     },
     {
       "stage": "Site Survey",
@@ -77,21 +77,21 @@
       "sample_count": 36,
       "open_count": 5,
       "median_days": 13.082560696307869,
-      "p75_days": 19.002685650928818
+      "p75_days": 19.220295764800348
     },
     {
       "stage": "Permitting",
       "sample_count": 14,
       "open_count": 8,
-      "median_days": 9.601716354716435,
+      "median_days": 10.301835584438658,
       "p75_days": 16.76869159842014
     },
     {
       "stage": "Procurement & Scheduling",
       "sample_count": 12,
       "open_count": 3,
-      "median_days": 6.5223463662442125,
-      "p75_days": 7.014453238984375
+      "median_days": 6.713328133744213,
+      "p75_days": 7.185354273527199
     },
     {
       "stage": "Active Installation",
@@ -104,22 +104,22 @@
       "stage": "Inspection",
       "sample_count": 14,
       "open_count": 6,
-      "median_days": 21.143428517864585,
-      "p75_days": 54.400628839814814
+      "median_days": 21.493488132725695,
+      "p75_days": 55.10074806953703
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 8,
       "open_count": 6,
-      "median_days": 24.51609274758102,
-      "p75_days": 26.45651621021991
+      "median_days": 25.216211977303242,
+      "p75_days": 27.15663543994213
     },
     {
       "stage": "Energized",
       "sample_count": 5,
       "open_count": 5,
-      "median_days": 32.03784312428241,
-      "p75_days": 35.04434559664352
+      "median_days": 32.73796235400463,
+      "p75_days": 35.74446482636574
     }
   ],
   "notes": [
