@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T13:25:30.702653Z",
+  "generated_at": "2026-06-24T19:54:28.139063Z",
   "today": "2026-06-24",
   "weeks": [
     {
@@ -104,7 +104,7 @@
     {
       "project_id": "PROJ-1646",
       "customer": "Chris Anderson",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Douglas Hoffman",
       "rep": "Douglas Hoffman",
       "project_manager": "",
