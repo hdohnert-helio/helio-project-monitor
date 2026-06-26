@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T20:09:45.954401Z",
+  "generated_at": "2026-06-26T13:14:38.184389Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 114,
   "transitions": [
@@ -74,24 +74,24 @@
     },
     {
       "stage": "Interconnection",
-      "sample_count": 36,
-      "open_count": 5,
-      "median_days": 13.225129947100694,
-      "p75_days": 20.019475519502315
+      "sample_count": 38,
+      "open_count": 7,
+      "median_days": 13.082560696307869,
+      "p75_days": 19.813376502795137
     },
     {
       "stage": "Permitting",
       "sample_count": 14,
       "open_count": 5,
-      "median_days": 10.576709572997686,
-      "p75_days": 17.330414611733218
+      "median_days": 10.847441210127315,
+      "p75_days": 17.508343517948497
     },
     {
       "stage": "Procurement & Scheduling",
-      "sample_count": 14,
-      "open_count": 4,
-      "median_days": 6.8750412092071755,
-      "p75_days": 8.716329165784144
+      "sample_count": 15,
+      "open_count": 5,
+      "median_days": 6.736623670162037,
+      "p75_days": 9.186496623813657
     },
     {
       "stage": "Active Installation",
@@ -102,24 +102,24 @@
     },
     {
       "stage": "Inspection",
-      "sample_count": 14,
-      "open_count": 5,
-      "median_days": 22.627410500370374,
-      "p75_days": 57.36859280482639
+      "sample_count": 15,
+      "open_count": 6,
+      "median_days": 18.271420692604167,
+      "p75_days": 57.04770073361111
     },
     {
       "stage": "Witness Test / PTO",
-      "sample_count": 8,
-      "open_count": 6,
-      "median_days": 27.484056712592594,
-      "p75_days": 29.424480175231484
+      "sample_count": 9,
+      "open_count": 7,
+      "median_days": 27.695115932997687,
+      "p75_days": 29.94693530010417
     },
     {
       "stage": "Energized",
       "sample_count": 5,
       "open_count": 5,
-      "median_days": 35.00580708929398,
-      "p75_days": 38.012309561655094
+      "median_days": 35.717522714155095,
+      "p75_days": 38.7240251865162
     }
   ],
   "notes": [
