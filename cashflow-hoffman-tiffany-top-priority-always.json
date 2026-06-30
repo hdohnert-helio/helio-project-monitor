@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T13:10:25.462477Z",
+  "generated_at": "2026-06-30T20:06:03.052272Z",
   "today": "2026-06-30",
   "weeks": [
     {
@@ -92,8 +92,8 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 6,
-    "total_outstanding": 139411.18,
+    "project_count": 7,
+    "total_outstanding": 224263.18,
     "total_collected": 80365.92,
     "this_week": 0.0,
     "next_30_days": 13792.8,
@@ -101,6 +101,33 @@
     "beyond_12_wks": 0.0
   },
   "projects": [
+    {
+      "project_id": "PROJ-1647",
+      "customer": "Joseph Jahr",
+      "stage": "Sales Ops Review",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Doug Hoffman",
+      "project_manager": "",
+      "zoho_record_id": "5264387000090665051",
+      "financing_type": "",
+      "lending_status": "",
+      "lender": "?",
+      "contract_total": 84852.0,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 84852.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
+      "flags": [
+        "Lending_Status missing"
+      ],
+      "bucket": "Paid"
+    },
     {
       "project_id": "PROJ-1646",
       "customer": "Chris Anderson",
