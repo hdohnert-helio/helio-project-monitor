@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T14:30:34.856349Z",
+  "generated_at": "2026-07-06T20:05:57.763408Z",
   "today": "2026-07-06",
   "weeks": [
     {
@@ -76,13 +76,13 @@
     }
   ],
   "weekly_totals": {
-    "Wk 07/06": 58393.2,
+    "Wk 07/06": 65740.03,
     "Wk 07/13": 0.0,
     "Wk 07/20": 0.0,
-    "Wk 07/27": 0.0,
+    "Wk 07/27": 22040.49,
     "Wk 08/03": 0.0,
     "Wk 08/10": 110195.82,
-    "Wk 08/17": 0.0,
+    "Wk 08/17": 7346.83,
     "Wk 08/24": 20124.0,
     "Wk 08/31": 17017.68,
     "Wk 09/07": 0.0,
@@ -92,15 +92,70 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 18,
-    "total_outstanding": 290716.1,
+    "project_count": 19,
+    "total_outstanding": 327450.25,
     "total_collected": 171175.4,
-    "this_week": 58393.2,
-    "next_30_days": 58393.2,
+    "this_week": 65740.03,
+    "next_30_days": 87780.52,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
   "projects": [
+    {
+      "project_id": "PROJ-1648",
+      "customer": "Gabrielle Jaszwiecki - Solar",
+      "stage": "Project Intake",
+      "owner": "Walter Carmona",
+      "rep": "walter carmona",
+      "project_manager": "",
+      "zoho_record_id": "5264387000091187004",
+      "financing_type": "Cash (inferred)",
+      "lending_status": "Cash - 20PCT deposit invoiced",
+      "lender": "Cash",
+      "contract_total": 36734.15,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 36734.15,
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 7346.83,
+          "forecast_date": "2026-07-06",
+          "anchor_source": "Project_Created_Date (signing)",
+          "status": "on_track",
+          "bucket": "Wk 07/06"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 22040.49,
+          "forecast_date": "2026-08-02",
+          "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 07/27"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 7346.83,
+          "forecast_date": "2026-08-19",
+          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 08/17"
+        }
+      ],
+      "next_milestone": "Deposit (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 7346.83,
+      "forecast_date": "2026-07-06",
+      "anchor_source": "Project_Created_Date (signing)",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 07/06"
+    },
     {
       "project_id": "PROJ-1640",
       "customer": "Farid Ahmed",
