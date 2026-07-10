@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T13:15:04.249622Z",
+  "generated_at": "2026-07-10T19:40:57.700901Z",
   "today": "2026-07-10",
   "weeks": [
     {
@@ -80,9 +80,9 @@
     "Wk 07/13": 0.0,
     "Wk 07/20": 0.0,
     "Wk 07/27": 64704.0,
-    "Wk 08/03": 0.0,
+    "Wk 08/03": 78135.84,
     "Wk 08/10": 40510.08,
-    "Wk 08/17": 0.0,
+    "Wk 08/17": 26045.28,
     "Wk 08/24": 37926.0,
     "Wk 08/31": 0.0,
     "Wk 09/07": 0.0,
@@ -93,10 +93,10 @@
   },
   "summary": {
     "project_count": 7,
-    "total_outstanding": 282847.98,
-    "total_collected": 97336.32,
+    "total_outstanding": 256802.7,
+    "total_collected": 123381.6,
     "this_week": 0.0,
-    "next_30_days": 64704.0,
+    "next_30_days": 142839.84,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
@@ -104,29 +104,48 @@
     {
       "project_id": "PROJ-1649",
       "customer": "Bob Muller",
-      "stage": "Sales Ops Review",
+      "stage": "Project Intake",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
       "zoho_record_id": "5264387000091452001",
-      "financing_type": "",
-      "lending_status": "",
-      "lender": "?",
+      "financing_type": "Cash (inferred)",
+      "lending_status": "Cash - 20PCT deposit paid",
+      "lender": "Cash",
       "contract_total": 130226.4,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 130226.4,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Lending_Status missing"
+      "pct_collected": 0.2,
+      "dollars_collected": 26045.28,
+      "dollars_outstanding": 104181.12,
+      "milestones": [
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 78135.84,
+          "forecast_date": "2026-08-06",
+          "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 08/03"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 26045.28,
+          "forecast_date": "2026-08-23",
+          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 08/17"
+        }
       ],
-      "bucket": "Paid"
+      "next_milestone": "Pre-install (60%)",
+      "next_milestone_pct": 0.6,
+      "next_dollar": 78135.84,
+      "forecast_date": "2026-08-06",
+      "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 08/03"
     },
     {
       "project_id": "PROJ-1647",
