@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T13:27:16.407745Z",
+  "generated_at": "2026-07-13T19:36:51.593082Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 117,
   "transitions": [
@@ -7,9 +7,9 @@
       "label": "Sold to Install Ready",
       "from": "__creation__",
       "to": "Active Installation",
-      "sample_count": 2,
-      "median_days": 24.003800823900463,
-      "p75_days": 25.173593167523148
+      "sample_count": 3,
+      "median_days": 26.343385511145833,
+      "p75_days": 47.49699132664931
     },
     {
       "label": "Sold to Install Complete",
@@ -47,7 +47,7 @@
     {
       "stage": "Project Intake",
       "sample_count": 31,
-      "open_count": 2,
+      "open_count": 1,
       "median_days": 5.317208911655093,
       "p75_days": 7.093090872789351
     },
@@ -76,21 +76,21 @@
       "stage": "Interconnection",
       "sample_count": 41,
       "open_count": 10,
-      "median_days": 13.722377261064814,
-      "p75_days": 20.895593088483796
+      "median_days": 13.778561359907407,
+      "p75_days": 21.152250326180557
     },
     {
       "stage": "Permitting",
       "sample_count": 14,
       "open_count": 5,
       "median_days": 15.50962177564815,
-      "p75_days": 31.022217903498262
+      "p75_days": 31.21471083177083
     },
     {
       "stage": "Procurement & Scheduling",
       "sample_count": 16,
-      "open_count": 3,
-      "median_days": 10.369906986122684,
+      "open_count": 2,
+      "median_days": 10.498235604971065,
       "p75_days": 17.022348963541667
     },
     {
@@ -104,22 +104,22 @@
       "stage": "Inspection",
       "sample_count": 18,
       "open_count": 9,
-      "median_days": 16.36469003525463,
-      "p75_days": 52.67973028198785
+      "median_days": 16.49301865410301,
+      "p75_days": 52.74389459141204
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 9,
       "open_count": 7,
-      "median_days": 44.703891666284726,
-      "p75_days": 46.955711033391204
+      "median_days": 44.960548903981476,
+      "p75_days": 47.21236827108796
     },
     {
       "stage": "Energized",
       "sample_count": 5,
       "open_count": 5,
-      "median_days": 52.72629844744213,
-      "p75_days": 55.732800919803246
+      "median_days": 52.98295568513889,
+      "p75_days": 55.9894581575
     }
   ],
   "notes": [

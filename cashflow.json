@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T13:27:16.407745Z",
+  "generated_at": "2026-07-13T19:36:51.593082Z",
   "today": "2026-07-13",
   "weeks": [
     {
@@ -76,7 +76,7 @@
     }
   ],
   "weekly_totals": {
-    "Wk 07/13": 75266.83,
+    "Wk 07/13": 67920.0,
     "Wk 07/20": 0.0,
     "Wk 07/27": 97634.16,
     "Wk 08/03": 122816.33,
@@ -93,8 +93,8 @@
   },
   "summary": {
     "project_count": 43,
-    "total_outstanding": 881340.66,
-    "total_collected": 967555.74,
+    "total_outstanding": 873993.83,
+    "total_collected": 974902.57,
     "this_week": 67920.0,
     "next_30_days": 288370.49,
     "past_due": 91751.0,
@@ -156,22 +156,13 @@
       "project_manager": "",
       "zoho_record_id": "5264387000091187004",
       "financing_type": "Cash (inferred)",
-      "lending_status": "Cash - 20PCT deposit invoiced",
+      "lending_status": "Cash - 20PCT deposit paid",
       "lender": "Cash",
       "contract_total": 36734.15,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 36734.15,
+      "pct_collected": 0.2,
+      "dollars_collected": 7346.83,
+      "dollars_outstanding": 29387.32,
       "milestones": [
-        {
-          "label": "Deposit (20%)",
-          "pct": 0.2,
-          "dollars": 7346.83,
-          "forecast_date": "2026-07-06",
-          "anchor_source": "Project_Created_Date (signing)",
-          "status": "on_track",
-          "bucket": "Wk 07/13"
-        },
         {
           "label": "Pre-install (60%)",
           "pct": 0.6,
@@ -191,16 +182,16 @@
           "bucket": "Wk 08/24"
         }
       ],
-      "next_milestone": "Deposit (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 7346.83,
-      "forecast_date": "2026-07-06",
-      "anchor_source": "Project_Created_Date (signing)",
+      "next_milestone": "Pre-install (60%)",
+      "next_milestone_pct": 0.6,
+      "next_dollar": 22040.49,
+      "forecast_date": "2026-08-09",
+      "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 07/13"
+      "bucket": "Wk 08/03"
     },
     {
       "project_id": "PROJ-1647",
@@ -251,7 +242,7 @@
     {
       "project_id": "PROJ-1646",
       "customer": "Chris Anderson",
-      "stage": "Project Intake",
+      "stage": "Interconnection",
       "owner": "Douglas Hoffman",
       "rep": "Douglas Hoffman",
       "project_manager": "",
@@ -590,7 +581,7 @@
     {
       "project_id": "PROJ-1630",
       "customer": "Steve Kerschner",
-      "stage": "Procurement & Scheduling",
+      "stage": "Active Installation",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "David Fargnoli",
@@ -607,17 +598,17 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-08-10",
-          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-08-06",
+          "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 08/10"
+          "bucket": "Wk 08/03"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-09-05",
-          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-09-01",
+          "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/31"
         }
@@ -625,13 +616,13 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-08-10",
-      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-08-06",
+      "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 08/10"
+      "bucket": "Wk 08/03"
     },
     {
       "project_id": "PROJ-1629",
