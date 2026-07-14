@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T19:36:51.593082Z",
+  "generated_at": "2026-07-14T12:18:35.589404Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 117,
   "transitions": [
@@ -74,52 +74,52 @@
     },
     {
       "stage": "Interconnection",
-      "sample_count": 41,
-      "open_count": 10,
-      "median_days": 13.778561359907407,
-      "p75_days": 21.152250326180557
+      "sample_count": 42,
+      "open_count": 11,
+      "median_days": 13.549896890335647,
+      "p75_days": 21.34253247456308
     },
     {
       "stage": "Permitting",
       "sample_count": 14,
       "open_count": 5,
       "median_days": 15.50962177564815,
-      "p75_days": 31.21471083177083
+      "p75_days": 31.905738126383103
     },
     {
       "stage": "Procurement & Scheduling",
       "sample_count": 16,
       "open_count": 2,
-      "median_days": 10.498235604971065,
+      "median_days": 10.846059657760415,
       "p75_days": 17.022348963541667
     },
     {
       "stage": "Active Installation",
-      "sample_count": 9,
-      "open_count": 0,
-      "median_days": 7.831702786041666,
-      "p75_days": 9.025832101516203
+      "sample_count": 10,
+      "open_count": 1,
+      "median_days": 7.555245316221065,
+      "p75_days": 8.840209359123264
     },
     {
       "stage": "Inspection",
       "sample_count": 18,
       "open_count": 9,
-      "median_days": 16.49301865410301,
-      "p75_days": 52.74389459141204
+      "median_days": 16.64015470248264,
+      "p75_days": 52.91780661780672
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 9,
       "open_count": 7,
-      "median_days": 44.960548903981476,
-      "p75_days": 47.21236827108796
+      "median_days": 45.65619700956019,
+      "p75_days": 47.908016376666666
     },
     {
       "stage": "Energized",
       "sample_count": 5,
       "open_count": 5,
-      "median_days": 52.98295568513889,
-      "p75_days": 55.9894581575
+      "median_days": 53.678603790717595,
+      "p75_days": 56.68510626307871
     }
   ],
   "notes": [
