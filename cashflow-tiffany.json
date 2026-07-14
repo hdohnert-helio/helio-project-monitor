@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T12:18:35.589404Z",
+  "generated_at": "2026-07-14T19:34:19.227025Z",
   "today": "2026-07-14",
   "weeks": [
     {
@@ -288,7 +288,7 @@
     {
       "project_id": "PROJ-1630",
       "customer": "Steve Kerschner",
-      "stage": "Active Installation",
+      "stage": "Inspection",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "David Fargnoli",
@@ -305,31 +305,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-08-07",
-          "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-07-21",
+          "anchor_source": "Substantial_Completion + 14d",
           "status": "on_track",
-          "bucket": "Wk 08/03"
+          "bucket": "Wk 07/20"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-09-02",
-          "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-08-23",
+          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 08/31"
+          "bucket": "Wk 08/17"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-08-07",
-      "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-07-21",
+      "anchor_source": "Substantial_Completion + 14d",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 08/03"
+      "bucket": "Wk 07/20"
     },
     {
       "project_id": "PROJ-1599",
