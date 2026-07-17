@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LightReach Checklist — System Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15191b; --ink-soft:#59636a; --ink-faint:#8b9399;
+    --paper:#eceeec; --panel:#ffffff;
+    --deep:#0f3a42; --deep-2:#15525d;
+    --solar:#d98c0a; --solar-ink:#7a4d00; --solar-soft:#fbeecb; --solar-line:#ecc878;
+    --done:#2e7d5b; --done-soft:#e0efe7;
+    --line:#d8ddda; --line-strong:#c2c9c4;
+    --shadow:0 1px 2px rgba(15,58,66,.06), 0 8px 24px rgba(15,58,66,.05);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .mono{font-family:"IBM Plex Mono",monospace;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px 96px;}
+  header.mast{background:var(--deep);color:#eaf3f2;border-bottom:3px solid var(--solar);}
+  .mast-inner{max-width:860px;margin:0 auto;padding:30px 20px 26px;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8fc4c2;margin:0 0 12px;}
+  h1{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:28px;line-height:1.1;letter-spacing:-.01em;margin:0 0 10px;color:#fff;}
+  .lede{margin:0;max-width:62ch;color:#c5dbd9;font-size:14.5px;}
+  .lede a{color:#fff;}
+
+  h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;margin:40px 0 6px;padding-bottom:8px;border-bottom:2px solid var(--ink);letter-spacing:-.01em;}
+  h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:15.5px;margin:22px 0 8px;color:var(--deep-2);}
+  p{margin:0 0 12px;}
+  a{color:var(--deep-2);}
+  b{color:var(--ink);}
+  ul,ol{margin:0 0 12px;padding-left:22px;}
+  li{margin-bottom:4px;}
+
+  .flow{
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.7;white-space:pre;
+    background:var(--deep);color:#c5dbd9;padding:16px 18px;border-radius:10px;overflow-x:auto;margin:14px 0;
+  }
+  .flow b{color:#fff;}
+
+  pre{
+    background:var(--deep);color:#eaf3f2;border-radius:10px;padding:14px 16px;
+    overflow-x:auto;font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.6;margin:12px 0 18px;
+  }
+  code{font-family:"IBM Plex Mono",monospace;font-size:.9em;background:#e5efee;color:var(--deep-2);padding:1px 5px;border-radius:4px;}
+  pre code{background:none;color:inherit;padding:0;}
+  .comment{color:#7fa9a7;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13.5px;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid #eef1ef;vertical-align:top;}
+  th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);background:#f6f8f7;}
+  tr:last-child td{border-bottom:0;}
+  td code, th code{white-space:nowrap;}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0;box-shadow:var(--shadow);}
+  .card.warn{border-color:var(--solar-line);background:var(--solar-soft);}
+  .card.warn h3{color:var(--solar-ink);margin-top:0;}
+
+  .backlink{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:#8fc4c2;text-decoration:none;margin-top:18px;}
+  .backlink:hover{color:#fff;}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-faint);}
+
+  @media (max-width:560px){
+    h1{font-size:22px;}
+    table{display:block;overflow-x:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast-inner">
+    <p class="eyebrow">LightReach / Palmetto &middot; Solar Energy Plan</p>
+    <h1>System Guide</h1>
+    <p class="lede">How the submission checklist, the Zoho data feed, and the LightReach webhook integration fit together.</p>
+    <a class="backlink" href="./checklist.html">&larr; Back to the checklist</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h2>1. The checklist tool</h2>
+  <p><b>Live at:</b> <a href="https://hdohnert-helio.github.io/helio-project-monitor/checklist.html" target="_blank" rel="noopener">hdohnert-helio.github.io/helio-project-monitor/checklist.html</a><br>
+  <b>Source:</b> <code>checklist.html</code> in the <code>helio-project-monitor</code> repo, served via GitHub Pages.</p>
+  <p>A single static HTML/JS page (no backend, no build step) covering the full M0 (NTP) / M1 (Installation) / M2 (Activation) submission checklist &mdash; 51 items across NTP, Site Qualifying, Administrative, Design, Install Photos, Deliverables, Monitoring, and System Settings categories.</p>
+
+  <h3>Zoho project lookup</h3>
+  <p>Typing a customer name or project ID into "Project / homeowner" searches <code>data.json</code> (fetched live from this same GitHub Pages site) and shows matches with stage/rep. Selecting one auto-fills:</p>
+  <ul>
+    <li>Project name + Account/ID</li>
+    <li><b>Stage badge</b> (green/yellow/red) using the same SLA thresholds as the pipeline dashboard (<code>sla_thresholds.json</code>)</li>
+    <li><b>Open in Zoho</b> link, straight to the CRM record</li>
+    <li><b>LightReach reports</b> panel &mdash; LightReach's own approve/reject history for that project, if any events have landed (see &sect;3)</li>
+  </ul>
+
+  <h3>Per-item tracking</h3>
+  <p>Each of the 51 items has three states instead of a plain checkbox: <b>Done</b> (green check), <b>Rejected</b> (red &times;, reveals a reason textarea), and <b>N/A</b> (greyed out, excluded from the completion count). A "Needs fix" filter jumps straight to rejected items.</p>
+
+  <h3>Autosave + switching projects</h3>
+  <p>Progress saves automatically to the browser (<code>localStorage</code>), keyed by Account/ID (or project name if no ID). Reloading the page resumes the last active project. The <b>Saved projects</b> button lists everything saved so ops can switch between projects without losing work. <b>Reset for next project</b> clears the current view but keeps the finished project's data in the list.</p>
+
+  <div class="card warn">
+    <h3>Caveat</h3>
+    <p>All of this is local to one browser/device. Two people working on the same project in different browsers won't see each other's progress &mdash; there's no shared backend for checklist state (only for the LightReach data feeding into it, below).</p>
+  </div>
+
+  <h2>2. Data pipeline: Zoho &rarr; data.json &rarr; checklist</h2>
+  <div class="flow">Zoho CRM (Installs module)
+        │  <b>scripts/refresh_data.py</b>  (runs via GitHub Action, 2x/day: 11:00 &amp; 18:00 UTC)
+        ▼
+data.json  (committed to this repo, served by GitHub Pages)
+        │  fetched client-side by checklist.html
+        ▼
+Checklist's Zoho lookup + LightReach reports panel</div>
+
+  <ul>
+    <li><b>scripts/refresh_data.py</b> &mdash; pulls a fixed field list (<code>FIELDS</code> constant) from the Zoho <code>Installs</code> module and writes <code>data.json</code>. Also used by the pipeline dashboard (<code>index.html</code>) and cash flow tooling.</li>
+    <li><b>sla_thresholds.json</b> &mdash; green/yellow/red day-count thresholds per stage; same file the pipeline dashboard uses for consistency.</li>
+    <li>The GitHub Action commits refreshed data twice daily; the checklist always reads the latest committed version.</li>
+  </ul>
+
+  <h3>Relevant data.json project fields</h3>
+  <table>
+    <tr><th>Field</th><th>Source</th></tr>
+    <tr><td><code>project_id</code>, <code>customer</code>, <code>stage</code>, <code>days_in_stage</code>, <code>rep</code>, <code>project_manager</code>, <code>zoho_record_id</code></td><td>Core Zoho Install fields</td></tr>
+    <tr><td><code>lightreach_finance_status</code></td><td><code>LightReach_Finance_Status</code> (Zoho)</td></tr>
+    <tr><td><code>lightreach_ntp_granted_at</code></td><td><code>LightReach_NTP_Granted_At</code> (Zoho)</td></tr>
+    <tr><td><code>lightreach_outstanding_stipulations</code></td><td><code>LightReach_Outstanding_Stipulations</code> (Zoho)</td></tr>
+    <tr><td><code>lightreach_requirement_log</code></td><td><code>LightReach_RequirementLog</code> (Zoho, parsed from JSON)</td></tr>
+    <tr><td><code>lightreach_milestone_log</code></td><td><code>LightReach_MilestoneLog</code> (Zoho, parsed from JSON)</td></tr>
+  </table>
+
+  <h2>3. LightReach (Palmetto) webhook integration</h2>
+  <div class="flow">LightReach/Palmetto  ──POST──▶  aurora-zoho-sync.onrender.com/webhook/lightreach
+                                         │
+                                         ▼
+                          Matches event to a Zoho Install record
+                          (by LightReach_Account_ID → email → LightReach_Quote_ID)
+                                         │
+                                         ▼
+                     Writes/append-logs onto that Install record</div>
+
+  <p><b>Receiver:</b> <code>/webhook/lightreach</code> in <code>main.py</code>, repo <code>aurora-zoho-sync</code> (separate repo &mdash; same Render service that runs Zoho sync/commissions). Auth: validates a Palmetto-issued <code>apiKey</code> header against the <code>LIGHTREACH_API_KEY</code> env var.</p>
+
+  <h3>Subscribed events &amp; what they do</h3>
+  <table>
+    <tr><th>Event</th><th>What our handler does</th></tr>
+    <tr><td><code>contractSigned</code></td><td>Sets <code>LightReach_Contract_Status</code>, <code>LightReach_Contract_Signed_At</code></td></tr>
+    <tr><td><code>applicationStatus</code></td><td>Sets <code>LightReach_Finance_Status</code> to the application status (approved / approvedWithStipulations / creditFrozen / declined / expired)</td></tr>
+    <tr><td><code>stipulationAdded</code></td><td>Sets <code>LightReach_Stipulation_Action_Needed=true</code>, <code>LightReach_Outstanding_Stipulations</code></td></tr>
+    <tr><td><code>stipulationCleared</code></td><td>Logs only (no field write)</td></tr>
+    <tr><td><code>allStipulationsCleared</code></td><td>Clears the two stipulation fields above</td></tr>
+    <tr><td><code>requirementCompleted</code>, <code>requirementStatusChanged</code></td><td>Appends to <code>LightReach_RequirementLog</code></td></tr>
+    <tr><td><code>milestoneAchieved</code></td><td>Appends to <code>LightReach_MilestoneLog</code>; also sets <code>LightReach_NTP_Granted_At</code> when the milestone is NTP</td></tr>
+    <tr><td><code>milestoneStatusChanged</code> <b>(new)</b></td><td>Appends to <code>LightReach_MilestoneLog</code> &mdash; the real M0/M1/M2 approve/reject signal</td></tr>
+    <tr><td><code>allConsumerTaskEvents</code> <b>(new)</b></td><td>For <code>activityType=="requirement"</code> entries only, appends to <code>LightReach_RequirementLog</code> &mdash; the only event with an explicit rejection reason</td></tr>
+    <tr><td><code>quoteCreated</code></td><td>Received but not specially handled beyond the raw payload log</td></tr>
+  </table>
+  <p>Every event also always writes <code>LightReach_Last_Updated</code> (timestamp) and <code>LightReach_Raw_Payload</code> (full JSON body) &mdash; so nothing is ever silently lost even if a specific field extraction turns out wrong.</p>
+
+  <h3>Real payload shapes</h3>
+  <p>Per <a href="https://docs.palmetto.com/finance/webhooks/" target="_blank" rel="noopener">docs.palmetto.com/finance/webhooks</a>. LightReach has <b>no dedicated "rejected" event</b> &mdash; rejection shows up as a status value inside these events:</p>
+
+<pre><span class="comment">// requirementStatusChanged — can report multiple requirements in one call</span>
+{
+  "accountId": "...",
+  "event": "requirementStatusChanged",
+  "requirementStatusUpdates": [
+    { "requirementType": "shadeReport", "newStatus": "rejected", "previousStatus": "submitted" }
+  ]
+}
+<span class="comment">// newStatus/previousStatus: completed | error | inProgress | pending | rejected | resubmitted | submitted
+// No reason field.</span>
+
+<span class="comment">// milestoneStatusChanged — the real M0/M1/M2 approve/reject signal</span>
+{
+  "accountId": "...",
+  "event": "milestoneStatusChanged",
+  "milestoneType": "install",
+  "newStatus": "rejected",
+  "previousStatus": "submitted"
+}
+<span class="comment">// newStatus/previousStatus: approved | conditionallyApproved | paused | pending | rejected | restarted | resubmitted | submitted
+// No reason field.</span>
+
+<span class="comment">// milestoneAchieved — means the milestone was *reached*, not that it passed review</span>
+{ "accountId": "...", "event": "milestoneAchieved", "newMilestone": "noticeToProceed" }
+<span class="comment">// newMilestone: noticeToProceed (M0) | install (M1) | activation (M2)</span>
+
+<span class="comment">// allConsumerTaskEvents — the ONLY event with an explicit rejection reason</span>
+{
+  "accountId": "...", "event": "allConsumerTaskEvents",
+  "name": "Shade Report Upload", "activityType": "requirement",
+  "status": "rejected", "rejectionReasons": ["Blurry image", "Wrong angle"]
+}</pre>
+
+  <h3>New Zoho fields</h3>
+  <p>Created via API this session, module <code>Installs</code>:</p>
+  <ul>
+    <li><b>LightReach_RequirementLog</b> &mdash; large text (32,000 char), JSON array of <code>{event, code, name, status, previous_status, reason, at}</code> entries, oldest dropped first if it would exceed ~31,000 chars.</li>
+    <li><b>LightReach_MilestoneLog</b> &mdash; same shape, keyed by <code>milestone</code> instead of <code>code</code>/<code>name</code>.</li>
+  </ul>
+
+  <div class="card warn">
+    <h3>Known gap / next verification step</h3>
+    <p><code>milestoneStatusChanged</code> and <code>allConsumerTaskEvents</code> were just subscribed &mdash; connectivity and auth are confirmed working (Palmetto's "Test" button returns 200 OK), but that test payload is a generic connectivity probe, <b>not</b> a realistic sample of either event's real shape. We're waiting for a genuine event to land to confirm the parsing logic end-to-end.</p>
+    <p>Check via COQL (note: doesn't support <code>is not null</code> on textarea fields, so filter on <code>LightReach_Finance_Status</code> or <code>LightReach_Last_Updated</code> instead):</p>
+<pre>select id, Name, Project_ID, LightReach_RequirementLog, LightReach_MilestoneLog, LightReach_Last_Updated
+from Installs
+where LightReach_Finance_Status in ('milestoneStatusChanged', 'allConsumerTaskEvents')
+order by LightReach_Last_Updated desc</pre>
+  </div>
+
+  <h3>How to see webhook activity as it happens</h3>
+  <table>
+    <tr><th>Where</th><th>What it shows</th></tr>
+    <tr><td>Render logs (<code>aurora-zoho-sync</code> service dashboard)</td><td>Real-time raw traffic &mdash; every <code>LightReach webhook received | payload=...</code> line, plus warnings like "no Install found." Best for debugging or confirming a specific call landed.</td></tr>
+    <tr><td>LightReach webhook admin &rarr; "Webhook Call History"</td><td>Delivery success/failure from Palmetto's side (did the POST reach us and get a 200?).</td></tr>
+    <tr><td>Zoho, via COQL or the record directly</td><td>The processed, persisted result &mdash; <code>LightReach_Last_Updated</code>, <code>LightReach_RequirementLog</code>, <code>LightReach_MilestoneLog</code>, <code>LightReach_Raw_Payload</code> (ground truth if a field guess was ever wrong).</td></tr>
+    <tr><td>The checklist itself</td><td>Per-project only, and delayed up to ~12h until the next <code>data.json</code> refresh picks it up.</td></tr>
+  </table>
+
+  <h2>4. Quick reference</h2>
+  <table>
+    <tr><td>Checklist (live)</td><td><a href="https://hdohnert-helio.github.io/helio-project-monitor/checklist.html" target="_blank" rel="noopener">hdohnert-helio.github.io/helio-project-monitor/checklist.html</a></td></tr>
+    <tr><td>Checklist source</td><td><code>checklist.html</code> (this repo)</td></tr>
+    <tr><td>Pipeline dashboard</td><td><a href="https://hdohnert-helio.github.io/helio-project-monitor/" target="_blank" rel="noopener">hdohnert-helio.github.io/helio-project-monitor</a></td></tr>
+    <tr><td>Data feed</td><td><a href="https://hdohnert-helio.github.io/helio-project-monitor/data.json" target="_blank" rel="noopener">data.json</a></td></tr>
+    <tr><td>SLA thresholds</td><td><a href="https://hdohnert-helio.github.io/helio-project-monitor/sla_thresholds.json" target="_blank" rel="noopener">sla_thresholds.json</a></td></tr>
+    <tr><td>Data refresh script</td><td><code>scripts/refresh_data.py</code> (this repo)</td></tr>
+    <tr><td>Refresh schedule</td><td>GitHub Action, 11:00 &amp; 18:00 UTC daily</td></tr>
+    <tr><td>Webhook receiver</td><td><code>aurora-zoho-sync</code> repo, <code>main.py</code>, <code>/webhook/lightreach</code></td></tr>
+    <tr><td>Webhook service (live)</td><td><a href="https://aurora-zoho-sync.onrender.com" target="_blank" rel="noopener">aurora-zoho-sync.onrender.com</a></td></tr>
+    <tr><td>LightReach webhook docs</td><td><a href="https://docs.palmetto.com/finance/webhooks/" target="_blank" rel="noopener">docs.palmetto.com/finance/webhooks</a></td></tr>
+    <tr><td>Zoho module</td><td><code>Installs</code> (custom module, CRM)</td></tr>
+  </table>
+
+  <footer>Generated for the Helio ops team. Keep this in sync as the integration evolves.</footer>
+</div>
+
+</body>
+</html>
