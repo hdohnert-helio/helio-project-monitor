@@ -103,6 +103,20 @@
   .stage-badge.yellow{background:rgba(217,140,10,.25);color:#f3c568;border:1px solid rgba(217,140,10,.55);}
   .stage-badge.red{background:rgba(197,48,48,.28);color:#f5a3a3;border:1px solid rgba(197,48,48,.6);}
 
+  /* ---- LightReach status panel ---- */
+  .lr-panel{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);}
+  .lr-panel h3{margin:0 0 8px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fc4c2;font-weight:600;}
+  .lr-row{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:12.5px;color:#d7e6e4;padding:5px 0;border-top:1px solid rgba(255,255,255,.08);}
+  .lr-row:first-of-type{border-top:0;}
+  .lr-row .code{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:#8fc4c2;flex:none;}
+  .lr-row .stat{font-weight:600;flex:none;text-transform:uppercase;font-size:9.5px;letter-spacing:.04em;padding:2px 7px;border-radius:10px;}
+  .lr-row .stat.rejected{background:rgba(197,48,48,.28);color:#f5a3a3;}
+  .lr-row .stat.completed{background:rgba(46,125,91,.35);color:#8fe0bd;}
+  .lr-row .stat.other{background:rgba(255,255,255,.14);color:#d7e6e4;}
+  .lr-row .txt{flex:1;min-width:160px;}
+  .lr-row .when{flex:none;font-family:"IBM Plex Mono",monospace;font-size:10px;color:#7fa9a7;}
+  .lr-note{font-size:10.5px;color:#7fa9a7;margin-top:6px;font-family:"IBM Plex Mono",monospace;}
+
   /* ---- Sticky status ---- */
   .status{
     position:sticky;top:0;z-index:20;
@@ -291,6 +305,7 @@
       </div>
     </div>
     <p class="zoho-status" id="zohoStatus"></p>
+    <div class="lr-panel" id="lrPanel" style="display:none"></div>
   </div>
 </header>
 
@@ -494,6 +509,59 @@ function renderZohoStatus(snap){
   statusEl.innerHTML = bits.join(' &middot; ') + badge + (link ? ' &middot; ' + link : '');
 }
 
+// LightReach exposes no explicit "rejected" event — requirementStatusChanged/
+// milestoneStatusChanged carry whatever status string LightReach used (e.g.
+// "rejected", "conditional", "completed"). We just color based on keywords
+// rather than assuming an exact enum, since we haven't confirmed every value.
+function _lrStatClass(status){
+  const s = (status || '').toLowerCase();
+  if(s.includes('reject')) return 'rejected';
+  if(s.includes('complet') || s.includes('achiev') || s.includes('approv')) return 'completed';
+  return 'other';
+}
+function _lrDate(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  return isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+}
+
+const lrPanelEl = document.getElementById('lrPanel');
+function renderLightReachPanel(snap){
+  if(!snap){ lrPanelEl.style.display = 'none'; lrPanelEl.innerHTML = ''; return; }
+
+  const msLog = (snap.lr_milestone_log || []).slice(-5).reverse();
+  const reqLog = (snap.lr_requirement_log || []).slice(-8).reverse();
+  const hasAny = msLog.length || reqLog.length || snap.lr_finance_status || snap.lr_outstanding_stipulations;
+  if(!hasAny){ lrPanelEl.style.display = 'none'; lrPanelEl.innerHTML = ''; return; }
+
+  let rows = '';
+  if(snap.lr_finance_status){
+    rows += `<div class="lr-row"><span class="txt">Finance status</span><span class="stat other">${escapeHtml(snap.lr_finance_status)}</span></div>`;
+  }
+  if(snap.lr_outstanding_stipulations){
+    rows += `<div class="lr-row"><span class="txt">Outstanding stipulation: ${escapeHtml(snap.lr_outstanding_stipulations)}</span></div>`;
+  }
+  msLog.forEach(e => {
+    rows += `<div class="lr-row">
+      <span class="code">${escapeHtml(e.milestone || '')}</span>
+      <span class="stat ${_lrStatClass(e.status)}">${escapeHtml(e.status || e.event || '')}</span>
+      <span class="txt">${escapeHtml(e.reason || '')}</span>
+      <span class="when">${_lrDate(e.at)}</span>
+    </div>`;
+  });
+  reqLog.forEach(e => {
+    rows += `<div class="lr-row">
+      <span class="code">${escapeHtml(e.code || '')}</span>
+      <span class="stat ${_lrStatClass(e.status)}">${escapeHtml(e.status || e.event || '')}</span>
+      <span class="txt">${escapeHtml(e.name || '')}${e.reason ? ' — ' + escapeHtml(e.reason) : ''}</span>
+      <span class="when">${_lrDate(e.at)}</span>
+    </div>`;
+  });
+
+  lrPanelEl.innerHTML = `<h3>LightReach reports</h3>${rows}`;
+  lrPanelEl.style.display = 'block';
+}
+
 function applyProject(p){
   pnameEl.value = p.customer || '';
   pidEl.value = p.project_id || '';
@@ -503,7 +571,11 @@ function applyProject(p){
     project_manager: p.project_manager || '',
     days_in_stage: typeof p.days_in_stage === 'number' ? p.days_in_stage : null,
     zoho_record_id: p.zoho_record_id || '',
-    synced_label: (zohoMeta && zohoMeta.generated_at_label) || ''
+    synced_label: (zohoMeta && zohoMeta.generated_at_label) || '',
+    lr_finance_status: p.lightreach_finance_status || '',
+    lr_outstanding_stipulations: p.lightreach_outstanding_stipulations || '',
+    lr_requirement_log: Array.isArray(p.lightreach_requirement_log) ? p.lightreach_requirement_log : [],
+    lr_milestone_log: Array.isArray(p.lightreach_milestone_log) ? p.lightreach_milestone_log : []
   };
 
   // If this project already has saved checklist progress, resume it instead of starting blank.
@@ -518,6 +590,7 @@ function applyProject(p){
   }
 
   renderZohoStatus(currentZohoSnapshot);
+  renderLightReachPanel(currentZohoSnapshot);
   update();
   persistCurrent();
 }
@@ -585,6 +658,7 @@ function loadProject(key){
   });
   syncAllItemDOM();
   renderZohoStatus(currentZohoSnapshot);
+  renderLightReachPanel(currentZohoSnapshot);
   update();
   try{ localStorage.setItem(LAST_ACTIVE_KEY, key); }catch(e){}
 }
@@ -768,6 +842,7 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   pidEl.value = '';
   currentZohoSnapshot = null;
   statusEl.innerHTML = '';
+  renderLightReachPanel(null);
   try{ localStorage.removeItem(LAST_ACTIVE_KEY); }catch(e){}
   document.querySelector('.seg button[data-filter="all"]').click();
   window.scrollTo({top:0, behavior:'smooth'});

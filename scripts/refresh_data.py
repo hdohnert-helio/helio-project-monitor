@@ -58,7 +58,12 @@ FIELDS = (
     # Cash flow tracker fields (consumed by scripts/cashflow.py).
     "Contract_Total,Financing_Type,Lending_Status,"
     "Substantial_Completion,Utility_PTO,Permit_Approved,"
-    "ICA_Contingent_Approval,Project_Created_Date"
+    "ICA_Contingent_Approval,Project_Created_Date,"
+    # LightReach (Palmetto) webhook fields — written by aurora-zoho-sync's
+    # /webhook/lightreach handler, consumed by the submission checklist.
+    "LightReach_Finance_Status,LightReach_NTP_Granted_At,"
+    "LightReach_Outstanding_Stipulations,LightReach_RequirementLog,"
+    "LightReach_MilestoneLog"
 )
 
 # Stage-change tracking was enabled in Zoho on 2026-04-16. Records that
@@ -186,6 +191,16 @@ def _format_label(dt: datetime) -> str:
         return dt.strftime("%a %b %d, %Y · %H:%M UTC")
 
 
+def _parse_json_list(s: str | None) -> list:
+    if not s:
+        return []
+    try:
+        val = json.loads(s)
+    except (TypeError, ValueError):
+        return []
+    return val if isinstance(val, list) else []
+
+
 def _proj_id_sort_key(p: dict) -> int:
     try:
         return int(p["project_id"].split("-")[-1])
@@ -256,6 +271,11 @@ def build_projects(rows: list[dict]) -> list[dict]:
             "last_reviewed_by": last_reviewed_by,
             "last_review_notes": last_review_notes,
             "zoho_record_id": r.get("id") or "",
+            "lightreach_finance_status": (r.get("LightReach_Finance_Status") or "").strip(),
+            "lightreach_ntp_granted_at": r.get("LightReach_NTP_Granted_At") or None,
+            "lightreach_outstanding_stipulations": (r.get("LightReach_Outstanding_Stipulations") or "").strip(),
+            "lightreach_requirement_log": _parse_json_list(r.get("LightReach_RequirementLog")),
+            "lightreach_milestone_log": _parse_json_list(r.get("LightReach_MilestoneLog")),
         })
     out.sort(key=_proj_id_sort_key, reverse=True)
     return out
