@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-17T12:14:17.710423Z",
-  "generated_at_label": "Fri Jul 17, 2026 · 8:14 AM ET",
+  "generated_at": "2026-07-17T16:59:32.194371Z",
+  "generated_at_label": "Fri Jul 17, 2026 · 12:59 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 45,
   "projects": [
@@ -9,14 +9,19 @@
       "customer": "Gabrielle Jazwiecki - Solar",
       "stage": "Engineering",
       "stage_entered_at": "2026-07-16T12:48:00-04:00",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "walter carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000091187004"
+      "zoho_record_id": "5264387000091187004",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1640",
@@ -30,7 +35,12 @@
       "last_reviewed_at": "2026-07-14T12:42:51-04:00",
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000087906013"
+      "zoho_record_id": "5264387000087906013",
+      "lightreach_finance_status": "stipulationCleared",
+      "lightreach_ntp_granted_at": "2026-05-29T08:42:49-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1639",
@@ -44,7 +54,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000087486019"
+      "zoho_record_id": "5264387000087486019",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1638",
@@ -58,7 +73,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000087473007"
+      "zoho_record_id": "5264387000087473007",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1637",
@@ -72,7 +92,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000087270008"
+      "zoho_record_id": "5264387000087270008",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": "2026-06-23T11:08:15-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1635",
@@ -86,7 +111,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086759003"
+      "zoho_record_id": "5264387000086759003",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": "2026-05-29T19:11:25-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1631",
@@ -100,21 +130,31 @@
       "last_reviewed_at": "2026-05-12T11:59:49-04:00",
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086594110"
+      "zoho_record_id": "5264387000086594110",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": "2026-05-20T12:11:45-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1627",
       "customer": "Mohammed Alamgir | 28",
       "stage": "Interconnection",
       "stage_entered_at": "2026-07-09T09:24:00-04:00",
-      "days_in_stage": 7,
+      "days_in_stage": 8,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086387039"
+      "zoho_record_id": "5264387000086387039",
+      "lightreach_finance_status": "milestoneStatusChanged",
+      "lightreach_ntp_granted_at": "2026-05-04T10:00:00-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1626",
@@ -128,7 +168,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086358009"
+      "zoho_record_id": "5264387000086358009",
+      "lightreach_finance_status": "stipulationCleared",
+      "lightreach_ntp_granted_at": "2026-05-14T13:31:41-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1625",
@@ -142,7 +187,12 @@
       "last_reviewed_at": "2026-05-08T13:45:02-04:00",
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086384004"
+      "zoho_record_id": "5264387000086384004",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": "2026-05-12T12:10:48-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1624",
@@ -156,21 +206,31 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086181098"
+      "zoho_record_id": "5264387000086181098",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": "2026-05-22T01:01:24-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1623",
       "customer": "Asaduzzaman Khokon",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-11T08:54:00-04:00",
-      "days_in_stage": 66,
+      "days_in_stage": 67,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086180065"
+      "zoho_record_id": "5264387000086180065",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1622",
@@ -184,7 +244,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086193116"
+      "zoho_record_id": "5264387000086193116",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": "2026-05-29T15:23:00-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1621",
@@ -198,7 +263,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086201069"
+      "zoho_record_id": "5264387000086201069",
+      "lightreach_finance_status": "allStipulationsCleared",
+      "lightreach_ntp_granted_at": "2026-05-15T12:27:52-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1620",
@@ -212,7 +282,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086228054"
+      "zoho_record_id": "5264387000086228054",
+      "lightreach_finance_status": "allStipulationsCleared",
+      "lightreach_ntp_granted_at": "2026-05-14T13:47:14-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1619",
@@ -226,21 +301,31 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086240028"
+      "zoho_record_id": "5264387000086240028",
+      "lightreach_finance_status": "stipulationCleared",
+      "lightreach_ntp_granted_at": "2026-05-13T15:48:14-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1618",
       "customer": "Moriam Khatum | 58",
       "stage": "Permitting",
       "stage_entered_at": "2026-07-14T12:43:00-04:00",
-      "days_in_stage": 2,
+      "days_in_stage": 3,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086202032"
+      "zoho_record_id": "5264387000086202032",
+      "lightreach_finance_status": "allStipulationsCleared",
+      "lightreach_ntp_granted_at": "2026-05-14T13:33:10-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1616",
@@ -254,7 +339,12 @@
       "last_reviewed_at": "2026-07-14T12:57:37-04:00",
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086077022"
+      "zoho_record_id": "5264387000086077022",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1615",
@@ -268,21 +358,31 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086090012"
+      "zoho_record_id": "5264387000086090012",
+      "lightreach_finance_status": "stipulationCleared",
+      "lightreach_ntp_granted_at": "2026-05-15T13:48:38-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1614",
       "customer": "Mohammed Kayum",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-20T12:38:00-04:00",
-      "days_in_stage": 57,
+      "days_in_stage": 58,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
       "last_reviewed_at": "2026-05-13T10:32:03-04:00",
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086043016"
+      "zoho_record_id": "5264387000086043016",
+      "lightreach_finance_status": "allStipulationsCleared",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1613",
@@ -296,7 +396,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086059021"
+      "zoho_record_id": "5264387000086059021",
+      "lightreach_finance_status": "milestoneStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1611",
@@ -310,49 +415,69 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086050003"
+      "zoho_record_id": "5264387000086050003",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": "2026-05-11T16:30:47-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1610",
       "customer": "Mohammed Noor | 19",
       "stage": "Inspection",
       "stage_entered_at": "2026-07-02T09:33:00-04:00",
-      "days_in_stage": 14,
+      "days_in_stage": 15,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
       "last_reviewed_at": "2026-05-12T11:58:38-04:00",
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086034006"
+      "zoho_record_id": "5264387000086034006",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": "2026-05-14T08:36:33-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1609",
       "customer": "Mustak Ahmed",
       "stage": "Inspection",
       "stage_entered_at": "2026-05-29T11:37:00-04:00",
-      "days_in_stage": 48,
+      "days_in_stage": 49,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000086036001"
+      "zoho_record_id": "5264387000086036001",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1608",
       "customer": "Hartley Mannion",
       "stage": "Interconnection",
       "stage_entered_at": "2026-06-05T10:57:00-04:00",
-      "days_in_stage": 41,
+      "days_in_stage": 42,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
       "last_reviewed_at": "2026-05-12T11:58:53-04:00",
       "last_reviewed_by": "David Fargnoli",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000085875055"
+      "zoho_record_id": "5264387000085875055",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1607",
@@ -366,21 +491,31 @@
       "last_reviewed_at": "2026-05-04T13:08:36-04:00",
       "last_reviewed_by": "David Fargnoli",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000085757025"
+      "zoho_record_id": "5264387000085757025",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": "2026-05-06T16:44:28-04:00",
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1602",
       "customer": "Marion Hinze",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-06-12T12:26:00-04:00",
-      "days_in_stage": 34,
+      "days_in_stage": 35,
       "rep": "Scott Webb",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
       "last_reviewed_at": "2026-05-04T13:09:02-04:00",
       "last_reviewed_by": "David Fargnoli",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000084118015"
+      "zoho_record_id": "5264387000084118015",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1600",
@@ -394,21 +529,31 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000083838050"
+      "zoho_record_id": "5264387000083838050",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1596",
       "customer": "Marie Souffrant",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-05-27T10:03:00-04:00",
-      "days_in_stage": 50,
+      "days_in_stage": 51,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
       "last_reviewed_at": "2026-05-13T16:47:24-04:00",
       "last_reviewed_by": "David Fargnoli",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000082755001"
+      "zoho_record_id": "5264387000082755001",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1592",
@@ -422,7 +567,12 @@
       "last_reviewed_at": "2026-04-20T13:02:23-04:00",
       "last_reviewed_by": "Walter Carmona",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000081037027"
+      "zoho_record_id": "5264387000081037027",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1586",
@@ -436,35 +586,50 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000079311044"
+      "zoho_record_id": "5264387000079311044",
+      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1583",
       "customer": "Nilo Torres",
       "stage": "On Hold",
       "stage_entered_at": "2026-04-15T11:00:00-04:00",
-      "days_in_stage": 92,
+      "days_in_stage": 93,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000077493323"
+      "zoho_record_id": "5264387000077493323",
+      "lightreach_finance_status": "accountUpdated",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1581",
       "customer": "Sanjay Patel",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-05-29T10:28:00-04:00",
-      "days_in_stage": 48,
+      "days_in_stage": 49,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000075613005"
+      "zoho_record_id": "5264387000075613005",
+      "lightreach_finance_status": "accountUpdated",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1576",
@@ -478,7 +643,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000072342015"
+      "zoho_record_id": "5264387000072342015",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1567",
@@ -492,7 +662,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000068422033"
+      "zoho_record_id": "5264387000068422033",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1563",
@@ -506,7 +681,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000067666066"
+      "zoho_record_id": "5264387000067666066",
+      "lightreach_finance_status": "milestoneAchieved",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1555",
@@ -520,7 +700,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000067213061"
+      "zoho_record_id": "5264387000067213061",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1528",
@@ -534,7 +719,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000065662048"
+      "zoho_record_id": "5264387000065662048",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1506",
@@ -548,7 +738,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000064588067"
+      "zoho_record_id": "5264387000064588067",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1475",
@@ -562,7 +757,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000063042027"
+      "zoho_record_id": "5264387000063042027",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1472",
@@ -576,21 +776,31 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000062575179"
+      "zoho_record_id": "5264387000062575179",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1461",
       "customer": "Mahlon Stewart",
       "stage": "Energized",
       "stage_entered_at": "2026-05-21T11:53:00-04:00",
-      "days_in_stage": 56,
+      "days_in_stage": 57,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000061531063"
+      "zoho_record_id": "5264387000061531063",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1444",
@@ -604,7 +814,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000060390063"
+      "zoho_record_id": "5264387000060390063",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1375",
@@ -618,7 +833,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000054414060"
+      "zoho_record_id": "5264387000054414060",
+      "lightreach_finance_status": "",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     },
     {
       "project_id": "PROJ-1325",
@@ -632,7 +852,12 @@
       "last_reviewed_at": null,
       "last_reviewed_by": "",
       "last_review_notes": "",
-      "zoho_record_id": "5264387000047077013"
+      "zoho_record_id": "5264387000047077013",
+      "lightreach_finance_status": "accountUpdated",
+      "lightreach_ntp_granted_at": null,
+      "lightreach_outstanding_stipulations": "",
+      "lightreach_requirement_log": [],
+      "lightreach_milestone_log": []
     }
   ],
   "view_label": "Butch Carmona"
