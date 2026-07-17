@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-17T19:18:33.101904Z",
-  "generated_at_label": "Fri Jul 17, 2026 · 3:18 PM ET",
+  "generated_at": "2026-07-17T22:46:45.891453Z",
+  "generated_at_label": "Fri Jul 17, 2026 · 6:46 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 26,
   "projects": [
@@ -28,7 +28,7 @@
       "customer": "Joseph Jahr",
       "stage": "Interconnection",
       "stage_entered_at": "2026-07-07T16:49:00-04:00",
-      "days_in_stage": 9,
+      "days_in_stage": 10,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -85,7 +85,7 @@
       "customer": "Ronald Muriel",
       "stage": "Interconnection",
       "stage_entered_at": "2026-06-09T16:27:00-04:00",
-      "days_in_stage": 37,
+      "days_in_stage": 38,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
