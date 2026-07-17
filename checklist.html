@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LightReach Submission Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15191b;
+    --ink-soft:#59636a;
+    --ink-faint:#8b9399;
+    --paper:#eceeec;
+    --panel:#ffffff;
+    --deep:#0f3a42;
+    --deep-2:#15525d;
+    --solar:#d98c0a;
+    --solar-ink:#7a4d00;
+    --solar-soft:#fbeecb;
+    --solar-line:#ecc878;
+    --done:#2e7d5b;
+    --done-soft:#e0efe7;
+    --line:#d8ddda;
+    --line-strong:#c2c9c4;
+    --shadow:0 1px 2px rgba(15,58,66,.06), 0 8px 24px rgba(15,58,66,.05);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-size:15px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:"IBM Plex Mono",monospace;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px 96px;}
+
+  /* ---- Masthead ---- */
+  header.mast{
+    background:var(--deep);
+    color:#eaf3f2;
+    border-bottom:3px solid var(--solar);
+  }
+  .mast-inner{max-width:860px;margin:0 auto;padding:30px 20px 26px;}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:#8fc4c2;margin:0 0 12px;
+  }
+  h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-weight:600;font-size:30px;line-height:1.08;letter-spacing:-.01em;
+    margin:0 0 10px;color:#fff;
+  }
+  .lede{margin:0;max-width:58ch;color:#c5dbd9;font-size:14.5px;}
+  .lede b{color:#fff;font-weight:600;}
+
+  /* ---- Project bar ---- */
+  .project{
+    display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;
+    margin-top:24px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px;position:relative;}
+  .field label{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8fc4c2;
+  }
+  .field input{
+    font-family:"IBM Plex Sans",sans-serif;font-size:14px;color:#fff;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.22);border-radius:7px;
+    padding:9px 12px;min-width:220px;
+  }
+  .field input::placeholder{color:#7fa9a7;}
+  .field input:focus{outline:2px solid var(--solar);outline-offset:1px;border-color:transparent;}
+  .field.wide input{min-width:280px;}
+
+  /* ---- Zoho lookup ---- */
+  .lookup-menu{
+    position:absolute;top:100%;left:0;right:0;margin-top:4px;
+    background:#0c2e34;border:1px solid rgba(255,255,255,.18);border-radius:8px;
+    box-shadow:0 12px 28px rgba(0,0,0,.35);
+    max-height:260px;overflow-y:auto;z-index:30;display:none;
+  }
+  .lookup-menu.show{display:block;}
+  .lookup-menu .opt{padding:9px 12px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.08);}
+  .lookup-menu .opt:last-child{border-bottom:0;}
+  .lookup-menu .opt:hover,.lookup-menu .opt.active{background:rgba(255,255,255,.08);}
+  .lookup-menu .opt .nm{font-size:13.5px;color:#fff;font-weight:500;}
+  .lookup-menu .opt .meta{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:#8fc4c2;margin-top:2px;}
+  .zoho-status{margin:10px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;color:#8fc4c2;min-height:14px;}
+  .zoho-status a{color:#8fc4c2;}
+  .stage-badge{
+    display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;
+    font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;margin:0 8px;
+  }
+  .stage-badge.green{background:rgba(46,125,91,.35);color:#8fe0bd;border:1px solid rgba(46,125,91,.6);}
+  .stage-badge.yellow{background:rgba(217,140,10,.25);color:#f3c568;border:1px solid rgba(217,140,10,.55);}
+  .stage-badge.red{background:rgba(197,48,48,.28);color:#f5a3a3;border:1px solid rgba(197,48,48,.6);}
+
+  /* ---- Sticky status ---- */
+  .status{
+    position:sticky;top:0;z-index:20;
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(15,58,66,.06);
+  }
+  .status-inner{max-width:860px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;}
+  .gauge{display:flex;align-items:baseline;gap:9px;}
+  .gauge .n{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:22px;line-height:1;color:var(--deep);}
+  .gauge .lab{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);}
+  .bar{flex:1;min-width:120px;height:7px;border-radius:20px;background:#e2e7e4;overflow:hidden;}
+  .bar > i{display:block;height:100%;width:0;background:var(--done);border-radius:20px;transition:width .35s ease;}
+  .risk-flag{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.04em;
+    padding:5px 11px;border-radius:20px;
+    background:var(--solar-soft);color:var(--solar-ink);border:1px solid var(--solar-line);
+  }
+  .risk-flag.clear{background:var(--done-soft);color:var(--done);border-color:#b9d9c7;}
+  .risk-flag .dot{width:8px;height:8px;border-radius:50%;background:var(--solar);}
+  .risk-flag.clear .dot{background:var(--done);}
+  .risk-flag.reject{background:#fdecea;color:#c0392b;border-color:#f3b4ac;}
+  .risk-flag.reject .dot{background:#c0392b;}
+
+  /* ---- Controls ---- */
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 6px;}
+  .seg{display:inline-flex;background:#e2e7e4;border-radius:8px;padding:3px;gap:2px;}
+  .seg button{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.03em;
+    border:0;background:transparent;color:var(--ink-soft);cursor:pointer;
+    padding:7px 12px;border-radius:6px;
+  }
+  .seg button[aria-pressed="true"]{background:var(--panel);color:var(--deep);box-shadow:var(--shadow);font-weight:600;}
+  .spacer{flex:1;}
+  .ghost{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;
+    background:transparent;border:1px solid var(--line-strong);color:var(--ink-soft);
+    padding:7px 13px;border-radius:7px;cursor:pointer;
+  }
+  .ghost:hover{border-color:var(--deep);color:var(--deep);}
+
+  /* ---- Saved projects ---- */
+  .saved-wrap{position:relative;}
+  .saved-menu{
+    position:absolute;top:100%;right:0;margin-top:6px;width:300px;max-height:320px;overflow-y:auto;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+    z-index:25;display:none;
+  }
+  .saved-menu.show{display:block;}
+  .saved-row{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid #eef1ef;cursor:pointer;}
+  .saved-row:last-child{border-bottom:0;}
+  .saved-row:hover{background:#f6f8f7;}
+  .saved-row .info{flex:1;min-width:0;}
+  .saved-row .nm{font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .saved-row .meta{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-faint);margin-top:2px;}
+  .saved-row .rm{flex:none;background:transparent;border:0;color:var(--ink-faint);cursor:pointer;font-size:15px;padding:2px 6px;line-height:1;}
+  .saved-row .rm:hover{color:#c0392b;}
+  .saved-empty{padding:16px 12px;font-size:12.5px;color:var(--ink-faint);text-align:center;}
+
+  /* ---- Milestone + category ---- */
+  .milestone-head{
+    display:flex;align-items:baseline;gap:12px;
+    margin:34px 0 4px;padding-bottom:10px;border-bottom:2px solid var(--ink);
+  }
+  .milestone-head .code{
+    font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:12px;
+    background:var(--ink);color:#fff;padding:3px 8px;border-radius:5px;letter-spacing:.05em;
+  }
+  .milestone-head h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:19px;margin:0;letter-spacing:-.01em;}
+  .milestone-head .src{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:10.5px;}
+  .milestone-head .src a{color:var(--deep-2);text-decoration:none;border-bottom:1px dotted var(--deep-2);}
+  .milestone-note{font-size:13px;color:var(--ink-soft);margin:10px 0 0;}
+
+  .cat{margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+  .cat-head{
+    display:flex;align-items:center;gap:11px;width:100%;
+    padding:13px 16px;background:transparent;border:0;cursor:pointer;text-align:left;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px;color:var(--ink);
+  }
+  .cat-head .tag{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;color:var(--deep);background:#e5efee;padding:3px 7px;border-radius:5px;letter-spacing:.04em;}
+  .cat-head .count{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);font-weight:400;}
+  .cat-head .chev{transition:transform .2s ease;color:var(--ink-faint);font-size:13px;}
+  .cat[data-open="false"] .chev{transform:rotate(-90deg);}
+  .cat[data-open="false"] .items{display:none;}
+  .items{border-top:1px solid var(--line);}
+
+  /* ---- Item rows ---- */
+  .item{display:flex;gap:13px;padding:13px 16px;border-bottom:1px solid #eef1ef;cursor:pointer;position:relative;}
+  .item:last-child{border-bottom:0;}
+  .item:hover{background:#f6f8f7;}
+  .box{
+    flex:none;width:20px;height:20px;margin-top:1px;border-radius:6px;
+    border:1.5px solid var(--line-strong);background:#fff;padding:0;
+    display:grid;place-items:center;transition:all .15s ease;cursor:pointer;
+  }
+  .box svg{width:12px;height:12px;stroke:#fff;stroke-width:3;fill:none;opacity:0;stroke-dasharray:16;stroke-dashoffset:16;transition:all .2s ease;}
+  .item.done .box{background:var(--done);border-color:var(--done);}
+  .item.done .box svg{opacity:1;stroke-dashoffset:0;}
+  .item-body{flex:1;min-width:0;}
+  .item-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .item .code{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--deep-2);letter-spacing:.03em;}
+  .item .ttl{font-weight:500;font-size:14.5px;}
+  .item.done .ttl{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line-strong);}
+  .item .note{font-size:13px;color:var(--ink-soft);margin-top:3px;}
+  .badge{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;font-weight:600;}
+  .badge.risk{background:var(--solar-soft);color:var(--solar-ink);border:1px solid var(--solar-line);}
+  .badge.ia{background:#eaeef1;color:#4a5a66;border:1px solid #d3dce2;}
+  .item.risk{box-shadow:inset 3px 0 0 var(--solar);}
+
+  .item-actions{margin-left:auto;display:flex;gap:6px;flex:none;}
+  .pill{
+    font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;
+    padding:3px 8px;border-radius:20px;border:1px solid var(--line-strong);background:#fff;color:var(--ink-soft);
+    cursor:pointer;font-weight:600;
+  }
+  .pill:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .pill.flag.active{background:#c0392b;border-color:#c0392b;color:#fff;}
+  .pill.na.active{background:#8b9399;border-color:#8b9399;color:#fff;}
+
+  .reason{
+    display:none;width:100%;margin-top:8px;padding:8px 10px;box-sizing:border-box;
+    border:1px solid #e3b3ac;border-radius:8px;background:#fff;
+    font-family:"IBM Plex Sans",sans-serif;font-size:13px;color:var(--ink);resize:vertical;min-height:44px;
+  }
+  .reason:focus{outline:2px solid #c0392b;outline-offset:1px;border-color:transparent;}
+
+  .item.rejected{box-shadow:inset 3px 0 0 #c0392b;background:#fdf4f3;}
+  .item.rejected:hover{background:#fbe9e7;}
+  .item.rejected .box{background:#c0392b;border-color:#c0392b;}
+  .item.rejected .box svg{opacity:1;stroke-dashoffset:0;}
+  .item.rejected .ttl{color:#a8362b;}
+
+  .item.na{opacity:.6;}
+  .item.na .box{background:var(--line-strong);border-color:var(--line-strong);}
+  .item.na .box svg{opacity:1;stroke-dashoffset:0;}
+  .item.na .ttl{text-decoration:line-through;text-decoration-color:var(--line-strong);}
+
+  .ready{
+    margin-top:26px;padding:18px 20px;border-radius:12px;text-align:center;
+    background:var(--done-soft);border:1px solid #b9d9c7;color:var(--done);
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16px;display:none;
+  }
+  .ready.show{display:block;}
+  .ready span{display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:13px;color:#3d6a55;margin-top:4px;}
+
+  .empty{padding:28px 16px;text-align:center;color:var(--ink-faint);font-size:13.5px;display:none;}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-faint);}
+  footer a{color:var(--deep-2);}
+
+  @media (max-width:560px){
+    h1{font-size:24px;}
+    .field input,.field.wide input{min-width:0;width:100%;}
+    .field{flex:1;min-width:140px;}
+    .gauge .n{font-size:19px;}
+    .saved-menu{right:auto;left:0;width:min(260px, 84vw);}
+  }
+  @media print{
+    .status,.controls,.mast .project{display:none;}
+    body{background:#fff;font-size:12px;}
+    .cat[data-open="false"] .items{display:block;}
+    .cat,.item:hover{box-shadow:none;background:#fff;}
+    header.mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+    h1,.lede,.eyebrow{color:#000;}
+    .item.risk{box-shadow:inset 3px 0 0 #000;}
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast-inner">
+    <p class="eyebrow">LightReach / Palmetto &middot; Solar Energy Plan</p>
+    <h1>Project Submission Checklist</h1>
+    <p class="lede">Run every item before you submit. Rows marked <b>Rejection risk</b> are the ones QC bounces most &mdash; use the filter to sweep those last. <b>I/A</b> = if applicable to this project.</p>
+    <div class="project">
+      <div class="field wide">
+        <label for="pname">Project / homeowner</label>
+        <input id="pname" type="text" placeholder="e.g. Ramirez &mdash; 214 Oak St or PROJ-1621" autocomplete="off">
+        <div class="lookup-menu" id="lookupMenu"></div>
+      </div>
+      <div class="field">
+        <label for="pid">Account / ID</label>
+        <input id="pid" type="text" placeholder="Account #">
+      </div>
+    </div>
+    <p class="zoho-status" id="zohoStatus"></p>
+  </div>
+</header>
+
+<div class="status">
+  <div class="status-inner">
+    <div class="gauge"><span class="n" id="doneN">0</span><span class="lab" id="doneLab">of 0 complete</span></div>
+    <div class="bar"><i id="barFill"></i></div>
+    <div class="risk-flag" id="riskFlag"><span class="dot"></span><span id="riskTxt">0 rejection-risk left</span></div>
+    <div class="risk-flag reject" id="rejectFlag" style="display:none"><span class="dot"></span><span id="rejectTxt"></span></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Filter items">
+      <button data-filter="all" aria-pressed="true">All items</button>
+      <button data-filter="risk" aria-pressed="false">Rejection risk</button>
+      <button data-filter="remaining" aria-pressed="false">Remaining</button>
+      <button data-filter="rejected" aria-pressed="false">Needs fix</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="saved-wrap">
+      <button class="ghost" id="savedBtn">Saved projects <span id="savedCount"></span></button>
+      <div class="saved-menu" id="savedMenu"></div>
+    </div>
+    <button class="ghost" id="printBtn">Print / PDF</button>
+    <button class="ghost" id="resetBtn">Reset for next project</button>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="ready" id="ready">All items cleared — ready to submit.<span>Give the rejection-risk rows one final look before you send it.</span></div>
+  <div class="empty" id="empty">Nothing matches this filter right now.</div>
+
+  <footer>
+    Built from LightReach's published installer guides (<a href="https://help.palmetto.finance/en/" target="_blank" rel="noopener">help.palmetto.finance</a>). Requirements change by state and over time &mdash; confirm against the live guides and any market-specific rules. Conditional M1 approvals may be granted for minor missing uploads, but never for code, manufacturer-spec, or workmanship violations. Progress auto-saves per project in this browser &mdash; use <b>Saved projects</b> to switch, or <b>Reset for next project</b> to start a fresh one.
+  </footer>
+</div>
+
+<script>
+const DATA = [
+  {
+    ms:"M0", title:"NTP — Notice to Proceed", note:"Point-of-sale requirements. NTP means the homeowner is qualified — it does not vet the physical site. Fastest path is the homeowner's portal at home.palmetto.com.",
+    src:{label:"NTP (M0) guide", url:"https://help.palmetto.finance/en/articles/8284546-solar-energy-plan-completing-ntp-m0-requirements"},
+    cats:[
+      { tag:"NTP", name:"Homeowner sale requirements", items:[
+        {code:"N1", ttl:"Web portal account signed up", note:"Homeowner activated home.palmetto.com. One unique email per property address — a reused email will block sign-up.", risk:true},
+        {code:"N2", ttl:"ID verified", note:"Driver's license / state ID, passport, or resident permit / green card. Uploaded via portal for auto-verification."},
+        {code:"N3", ttl:"Title verified", note:"Auto-verifies for most. If prompted: deed, tax property bill, or mortgage statement <60 days old. Trust/LLC needs docs showing applicant is trustee/controlling member."},
+        {code:"N4", ttl:"Utility bill on file", note:"Sales from 3/1/26: last 60 days, showing name+address, balance, rate plan, and usage. Any past-due balance = automatic rejection. CARE/LMI rate plans limited to lowest solar rate.", risk:true},
+        {code:"N5", ttl:"ACH set up", note:"Routing + account number (instant for most) or voided check showing account name, number, and routing. ACH only — no cash/check/credit card."},
+        {code:"N6", ttl:"Contract signed", note:"DocuSign or in-portal. NV requires an authorized countersigner; CT requires the registered Home Improvement Salesperson to countersign promptly."},
+        {code:"N7", ttl:"Clear Facts Disclosure completed", note:"Homeowner checks key order details and signs off. Copy auto-emails to customer."},
+        {code:"N8", ttl:"Sales rep Recheck verified", note:"Rep completes verification at recheck.co/signup. One-time per rep, saved for all future sales."},
+        {code:"N9", ttl:"Stipulations cleared", note:"Watch for Customer Action Required (CAR) and Consumer Compliance Details stips — usually applied the next business day after signing on higher-risk accounts.", risk:true},
+      ]}
+    ]
+  },
+  {
+    ms:"M1", title:"Installation — Post-install submission", note:"Mirrors LightReach's full internal M1 review. Everything must be satisfied to achieve M1. Photograph only after work is complete — take a close-up and a clear pullback of each item.",
+    src:{label:"M1 checklist", url:"https://help.palmetto.finance/en/articles/9718783-solar-energy-plan-installation-m1-checklist"},
+    cats:[
+      { tag:"SQ", name:"Site qualifying", items:[
+        {code:"SQ1", ttl:"Account details match", note:"Name, address, and kW size all match the plan set and production model."},
+        {code:"SQ2", ttl:"Contract details within tolerance", note:"Production kWh and system size within tolerance (PPA vs Lease). Battery tab and adders match what was installed.", ia:true},
+        {code:"SQ3", ttl:"Site & equipment qualify", note:"Eligible site, electrical conditions qualify, and all equipment is on the Approved Vendor List (AVL). Off-AVL hardware is not fundable.", risk:true},
+        {code:"SQ4", ttl:"Third-party materials invoice", note:"Invoice(s) clearly showing component SKUs, uploaded under Invoice/BOM. Bulk invoices OK if within 90 days of submission + an internal BOM tying materials to this address.", risk:true},
+      ]},
+      { tag:"A", name:"Administrative", items:[
+        {code:"A1", ttl:"Monitoring Site ID + access", note:"Site ID for inverter (and battery if applicable) provided, site access granted. CTs installed per manufacturer. Cell kit + Revenue Grade Metering required on all projects."},
+        {code:"A2", ttl:"Approved permit", note:"Status must be approved/issued. Scheduled inspection date and expected PTO date entered. Permit scope is solar PV and address matches the install site.", risk:true},
+        {code:"A3", ttl:"Incentive documents", note:"Submitted for applicable states.", ia:true},
+        {code:"A4", ttl:"Utility bill", note:"Mandatory all markets. Currently an M1 item; for sales from 3/1/26 this shifts to NTP."},
+      ]},
+      { tag:"D", name:"Design package", items:[
+        {code:"D1", ttl:"Plan set matches as-built", note:"System size, module count, module manufacturer & wattage, inverter, racking, and all components match what was installed. Tilt/azimuth within tolerance. All equipment on AVL.", risk:true},
+        {code:"D2", ttl:"Production model correct", note:"Correct deliverables on an approved platform (not mixed). Approved inputs and loss settings (snow loss per state, shading). Array tilts/azimuths accurate within ±5°.", risk:true},
+        {code:"D3", ttl:"Shade report", note:"Correct deliverables; design accurate vs as-built within ±5° tilt/azimuth."},
+      ]},
+      { tag:"IP", name:"Install photo documentation", items:[
+        {code:"PS1", ttl:"Project site & structure", note:"Front of home + address showing the permitted design matches the physical structure. Accessory structures need interior framing, dimensions, and foundation photos."},
+        {code:"PS2", ttl:"Pre-existing damage documented + corrected", note:"Broken flashing, cracked chimney, torn shingles, etc. Issues without clear proof of correction get rejected until proof is provided.", risk:true},
+        {code:"PS4", ttl:"Module label + serial legible", note:"Clear, legible module label and unique serial. No stock/warehouse images. Serial can't duplicate another system. Illegible = re-shoot and funding delay.", risk:true},
+        {code:"PS5", ttl:"Inverter / micro / optimizer labels", note:"Clear label per model, matching the System Details on the account page. Multiple models need multiple photos."},
+        {code:"PS6", ttl:"Auxiliary equipment / combiner serials", note:"All combiners regardless of brand; legible serials for inverter & DC safety switch. Mandatory for incentive states."},
+        {code:"R1", ttl:"Attachments — flashing & sealant", note:"Per manufacturer spec. Metal roofs need attachments certified for that application. Only approved-vendor attachments are fundable."},
+        {code:"R4", ttl:"Completed photo of each array", note:"Every module visible and countable, rail trimmed. Shoot from the roof on low-pitch or tall homes."},
+        {code:"R5", ttl:"Tilt measured on the module", note:"One per unique pitch. Measure on the module, not the roof surface. Must be 5–45° and match the design. App screenshots need array context.", risk:true},
+        {code:"R6", ttl:"Rooftop wire management", note:"Wires secured off the roof surface with UV-rated clips/ties; at least one MLPE visible. Don't wrap conductors around the rail."},
+        {code:"E1", ttl:"Electrical — combiner wiring & CTs", note:"Interior combiner photos showing complete AC wiring, breakers, and CT terminations on the correct phase per the wiring diagram."},
+        {code:"IP3b", ttl:"Tesla MCI executed", note:"MCI photo + string map with MCI location. Diode testing recommended before install.", ia:true},
+        {code:"IP4", ttl:"Energy storage per spec", note:"Full storage photo list, installed to manufacturer spec / code / best practices.", ia:true},
+        {code:"IP5", ttl:"Commissioning completed on site", note:"On-site commissioning check done, full photo list uploaded, CTs verified correct."},
+        {code:"PS9", ttl:"Domestic content photos", note:"Rail, clamps, MLPE fasteners, splice fasteners, and packaging. When unsure, take many close-ups.", ia:true},
+      ]}
+    ]
+  },
+  {
+    ms:"M2", title:"Activation — Final QC before certification", note:"The last review before the project is certified. Everything must be in — no exceptions — and any M1 conditional 'no action needed for install' flag must now be fully actioned.",
+    src:{label:"M2 deliverables", url:"https://help.palmetto.finance/en/articles/13978269-solar-energy-plan-m2-deliverables-for-submission"},
+    cats:[
+      { tag:"DS", name:"Deliverables & carried-over items", items:[
+        {code:"DS1", ttl:"M1 conditional flags actioned", note:"Every 'no action needed for install' item carried over from M1 must now be provided with evidence of correction. Unaddressed flags stay open and stall the package.", risk:true},
+        {code:"PTO1", ttl:"Permission to Operate", note:"PTO date must be the utility-granted date, not the date of the email or communication.", risk:true},
+        {code:"UB1", ttl:"Utility bill matches", note:"Utility on file must match the utility stated in the Energy Plan contract and the FinCo portal."},
+        {code:"EW1", ttl:"Extended warranty", note:"For inverters without a standard 25-yr warranty (e.g. SolarEdge). SolarEdge holdbacks are handled by Palmetto, so inverter info and count must be accurate.", ia:true},
+        {code:"SI1", ttl:"Site improvement photos", note:"If applicable — tree removal, main panel upgrade, or other adders completed after install.", ia:true},
+        {code:"MSR", ttl:"Incentive deliverables (M2)", note:"The biggest friction point at activation. Provide all market/state incentive items; review the by-state requirements closely.", risk:true, ia:true},
+      ]},
+      { tag:"MON", name:"Monitoring & performance", items:[
+        {code:"MA2", ttl:"Correct monitoring access level", note:"Maintainer for Enphase, View/Edit for SolarEdge. View-only access is a rejection.", risk:true},
+        {code:"MA1", ttl:"Monitoring ID from OEM URL", note:"Must match the ID assigned when monitoring was created. AC-coupled systems with two OEMs need two IDs (inverter + battery)."},
+        {code:"MD1", ttl:"Production data healthy", note:"Bell-shaped production curve, nothing reporting outside daylight hours, all strings and equipment reporting.", risk:true},
+        {code:"MD2", ttl:"Consumption data independent", note:"Reports separately from production, all home loads accounted for, no negative home loads."},
+        {code:"MD3", ttl:"Battery cycling correct", note:"Charges with production and discharges to reserve limit as loads demand.", ia:true},
+        {code:"SL1", ttl:"Portal layout matches site", note:"Array layout matches installed orientation and module series; a micro/optimizer assigned to every module.", risk:true},
+        {code:"SO2", ttl:"No open monitoring alerts", note:"All equipment active and communicating; active alerts must be closed (troubleshoot with the OEM).", risk:true},
+        {code:"SO3", ttl:"Cell modem registered", note:"Required on all sites; registered to devices with an associated cell plan."},
+      ]},
+      { tag:"SET", name:"System settings", items:[
+        {code:"SS1", ttl:"No production-limiting export settings", note:"'No Export' on Tesla, or export limits on Enphase/QCells, will fail M2. Remove any non-essential setting that caps PV production.", risk:true},
+        {code:"SS2", ttl:"PCS settings correct", note:"May be required for interconnection/NEC. SolarEdge PCS confirmation needs commissioning photos.", ia:true},
+        {code:"SS3", ttl:"Battery settings", note:"Backup batteries need the standard 20% minimum reserve with Storm Guard enabled.", ia:true},
+      ]}
+    ]
+  }
+];
+
+const listEl = document.getElementById('list');
+const state = {}; // id -> {status:'open'|'done'|'rejected'|'na', note:''}
+let filter = 'all';
+let currentZohoSnapshot = null; // last-selected Zoho record for the active project, or null
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ---- Zoho lookup + SLA thresholds (reads the public JSON this dashboard already publishes) ----
+const ZOHO_DATA_URL = 'https://hdohnert-helio.github.io/helio-project-monitor/data.json';
+const SLA_URL = 'https://hdohnert-helio.github.io/helio-project-monitor/sla_thresholds.json';
+let zohoProjects = [];
+let zohoMeta = null;
+let slaThresholds = null;
+
+fetch(ZOHO_DATA_URL)
+  .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+  .then(d => { zohoProjects = Array.isArray(d.projects) ? d.projects : []; zohoMeta = d; })
+  .catch(() => { /* lookup just stays unavailable; manual entry still works */ });
+
+fetch(SLA_URL)
+  .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+  .then(d => { slaThresholds = d.stages || null; renderZohoStatus(currentZohoSnapshot); })
+  .catch(() => { /* SLA badge just stays unavailable */ });
+
+function classifySla(stage, days){
+  const cfg = slaThresholds && slaThresholds[stage];
+  if(!cfg || typeof days !== 'number') return null;
+  if(days <= cfg.green) return 'green';
+  if(days <= cfg.yellow) return 'yellow';
+  return 'red';
+}
+
+const pnameEl = document.getElementById('pname');
+const pidEl = document.getElementById('pid');
+const menuEl = document.getElementById('lookupMenu');
+const statusEl = document.getElementById('zohoStatus');
+
+function renderMenu(matches){
+  menuEl._matches = matches;
+  if(!matches.length){ menuEl.classList.remove('show'); menuEl.innerHTML = ''; return; }
+  menuEl.innerHTML = matches.slice(0, 8).map((p, i) => `
+    <div class="opt" data-idx="${i}">
+      <div class="nm">${escapeHtml(p.customer || '(no name)')}</div>
+      <div class="meta">${escapeHtml(p.project_id || '')} &middot; ${escapeHtml(p.stage || '')}${p.project_manager || p.rep ? ' &middot; ' + escapeHtml(p.project_manager || p.rep) : ''}</div>
+    </div>`).join('');
+  menuEl.classList.add('show');
+}
+
+function renderZohoStatus(snap){
+  if(!snap){ statusEl.innerHTML = ''; return; }
+  const bits = [];
+  if(snap.stage) bits.push('Stage: ' + escapeHtml(snap.stage));
+  if(snap.project_manager) bits.push('PM: ' + escapeHtml(snap.project_manager));
+  else if(snap.rep) bits.push('Rep: ' + escapeHtml(snap.rep));
+  if(snap.synced_label) bits.push('Zoho synced ' + escapeHtml(snap.synced_label));
+
+  let badge = '';
+  const cls = classifySla(snap.stage, snap.days_in_stage);
+  if(cls){
+    const lab = cls === 'green' ? 'On track' : cls === 'yellow' ? 'Approaching SLA' : 'Over SLA';
+    badge = `<span class="stage-badge ${cls}">${snap.days_in_stage}d in stage &middot; ${lab}</span>`;
+  }
+
+  let link = '';
+  if(snap.zoho_record_id && zohoMeta && zohoMeta.canvas_id){
+    const url = 'https://crm.zoho.com/crm/heliosolar/tab/CustomModule6/'
+      + encodeURIComponent(snap.zoho_record_id) + '/canvas/' + encodeURIComponent(zohoMeta.canvas_id);
+    link = `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">Open in Zoho &#8599;</a>`;
+  }
+
+  statusEl.innerHTML = bits.join(' &middot; ') + badge + (link ? ' &middot; ' + link : '');
+}
+
+function applyProject(p){
+  pnameEl.value = p.customer || '';
+  pidEl.value = p.project_id || '';
+  currentZohoSnapshot = {
+    stage: p.stage || '',
+    rep: p.rep || '',
+    project_manager: p.project_manager || '',
+    days_in_stage: typeof p.days_in_stage === 'number' ? p.days_in_stage : null,
+    zoho_record_id: p.zoho_record_id || '',
+    synced_label: (zohoMeta && zohoMeta.generated_at_label) || ''
+  };
+
+  // If this project already has saved checklist progress, resume it instead of starting blank.
+  const store = loadStore();
+  const existing = store[p.project_id] || store[p.customer];
+  if(existing && existing.items){
+    Object.keys(state).forEach(id => {
+      const saved = existing.items[id];
+      state[id] = saved ? {status: saved.status || 'open', note: saved.note || ''} : {status:'open', note:''};
+    });
+    syncAllItemDOM();
+  }
+
+  renderZohoStatus(currentZohoSnapshot);
+  update();
+  persistCurrent();
+}
+
+pnameEl.addEventListener('input', () => {
+  const q = pnameEl.value.trim().toLowerCase();
+  if(q.length < 2 || !zohoProjects.length){ menuEl.classList.remove('show'); return; }
+  const matches = zohoProjects.filter(p =>
+    (p.customer || '').toLowerCase().includes(q) || (p.project_id || '').toLowerCase().includes(q));
+  renderMenu(matches);
+});
+pnameEl.addEventListener('blur', () => {
+  // Don't persist here: a lookup selection always blurs pname (mousedown on the
+  // menu) before its click handler runs, which would otherwise save a stray
+  // entry under the half-typed name. applyProject()/item edits persist instead.
+  setTimeout(() => menuEl.classList.remove('show'), 150);
+});
+pidEl.addEventListener('blur', () => persistCurrent());
+menuEl.addEventListener('click', (e) => {
+  const opt = e.target.closest('.opt');
+  if(!opt) return;
+  applyProject(menuEl._matches[Number(opt.dataset.idx)]);
+  menuEl.classList.remove('show');
+});
+
+// ---- Per-project autosave (localStorage) ----
+const STORAGE_KEY = 'lrChecklist.projects.v1';
+const LAST_ACTIVE_KEY = 'lrChecklist.lastActive';
+
+function loadStore(){
+  try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; }
+}
+function saveStore(store){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(store)); }catch(e){ /* storage full/unavailable — persistence just won't work */ }
+}
+function currentKey(){
+  return pidEl.value.trim() || pnameEl.value.trim();
+}
+function persistCurrent(){
+  const key = currentKey();
+  if(!key) return;
+  const store = loadStore();
+  const items = {};
+  Object.keys(state).forEach(id => { items[id] = state[id]; });
+  store[key] = {
+    pname: pnameEl.value.trim(),
+    pid: pidEl.value.trim(),
+    zoho: currentZohoSnapshot,
+    items,
+    updatedAt: new Date().toISOString()
+  };
+  saveStore(store);
+  try{ localStorage.setItem(LAST_ACTIVE_KEY, key); }catch(e){}
+}
+function loadProject(key){
+  const store = loadStore();
+  const rec = store[key];
+  if(!rec) return;
+  pnameEl.value = rec.pname || '';
+  pidEl.value = rec.pid || '';
+  currentZohoSnapshot = rec.zoho || null;
+  Object.keys(state).forEach(id => {
+    const saved = rec.items && rec.items[id];
+    state[id] = saved ? {status: saved.status || 'open', note: saved.note || ''} : {status:'open', note:''};
+  });
+  syncAllItemDOM();
+  renderZohoStatus(currentZohoSnapshot);
+  update();
+  try{ localStorage.setItem(LAST_ACTIVE_KEY, key); }catch(e){}
+}
+
+// ---- Saved-projects switcher ----
+const savedBtn = document.getElementById('savedBtn');
+const savedMenu = document.getElementById('savedMenu');
+const savedCount = document.getElementById('savedCount');
+
+function renderSavedMenu(){
+  const store = loadStore();
+  const entries = Object.entries(store).sort((a, b) => (b[1].updatedAt || '').localeCompare(a[1].updatedAt || ''));
+  savedCount.textContent = entries.length ? '(' + entries.length + ')' : '';
+  if(!entries.length){ savedMenu.innerHTML = '<div class="saved-empty">No saved projects yet.</div>'; return; }
+  savedMenu.innerHTML = entries.map(([key, rec]) => {
+    const ids = Object.keys(rec.items || {});
+    const total = ids.filter(id => rec.items[id].status !== 'na').length;
+    const done = ids.filter(id => rec.items[id].status === 'done').length;
+    const when = rec.updatedAt ? new Date(rec.updatedAt).toLocaleDateString('en-US', {month:'short', day:'numeric'}) : '';
+    return `<div class="saved-row" data-key="${escapeHtml(key)}">
+      <div class="info">
+        <div class="nm">${escapeHtml(rec.pname || rec.pid || key)}</div>
+        <div class="meta">${done}/${total} done &middot; ${escapeHtml(when)}</div>
+      </div>
+      <button type="button" class="rm" data-remove="${escapeHtml(key)}" title="Remove">&times;</button>
+    </div>`;
+  }).join('');
+}
+
+savedBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const willShow = !savedMenu.classList.contains('show');
+  if(willShow) renderSavedMenu();
+  savedMenu.classList.toggle('show', willShow);
+});
+document.addEventListener('click', (e) => {
+  if(!savedMenu.contains(e.target) && !savedBtn.contains(e.target)) savedMenu.classList.remove('show');
+});
+savedMenu.addEventListener('click', (e) => {
+  const rmBtn = e.target.closest('[data-remove]');
+  if(rmBtn){
+    e.stopPropagation();
+    const store = loadStore();
+    delete store[rmBtn.dataset.remove];
+    saveStore(store);
+    renderSavedMenu();
+    return;
+  }
+  const row = e.target.closest('.saved-row');
+  if(row){
+    loadProject(row.dataset.key);
+    savedMenu.classList.remove('show');
+  }
+});
+
+function idFor(ms, code){ return ms + '_' + code; }
+
+const ICONS = {
+  done: '<svg viewBox="0 0 18 18"><polyline points="3.5,9.5 7.5,13.5 14.5,5"/></svg>',
+  rejected: '<svg viewBox="0 0 18 18"><line x1="4" y1="4" x2="14" y2="14"/><line x1="14" y1="4" x2="4" y2="14"/></svg>',
+  na: '<svg viewBox="0 0 18 18"><line x1="4" y1="9" x2="14" y2="9"/></svg>'
+};
+
+function renderItem(row, rec){
+  row.classList.remove('done', 'rejected', 'na');
+  if(rec.status !== 'open') row.classList.add(rec.status);
+  row.querySelector('[data-role="box"]').innerHTML = rec.status !== 'open' ? ICONS[rec.status] : '';
+  row.querySelector('[data-role="reject"]').classList.toggle('active', rec.status === 'rejected');
+  row.querySelector('[data-role="na"]').classList.toggle('active', rec.status === 'na');
+  const reasonEl = row.querySelector('[data-role="reason"]');
+  reasonEl.style.display = rec.status === 'rejected' ? 'block' : 'none';
+  if(document.activeElement !== reasonEl && reasonEl.value !== (rec.note || '')) reasonEl.value = rec.note || '';
+}
+function syncAllItemDOM(){
+  document.querySelectorAll('.item').forEach(row => renderItem(row, state[row.dataset.id]));
+}
+
+// Build DOM
+DATA.forEach((ms, mi) => {
+  const head = document.createElement('div');
+  head.className = 'milestone-head';
+  head.innerHTML = `<span class="code">${ms.ms}</span><h2>${ms.title}</h2>`+
+    `<span class="src"><a href="${ms.src.url}" target="_blank" rel="noopener">${ms.src.label} &#8599;</a></span>`;
+  listEl.appendChild(head);
+
+  const note = document.createElement('p');
+  note.className = 'milestone-note';
+  note.textContent = ms.note;
+  listEl.appendChild(note);
+
+  ms.cats.forEach((cat, ci) => {
+    const cEl = document.createElement('div');
+    cEl.className = 'cat';
+    cEl.dataset.open = 'true';
+
+    const cHead = document.createElement('button');
+    cHead.className = 'cat-head';
+    cHead.innerHTML = `<span class="tag">${cat.tag}</span><span>${cat.name}</span>`+
+      `<span class="count" data-count></span><span class="chev">&#9660;</span>`;
+    cHead.addEventListener('click', () => {
+      cEl.dataset.open = cEl.dataset.open === 'true' ? 'false' : 'true';
+    });
+    cEl.appendChild(cHead);
+
+    const itemsWrap = document.createElement('div');
+    itemsWrap.className = 'items';
+
+    cat.items.forEach(it => {
+      const id = idFor(ms.ms, it.code);
+      state[id] = {status:'open', note:''};
+      const row = document.createElement('div');
+      row.className = 'item' + (it.risk ? ' risk' : '');
+      row.dataset.id = id;
+      row.dataset.risk = it.risk ? '1' : '0';
+
+      let badges = '';
+      if (it.risk) badges += '<span class="badge risk">Rejection risk</span>';
+      if (it.ia) badges += '<span class="badge ia">I/A</span>';
+
+      row.innerHTML = `
+        <button type="button" class="box" data-role="box" aria-label="Mark ${escapeHtml(it.ttl)} done"></button>
+        <span class="item-body">
+          <span class="item-top">
+            <span class="code">${it.code}</span><span class="ttl">${it.ttl}</span>${badges}
+            <span class="item-actions">
+              <button type="button" class="pill flag" data-role="reject">Rejected</button>
+              <button type="button" class="pill na" data-role="na">N/A</button>
+            </span>
+          </span>
+          <span class="note">${it.note}</span>
+          <textarea class="reason" data-role="reason" placeholder="Why was it rejected? What's needed to resubmit…"></textarea>
+        </span>`;
+
+      const boxBtn = row.querySelector('[data-role="box"]');
+      const rejectBtn = row.querySelector('[data-role="reject"]');
+      const naBtn = row.querySelector('[data-role="na"]');
+      const reasonEl = row.querySelector('[data-role="reason"]');
+
+      function setStatus(next){
+        state[id].status = state[id].status === next ? 'open' : next;
+        renderItem(row, state[id]);
+        update();
+        persistCurrent();
+      }
+
+      boxBtn.addEventListener('click', (e) => { e.stopPropagation(); setStatus('done'); });
+      rejectBtn.addEventListener('click', (e) => { e.stopPropagation(); setStatus('rejected'); });
+      naBtn.addEventListener('click', (e) => { e.stopPropagation(); setStatus('na'); });
+      row.addEventListener('click', () => setStatus('done'));
+      reasonEl.addEventListener('click', (e) => e.stopPropagation());
+      let reasonTimer;
+      reasonEl.addEventListener('input', () => {
+        state[id].note = reasonEl.value;
+        clearTimeout(reasonTimer);
+        reasonTimer = setTimeout(persistCurrent, 400);
+      });
+
+      itemsWrap.appendChild(row);
+    });
+
+    cEl.appendChild(itemsWrap);
+    listEl.appendChild(cEl);
+  });
+});
+
+// Controls
+document.querySelectorAll('.seg button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    filter = b.dataset.filter;
+    update();
+  });
+});
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if(!confirm('Clear all checks and start a new project? (Your progress on this project stays saved — find it under "Saved projects".)')) return;
+  Object.keys(state).forEach(id => { state[id] = {status:'open', note:''}; });
+  syncAllItemDOM();
+  pnameEl.value = '';
+  pidEl.value = '';
+  currentZohoSnapshot = null;
+  statusEl.innerHTML = '';
+  try{ localStorage.removeItem(LAST_ACTIVE_KEY); }catch(e){}
+  document.querySelector('.seg button[data-filter="all"]').click();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+function update(){
+  const items = document.querySelectorAll('.item');
+  let total = 0, done = 0, riskTotal = 0, riskDone = 0, rejected = 0, visible = 0;
+
+  items.forEach(row => {
+    const id = row.dataset.id;
+    const rec = state[id];
+    const isRisk = row.dataset.risk === '1';
+    const isNA = rec.status === 'na';
+    const isDone = rec.status === 'done';
+    const isRejected = rec.status === 'rejected';
+    if(!isNA){ total++; if(isDone) done++; }
+    if(isRisk && !isNA){ riskTotal++; if(isDone) riskDone++; }
+    if(isRejected) rejected++;
+
+    let show = true;
+    if(filter === 'risk') show = isRisk && !isNA;
+    else if(filter === 'remaining') show = !isDone && !isNA;
+    else if(filter === 'rejected') show = isRejected;
+    row.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+
+  // per-category counts + hide empty categories under filter
+  document.querySelectorAll('.cat').forEach(cat => {
+    const rows = cat.querySelectorAll('.item');
+    let cShown = 0, cDone = 0, cTot = 0;
+    rows.forEach(row => {
+      const rec = state[row.dataset.id];
+      if(rec.status !== 'na'){ cTot++; if(rec.status === 'done') cDone++; }
+      if(row.style.display !== 'none') cShown++;
+    });
+    cat.querySelector('[data-count]').textContent = cDone + '/' + cTot;
+    cat.style.display = cShown === 0 ? 'none' : '';
+  });
+
+  document.getElementById('doneN').textContent = done;
+  document.getElementById('doneLab').textContent = 'of ' + total + ' complete';
+  document.getElementById('barFill').style.width = total ? (done/total*100) + '%' : '0%';
+
+  const riskLeft = riskTotal - riskDone;
+  const rf = document.getElementById('riskFlag');
+  const rt = document.getElementById('riskTxt');
+  if(riskLeft === 0){ rf.classList.add('clear'); rt.textContent = 'rejection-risk items clear'; }
+  else { rf.classList.remove('clear'); rt.textContent = riskLeft + ' rejection-risk left'; }
+
+  const rejFlag = document.getElementById('rejectFlag');
+  document.getElementById('rejectTxt').textContent = rejected + (rejected === 1 ? ' item rejected — needs resubmission' : ' items rejected — needs resubmission');
+  rejFlag.style.display = rejected > 0 ? 'inline-flex' : 'none';
+
+  document.getElementById('ready').classList.toggle('show', done === total && total > 0);
+  document.getElementById('empty').style.display = visible === 0 ? 'block' : 'none';
+}
+
+update();
+
+// Resume whatever project was last active in this browser, if any.
+(function restoreLastActive(){
+  try{
+    const lastKey = localStorage.getItem(LAST_ACTIVE_KEY);
+    if(lastKey && loadStore()[lastKey]) loadProject(lastKey);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
