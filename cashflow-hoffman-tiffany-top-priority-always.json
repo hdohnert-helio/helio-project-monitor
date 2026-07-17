@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-16T19:21:01.926196Z",
-  "today": "2026-07-16",
+  "generated_at": "2026-07-17T12:14:17.710423Z",
+  "today": "2026-07-17",
   "weeks": [
     {
       "index": 0,
@@ -79,24 +79,24 @@
     "Wk 07/13": 0.0,
     "Wk 07/20": 0.0,
     "Wk 07/27": 0.0,
-    "Wk 08/03": 64704.0,
+    "Wk 08/03": 82925.91,
     "Wk 08/10": 78135.84,
     "Wk 08/17": 40510.08,
     "Wk 08/24": 26045.28,
     "Wk 08/31": 37926.0,
     "Wk 09/07": 0.0,
     "Wk 09/14": 0.0,
-    "Wk 09/21": 0.0,
+    "Wk 09/21": 18227.38,
     "Wk 09/28": 9481.5,
     "Past-due": 0.0,
     "Beyond 12 wks": 0.0
   },
   "summary": {
     "project_count": 8,
-    "total_outstanding": 311473.9,
-    "total_collected": 123381.6,
+    "total_outstanding": 293251.99,
+    "total_collected": 141603.51,
     "this_week": 0.0,
-    "next_30_days": 142839.84,
+    "next_30_days": 161061.75,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
@@ -121,7 +121,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 78135.84,
-          "forecast_date": "2026-08-12",
+          "forecast_date": "2026-08-13",
           "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 08/10"
@@ -130,7 +130,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 26045.28,
-          "forecast_date": "2026-08-29",
+          "forecast_date": "2026-08-30",
           "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 08/24"
@@ -139,7 +139,7 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 78135.84,
-      "forecast_date": "2026-08-12",
+      "forecast_date": "2026-08-13",
       "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
@@ -167,7 +167,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 50911.2,
-          "forecast_date": "2026-08-03",
+          "forecast_date": "2026-08-04",
           "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 08/03"
@@ -176,7 +176,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 16970.4,
-          "forecast_date": "2026-08-20",
+          "forecast_date": "2026-08-21",
           "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 08/17"
@@ -185,7 +185,7 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 50911.2,
-      "forecast_date": "2026-08-03",
+      "forecast_date": "2026-08-04",
       "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
@@ -201,22 +201,43 @@
       "rep": "Douglas Hoffman",
       "project_manager": "",
       "zoho_record_id": "5264387000090247015",
-      "financing_type": "",
-      "lending_status": "Smart E-Loan",
-      "lender": "?",
+      "financing_type": "Smart-E Loan (inferred)",
+      "lending_status": "SE - Loan Closed 1/3 Payment Funded",
+      "lender": "SE",
       "contract_total": 54671.2,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 54671.2,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [],
-      "bucket": "Paid"
+      "pct_collected": 0.3333,
+      "dollars_collected": 18221.91,
+      "dollars_outstanding": 36449.29,
+      "milestones": [
+        {
+          "label": "1/3 interconnection approval",
+          "pct": 0.3333,
+          "dollars": 18221.91,
+          "forecast_date": "2026-08-05",
+          "anchor_source": "today + 14d (through Interconnection) + 5d",
+          "status": "on_track",
+          "bucket": "Wk 08/03"
+        },
+        {
+          "label": "1/3 PTO",
+          "pct": 0.3334,
+          "dollars": 18227.38,
+          "forecast_date": "2026-09-21",
+          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 5d lag",
+          "status": "on_track",
+          "bucket": "Wk 09/21"
+        }
+      ],
+      "next_milestone": "1/3 interconnection approval",
+      "next_milestone_pct": 0.3333,
+      "next_dollar": 18221.91,
+      "forecast_date": "2026-08-05",
+      "anchor_source": "today + 14d (through Interconnection) + 5d",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 08/03"
     },
     {
       "project_id": "PROJ-1644",
@@ -238,7 +259,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 13792.8,
-          "forecast_date": "2026-08-03",
+          "forecast_date": "2026-08-04",
           "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 08/03"
@@ -247,7 +268,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 4597.6,
-          "forecast_date": "2026-08-20",
+          "forecast_date": "2026-08-21",
           "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 08/17"
@@ -256,7 +277,7 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 13792.8,
-      "forecast_date": "2026-08-03",
+      "forecast_date": "2026-08-04",
       "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
@@ -284,7 +305,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 37926.0,
-          "forecast_date": "2026-09-03",
+          "forecast_date": "2026-09-04",
           "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/31"
@@ -293,7 +314,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-09-29",
+          "forecast_date": "2026-09-30",
           "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 09/28"
@@ -302,7 +323,7 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 37926.0,
-      "forecast_date": "2026-09-03",
+      "forecast_date": "2026-09-04",
       "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
@@ -339,7 +360,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-08-25",
+          "forecast_date": "2026-08-26",
           "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/24"
@@ -376,7 +397,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 6930.08,
-          "forecast_date": "2026-08-20",
+          "forecast_date": "2026-08-21",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/17"
@@ -385,7 +406,7 @@
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 6930.08,
-      "forecast_date": "2026-08-20",
+      "forecast_date": "2026-08-21",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
@@ -411,7 +432,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 12012.0,
-          "forecast_date": "2026-08-20",
+          "forecast_date": "2026-08-21",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/17"
@@ -420,7 +441,7 @@
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-08-20",
+      "forecast_date": "2026-08-21",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
