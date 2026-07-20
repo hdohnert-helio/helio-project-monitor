@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T13:10:32.631833Z",
+  "generated_at": "2026-07-20T19:49:20.107973Z",
   "today": "2026-07-20",
   "weeks": [
     {
@@ -80,23 +80,23 @@
     "Wk 07/27": 0.0,
     "Wk 08/03": 0.0,
     "Wk 08/10": 22040.49,
-    "Wk 08/17": 0.0,
-    "Wk 08/24": 154768.05,
+    "Wk 08/17": 43135.12,
+    "Wk 08/24": 111632.93,
     "Wk 08/31": 0.0,
-    "Wk 09/07": 20124.0,
-    "Wk 09/14": 27801.46,
+    "Wk 09/07": 10783.78,
+    "Wk 09/14": 17017.68,
     "Wk 09/21": 0.0,
-    "Wk 09/28": 5031.0,
+    "Wk 09/28": 0.0,
     "Wk 10/05": 0.0,
     "Past-due": 58393.2,
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 20,
-    "total_outstanding": 314193.7,
+    "project_count": 19,
+    "total_outstanding": 289038.7,
     "total_collected": 184431.95,
     "this_week": 0.0,
-    "next_30_days": 22040.49,
+    "next_30_days": 65175.61,
     "past_due": 58393.2,
     "beyond_12_wks": 0.0
   },
@@ -146,52 +146,6 @@
         "Financing_Type inferred from Lending_Status"
       ],
       "bucket": "Wk 08/10"
-    },
-    {
-      "project_id": "PROJ-1640",
-      "customer": "Farid Ahmed",
-      "stage": "Interconnection",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000087906013",
-      "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - NTP",
-      "lender": "LR",
-      "contract_total": 25155.0,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 25155.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 20124.0,
-          "forecast_date": "2026-09-07",
-          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/07"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 5031.0,
-          "forecast_date": "2026-10-03",
-          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/28"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 20124.0,
-      "forecast_date": "2026-09-07",
-      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
-      "status": "on_track",
-      "flags": [
-        "Financing_Type inferred from Lending_Status"
-      ],
-      "bucket": "Wk 09/07"
     },
     {
       "project_id": "PROJ-1631",
@@ -625,7 +579,7 @@
     {
       "project_id": "PROJ-1607",
       "customer": "Justin Kane",
-      "stage": "Permitting",
+      "stage": "Procurement & Scheduling",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -642,29 +596,29 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 43135.12,
-          "forecast_date": "2026-08-24",
-          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-08-17",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 08/24"
+          "bucket": "Wk 08/17"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 10783.78,
-          "forecast_date": "2026-09-19",
-          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-09-12",
+          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 09/14"
+          "bucket": "Wk 09/07"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 43135.12,
-      "forecast_date": "2026-08-24",
-      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-08-17",
+      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 08/24"
+      "bucket": "Wk 08/17"
     },
     {
       "project_id": "PROJ-1602",
@@ -764,7 +718,7 @@
     {
       "project_id": "PROJ-1586",
       "customer": "Charles Casey | Crystal Casey",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -790,8 +744,8 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 14598.3,
-          "forecast_date": "2026-08-29",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-08-24",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 08/24"
         }
