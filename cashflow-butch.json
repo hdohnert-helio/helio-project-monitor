@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T12:26:46.059359Z",
+  "generated_at": "2026-07-23T19:26:40.003073Z",
   "today": "2026-07-23",
   "weeks": [
     {
@@ -81,7 +81,7 @@
     "Wk 08/03": 0.0,
     "Wk 08/10": 22040.49,
     "Wk 08/17": 43135.12,
-    "Wk 08/24": 111632.93,
+    "Wk 08/24": 106279.97,
     "Wk 08/31": 0.0,
     "Wk 09/07": 0.0,
     "Wk 09/14": 10783.78,
@@ -92,9 +92,9 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 19,
-    "total_outstanding": 289038.7,
-    "total_collected": 184431.95,
+    "project_count": 18,
+    "total_outstanding": 283685.74,
+    "total_collected": 163020.11,
     "this_week": 0.0,
     "next_30_days": 65175.61,
     "past_due": 58393.2,
@@ -758,43 +758,6 @@
       "status": "past_due",
       "flags": [],
       "bucket": "Past-due"
-    },
-    {
-      "project_id": "PROJ-1581",
-      "customer": "Sanjay Patel",
-      "stage": "Witness Test / PTO",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000075613005",
-      "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - Install Package Paid",
-      "lender": "LR",
-      "contract_total": 26764.8,
-      "pct_collected": 0.8,
-      "dollars_collected": 21411.84,
-      "dollars_outstanding": 5352.96,
-      "milestones": [
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 5352.96,
-          "forecast_date": "2026-08-27",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 08/24"
-        }
-      ],
-      "next_milestone": "Activation package (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 5352.96,
-      "forecast_date": "2026-08-27",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-      "status": "on_track",
-      "flags": [
-        "Financing_Type inferred from Lending_Status"
-      ],
-      "bucket": "Wk 08/24"
     },
     {
       "project_id": "PROJ-1563",
