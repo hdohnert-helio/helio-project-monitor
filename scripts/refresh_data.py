@@ -572,40 +572,34 @@ def compute_velocity(history: dict, now: datetime,
                 continue
             # Locate the "from" anchor
             if from_stage == "__creation__":
-                from_dt = None
-
-                # Best source: Project_Created_Date (custom Zoho field — the
-                # actual contract/sold date). Use it if it's on or after the
-                # tracking cutoff so we have a reliable anchor.
-                # Compare as dates (not datetimes) to avoid timezone-offset
-                # issues: a date of "2026-04-16" parsed as midnight UTC would
-                # fall before the cutoff of midnight ET (04:00 UTC) and get
-                # incorrectly rejected.
+                # Use the project's actual sold/created date as the anchor,
+                # floored to the tracking cutoff. This means:
+                #   - Projects sold before the cutoff: from_dt = cutoff (lower-bound)
+                #   - Projects sold after the cutoff: from_dt = their actual date
+                # A project only contributes to the sample if it reached the
+                # target stage AFTER the cutoff (enforced below when we check
+                # candidate >= cutoff). This gives correct counts: every project
+                # that moved into the target stage since tracking began is counted.
                 pcd = entry.get("project_created_date")
+                from_dt = None
                 if pcd:
                     try:
                         from datetime import date as _date
                         pcd_date = _date.fromisoformat(pcd)
-                        cutoff_date = VELOCITY_CUTOFF_DT.date()
-                        if pcd_date >= cutoff_date:
-                            # Treat as start-of-day ET for a consistent anchor
-                            from_dt = _parse_iso_utc(pcd + "T04:00:00+00:00")
+                        raw_dt = _parse_iso_utc(pcd + "T04:00:00+00:00")
+                        from_dt = max(raw_dt, VELOCITY_CUTOFF_DT)
                     except ValueError:
                         pass
-
-                # Fallback: projects first observed in Sales Ops Review or
-                # Project Intake (the pipeline entry stages) with no
-                # Project_Created_Date — use the cutoff as a floor, which
-                # gives a lower-bound measurement rather than nothing.
                 if not from_dt:
-                    first = spans[0]
-                    PIPELINE_ENTRY_STAGES = {"Sales Ops Review", "Project Intake"}
-                    if first.get("truncated") and first.get("stage") not in PIPELINE_ENTRY_STAGES:
+                    # No Project_Created_Date — fall back to first observed span,
+                    # floored to the cutoff.
+                    first = spans[0] if spans else None
+                    if not first:
                         continue
-                    from_dt = _parse_iso_utc(first.get("entered_at"))
-
-                if not from_dt:
-                    continue
+                    raw_dt = _parse_iso_utc(first.get("entered_at"))
+                    if not raw_dt:
+                        continue
+                    from_dt = max(raw_dt, VELOCITY_CUTOFF_DT)
             else:
                 from_dt = None
                 for sp in spans:
@@ -614,13 +608,15 @@ def compute_velocity(history: dict, now: datetime,
                         break
             if not from_dt:
                 continue
-            # Locate the "to" entry that follows from_dt
+            # Locate the "to" entry that follows from_dt AND is after the cutoff.
+            # For __creation__ transitions this ensures we only count projects
+            # that actually reached the target stage since tracking began.
             to_dt = None
             for sp in spans:
                 if sp.get("stage") != to_stage:
                     continue
                 candidate = _parse_iso_utc(sp.get("entered_at"))
-                if candidate and candidate >= from_dt:
+                if candidate and candidate >= from_dt and candidate >= VELOCITY_CUTOFF_DT:
                     to_dt = candidate
                     break
             if not to_dt:
