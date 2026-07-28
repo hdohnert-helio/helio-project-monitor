@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T14:02:42.298563Z",
+  "generated_at": "2026-07-28T14:55:06.564663Z",
   "today": "2026-07-28",
   "weeks": [
     {
@@ -92,7 +92,7 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 12,
+    "project_count": 13,
     "total_outstanding": 267421.62,
     "total_collected": 7346.83,
     "this_week": 0.0,
@@ -626,6 +626,33 @@
       "status": "past_due",
       "flags": [],
       "bucket": "Past-due"
+    },
+    {
+      "project_id": "PROJ-1576",
+      "customer": "Frank & Josephine LaFauci",
+      "stage": "Witness Test / PTO",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "project_manager": "David Fargnoli",
+      "zoho_record_id": "5264387000072342015",
+      "financing_type": "Cash",
+      "lending_status": "Cash - paid in full",
+      "lender": "Cash",
+      "contract_total": null,
+      "pct_collected": 1.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 0.0,
+      "milestones": [],
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
+      "next_dollar": 0.0,
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
+      "bucket": "Paid"
     }
   ],
   "view_label": "Butch Carmona"

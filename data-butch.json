@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-28T14:02:42.298563Z",
-  "generated_at_label": "Tue Jul 28, 2026 · 10:02 AM ET",
+  "generated_at": "2026-07-28T14:55:06.564663Z",
+  "generated_at_label": "Tue Jul 28, 2026 · 10:55 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 28,
   "projects": [
@@ -1113,7 +1113,7 @@
       "customer": "Charles Casey | Crystal Casey",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-07-20T10:47:00-04:00",
-      "days_in_stage": 7,
+      "days_in_stage": 8,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -1523,9 +1523,9 @@
     {
       "project_id": "PROJ-1576",
       "customer": "Frank & Josephine LaFauci",
-      "stage": "Energized",
-      "stage_entered_at": "2026-04-16T00:00:00-04:00",
-      "days_in_stage": 103,
+      "stage": "Witness Test / PTO",
+      "stage_entered_at": "2026-07-28T10:37:00-04:00",
+      "days_in_stage": 0,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
