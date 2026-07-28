@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T12:57:04.337468Z",
+  "generated_at": "2026-07-28T14:02:42.298563Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 27,
   "transitions": [
@@ -7,25 +7,25 @@
       "label": "Sold to Install Ready",
       "from": "__creation__",
       "to": "Active Installation",
-      "sample_count": 1,
-      "median_days": 68.65059714215278,
-      "p75_days": 68.65059714215278
+      "sample_count": 3,
+      "median_days": 33.60652608502315,
+      "p75_days": 51.12856161358796
     },
     {
       "label": "Sold to Install Complete",
       "from": "__creation__",
       "to": "Inspection",
-      "sample_count": 1,
-      "median_days": 69.6488336461227,
-      "p75_days": 69.6488336461227
+      "sample_count": 3,
+      "median_days": 41.438228871064815,
+      "p75_days": 55.54353125859376
     },
     {
       "label": "Sold to Energized",
       "from": "__creation__",
       "to": "Energized",
-      "sample_count": 0,
-      "median_days": null,
-      "p75_days": null
+      "sample_count": 2,
+      "median_days": 80.42495773597221,
+      "p75_days": 89.88716385166087
     },
     {
       "label": "Install Complete to Energized",
@@ -49,7 +49,7 @@
       "sample_count": 5,
       "open_count": 1,
       "median_days": 4.975175414108796,
-      "p75_days": 17.7195212565625
+      "p75_days": 17.765099509976853
     },
     {
       "stage": "Site Survey",
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 4,
       "open_count": 4,
-      "median_days": 26.361054200167825,
-      "p75_days": 36.50911186837384
+      "median_days": 26.406632453582173,
+      "p75_days": 36.55469012178819
     },
     {
       "stage": "Permitting",
@@ -104,8 +104,8 @@
       "stage": "Inspection",
       "sample_count": 3,
       "open_count": 1,
-      "median_days": 13.724133222719907,
-      "p75_days": 15.997776957662037
+      "median_days": 13.769711476134258,
+      "p75_days": 16.020566084369214
     },
     {
       "stage": "Witness Test / PTO",
@@ -117,9 +117,9 @@
     {
       "stage": "Energized",
       "sample_count": 2,
-      "open_count": 2,
-      "median_days": 22.948009132870368,
-      "p75_days": 32.41021524855903
+      "open_count": 0,
+      "median_days": 22.993587386284723,
+      "p75_days": 32.45579350197338
     }
   ],
   "notes": [
