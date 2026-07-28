@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T14:55:06.564663Z",
+  "generated_at": "2026-07-28T19:40:16.666465Z",
   "today": "2026-07-28",
   "weeks": [
     {
@@ -83,10 +83,10 @@
     "Wk 08/24": 121270.96,
     "Wk 08/31": 162895.77,
     "Wk 09/07": 26045.28,
-    "Wk 09/14": 78500.18,
+    "Wk 09/14": 99328.58,
     "Wk 09/21": 17017.68,
     "Wk 09/28": 18227.38,
-    "Wk 10/05": 16929.1,
+    "Wk 10/05": 22136.2,
     "Wk 10/12": 0.0,
     "Past-due": 58393.2,
     "Beyond 12 wks": 0.0
@@ -937,21 +937,40 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000085875055",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Needs NTP",
-      "lender": "?",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
       "contract_total": 26035.5,
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 26035.5,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 20828.4,
+          "forecast_date": "2026-09-15",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 09/14"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 5207.1,
+          "forecast_date": "2026-10-11",
+          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 10/05"
+        }
+      ],
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 20828.4,
+      "forecast_date": "2026-09-15",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Paid"
+      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1607",
