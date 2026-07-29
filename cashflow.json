@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T13:04:24.074241Z",
+  "generated_at": "2026-07-29T14:50:08.644966Z",
   "today": "2026-07-29",
   "weeks": [
     {
@@ -89,12 +89,14 @@
     "Wk 10/05": 0.0,
     "Wk 10/12": 22136.2,
     "Past-due": 0.0,
-    "Beyond 12 wks": 0.0
+    "Beyond 12 wks": 0.0,
+    "Received": 696390.64
   },
   "summary": {
     "project_count": 30,
     "total_outstanding": 680780.11,
     "total_collected": 696390.64,
+    "received": 696390.64,
     "this_week": 67920.0,
     "next_30_days": 349727.52,
     "past_due": 0.0,
@@ -117,6 +119,15 @@
       "dollars_collected": 26045.28,
       "dollars_outstanding": 104181.12,
       "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 26045.28,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
         {
           "label": "Pre-install (60%)",
           "pct": 0.6,
@@ -164,6 +175,15 @@
       "dollars_outstanding": 29387.32,
       "milestones": [
         {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 7346.83,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 22040.49,
@@ -209,6 +229,15 @@
       "dollars_collected": 16970.4,
       "dollars_outstanding": 67881.6,
       "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 16970.4,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
         {
           "label": "Pre-install (60%)",
           "pct": 0.6,
@@ -256,6 +285,15 @@
       "dollars_outstanding": 36449.29,
       "milestones": [
         {
+          "label": "1/3 loan docs signed",
+          "pct": 0.3333,
+          "dollars": 18221.91,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
           "label": "1/3 interconnection approval",
           "pct": 0.3333,
           "dollars": 18221.91,
@@ -302,6 +340,15 @@
       "dollars_outstanding": 43906.88,
       "milestones": [
         {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 10976.72,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 32930.16,
@@ -347,6 +394,15 @@
       "dollars_collected": 4597.6,
       "dollars_outstanding": 18390.4,
       "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 4597.6,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
         {
           "label": "Pre-install (60%)",
           "pct": 0.6,
@@ -845,10 +901,10 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086050003",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": null,
-      "pct_collected": 0.0,
+      "pct_collected": 0.8,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
       "milestones": [
@@ -856,10 +912,10 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-29",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "on_track",
-          "bucket": "Wk 07/27"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Activation package (20%)",
@@ -871,16 +927,16 @@
           "bucket": "Wk 09/07"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-29",
-      "anchor_source": "Substantial_Completion + 14d",
+      "forecast_date": "2026-09-07",
+      "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 07/27"
+      "bucket": "Wk 09/07"
     },
     {
       "project_id": "PROJ-1610",
@@ -1078,7 +1134,35 @@
       "pct_collected": 1.0,
       "dollars_collected": 35089.0,
       "dollars_outstanding": 0.0,
-      "milestones": [],
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 7017.8,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 21053.4,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 7017.8,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        }
+      ],
       "next_milestone": "—",
       "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
@@ -1103,7 +1187,35 @@
       "pct_collected": 1.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
-      "milestones": [],
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 0.0,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        }
+      ],
       "next_milestone": "—",
       "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
@@ -1130,7 +1242,35 @@
       "pct_collected": 1.0,
       "dollars_collected": 23337.6,
       "dollars_outstanding": 0.0,
-      "milestones": [],
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 4667.52,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 14002.56,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 4667.52,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        }
+      ],
       "next_milestone": "—",
       "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
@@ -1155,7 +1295,35 @@
       "pct_collected": 1.0,
       "dollars_collected": 154774.0,
       "dollars_outstanding": 0.0,
-      "milestones": [],
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 30954.8,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 92864.4,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 30954.8,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        }
+      ],
       "next_milestone": "—",
       "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
@@ -1180,7 +1348,35 @@
       "pct_collected": 1.0,
       "dollars_collected": 80062.5,
       "dollars_outstanding": 0.0,
-      "milestones": [],
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 16012.5,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 48037.5,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 16012.5,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        }
+      ],
       "next_milestone": "—",
       "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
@@ -1205,7 +1401,35 @@
       "pct_collected": 1.0,
       "dollars_collected": 134988.0,
       "dollars_outstanding": 0.0,
-      "milestones": [],
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 26997.6,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 80992.8,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 26997.6,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        }
+      ],
       "next_milestone": "—",
       "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
@@ -1231,6 +1455,24 @@
       "dollars_collected": 113292.8,
       "dollars_outstanding": 28323.2,
       "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 28323.2,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 84969.6,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
@@ -1268,6 +1510,15 @@
       "dollars_collected": 22640.0,
       "dollars_outstanding": 90560.0,
       "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 22640.0,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
         {
           "label": "Pre-install (60%)",
           "pct": 0.6,
@@ -1312,6 +1563,15 @@
       "dollars_collected": 48048.0,
       "dollars_outstanding": 12012.0,
       "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 48048.0,
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
+        },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,

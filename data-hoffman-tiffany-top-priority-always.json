@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-29T13:04:24.074241Z",
-  "generated_at_label": "Wed Jul 29, 2026 · 9:04 AM ET",
+  "generated_at": "2026-07-29T14:50:08.644966Z",
+  "generated_at_label": "Wed Jul 29, 2026 · 10:50 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 8,
   "projects": [
@@ -9,7 +9,7 @@
       "customer": "Bob Muller",
       "stage": "Project Intake",
       "stage_entered_at": "2026-07-10T10:02:00-04:00",
-      "days_in_stage": 18,
+      "days_in_stage": 19,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
