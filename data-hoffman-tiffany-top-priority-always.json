@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-29T14:50:08.644966Z",
-  "generated_at_label": "Wed Jul 29, 2026 · 10:50 AM ET",
+  "generated_at": "2026-07-29T16:24:25.873844Z",
+  "generated_at_label": "Wed Jul 29, 2026 · 12:24 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 8,
   "projects": [
@@ -66,7 +66,7 @@
       "customer": "Jonathan Wong",
       "stage": "Interconnection",
       "stage_entered_at": "2026-06-25T11:23:00-04:00",
-      "days_in_stage": 33,
+      "days_in_stage": 34,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
