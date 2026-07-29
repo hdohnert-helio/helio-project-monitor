@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T16:24:25.873844Z",
+  "generated_at": "2026-07-29T19:25:22.868915Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 117,
   "transitions": [
@@ -83,7 +83,7 @@
       "stage": "Permitting",
       "sample_count": 16,
       "open_count": 4,
-      "median_days": 13.92980730821759,
+      "median_days": 13.992637140804398,
       "p75_days": 35.65177920591725
     },
     {
@@ -104,7 +104,7 @@
       "stage": "Inspection",
       "sample_count": 22,
       "open_count": 10,
-      "median_days": 18.701460486475696,
+      "median_days": 18.7642903190625,
       "p75_days": 48.51702761873554
     },
     {

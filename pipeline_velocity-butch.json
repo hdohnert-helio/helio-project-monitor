@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T16:24:25.873844Z",
+  "generated_at": "2026-07-29T19:25:22.868915Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 45,
   "transitions": [
@@ -83,7 +83,7 @@
       "stage": "Permitting",
       "sample_count": 10,
       "open_count": 3,
-      "median_days": 13.92980730821759,
+      "median_days": 13.992637140804398,
       "p75_days": 30.16725981767651
     },
     {
@@ -105,13 +105,13 @@
       "sample_count": 12,
       "open_count": 4,
       "median_days": 15.005669048333333,
-      "p75_days": 21.16070862110243
+      "p75_days": 21.192123537395833
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 8,
       "open_count": 2,
-      "median_days": 28.268765183483794,
+      "median_days": 28.3315950160706,
       "p75_days": 55.69288801100694
     },
     {
