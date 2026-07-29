@@ -442,9 +442,10 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
         ica_approval = _parse_date(r.get("ICA_Contingent_Approval"))
         date_of_stage_change = _parse_date(r.get("Date_of_Stage_Change"))
 
-        # Build the full milestone list for this project — every uncollected
-        # milestone gets its own forecast. Walk the schedule for this lender
-        # and skip milestones already covered by pct_collected.
+        # Build the full milestone list for this project — every milestone
+        # gets its own entry. Already-collected milestones are marked
+        # status="received" so the dashboard can display what closed this
+        # week (e.g. commissions due) rather than hiding them entirely.
         schedule = FINANCING_SCHEDULES.get(lender, [])
         milestones: list[dict] = []
         cum_pct = 0.0
@@ -452,7 +453,16 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
         for label, pct in schedule:
             cum_pct += pct
             if cum_pct <= pct_collected + TOL:
-                continue  # this milestone is already paid
+                ms_dollars = (contract_total * pct) if contract_total else 0.0
+                milestones.append({
+                    "label": label,
+                    "pct": round(pct, 4),
+                    "dollars": round(ms_dollars, 2),
+                    "forecast_date": None,
+                    "anchor_source": "received",
+                    "status": "received",
+                })
+                continue
             ms_dollars = (contract_total * pct) if contract_total else 0.0
             forecast = _compute(
                 lender, label, pct, today,
@@ -470,9 +480,8 @@ def build_projects(rows: list[dict], today: date) -> list[dict]:
             })
 
         # Project-level "next" fields surface the FIRST outstanding milestone
-        # (matches the legacy single-milestone-per-project view for the
-        # dashboard's summary cards / backward compat).
-        first = milestones[0] if milestones else None
+        # (skip received ones — those are already collected).
+        first = next((m for m in milestones if m["status"] != "received"), None)
         next_milestone = first["label"] if first else "—"
         next_pct = first["pct"] if first else 0.0
         next_dollar = first["dollars"] if first else 0.0
@@ -545,6 +554,8 @@ def _bucket_for(m: dict, weeks: list[dict]) -> str:
     status = m.get("status")
     if status == "paid":
         return "Paid"
+    if status == "received":
+        return "Received"
     if status == "past_due":
         return "Past-due"
     fd = _parse_date(m.get("forecast_date"))
@@ -571,6 +582,7 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
     weekly_totals: dict[str, float] = {w["label"]: 0.0 for w in weeks}
     weekly_totals["Past-due"] = 0.0
     weekly_totals["Beyond 12 wks"] = 0.0
+    weekly_totals["Received"] = 0.0
 
     total_outstanding = 0.0
     total_collected = 0.0
@@ -596,9 +608,13 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
                     this_week_total += amt
                 if fd and today <= fd <= cutoff_30:
                     next_30_days += amt
-        # Project-level bucket = first milestone's bucket (or Paid if none).
-        first = (p.get("milestones") or [{}])[0]
-        p["bucket"] = first.get("bucket", "Paid")
+        # Project-level bucket = first outstanding milestone's bucket (or Paid).
+        # Skip received milestones — use the next uncollected one for bucketing.
+        first_outstanding = next(
+            (m for m in p.get("milestones", []) if m.get("status") != "received"),
+            None
+        )
+        p["bucket"] = first_outstanding["bucket"] if first_outstanding else "Paid"
         total_outstanding += p["dollars_outstanding"] or 0
         total_collected += p["dollars_collected"] or 0
 
@@ -611,6 +627,7 @@ def compute_cashflow(raw_rows: list[dict], now: datetime) -> dict:
             "project_count": len(projects),
             "total_outstanding": round(total_outstanding, 2),
             "total_collected": round(total_collected, 2),
+            "received": round(weekly_totals.get("Received", 0.0), 2),
             "this_week": round(this_week_total, 2),
             "next_30_days": round(next_30_days, 2),
             "past_due": round(weekly_totals.get("Past-due", 0.0), 2),

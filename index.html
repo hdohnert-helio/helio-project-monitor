@@ -165,11 +165,14 @@
   .cf-bar-fill.cf-past-due{background:#e53935}
   .cf-bar-fill.cf-unscheduled{background:#aab}
   .cf-bar-fill.cf-this-week{background:#1a8a45}
+  .cf-bar-fill.cf-received{background:#1565c0}
   .cf-bar-amount{width:110px;color:#333;font-weight:600;text-align:left;flex-shrink:0;font-variant-numeric:tabular-nums}
   .cf-bar-row.cf-empty .cf-bar-fill{background:#e0e0e0}
   .cf-bar-row.cf-empty .cf-bar-amount{color:#bbb;font-weight:400}
   #cfTableBody tr.cf-row-past-due{background:#fdecea}
   #cfTableBody tr.cf-row-unscheduled{background:#fff8e7}
+  #cfTableBody tr.cf-row-received{background:#e3f0ff}
+  .card.blue .value{color:#1565c0}
   #cfTableBody td{font-variant-numeric:tabular-nums}
   @media(max-width:920px){.cf-summary{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -1001,6 +1004,7 @@
     const s = payload.summary || {};
     const cards = [
       {label:'Total Outstanding',  value:_fmtMoney(s.total_outstanding), klass:'total',  sub:(s.project_count|0)+' projects', filter:'all'},
+      {label:'Received (unpaid)',  value:_fmtMoney(s.received),          klass:'blue',   sub:'commissions due',               filter:'received'},
       {label:'This Week',          value:_fmtMoney(s.this_week),         klass:'green',  sub:'',                              filter:'this_week'},
       {label:'Next 30 Days',       value:_fmtMoney(s.next_30_days),      klass:'yellow', sub:'',                              filter:'next_30'},
       {label:'Past-Due',           value:_fmtMoney(s.past_due),          klass:'red',    sub:'real chase',                    filter:'past_due'},
@@ -1018,7 +1022,7 @@
 
     // ---- Bar chart: Past-due | Wk 1..12 | Beyond 12 wks ----
     const totals = payload.weekly_totals || {};
-    const labels = ['Past-due'].concat((payload.weeks || []).map(w => w.label)).concat(['Beyond 12 wks']);
+    const labels = ['Received', 'Past-due'].concat((payload.weeks || []).map(w => w.label)).concat(['Beyond 12 wks']);
     const values = labels.map(l => totals[l] || 0);
     const maxv = Math.max.apply(null, values.concat([1]));
     const firstWeekLabel = (payload.weeks && payload.weeks[0]) ? payload.weeks[0].label : null;
@@ -1028,12 +1032,14 @@
       let klass = '';
       if (label === 'Past-due') klass = 'cf-past-due';
       else if (label === 'Beyond 12 wks') klass = 'cf-unscheduled';
+      else if (label === 'Received') klass = 'cf-received';
       else if (label === firstWeekLabel) klass = 'cf-this-week';
       const empty = v <= 0;
       // Map chart label → filter token. Past-due / Beyond 12 wks have
       // dedicated filter values; weekly labels are filtered by exact match.
       const filterToken = label === 'Past-due'      ? 'past_due'
                         : label === 'Beyond 12 wks' ? 'beyond_12'
+                        : label === 'Received'      ? 'received'
                         : label;
       const active = (_cfFilter === filterToken
                       || (label === firstWeekLabel && _cfFilter === 'this_week'))
@@ -1059,6 +1065,7 @@
       if (_cfFilter === 'all') return true;
       if (_cfFilter === 'past_due') return row.bucket === 'Past-due';
       if (_cfFilter === 'beyond_12') return row.bucket === 'Beyond 12 wks';
+      if (_cfFilter === 'received') return row.bucket === 'Received';
       if (_cfFilter === 'this_week') return row.bucket === firstWeekLabel;
       if (_cfFilter === 'next_30'){
         if (!row.forecast_date || !todayDate || !cutoff30) return false;
@@ -1104,6 +1111,7 @@
     if (headerH2){
       const filterDesc = !_cfFilter ? 'sorted by forecast date'
         : _cfFilter === 'all'       ? 'sorted by forecast date'
+        : _cfFilter === 'received'  ? 'filtered: Received (commissions due)'
         : _cfFilter === 'past_due'  ? 'filtered: Past-due'
         : _cfFilter === 'beyond_12' ? 'filtered: Beyond 12 wks'
         : _cfFilter === 'this_week' ? 'filtered: this week'
@@ -1121,8 +1129,9 @@
     tbody.innerHTML = rows.map(r => {
       const url = 'https://crm.zoho.com/crm/heliosolar/tab/CustomModule6/'
         + encodeURIComponent(r.zoho_record_id || '') + '/canvas/' + canvasId;
-      const rowClass = r.bucket === 'Past-due' ? 'cf-row-past-due'
-                     : (r.bucket === 'Beyond 12 wks') ? 'cf-row-unscheduled'
+      const rowClass = r.bucket === 'Past-due'     ? 'cf-row-past-due'
+                     : r.bucket === 'Beyond 12 wks' ? 'cf-row-unscheduled'
+                     : r.bucket === 'Received'       ? 'cf-row-received'
                      : '';
       return '<tr class="' + rowClass + '">'
         + '<td><strong>' + esc(r.customer) + '</strong></td>'
