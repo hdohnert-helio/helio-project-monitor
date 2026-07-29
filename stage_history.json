@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-07-28T19:40:16.666465Z",
+  "last_run": "2026-07-29T13:04:24.074241Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -432,6 +432,12 @@
         {
           "stage": "Witness Test / PTO",
           "entered_at": "2026-07-20T19:49:20.107973Z",
+          "exited_at": "2026-07-29T13:04:24.074241Z",
+          "truncated": false
+        },
+        {
+          "stage": "Energized",
+          "entered_at": "2026-07-29T13:04:24.074241Z",
           "exited_at": null,
           "truncated": false
         }
@@ -1586,6 +1592,12 @@
         {
           "stage": "Procurement & Scheduling",
           "entered_at": "2026-07-20T19:49:20.107973Z",
+          "exited_at": "2026-07-29T13:04:24.074241Z",
+          "truncated": false
+        },
+        {
+          "stage": "Active Installation",
+          "entered_at": "2026-07-29T13:04:24.074241Z",
           "exited_at": null,
           "truncated": false
         }
