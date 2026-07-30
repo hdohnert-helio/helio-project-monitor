@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T12:48:05.882951Z",
+  "generated_at": "2026-07-30T19:41:26.031015Z",
   "today": "2026-07-30",
   "weeks": [
     {
@@ -77,12 +77,12 @@
   ],
   "weekly_totals": {
     "Wk 07/27": 0.0,
-    "Wk 08/03": 67920.0,
+    "Wk 08/03": 146055.84,
     "Wk 08/10": 0.0,
-    "Wk 08/17": 203671.68,
-    "Wk 08/24": 78135.84,
+    "Wk 08/17": 229716.96,
+    "Wk 08/24": 0.0,
     "Wk 08/31": 148297.47,
-    "Wk 09/07": 26045.28,
+    "Wk 09/07": 0.0,
     "Wk 09/14": 99328.58,
     "Wk 09/21": 0.0,
     "Wk 09/28": 35245.06,
@@ -93,12 +93,12 @@
     "Received": 696390.64
   },
   "summary": {
-    "project_count": 30,
+    "project_count": 29,
     "total_outstanding": 680780.11,
     "total_collected": 696390.64,
     "received": 696390.64,
     "this_week": 0.0,
-    "next_30_days": 349727.52,
+    "next_30_days": 375772.8,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
@@ -106,7 +106,7 @@
     {
       "project_id": "PROJ-1649",
       "customer": "Bob Muller",
-      "stage": "Project Intake",
+      "stage": "Permitting",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -132,31 +132,31 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 78135.84,
-          "forecast_date": "2026-08-26",
-          "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "forecast_date": "2026-08-03",
+          "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 08/24"
+          "bucket": "Wk 08/03"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 26045.28,
-          "forecast_date": "2026-09-12",
-          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-08-20",
+          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 09/07"
+          "bucket": "Wk 08/17"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 78135.84,
-      "forecast_date": "2026-08-26",
-      "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "forecast_date": "2026-08-03",
+      "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 08/24"
+      "bucket": "Wk 08/03"
     },
     {
       "project_id": "PROJ-1648",
@@ -569,52 +569,6 @@
       "flags": [
         "Contract_Total missing or zero",
         "Financing_Type inferred from Lending_Status"
-      ],
-      "bucket": "Past-due"
-    },
-    {
-      "project_id": "PROJ-1630",
-      "customer": "Steve Kerschner",
-      "stage": "Inspection",
-      "owner": "Tiffany Vilayphonh",
-      "rep": "Doug Hoffman",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000086572119",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
-      "lender": "LR",
-      "contract_total": null,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": "2026-07-21",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-08",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/07"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-07-21",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
-      "flags": [
-        "Contract_Total missing or zero"
       ],
       "bucket": "Past-due"
     },

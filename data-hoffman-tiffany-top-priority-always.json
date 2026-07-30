@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-07-30T12:48:05.882951Z",
-  "generated_at_label": "Thu Jul 30, 2026 · 8:48 AM ET",
+  "generated_at": "2026-07-30T19:41:26.031015Z",
+  "generated_at_label": "Thu Jul 30, 2026 · 3:41 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 8,
   "projects": [
     {
       "project_id": "PROJ-1649",
       "customer": "Bob Muller",
-      "stage": "Project Intake",
-      "stage_entered_at": "2026-07-10T10:02:00-04:00",
-      "days_in_stage": 19,
+      "stage": "Permitting",
+      "stage_entered_at": "2026-07-30T09:50:00-04:00",
+      "days_in_stage": 0,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -47,7 +47,7 @@
       "customer": "Chris Anderson",
       "stage": "Interconnection",
       "stage_entered_at": "2026-07-13T14:33:00-04:00",
-      "days_in_stage": 16,
+      "days_in_stage": 17,
       "rep": "Douglas Hoffman",
       "owner": "Douglas Hoffman",
       "project_manager": "",
@@ -66,7 +66,7 @@
       "customer": "Jonathan Wong",
       "stage": "Interconnection",
       "stage_entered_at": "2026-06-25T11:23:00-04:00",
-      "days_in_stage": 34,
+      "days_in_stage": 35,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -102,9 +102,9 @@
     {
       "project_id": "PROJ-1630",
       "customer": "Steve Kerschner",
-      "stage": "Inspection",
-      "stage_entered_at": "2026-07-14T13:17:00-04:00",
-      "days_in_stage": 15,
+      "stage": "Energized",
+      "stage_entered_at": "2026-07-30T13:47:00-04:00",
+      "days_in_stage": 0,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -112,7 +112,7 @@
       "last_reviewed_by": "",
       "last_review_notes": "",
       "zoho_record_id": "5264387000086572119",
-      "lightreach_finance_status": "requirementCompleted",
+      "lightreach_finance_status": "requirementStatusChanged",
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [
@@ -259,6 +259,69 @@
           "previous_status": "",
           "reason": "",
           "at": "2026-07-21T20:11:22+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:11+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationPackage",
+          "name": "activationPackage",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:21+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "monitoringSiteId",
+          "name": "monitoringSiteId",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:21+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "siteImprovements",
+          "name": "siteImprovements",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:21+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationDocuments",
+          "name": "activationDocuments",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:21+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "extendedWarranty",
+          "name": "extendedWarranty",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:21+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "incentives",
+          "name": "incentives",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:21+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -277,6 +340,14 @@
           "previous_status": "",
           "reason": "",
           "at": "2026-07-21T20:11:16+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "activation",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-07-30T17:45:13+00:00"
         }
       ]
     },
@@ -285,7 +356,7 @@
       "customer": "Richard Desrochers",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-05T14:33:00-04:00",
-      "days_in_stage": 85,
+      "days_in_stage": 86,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
