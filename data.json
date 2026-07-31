@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-30T19:41:26.031015Z",
-  "generated_at_label": "Thu Jul 30, 2026 · 3:41 PM ET",
+  "generated_at": "2026-07-31T12:59:54.721973Z",
+  "generated_at_label": "Fri Jul 31, 2026 · 8:59 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 50,
   "projects": [
@@ -47,7 +47,7 @@
       "customer": "Joseph Jahr",
       "stage": "Interconnection",
       "stage_entered_at": "2026-07-07T16:49:00-04:00",
-      "days_in_stage": 22,
+      "days_in_stage": 23,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -85,7 +85,7 @@
       "customer": "Kevin Gill",
       "stage": "Interconnection",
       "stage_entered_at": "2026-06-29T16:02:00-04:00",
-      "days_in_stage": 30,
+      "days_in_stage": 31,
       "rep": "Laura Beth Collinson",
       "owner": "Laura Beth Collinson",
       "project_manager": "",
@@ -142,7 +142,7 @@
       "customer": "Ronald Muriel",
       "stage": "Interconnection",
       "stage_entered_at": "2026-06-09T16:27:00-04:00",
-      "days_in_stage": 50,
+      "days_in_stage": 51,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -256,7 +256,7 @@
       "customer": "Bishuja Deb",
       "stage": "Inspection",
       "stage_entered_at": "2026-07-09T17:32:00-04:00",
-      "days_in_stage": 20,
+      "days_in_stage": 21,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -655,6 +655,24 @@
           "previous_status": "pending",
           "reason": "",
           "at": "2026-07-30T17:45:21+00:00"
+        },
+        {
+          "event": "requirementCompleted",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "completed",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-07-30T20:38:10+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-07-30T20:38:12+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -754,7 +772,7 @@
       "last_reviewed_by": "",
       "last_review_notes": "",
       "zoho_record_id": "5264387000086384004",
-      "lightreach_finance_status": "milestoneStatusChanged",
+      "lightreach_finance_status": "milestoneAchieved",
       "lightreach_ntp_granted_at": "2026-07-22T17:08:36-04:00",
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [
@@ -982,6 +1000,150 @@
           "previous_status": "resubmitted",
           "reason": "",
           "at": "2026-07-29T15:54:03+00:00"
+        },
+        {
+          "event": "requirementCompleted",
+          "code": "installPackage",
+          "name": "installPackage",
+          "status": "completed",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-07-30T20:20:45+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "installPackage",
+          "name": "installPackage",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "finalDesignApproved",
+          "name": "finalDesignApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "dxfApproved",
+          "name": "dxfApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "shadeReportApproved",
+          "name": "shadeReportApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "planSetApproved",
+          "name": "planSetApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "productionModelApproved",
+          "name": "productionModelApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "permitApproved",
+          "name": "permitApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "installPhotosApproved",
+          "name": "installPhotosApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "projectSitePhotosApproved",
+          "name": "projectSitePhotosApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "roofPhotosApproved",
+          "name": "roofPhotosApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "electricalPhotosApproved",
+          "name": "electricalPhotosApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "storagePhotosApproved",
+          "name": "storagePhotosApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "systemCommissioningApproved",
+          "name": "systemCommissioningApproved",
+          "status": "completed",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "domesticContentConfirmation",
+          "name": "domesticContentConfirmation",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:51+00:00"
+        },
+        {
+          "event": "requirementCompleted",
+          "code": "domesticContentConfirmation",
+          "name": "domesticContentConfirmation",
+          "status": "completed",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-07-30T20:20:53+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -1032,6 +1194,22 @@
           "previous_status": "resubmitted",
           "reason": "",
           "at": "2026-07-29T15:54:06+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "install",
+          "status": "approved",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-07-30T20:20:47+00:00"
+        },
+        {
+          "event": "milestoneAchieved",
+          "milestone": "install",
+          "status": "achieved",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-07-30T20:20:55+00:00"
         }
       ]
     },
@@ -1059,7 +1237,7 @@
       "customer": "Asaduzzaman Khokon",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-11T08:54:00-04:00",
-      "days_in_stage": 80,
+      "days_in_stage": 81,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1097,7 +1275,7 @@
       "customer": "Mohammed Ali",
       "stage": "Inspection",
       "stage_entered_at": "2026-07-23T17:28:00-04:00",
-      "days_in_stage": 6,
+      "days_in_stage": 7,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1426,7 +1604,7 @@
       "customer": "Nasima Majid",
       "stage": "Permitting",
       "stage_entered_at": "2026-06-01T16:45:00-04:00",
-      "days_in_stage": 58,
+      "days_in_stage": 59,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1775,7 +1953,7 @@
       "customer": "Justin Kane",
       "stage": "Active Installation",
       "stage_entered_at": "2026-07-29T08:33:00-04:00",
-      "days_in_stage": 1,
+      "days_in_stage": 2,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -1930,7 +2108,7 @@
       "customer": "Elsa Ortiz",
       "stage": "Inspection",
       "stage_entered_at": "2026-07-27T18:21:00-04:00",
-      "days_in_stage": 2,
+      "days_in_stage": 3,
       "rep": "Kenny Crosby",
       "owner": "Jenna Stockwell",
       "project_manager": "David Fargnoli",
@@ -2085,7 +2263,7 @@
       "customer": "Charles Casey | Crystal Casey",
       "stage": "Energized",
       "stage_entered_at": "2026-07-29T07:37:00-04:00",
-      "days_in_stage": 1,
+      "days_in_stage": 2,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -2586,7 +2764,7 @@
       "customer": "Carl Guild | Commercial",
       "stage": "Inspection",
       "stage_entered_at": "2026-04-16T00:00:00-04:00",
-      "days_in_stage": 105,
+      "days_in_stage": 106,
       "rep": "Laura Beth Collinson",
       "owner": "Laura Beth Collinson",
       "project_manager": "David Fargnoli",
@@ -2795,7 +2973,7 @@
       "customer": "Alex Starr | Commercial",
       "stage": "Permitting",
       "stage_entered_at": "2026-04-16T00:00:00-04:00",
-      "days_in_stage": 105,
+      "days_in_stage": 106,
       "rep": "Jim Trolice",
       "owner": "Jim Trolice",
       "project_manager": "David Fargnoli",
@@ -2814,7 +2992,7 @@
       "customer": "Daniel Ghazal",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-04-16T00:00:00-04:00",
-      "days_in_stage": 105,
+      "days_in_stage": 106,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
