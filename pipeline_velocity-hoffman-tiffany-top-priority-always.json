@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T19:17:40.644628Z",
+  "generated_at": "2026-08-02T12:07:20.822845Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 27,
   "transitions": [
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 4,
       "open_count": 4,
-      "median_days": 30.62536331081597,
-      "p75_days": 40.77342097902199
+      "median_days": 31.32652278092014,
+      "p75_days": 41.47458044912616
     },
     {
       "stage": "Permitting",
