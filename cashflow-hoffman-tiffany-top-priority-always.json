@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T13:43:50.966552Z",
+  "generated_at": "2026-08-03T19:47:07.210546Z",
   "today": "2026-08-03",
   "weeks": [
     {
@@ -76,12 +76,12 @@
     }
   ],
   "weekly_totals": {
-    "Wk 08/03": 78135.84,
+    "Wk 08/03": 91928.64,
     "Wk 08/10": 0.0,
-    "Wk 08/17": 82925.91,
-    "Wk 08/24": 26045.28,
+    "Wk 08/17": 69133.11,
+    "Wk 08/24": 30642.88,
     "Wk 08/31": 0.0,
-    "Wk 09/07": 33580.0,
+    "Wk 09/07": 28982.4,
     "Wk 09/14": 0.0,
     "Wk 09/21": 37926.0,
     "Wk 09/28": 0.0,
@@ -95,8 +95,8 @@
     "project_count": 6,
     "total_outstanding": 286321.91,
     "total_collected": 113883.19,
-    "this_week": 78135.84,
-    "next_30_days": 187107.03,
+    "this_week": 91928.64,
+    "next_30_days": 191704.63,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
@@ -269,7 +269,7 @@
     {
       "project_id": "PROJ-1644",
       "customer": "Jonathan Wong",
-      "stage": "Plan Review",
+      "stage": "Permitting",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -295,31 +295,31 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 13792.8,
-          "forecast_date": "2026-08-22",
-          "anchor_source": "today + 26d (Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "forecast_date": "2026-08-07",
+          "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 08/17"
+          "bucket": "Wk 08/03"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 4597.6,
-          "forecast_date": "2026-09-08",
-          "anchor_source": "today + 36d (Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-08-24",
+          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 09/07"
+          "bucket": "Wk 08/24"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 13792.8,
-      "forecast_date": "2026-08-22",
-      "anchor_source": "today + 26d (Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "forecast_date": "2026-08-07",
+      "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 08/17"
+      "bucket": "Wk 08/03"
     },
     {
       "project_id": "PROJ-1642",
