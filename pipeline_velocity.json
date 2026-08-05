@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T16:39:03.067028Z",
+  "generated_at": "2026-08-05T19:42:57.030367Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 37,
   "transitions": [
@@ -7,7 +7,7 @@
       "label": "Sold to Install Ready",
       "from": "__creation__",
       "to": "Active Installation",
-      "sample_count": 10,
+      "sample_count": 11,
       "median_days": 57.687643982997685,
       "p75_days": 68.65059714215278
     },
@@ -15,9 +15,9 @@
       "label": "Sold to Install Complete",
       "from": "__creation__",
       "to": "Inspection",
-      "sample_count": 9,
-      "median_days": 60.38207087417824,
-      "p75_days": 67.5171497491146
+      "sample_count": 11,
+      "median_days": 62.883768363142366,
+      "p75_days": 72.32309753416378
     },
     {
       "label": "Install Complete to Energized",
@@ -82,8 +82,8 @@
     {
       "stage": "Permitting",
       "sample_count": 20,
-      "open_count": 8,
-      "median_days": 10.01895367258102,
+      "open_count": 7,
+      "median_days": 10.082807627089121,
       "p75_days": 28.043927199542825
     },
     {
@@ -96,15 +96,15 @@
     {
       "stage": "Active Installation",
       "sample_count": 13,
-      "open_count": 1,
-      "median_days": 7.1490624165162036,
+      "open_count": 0,
+      "median_days": 7.276770325532408,
       "p75_days": 8.283341131944445
     },
     {
       "stage": "Inspection",
       "sample_count": 22,
-      "open_count": 7,
-      "median_days": 19.221795497106484,
+      "open_count": 5,
+      "median_days": 19.28564945161458,
       "p75_days": 49.972204636111115
     },
     {
@@ -116,10 +116,10 @@
     },
     {
       "stage": "Energized",
-      "sample_count": 10,
-      "open_count": 2,
-      "median_days": 24.533531017089125,
-      "p75_days": 61.478862358764474
+      "sample_count": 11,
+      "open_count": 3,
+      "median_days": 7.276770325532408,
+      "p75_days": 55.20682105228588
     }
   ],
   "notes": [
