@@ -663,7 +663,10 @@ def compute_velocity(history: dict, now: datetime,
     return {
         "generated_at": _iso_utc(now),
         "cutoff": VELOCITY_CUTOFF_TS,
-        "project_count": len(proj_iter),
+        "project_count": sum(
+            1 for _, e in proj_iter
+            if (e.get("project_created_date") or "") >= VELOCITY_CUTOFF_TS[:10]
+        ),
         "transitions": transitions,
         "dwell_per_stage": dwell_rows,
         "notes": [
