@@ -63,7 +63,8 @@ FIELDS = (
     # /webhook/lightreach handler, consumed by the submission checklist.
     "LightReach_Finance_Status,LightReach_NTP_Granted_At,"
     "LightReach_Outstanding_Stipulations,LightReach_RequirementLog,"
-    "LightReach_MilestoneLog"
+    "LightReach_MilestoneLog,"
+    "Aurora_Project_ID"
 )
 
 # Stage-change tracking was enabled in Zoho on 2026-04-16. Records that
@@ -276,6 +277,7 @@ def build_projects(rows: list[dict]) -> list[dict]:
             "lightreach_outstanding_stipulations": (r.get("LightReach_Outstanding_Stipulations") or "").strip(),
             "lightreach_requirement_log": _parse_json_list(r.get("LightReach_RequirementLog")),
             "lightreach_milestone_log": _parse_json_list(r.get("LightReach_MilestoneLog")),
+            "aurora_project_id": (r.get("Aurora_Project_ID") or "").strip(),
         })
     out.sort(key=_proj_id_sort_key, reverse=True)
     return out
@@ -565,6 +567,12 @@ def compute_velocity(history: dict, now: datetime,
     # Named transitions.
     transitions = []
     for label, from_stage, to_stage in KEY_TRANSITIONS:
+        # count = projects confirmed to have reached to_stage (used for n=)
+        # samples = durations we can actually measure (used for median/p75)
+        # These are kept separate so counts stay logically consistent across
+        # sequential milestones (Install Complete can never exceed Install Ready)
+        # even when some projects were already past a milestone when tracking began.
+        count = 0
         samples = []
         for _, entry in proj_iter:
             spans = entry.get("spans") or []
@@ -573,13 +581,7 @@ def compute_velocity(history: dict, now: datetime,
             # Locate the "from" anchor
             if from_stage == "__creation__":
                 # Use the project's actual sold/created date as the anchor,
-                # floored to the tracking cutoff. This means:
-                #   - Projects sold before the cutoff: from_dt = cutoff (lower-bound)
-                #   - Projects sold after the cutoff: from_dt = their actual date
-                # A project only contributes to the sample if it reached the
-                # target stage AFTER the cutoff (enforced below when we check
-                # candidate >= cutoff). This gives correct counts: every project
-                # that moved into the target stage since tracking began is counted.
+                # floored to the tracking cutoff.
                 pcd = entry.get("project_created_date")
                 from_dt = None
                 if pcd:
@@ -591,8 +593,6 @@ def compute_velocity(history: dict, now: datetime,
                     except ValueError:
                         pass
                 if not from_dt:
-                    # No Project_Created_Date — fall back to first observed span,
-                    # floored to the cutoff.
                     first = spans[0] if spans else None
                     if not first:
                         continue
@@ -608,29 +608,38 @@ def compute_velocity(history: dict, now: datetime,
                         break
             if not from_dt:
                 continue
-            # Locate the "to" entry that follows from_dt AND is after the cutoff.
-            # For __creation__ transitions this ensures we only count projects
-            # that actually reached the target stage since tracking began.
-            to_dt = None
+            # Locate the "to" span. Accept any span for to_stage — including
+            # truncated ones (project was already at or past this milestone
+            # when tracking began). This keeps counts consistent: every project
+            # counted in a later milestone is also counted in earlier ones.
+            to_dt = None        # entry time we can measure from
+            reached = False     # project definitely passed through to_stage
             for sp in spans:
                 if sp.get("stage") != to_stage:
                     continue
                 candidate = _parse_iso_utc(sp.get("entered_at"))
-                if candidate and candidate >= from_dt and candidate >= VELOCITY_CUTOFF_DT:
-                    to_dt = candidate
+                if not candidate:
+                    reached = True  # span exists but no timestamp; count it
                     break
-            if not to_dt:
+                if candidate >= from_dt and candidate >= VELOCITY_CUTOFF_DT:
+                    to_dt = candidate   # measurable entry after cutoff
+                    reached = True
+                else:
+                    reached = True  # entered before cutoff; count but skip duration
+                break
+            if not reached:
                 continue
-            total_seconds = (to_dt - from_dt).total_seconds()
-            if total_seconds <= 0:
-                continue
-            on_hold = _on_hold_overlap_seconds(from_dt, to_dt, spans)
-            samples.append(max(0.0, (total_seconds - on_hold) / 86400.0))
+            count += 1
+            if to_dt:
+                total_seconds = (to_dt - from_dt).total_seconds()
+                if total_seconds > 0:
+                    on_hold = _on_hold_overlap_seconds(from_dt, to_dt, spans)
+                    samples.append(max(0.0, (total_seconds - on_hold) / 86400.0))
         transitions.append({
             "label": label,
             "from": from_stage,
             "to": to_stage,
-            "sample_count": len(samples),
+            "sample_count": count,
             "median_days": _percentile(samples, 50),
             "p75_days": _percentile(samples, 75),
         })
