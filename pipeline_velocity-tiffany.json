@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-05T16:16:09.055226Z",
+  "generated_at": "2026-08-05T16:19:16.112775Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "project_count": 16,
+  "project_count": 5,
   "transitions": [
     {
       "label": "Sold to Install Ready",
@@ -77,14 +77,14 @@
       "sample_count": 3,
       "open_count": 2,
       "median_days": 38.732002455451386,
-      "p75_days": 47.40407200473379
+      "p75_days": 47.40515451369791
     },
     {
       "stage": "Permitting",
       "sample_count": 4,
       "open_count": 2,
-      "median_days": 4.286128438310185,
-      "p75_days": 10.889910933637154
+      "median_days": 4.287210947274305,
+      "p75_days": 10.891534697083333
     },
     {
       "stage": "Procurement & Scheduling",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 3,
       "open_count": 1,
-      "median_days": 5.857442409849537,
-      "p75_days": 23.887721013755787
+      "median_days": 5.859607427777777,
+      "p75_days": 23.88880352271991
     }
   ],
   "notes": [
