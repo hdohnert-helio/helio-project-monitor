@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T16:19:16.112775Z",
+  "generated_at": "2026-08-05T16:28:56.558022Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 6,
   "transitions": [
@@ -76,15 +76,15 @@
       "stage": "Interconnection",
       "sample_count": 4,
       "open_count": 3,
-      "median_days": 33.44750329965278,
-      "p75_days": 43.06857848457465
+      "median_days": 33.45086235779514,
+      "p75_days": 43.07025801364583
     },
     {
       "stage": "Permitting",
       "sample_count": 4,
       "open_count": 2,
-      "median_days": 4.287210947274305,
-      "p75_days": 10.891534697083333
+      "median_days": 4.290570005416667,
+      "p75_days": 10.896573284296874
     },
     {
       "stage": "Procurement & Scheduling",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 3,
       "open_count": 1,
-      "median_days": 5.859607427777777,
-      "p75_days": 23.88880352271991
+      "median_days": 5.8663255440625,
+      "p75_days": 23.89216258086227
     }
   ],
   "notes": [

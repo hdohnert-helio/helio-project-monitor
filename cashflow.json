@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T16:19:16.112775Z",
+  "generated_at": "2026-08-05T16:28:56.558022Z",
   "today": "2026-08-05",
   "weeks": [
     {
@@ -90,13 +90,13 @@
     "Wk 10/19": 9481.5,
     "Past-due": 0.0,
     "Beyond 12 wks": 0.0,
-    "Received": 696390.64
+    "Received": 541616.64
   },
   "summary": {
-    "project_count": 31,
+    "project_count": 30,
     "total_outstanding": 680780.11,
-    "total_collected": 696390.64,
-    "received": 696390.64,
+    "total_collected": 541616.64,
+    "received": 541616.64,
     "this_week": 159848.64,
     "next_30_days": 380370.4,
     "past_due": 0.0,
@@ -1311,59 +1311,6 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 4667.52,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        }
-      ],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [],
-      "bucket": "Paid"
-    },
-    {
-      "project_id": "PROJ-1547",
-      "customer": "Jeff Donnelly",
-      "stage": "Inspection",
-      "owner": "Sam Karas",
-      "rep": "Sam Karas",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000066495049",
-      "financing_type": "Cash",
-      "lending_status": "Cash - paid in full",
-      "lender": "Cash",
-      "contract_total": 154774.0,
-      "pct_collected": 1.0,
-      "dollars_collected": 154774.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Deposit (20%)",
-          "pct": 0.2,
-          "dollars": 30954.8,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        },
-        {
-          "label": "Pre-install (60%)",
-          "pct": 0.6,
-          "dollars": 92864.4,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        },
-        {
-          "label": "Substantial completion (20%)",
-          "pct": 0.2,
-          "dollars": 30954.8,
           "forecast_date": null,
           "anchor_source": "received",
           "status": "received",

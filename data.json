@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-05T16:19:16.112775Z",
-  "generated_at_label": "Wed Aug 5, 2026 · 12:19 PM ET",
+  "generated_at": "2026-08-05T16:28:56.558022Z",
+  "generated_at_label": "Wed Aug 5, 2026 · 12:28 PM ET",
   "canvas_id": "5264387000040853100",
-  "project_count": 50,
+  "project_count": 49,
   "projects": [
     {
       "project_id": "PROJ-1649",
@@ -3218,26 +3218,6 @@
       "lightreach_requirement_log": [],
       "lightreach_milestone_log": [],
       "aurora_project_id": "c377808b-243a-4515-ae46-17e7bdb7b7c5"
-    },
-    {
-      "project_id": "PROJ-1547",
-      "customer": "Jeff Donnelly",
-      "stage": "Inspection",
-      "stage_entered_at": "2026-04-28T10:44:00-04:00",
-      "days_in_stage": 99,
-      "rep": "Sam Karas",
-      "owner": "Sam Karas",
-      "project_manager": "David Fargnoli",
-      "last_reviewed_at": null,
-      "last_reviewed_by": "",
-      "last_review_notes": "",
-      "zoho_record_id": "5264387000066495049",
-      "lightreach_finance_status": "accountUpdated",
-      "lightreach_ntp_granted_at": null,
-      "lightreach_outstanding_stipulations": "",
-      "lightreach_requirement_log": [],
-      "lightreach_milestone_log": [],
-      "aurora_project_id": "821671e8-6ac2-4adc-9e4d-8fcb8f0ca0c8"
     },
     {
       "project_id": "PROJ-1538",
