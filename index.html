@@ -726,6 +726,7 @@
     if(!token){
       token = prompt('Enter a GitHub personal access token with workflow scope.\nThis is stored only in your browser (localStorage) and never sent anywhere except GitHub.');
       if(!token) return;
+      token = token.trim();
       localStorage.setItem('gh_dispatch_token', token);
     }
     const btn = document.getElementById('refreshBtn');
@@ -734,7 +735,7 @@
     try {
       const res = await fetch(
         'https://api.github.com/repos/hdohnert-helio/helio-project-monitor/actions/workflows/refresh-data.yml/dispatches',
-        { method:'POST', headers:{ Authorization:'Bearer '+token, Accept:'application/vnd.github+json', 'X-GitHub-Api-Version':'2022-11-28' }, body: JSON.stringify({ref:'main'}) }
+        { method:'POST', headers:{ Authorization:'Bearer '+token, Accept:'application/vnd.github+json', 'Content-Type':'application/json', 'X-GitHub-Api-Version':'2022-11-28' }, body: JSON.stringify({ref:'main'}) }
       );
       if(res.status === 204){
         btn.textContent = '✓ Triggered!';
