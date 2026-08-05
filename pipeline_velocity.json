@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T15:54:07.029463Z",
+  "generated_at": "2026-08-05T16:16:09.055226Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 117,
   "transitions": [
@@ -7,17 +7,17 @@
       "label": "Sold to Install Ready",
       "from": "__creation__",
       "to": "Active Installation",
-      "sample_count": 75,
-      "median_days": 33.60652608502315,
-      "p75_days": 57.687643982997685
+      "sample_count": 10,
+      "median_days": 57.687643982997685,
+      "p75_days": 68.65059714215278
     },
     {
       "label": "Sold to Install Complete",
       "from": "__creation__",
       "to": "Inspection",
-      "sample_count": 74,
-      "median_days": 32.05218468793403,
-      "p75_days": 59.20990853933159
+      "sample_count": 9,
+      "median_days": 60.38207087417824,
+      "p75_days": 67.5171497491146
     },
     {
       "label": "Install Complete to Energized",
@@ -31,9 +31,9 @@
       "label": "Sold to Energized",
       "from": "__creation__",
       "to": "Energized",
-      "sample_count": 53,
-      "median_days": 59.093588516307875,
-      "p75_days": 84.57411932362268
+      "sample_count": 2,
+      "median_days": 69.65651700803241,
+      "p75_days": 77.65514525757524
     }
   ],
   "dwell_per_stage": [
@@ -83,7 +83,7 @@
       "stage": "Permitting",
       "sample_count": 20,
       "open_count": 8,
-      "median_days": 10.003351603339121,
+      "median_days": 10.011002215393518,
       "p75_days": 28.043927199542825
     },
     {
@@ -97,15 +97,15 @@
       "stage": "Active Installation",
       "sample_count": 13,
       "open_count": 1,
-      "median_days": 7.117858278032408,
+      "median_days": 7.133159502141204,
       "p75_days": 8.283341131944445
     },
     {
       "stage": "Inspection",
       "sample_count": 22,
       "open_count": 9,
-      "median_days": 19.206193427864584,
-      "p75_days": 49.96440360149016
+      "median_days": 19.213844039918982,
+      "p75_days": 49.968228907517364
     },
     {
       "stage": "Witness Test / PTO",
@@ -118,7 +118,7 @@
       "stage": "Energized",
       "sample_count": 10,
       "open_count": 2,
-      "median_days": 24.517928947847224,
+      "median_days": 24.525579559901622,
       "p75_days": 61.478862358764474
     }
   ],

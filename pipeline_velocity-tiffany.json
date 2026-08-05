@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T15:54:07.029463Z",
+  "generated_at": "2026-08-05T16:16:09.055226Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 16,
   "transitions": [
@@ -7,17 +7,17 @@
       "label": "Sold to Install Ready",
       "from": "__creation__",
       "to": "Active Installation",
-      "sample_count": 10,
-      "median_days": 33.60652608502315,
-      "p75_days": 51.12856161358796
+      "sample_count": 1,
+      "median_days": 68.65059714215278,
+      "p75_days": 68.65059714215278
     },
     {
       "label": "Sold to Install Complete",
       "from": "__creation__",
       "to": "Inspection",
-      "sample_count": 10,
-      "median_days": 41.438228871064815,
-      "p75_days": 55.54353125859376
+      "sample_count": 1,
+      "median_days": 69.6488336461227,
+      "p75_days": 69.6488336461227
     },
     {
       "label": "Install Complete to Energized",
@@ -31,9 +31,9 @@
       "label": "Sold to Energized",
       "from": "__creation__",
       "to": "Energized",
-      "sample_count": 9,
+      "sample_count": 1,
       "median_days": 85.65377350711806,
-      "p75_days": 92.5015717372338
+      "p75_days": 85.65377350711806
     }
   ],
   "dwell_per_stage": [
@@ -77,14 +77,14 @@
       "sample_count": 3,
       "open_count": 2,
       "median_days": 38.732002455451386,
-      "p75_days": 47.3964213926794
+      "p75_days": 47.40407200473379
     },
     {
       "stage": "Permitting",
       "sample_count": 4,
       "open_count": 2,
-      "median_days": 4.278477826255787,
-      "p75_days": 10.878435015555556
+      "median_days": 4.286128438310185,
+      "p75_days": 10.889910933637154
     },
     {
       "stage": "Procurement & Scheduling",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 3,
       "open_count": 1,
-      "median_days": 5.842141185740741,
-      "p75_days": 23.88007040170139
+      "median_days": 5.857442409849537,
+      "p75_days": 23.887721013755787
     }
   ],
   "notes": [
