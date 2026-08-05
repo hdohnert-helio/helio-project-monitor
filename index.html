@@ -195,7 +195,7 @@
   <h1>Helio Solar <span>Install Pipeline</span></h1>
   <div class="header-right">
     <div class="run-info"><strong>📊 Pipeline Monitor</strong>Last updated: <span id="lastUpdated">loading…</span></div>
-    <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">↺ Refresh Data</button>
+    <a class="refresh-btn" href="https://github.com/hdohnert-helio/helio-project-monitor/actions/workflows/refresh-data.yml" target="_blank">↺ Refresh Data</a>
     <button class="settings-btn" onclick="openSettings()">⚙ Settings</button>
   </div>
 </header>
@@ -721,38 +721,6 @@
 
   function openSettings(){ buildSlaTable(); document.getElementById('settingsModal').classList.add('open'); }
 
-  async function triggerRefresh(){
-    let token = localStorage.getItem('gh_dispatch_token');
-    if(!token){
-      token = prompt('Enter a GitHub personal access token with workflow scope.\nThis is stored only in your browser (localStorage) and never sent anywhere except GitHub.');
-      if(!token) return;
-      token = token.trim();
-      localStorage.setItem('gh_dispatch_token', token);
-    }
-    const btn = document.getElementById('refreshBtn');
-    btn.disabled = true;
-    btn.textContent = '↺ Triggering…';
-    try {
-      const res = await fetch(
-        'https://api.github.com/repos/hdohnert-helio/helio-project-monitor/actions/workflows/refresh-data.yml/dispatches',
-        { method:'POST', headers:{ Authorization:'Bearer '+token, Accept:'application/vnd.github+json', 'Content-Type':'application/json', 'X-GitHub-Api-Version':'2022-11-28' }, body: JSON.stringify({ref:'main'}) }
-      );
-      if(res.status === 204){
-        btn.textContent = '✓ Triggered!';
-        setTimeout(()=>{ btn.disabled=false; btn.textContent='↺ Refresh Data'; }, 4000);
-      } else if(res.status === 401){
-        localStorage.removeItem('gh_dispatch_token');
-        btn.textContent = '✗ Bad token — cleared';
-        setTimeout(()=>{ btn.disabled=false; btn.textContent='↺ Refresh Data'; }, 3000);
-      } else {
-        btn.textContent = '✗ Error '+res.status;
-        setTimeout(()=>{ btn.disabled=false; btn.textContent='↺ Refresh Data'; }, 3000);
-      }
-    } catch(e){
-      btn.textContent = '✗ Network error';
-      setTimeout(()=>{ btn.disabled=false; btn.textContent='↺ Refresh Data'; }, 3000);
-    }
-  }
   function closeSettings(){ document.getElementById('settingsModal').classList.remove('open'); }
   function buildSlaTable(){
     const slas = loadSLAs();
