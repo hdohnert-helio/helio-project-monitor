@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-05T16:28:56.558022Z",
-  "generated_at_label": "Wed Aug 5, 2026 · 12:28 PM ET",
+  "generated_at": "2026-08-05T16:39:03.067028Z",
+  "generated_at_label": "Wed Aug 5, 2026 · 12:39 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 49,
   "projects": [
@@ -1795,7 +1795,7 @@
       "customer": "Mohammed Kayum",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-20T12:38:00-04:00",
-      "days_in_stage": 76,
+      "days_in_stage": 77,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -2015,9 +2015,9 @@
     {
       "project_id": "PROJ-1610",
       "customer": "Mohammed Noor | 19",
-      "stage": "Inspection",
-      "stage_entered_at": "2026-07-02T09:33:00-04:00",
-      "days_in_stage": 34,
+      "stage": "Energized",
+      "stage_entered_at": "2026-08-05T12:37:00-04:00",
+      "days_in_stage": 0,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",

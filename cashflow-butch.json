@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T16:28:56.558022Z",
+  "generated_at": "2026-08-05T16:39:03.067028Z",
   "today": "2026-08-05",
   "weeks": [
     {
@@ -92,7 +92,7 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 14,
+    "project_count": 13,
     "total_outstanding": 194430.12,
     "total_collected": 7346.83,
     "this_week": 0.0,
@@ -568,52 +568,6 @@
         "Contract_Total missing or zero"
       ],
       "bucket": "Wk 09/14"
-    },
-    {
-      "project_id": "PROJ-1610",
-      "customer": "Mohammed Noor | 19",
-      "stage": "Inspection",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086034006",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
-      "lender": "LR",
-      "contract_total": null,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": "2026-07-13",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-14",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/14"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-07-13",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
-      "bucket": "Past-due"
     },
     {
       "project_id": "PROJ-1608",
