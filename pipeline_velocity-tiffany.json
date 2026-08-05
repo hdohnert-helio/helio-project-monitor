@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T12:57:59.703759Z",
+  "generated_at": "2026-08-05T15:45:59.406669Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 16,
   "transitions": [
@@ -23,7 +23,7 @@
       "label": "Sold to Energized",
       "from": "__creation__",
       "to": "Energized",
-      "sample_count": 3,
+      "sample_count": 9,
       "median_days": 85.65377350711806,
       "p75_days": 92.5015717372338
     },
@@ -77,14 +77,14 @@
       "sample_count": 3,
       "open_count": 2,
       "median_days": 38.732002455451386,
-      "p75_days": 47.33526788744792
+      "p75_days": 47.393599501510415
     },
     {
       "stage": "Permitting",
       "sample_count": 4,
       "open_count": 2,
-      "median_days": 4.217324321024305,
-      "p75_days": 10.786704757708332
+      "median_days": 4.275655935086806,
+      "p75_days": 10.874202178802083
     },
     {
       "stage": "Procurement & Scheduling",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 3,
       "open_count": 1,
-      "median_days": 5.719834175277778,
-      "p75_days": 23.81891689646991
+      "median_days": 5.8364974034027775,
+      "p75_days": 23.877248510532407
     }
   ],
   "notes": [

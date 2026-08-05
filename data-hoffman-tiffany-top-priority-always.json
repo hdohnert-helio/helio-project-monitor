@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-05T12:57:59.703759Z",
-  "generated_at_label": "Wed Aug 5, 2026 · 8:57 AM ET",
+  "generated_at": "2026-08-05T15:45:59.406669Z",
+  "generated_at_label": "Wed Aug 5, 2026 · 11:45 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 8,
   "projects": [
@@ -9,7 +9,7 @@
       "customer": "Bob Muller",
       "stage": "Permitting",
       "stage_entered_at": "2026-07-30T09:50:00-04:00",
-      "days_in_stage": 5,
+      "days_in_stage": 6,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -21,7 +21,8 @@
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [],
-      "lightreach_milestone_log": []
+      "lightreach_milestone_log": [],
+      "aurora_project_id": "6188c23a-90dc-4826-b75a-5e9c7b313e08"
     },
     {
       "project_id": "PROJ-1647",
@@ -40,7 +41,8 @@
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [],
-      "lightreach_milestone_log": []
+      "lightreach_milestone_log": [],
+      "aurora_project_id": "3af4d91d-bb8b-4adc-83f6-ac928384de83"
     },
     {
       "project_id": "PROJ-1646",
@@ -59,14 +61,15 @@
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [],
-      "lightreach_milestone_log": []
+      "lightreach_milestone_log": [],
+      "aurora_project_id": "86e63874-6a45-4ff6-a2fa-61071c2fe42e"
     },
     {
       "project_id": "PROJ-1644",
       "customer": "Jonathan Wong",
       "stage": "Permitting",
       "stage_entered_at": "2026-08-03T11:35:00-04:00",
-      "days_in_stage": 1,
+      "days_in_stage": 2,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -78,7 +81,8 @@
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [],
-      "lightreach_milestone_log": []
+      "lightreach_milestone_log": [],
+      "aurora_project_id": "bb5a8568-b918-4e65-a5c9-808a3458f332"
     },
     {
       "project_id": "PROJ-1642",
@@ -97,7 +101,8 @@
       "lightreach_ntp_granted_at": "2026-06-01T08:00:00-04:00",
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [],
-      "lightreach_milestone_log": []
+      "lightreach_milestone_log": [],
+      "aurora_project_id": "1a6c3456-bf74-47b5-b087-98f6eb06b719"
     },
     {
       "project_id": "PROJ-1630",
@@ -367,7 +372,8 @@
           "reason": "",
           "at": "2026-07-30T17:45:13+00:00"
         }
-      ]
+      ],
+      "aurora_project_id": "96105e67-e614-459f-87aa-e4c90f8819d5"
     },
     {
       "project_id": "PROJ-1538",
@@ -386,7 +392,8 @@
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [],
-      "lightreach_milestone_log": []
+      "lightreach_milestone_log": [],
+      "aurora_project_id": "c6e36d88-d98e-4ba3-b4d9-7d8a570829e9"
     },
     {
       "project_id": "PROJ-1372",
@@ -405,7 +412,8 @@
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [],
-      "lightreach_milestone_log": []
+      "lightreach_milestone_log": [],
+      "aurora_project_id": "8ae40007-af15-41bf-9205-a5ffdcb370d4"
     }
   ],
   "view_label": "Douglas Hoffman + Team"
