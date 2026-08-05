@@ -94,8 +94,8 @@ VELOCITY_STAGE_ORDER = [s for s in ACTIVE_STAGES if s != "On Hold"]
 KEY_TRANSITIONS = [
     ("Sold to Install Ready",          "__creation__", "Active Installation"),
     ("Sold to Install Complete",       "__creation__", "Inspection"),
-    ("Sold to Energized",              "__creation__", "Energized"),
     ("Install Complete to Energized",  "Inspection",   "Energized"),
+    ("Sold to Energized",              "__creation__", "Energized"),
 ]
 
 CANVAS_ID = "5264387000040853100"  # layout ID used for the Zoho "open" link
@@ -627,6 +627,18 @@ def compute_velocity(history: dict, now: datetime,
                 else:
                     reached = True  # entered before cutoff; count but skip duration
                 break
+            if not reached:
+                # Project may have passed through to_stage unobserved (moved
+                # past it between two tracking runs). Count it if any span is
+                # for a stage that comes later in the pipeline order — that
+                # proves the project passed through to_stage.
+                if to_stage in VELOCITY_STAGE_ORDER:
+                    to_idx = VELOCITY_STAGE_ORDER.index(to_stage)
+                    later_stages = set(VELOCITY_STAGE_ORDER[to_idx + 1:])
+                    for sp in spans:
+                        if sp.get("stage") in later_stages:
+                            reached = True
+                            break
             if not reached:
                 continue
             count += 1
