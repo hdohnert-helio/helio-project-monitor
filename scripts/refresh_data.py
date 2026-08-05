@@ -580,26 +580,30 @@ def compute_velocity(history: dict, now: datetime,
                 continue
             # Locate the "from" anchor
             if from_stage == "__creation__":
-                # Use the project's actual sold/created date as the anchor,
-                # floored to the tracking cutoff.
+                # Only include projects sold on or after the tracking cutoff.
+                # Pre-cutoff projects were already mid-pipeline when stage
+                # tracking began, so their "Sold to X" time is incomplete.
                 pcd = entry.get("project_created_date")
                 from_dt = None
                 if pcd:
                     try:
-                        from datetime import date as _date
-                        pcd_date = _date.fromisoformat(pcd)
-                        raw_dt = _parse_iso_utc(pcd + "T04:00:00+00:00")
-                        from_dt = max(raw_dt, VELOCITY_CUTOFF_DT)
+                        import datetime as _dt
+                        if _dt.date.fromisoformat(pcd) < _dt.date.fromisoformat(
+                            VELOCITY_CUTOFF_TS[:10]
+                        ):
+                            continue
+                        from_dt = _parse_iso_utc(pcd + "T04:00:00+00:00")
                     except ValueError:
                         pass
                 if not from_dt:
+                    # No Zoho creation date — fall back to first observed span,
+                    # but only if it was NOT truncated to the cutoff date.
                     first = spans[0] if spans else None
-                    if not first:
+                    if not first or first.get("truncated"):
                         continue
-                    raw_dt = _parse_iso_utc(first.get("entered_at"))
-                    if not raw_dt:
-                        continue
-                    from_dt = max(raw_dt, VELOCITY_CUTOFF_DT)
+                    from_dt = _parse_iso_utc(first.get("entered_at"))
+                if not from_dt:
+                    continue
             else:
                 from_dt = None
                 for sp in spans:
