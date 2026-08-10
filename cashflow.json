@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T11:51:55.637355Z",
+  "generated_at": "2026-08-10T19:03:59.432612Z",
   "today": "2026-08-10",
   "weeks": [
     {
@@ -93,7 +93,7 @@
     "Received": 541616.64
   },
   "summary": {
-    "project_count": 32,
+    "project_count": 33,
     "total_outstanding": 705935.11,
     "total_collected": 541616.64,
     "received": 541616.64,
@@ -893,6 +893,52 @@
         "Contract_Total missing or zero"
       ],
       "bucket": "Past-due"
+    },
+    {
+      "project_id": "PROJ-1622",
+      "customer": "Moriam Khatun | 42",
+      "stage": "Interconnection",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "project_manager": "",
+      "zoho_record_id": "5264387000086193116",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
+      "contract_total": 0.0,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 0.0,
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 0.0,
+          "forecast_date": "2026-09-28",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 09/28"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": "2026-10-24",
+          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 10/19"
+        }
+      ],
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 0.0,
+      "forecast_date": "2026-09-28",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
+      "bucket": "Wk 09/28"
     },
     {
       "project_id": "PROJ-1624",
