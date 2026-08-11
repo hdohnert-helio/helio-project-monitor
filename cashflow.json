@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T11:48:38.781641Z",
+  "generated_at": "2026-08-11T19:09:27.477044Z",
   "today": "2026-08-11",
   "weeks": [
     {
@@ -76,9 +76,9 @@
     }
   ],
   "weekly_totals": {
-    "Wk 08/10": 159848.64,
-    "Wk 08/17": 68070.72,
-    "Wk 08/24": 128701.36,
+    "Wk 08/10": 146055.84,
+    "Wk 08/17": 72668.32,
+    "Wk 08/24": 124103.76,
     "Wk 08/31": 48685.28,
     "Wk 09/07": 29790.4,
     "Wk 09/14": 124259.01,
@@ -90,13 +90,13 @@
     "Wk 10/26": 9632.0,
     "Past-due": 43135.12,
     "Beyond 12 wks": 0.0,
-    "Received": 541616.64
+    "Received": 555409.44
   },
   "summary": {
-    "project_count": 34,
-    "total_outstanding": 754095.11,
-    "total_collected": 541616.64,
-    "received": 541616.64,
+    "project_count": 33,
+    "total_outstanding": 740302.31,
+    "total_collected": 555409.44,
+    "received": 555409.44,
     "this_week": 146055.84,
     "next_30_days": 421303.6,
     "past_due": 43135.12,
@@ -381,18 +381,18 @@
     {
       "project_id": "PROJ-1644",
       "customer": "Jonathan Wong",
-      "stage": "Procurement & Scheduling",
+      "stage": "Active Installation",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
       "zoho_record_id": "5264387000089677014",
       "financing_type": "Cash (inferred)",
-      "lending_status": "Cash - 60PCT invoiced",
+      "lending_status": "Cash - 60PCT paid",
       "lender": "Cash",
       "contract_total": 22987.9999944,
-      "pct_collected": 0.2,
-      "dollars_collected": 4597.6,
-      "dollars_outstanding": 18390.4,
+      "pct_collected": 0.8,
+      "dollars_collected": 18390.4,
+      "dollars_outstanding": 4597.6,
       "milestones": [
         {
           "label": "Deposit (20%)",
@@ -407,31 +407,31 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 13792.8,
-          "forecast_date": "2026-08-08",
-          "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
-          "status": "on_track",
-          "bucket": "Wk 08/10"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 4597.6,
-          "forecast_date": "2026-08-25",
-          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-08-21",
+          "anchor_source": "today + 10d (Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 08/24"
+          "bucket": "Wk 08/17"
         }
       ],
-      "next_milestone": "Pre-install (60%)",
-      "next_milestone_pct": 0.6,
-      "next_dollar": 13792.8,
-      "forecast_date": "2026-08-08",
-      "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "next_milestone": "Substantial completion (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 4597.6,
+      "forecast_date": "2026-08-21",
+      "anchor_source": "today + 10d (Active Installation(10d)) + 0d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 08/10"
+      "bucket": "Wk 08/17"
     },
     {
       "project_id": "PROJ-1643",
@@ -755,52 +755,6 @@
         "Contract_Total missing or zero"
       ],
       "bucket": "Wk 09/14"
-    },
-    {
-      "project_id": "PROJ-1625",
-      "customer": "Sahil Goyal",
-      "stage": "Witness Test / PTO",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086384004",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
-      "lender": "LR",
-      "contract_total": 0.0,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": "2026-07-17",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-15",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/14"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-07-17",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
-      "bucket": "Past-due"
     },
     {
       "project_id": "PROJ-1620",
