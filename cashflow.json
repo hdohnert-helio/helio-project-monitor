@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T11:52:21.676836Z",
+  "generated_at": "2026-08-13T19:08:48.967441Z",
   "today": "2026-08-13",
   "weeks": [
     {
@@ -857,10 +857,10 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086201069",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 0.0,
-      "pct_collected": 0.0,
+      "pct_collected": 0.8,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
       "milestones": [
@@ -868,10 +868,10 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-16",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Activation package (20%)",
@@ -883,16 +883,16 @@
           "bucket": "Wk 09/14"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-16",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "forecast_date": "2026-09-17",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Past-due"
+      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1624",
@@ -1219,10 +1219,10 @@
       "project_manager": "David Fargnoli",
       "zoho_record_id": "5264387000084065005",
       "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": null,
-      "pct_collected": 0.0,
+      "pct_collected": 0.8,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
       "milestones": [
@@ -1230,10 +1230,10 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-08-07",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Activation package (20%)",
@@ -1245,17 +1245,17 @@
           "bucket": "Wk 09/14"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
       "next_dollar": 0.0,
-      "forecast_date": "2026-08-07",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "forecast_date": "2026-09-17",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [
         "Contract_Total missing or zero",
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Past-due"
+      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1582",
