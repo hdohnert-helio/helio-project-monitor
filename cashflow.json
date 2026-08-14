@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T11:49:29.632265Z",
+  "generated_at": "2026-08-14T19:01:15.083851Z",
   "today": "2026-08-14",
   "weeks": [
     {
@@ -78,12 +78,12 @@
   "weekly_totals": {
     "Wk 08/10": 0.0,
     "Wk 08/17": 214126.56,
-    "Wk 08/24": 4597.6,
+    "Wk 08/24": 34388.0,
     "Wk 08/31": 172789.04,
-    "Wk 09/07": 29790.4,
+    "Wk 09/07": 0.0,
     "Wk 09/14": 124259.01,
-    "Wk 09/21": 0.0,
-    "Wk 09/28": 104025.6,
+    "Wk 09/21": 7447.6,
+    "Wk 09/28": 96578.0,
     "Wk 10/05": 0.0,
     "Wk 10/12": 5207.1,
     "Wk 10/19": 18227.38,
@@ -93,7 +93,7 @@
     "Received": 555409.44
   },
   "summary": {
-    "project_count": 32,
+    "project_count": 31,
     "total_outstanding": 740302.31,
     "total_collected": 555409.44,
     "received": 555409.44,
@@ -436,7 +436,7 @@
     {
       "project_id": "PROJ-1643",
       "customer": "Ryan Hopley & Anginieka Jackman",
-      "stage": "Active Installation",
+      "stage": "Inspection",
       "owner": "Laura Beth Collinson",
       "rep": "Laura Beth Collinson",
       "project_manager": "",
@@ -453,31 +453,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 29790.4,
-          "forecast_date": "2026-09-07",
-          "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-08-27",
+          "anchor_source": "Substantial_Completion + 14d",
           "status": "on_track",
-          "bucket": "Wk 09/07"
+          "bucket": "Wk 08/24"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 7447.6,
-          "forecast_date": "2026-10-03",
-          "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-09-23",
+          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 09/28"
+          "bucket": "Wk 09/21"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 29790.4,
-      "forecast_date": "2026-09-07",
-      "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-08-27",
+      "anchor_source": "Substantial_Completion + 14d",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 09/07"
+      "bucket": "Wk 08/24"
     },
     {
       "project_id": "PROJ-1642",
@@ -1209,53 +1209,6 @@
       "status": "past_due",
       "flags": [],
       "bucket": "Past-due"
-    },
-    {
-      "project_id": "PROJ-1601",
-      "customer": "Elsa Ortiz",
-      "stage": "Witness Test / PTO",
-      "owner": "Jenna Stockwell",
-      "rep": "Kenny Crosby",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000084065005",
-      "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - Install Package Paid",
-      "lender": "LR",
-      "contract_total": null,
-      "pct_collected": 0.8,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-18",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/14"
-        }
-      ],
-      "next_milestone": "Activation package (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-09-18",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-      "status": "on_track",
-      "flags": [
-        "Contract_Total missing or zero",
-        "Financing_Type inferred from Lending_Status"
-      ],
-      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1582",
