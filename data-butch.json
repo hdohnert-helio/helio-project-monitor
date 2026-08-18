@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T18:47:18.823671Z",
-  "generated_at_label": "Mon Aug 17, 2026 · 2:47 PM ET",
+  "generated_at": "2026-08-18T11:29:51.082340Z",
+  "generated_at_label": "Tue Aug 18, 2026 · 7:29 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 24,
   "projects": [
@@ -29,7 +29,7 @@
       "customer": "Farid Ahmed",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-06T15:53:00-04:00",
-      "days_in_stage": 10,
+      "days_in_stage": 11,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -49,7 +49,7 @@
       "customer": "Sakhaowat Hossain",
       "stage": "On Hold",
       "stage_entered_at": "2026-06-01T14:52:00-04:00",
-      "days_in_stage": 76,
+      "days_in_stage": 77,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -105,7 +105,7 @@
       "customer": "Kari Webb",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-12T16:50:00-04:00",
-      "days_in_stage": 4,
+      "days_in_stage": 5,
       "rep": "Scott Webb",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -125,7 +125,7 @@
       "customer": "Mohammed Noor | 54",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-14T15:13:00-04:00",
-      "days_in_stage": 2,
+      "days_in_stage": 3,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -145,7 +145,7 @@
       "customer": "Bishuja Deb",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-12T16:53:00-04:00",
-      "days_in_stage": 4,
+      "days_in_stage": 5,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -934,7 +934,7 @@
       "customer": "Nusrat Nisan | 198",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-04T17:23:00-04:00",
-      "days_in_stage": 12,
+      "days_in_stage": 13,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1037,7 +1037,7 @@
       "customer": "Mohammed Ali",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-05T14:59:00-04:00",
-      "days_in_stage": 11,
+      "days_in_stage": 12,
       "rep": "Mustak Ahmed",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1470,7 +1470,7 @@
       "customer": "Mohammed Alamgir | 458",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-05T15:40:00-04:00",
-      "days_in_stage": 11,
+      "days_in_stage": 12,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1490,7 +1490,7 @@
       "customer": "Abdul Mabud",
       "stage": "On Hold",
       "stage_entered_at": "2026-06-10T15:27:00-04:00",
-      "days_in_stage": 67,
+      "days_in_stage": 68,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1530,7 +1530,7 @@
       "customer": "Nasima Majid",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-12T16:54:00-04:00",
-      "days_in_stage": 4,
+      "days_in_stage": 5,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1538,7 +1538,7 @@
       "last_reviewed_by": "",
       "last_review_notes": "",
       "zoho_record_id": "5264387000086077022",
-      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_finance_status": "milestoneAchieved",
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [
@@ -1667,6 +1667,150 @@
           "previous_status": "pending",
           "reason": "",
           "at": "2026-08-05T20:42:38+00:00"
+        },
+        {
+          "event": "requirementCompleted",
+          "code": "installPackage",
+          "name": "installPackage",
+          "status": "completed",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-08-17T20:31:53+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "domesticContentConfirmation",
+          "name": "domesticContentConfirmation",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:56+00:00"
+        },
+        {
+          "event": "requirementCompleted",
+          "code": "domesticContentConfirmation",
+          "name": "domesticContentConfirmation",
+          "status": "completed",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-08-17T20:31:57+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "installPackage",
+          "name": "installPackage",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "finalDesignApproved",
+          "name": "finalDesignApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "dxfApproved",
+          "name": "dxfApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "shadeReportApproved",
+          "name": "shadeReportApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "planSetApproved",
+          "name": "planSetApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "productionModelApproved",
+          "name": "productionModelApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "permitApproved",
+          "name": "permitApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "installPhotosApproved",
+          "name": "installPhotosApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "projectSitePhotosApproved",
+          "name": "projectSitePhotosApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "roofPhotosApproved",
+          "name": "roofPhotosApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "electricalPhotosApproved",
+          "name": "electricalPhotosApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "storagePhotosApproved",
+          "name": "storagePhotosApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "systemCommissioningApproved",
+          "name": "systemCommissioningApproved",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:59+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -1677,6 +1821,22 @@
           "previous_status": "pending",
           "reason": "",
           "at": "2026-08-05T20:42:35+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "install",
+          "status": "approved",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-08-17T20:31:55+00:00"
+        },
+        {
+          "event": "milestoneAchieved",
+          "milestone": "install",
+          "status": "achieved",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-08-17T20:32:01+00:00"
         }
       ],
       "aurora_project_id": "35a03660-cd7d-477e-ba0c-003d68ad57a1"
@@ -1686,7 +1846,7 @@
       "customer": "Nusrat Nisan | 227",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-04T17:21:00-04:00",
-      "days_in_stage": 12,
+      "days_in_stage": 13,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1706,7 +1866,7 @@
       "customer": "Mohammad Gafur",
       "stage": "On Hold",
       "stage_entered_at": "2026-06-10T15:28:00-04:00",
-      "days_in_stage": 67,
+      "days_in_stage": 68,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1726,7 +1886,7 @@
       "customer": "Mustaque Nabi",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-05T14:57:00-04:00",
-      "days_in_stage": 11,
+      "days_in_stage": 12,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -2089,7 +2249,7 @@
       "customer": "Hartley Mannion",
       "stage": "Permitting",
       "stage_entered_at": "2026-08-03T16:42:00-04:00",
-      "days_in_stage": 13,
+      "days_in_stage": 14,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
