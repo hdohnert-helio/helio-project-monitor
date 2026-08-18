@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T11:29:51.082340Z",
+  "generated_at": "2026-08-18T18:45:54.006381Z",
   "today": "2026-08-18",
   "weeks": [
     {
@@ -76,12 +76,12 @@
     }
   ],
   "weekly_totals": {
-    "Wk 08/17": 68070.72,
+    "Wk 08/17": 90111.21,
     "Wk 08/24": 0.0,
-    "Wk 08/31": 22040.49,
+    "Wk 08/31": 7346.83,
     "Wk 09/07": 0.0,
     "Wk 09/14": 0.0,
-    "Wk 09/21": 55976.69,
+    "Wk 09/21": 48629.86,
     "Wk 09/28": 0.0,
     "Wk 10/05": 58652.0,
     "Wk 10/12": 5207.1,
@@ -96,7 +96,7 @@
     "total_outstanding": 267745.12,
     "total_collected": 7346.83,
     "this_week": 68070.72,
-    "next_30_days": 90111.21,
+    "next_30_days": 75417.55,
     "past_due": 43135.12,
     "beyond_12_wks": 0.0
   },
@@ -104,13 +104,13 @@
     {
       "project_id": "PROJ-1648",
       "customer": "Gabrielle Jazwiecki - Solar",
-      "stage": "Interconnection",
+      "stage": "Procurement & Scheduling",
       "owner": "Walter Carmona",
       "rep": "walter carmona",
       "project_manager": "",
       "zoho_record_id": "5264387000091187004",
       "financing_type": "Cash (inferred)",
-      "lending_status": "Cash - 20PCT deposit paid",
+      "lending_status": "Cash - 60PCT invoiced",
       "lender": "Cash",
       "contract_total": 36734.15,
       "pct_collected": 0.2,
@@ -130,31 +130,31 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 22040.49,
-          "forecast_date": "2026-09-05",
-          "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "forecast_date": "2026-08-15",
+          "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 08/31"
+          "bucket": "Wk 08/17"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 7346.83,
-          "forecast_date": "2026-09-22",
-          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-09-01",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 09/21"
+          "bucket": "Wk 08/31"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 22040.49,
-      "forecast_date": "2026-09-05",
-      "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "forecast_date": "2026-08-15",
+      "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 08/31"
+      "bucket": "Wk 08/17"
     },
     {
       "project_id": "PROJ-1640",
@@ -345,7 +345,7 @@
     {
       "project_id": "PROJ-1627",
       "customer": "Mohammed Alamgir | 28",
-      "stage": "Permitting",
+      "stage": "Procurement & Scheduling",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -362,31 +362,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-09-22",
-          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-09-15",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 09/21"
+          "bucket": "Wk 09/14"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-10-18",
-          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-10-11",
+          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/12"
+          "bucket": "Wk 10/05"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-09-22",
-      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-09-15",
+      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 09/21"
+      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1620",
@@ -621,7 +621,7 @@
     {
       "project_id": "PROJ-1615",
       "customer": "Nusrat Nisan | 227",
-      "stage": "Interconnection",
+      "stage": "Permitting",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -638,31 +638,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-10-06",
-          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-09-22",
+          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/05"
+          "bucket": "Wk 09/21"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-11-01",
-          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-10-18",
+          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/26"
+          "bucket": "Wk 10/12"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-10-06",
-      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-09-22",
+      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 10/05"
+      "bucket": "Wk 09/21"
     },
     {
       "project_id": "PROJ-1616",
