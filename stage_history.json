@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-08-19T11:29:59.560840Z",
+  "last_run": "2026-08-19T18:41:44.959759Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -2264,6 +2264,12 @@
         {
           "stage": "Permitting",
           "entered_at": "2026-07-14T19:34:19.227025Z",
+          "exited_at": "2026-08-19T18:41:44.959759Z",
+          "truncated": false
+        },
+        {
+          "stage": "Procurement & Scheduling",
+          "entered_at": "2026-08-19T18:41:44.959759Z",
           "exited_at": null,
           "truncated": false
         }
