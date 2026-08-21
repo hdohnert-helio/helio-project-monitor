@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T11:31:05.826759Z",
+  "generated_at": "2026-08-21T17:06:32.461090Z",
   "today": "2026-08-21",
   "weeks": [
     {
@@ -80,24 +80,24 @@
     "Wk 08/24": 0.0,
     "Wk 08/31": 7346.83,
     "Wk 09/07": 0.0,
-    "Wk 09/14": 0.0,
-    "Wk 09/21": 48629.86,
+    "Wk 09/14": 20828.4,
+    "Wk 09/21": 27801.46,
     "Wk 09/28": 0.0,
     "Wk 10/05": 58652.0,
-    "Wk 10/12": 0.0,
-    "Wk 10/19": 5207.1,
+    "Wk 10/12": 5207.1,
+    "Wk 10/19": 0.0,
     "Wk 10/26": 0.0,
     "Wk 11/02": 14663.0,
-    "Past-due": 68070.72,
+    "Past-due": 0.0,
     "Beyond 12 wks": 0.0
   },
   "summary": {
     "project_count": 17,
-    "total_outstanding": 224610.0,
-    "total_collected": 50481.95,
+    "total_outstanding": 156539.28,
+    "total_collected": 118552.67,
     "this_week": 22040.49,
-    "next_30_days": 7346.83,
-    "past_due": 68070.72,
+    "next_30_days": 28175.23,
+    "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
   "projects": [
@@ -673,21 +673,21 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086077022",
       "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Install Package Paid",
       "lender": "LR",
       "contract_total": 85088.4,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 85088.4,
+      "pct_collected": 0.8,
+      "dollars_collected": 68070.72,
+      "dollars_outstanding": 17017.68,
       "milestones": [
         {
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 68070.72,
-          "forecast_date": "2026-08-19",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Activation package (20%)",
@@ -699,14 +699,14 @@
           "bucket": "Wk 09/21"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 68070.72,
-      "forecast_date": "2026-08-19",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "next_milestone": "Activation package (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 17017.68,
+      "forecast_date": "2026-09-25",
+      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
+      "status": "on_track",
       "flags": [],
-      "bucket": "Past-due"
+      "bucket": "Wk 09/21"
     },
     {
       "project_id": "PROJ-1611",
@@ -757,7 +757,7 @@
     {
       "project_id": "PROJ-1608",
       "customer": "Hartley Mannion",
-      "stage": "Permitting",
+      "stage": "Procurement & Scheduling",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -774,29 +774,29 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 20828.4,
-          "forecast_date": "2026-09-25",
-          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-09-18",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 09/21"
+          "bucket": "Wk 09/14"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 5207.1,
-          "forecast_date": "2026-10-21",
-          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-10-14",
+          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/19"
+          "bucket": "Wk 10/12"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 20828.4,
-      "forecast_date": "2026-09-25",
-      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-09-18",
+      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 09/21"
+      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1607",
