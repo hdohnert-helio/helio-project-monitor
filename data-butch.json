@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-21T17:06:32.461090Z",
-  "generated_at_label": "Fri Aug 21, 2026 · 1:06 PM ET",
+  "generated_at": "2026-08-21T18:43:46.815194Z",
+  "generated_at_label": "Fri Aug 21, 2026 · 2:43 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 24,
   "projects": [
@@ -1183,7 +1183,7 @@
       "customer": "Asaduzzaman Khokon",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-06T13:37:00-04:00",
-      "days_in_stage": 14,
+      "days_in_stage": 15,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -2552,7 +2552,7 @@
       "customer": "Justin Kane",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-05T14:00:00-04:00",
-      "days_in_stage": 15,
+      "days_in_stage": 16,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
