@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T18:43:46.815194Z",
+  "generated_at": "2026-08-22T11:25:28.565108Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 5,
   "transitions": [
@@ -76,8 +76,8 @@
       "stage": "Interconnection",
       "sample_count": 3,
       "open_count": 2,
-      "median_days": 44.263359495925926,
-      "p75_days": 58.22101070997107
+      "median_days": 44.95898160141204,
+      "p75_days": 58.91663281545718
     },
     {
       "stage": "Permitting",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 3,
       "open_count": 1,
-      "median_days": 21.959962779849537,
-      "p75_days": 31.93898119875579
+      "median_days": 22.65558488533565,
+      "p75_days": 32.286792251498845
     }
   ],
   "notes": [
