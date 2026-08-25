@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T11:33:17.362600Z",
+  "generated_at": "2026-08-25T18:46:49.605312Z",
   "today": "2026-08-25",
   "weeks": [
     {
@@ -93,7 +93,7 @@
     "Received": 681278.0
   },
   "summary": {
-    "project_count": 31,
+    "project_count": 32,
     "total_outstanding": 529345.35,
     "total_collected": 681278.0,
     "received": 681278.0,
@@ -381,7 +381,7 @@
     {
       "project_id": "PROJ-1644",
       "customer": "Jonathan Wong",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -760,7 +760,7 @@
     {
       "project_id": "PROJ-1627",
       "customer": "Mohammed Alamgir | 28",
-      "stage": "Procurement & Scheduling",
+      "stage": "Active Installation",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -777,17 +777,17 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-09-22",
-          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-09-18",
+          "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 09/21"
+          "bucket": "Wk 09/14"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-10-18",
-          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-10-14",
+          "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 10/12"
         }
@@ -795,13 +795,13 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-09-22",
-      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-09-18",
+      "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 09/21"
+      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1620",
@@ -940,6 +940,52 @@
         "Contract_Total missing or zero"
       ],
       "bucket": "Wk 09/28"
+    },
+    {
+      "project_id": "PROJ-1622",
+      "customer": "Moriam Khatun | 42",
+      "stage": "Sales Ops Review",
+      "owner": "Walter Carmona",
+      "rep": "Walter Carmona",
+      "project_manager": "",
+      "zoho_record_id": "5264387000086193116",
+      "financing_type": "Lease / PPA",
+      "lending_status": "LR - NTP",
+      "lender": "LR",
+      "contract_total": 0.0,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 0.0,
+      "milestones": [
+        {
+          "label": "Install package (80%)",
+          "pct": 0.8,
+          "dollars": 0.0,
+          "forecast_date": "2026-10-23",
+          "anchor_source": "today + 45d (Sales Ops Review(1d) + Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Wk 10/19"
+        },
+        {
+          "label": "Activation package (20%)",
+          "pct": 0.2,
+          "dollars": 0.0,
+          "forecast_date": "2026-11-18",
+          "anchor_source": "today + 71d (Sales Ops Review(1d) + Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "status": "on_track",
+          "bucket": "Beyond 12 wks"
+        }
+      ],
+      "next_milestone": "Install package (80%)",
+      "next_milestone_pct": 0.8,
+      "next_dollar": 0.0,
+      "forecast_date": "2026-10-23",
+      "anchor_source": "today + 45d (Sales Ops Review(1d) + Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "status": "on_track",
+      "flags": [
+        "Contract_Total missing or zero"
+      ],
+      "bucket": "Wk 10/19"
     },
     {
       "project_id": "PROJ-1624",
