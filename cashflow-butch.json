@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T11:34:30.896473Z",
+  "generated_at": "2026-08-26T19:52:23.378455Z",
   "today": "2026-08-26",
   "weeks": [
     {
@@ -92,7 +92,7 @@
     "Beyond 12 wks": 0.0
   },
   "summary": {
-    "project_count": 17,
+    "project_count": 16,
     "total_outstanding": 139521.6,
     "total_collected": 50481.95,
     "this_week": 0.0,
@@ -304,10 +304,10 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086594110",
       "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Activation Package Paid",
       "lender": "LR",
       "contract_total": 0.0,
-      "pct_collected": 0.0,
+      "pct_collected": 1.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
       "milestones": [
@@ -315,32 +315,32 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-22",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-09-30",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/28"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-22",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
       "flags": [
         "Contract_Total missing or zero",
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Past-due"
+      "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1627",
@@ -704,52 +704,6 @@
       "next_dollar": 0.0,
       "forecast_date": "2026-09-30",
       "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
-      "status": "on_track",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
-      "bucket": "Wk 09/28"
-    },
-    {
-      "project_id": "PROJ-1611",
-      "customer": "Mustaque Nabi",
-      "stage": "Witness Test / PTO",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086050003",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Paid",
-      "lender": "LR",
-      "contract_total": null,
-      "pct_collected": 0.8,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-30",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/28"
-        }
-      ],
-      "next_milestone": "Activation package (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-09-30",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"

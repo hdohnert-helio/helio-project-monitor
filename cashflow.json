@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T11:34:30.896473Z",
+  "generated_at": "2026-08-26T19:52:23.378455Z",
   "today": "2026-08-26",
   "weeks": [
     {
@@ -76,13 +76,13 @@
     }
   ],
   "weekly_totals": {
-    "Wk 08/24": 97710.4,
+    "Wk 08/24": 105366.4,
     "Wk 08/31": 7346.83,
     "Wk 09/07": 109886.64,
     "Wk 09/14": 40861.91,
-    "Wk 09/21": 20828.4,
+    "Wk 09/21": 43796.4,
     "Wk 09/28": 106637.7,
-    "Wk 10/05": 0.0,
+    "Wk 10/05": 7656.0,
     "Wk 10/12": 76454.0,
     "Wk 10/19": 5207.1,
     "Wk 10/26": 23258.38,
@@ -94,15 +94,70 @@
   },
   "summary": {
     "project_count": 32,
-    "total_outstanding": 529345.35,
+    "total_outstanding": 567625.35,
     "total_collected": 681278.0,
     "received": 681278.0,
-    "this_week": 97710.4,
-    "next_30_days": 276634.18,
+    "this_week": 105366.4,
+    "next_30_days": 307258.18,
     "past_due": 22040.49,
     "beyond_12_wks": 0.0
   },
   "projects": [
+    {
+      "project_id": "PROJ-1651",
+      "customer": "Gene Feola",
+      "stage": "Sales Ops Review",
+      "owner": "Tiffany Vilayphonh",
+      "rep": "Doug Hoffman",
+      "project_manager": "",
+      "zoho_record_id": "5264387000095379017",
+      "financing_type": "Cash (inferred)",
+      "lending_status": "Cash - 20PCT deposit invoiced",
+      "lender": "Cash",
+      "contract_total": 38280.0,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 38280.0,
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 7656.0,
+          "forecast_date": "2026-08-26",
+          "anchor_source": "Project_Created_Date (signing)",
+          "status": "on_track",
+          "bucket": "Wk 08/24"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 22968.0,
+          "forecast_date": "2026-09-23",
+          "anchor_source": "today + 35d (Sales Ops Review(1d) + Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 09/21"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 7656.0,
+          "forecast_date": "2026-10-10",
+          "anchor_source": "today + 45d (Sales Ops Review(1d) + Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 10/05"
+        }
+      ],
+      "next_milestone": "Deposit (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 7656.0,
+      "forecast_date": "2026-08-26",
+      "anchor_source": "Project_Created_Date (signing)",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 08/24"
+    },
     {
       "project_id": "PROJ-1649",
       "customer": "Bob Muller",
@@ -673,10 +728,10 @@
       "project_manager": "",
       "zoho_record_id": "5264387000086594110",
       "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - Install Package Submitted",
+      "lending_status": "LR - Activation Package Paid",
       "lender": "LR",
       "contract_total": 0.0,
-      "pct_collected": 0.0,
+      "pct_collected": 1.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 0.0,
       "milestones": [
@@ -684,32 +739,32 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-07-22",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-09-30",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/28"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         }
       ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
+      "next_milestone": "—",
+      "next_milestone_pct": 0.0,
       "next_dollar": 0.0,
-      "forecast_date": "2026-07-22",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
+      "forecast_date": null,
+      "anchor_source": "100% collected",
+      "status": "paid",
       "flags": [
         "Contract_Total missing or zero",
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Past-due"
+      "bucket": "Paid"
     },
     {
       "project_id": "PROJ-1629",
@@ -1119,52 +1174,6 @@
       "next_dollar": 0.0,
       "forecast_date": "2026-09-30",
       "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
-      "status": "on_track",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
-      "bucket": "Wk 09/28"
-    },
-    {
-      "project_id": "PROJ-1611",
-      "customer": "Mustaque Nabi",
-      "stage": "Witness Test / PTO",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086050003",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Paid",
-      "lender": "LR",
-      "contract_total": null,
-      "pct_collected": 0.8,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-30",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 09/28"
-        }
-      ],
-      "next_milestone": "Activation package (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-09-30",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
