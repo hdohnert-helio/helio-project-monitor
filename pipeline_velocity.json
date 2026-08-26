@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T18:46:49.605312Z",
+  "generated_at": "2026-08-26T11:34:30.896473Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 38,
   "transitions": [
@@ -7,9 +7,9 @@
       "label": "Sold to Install Ready",
       "from": "__creation__",
       "to": "Active Installation",
-      "sample_count": 14,
-      "median_days": 63.16912056257523,
-      "p75_days": 71.73119662260706
+      "sample_count": 17,
+      "median_days": 68.65059714215278,
+      "p75_days": 85.15910702822916
     },
     {
       "label": "Sold to Install Complete",
@@ -39,10 +39,10 @@
   "dwell_per_stage": [
     {
       "stage": "Sales Ops Review",
-      "sample_count": 0,
-      "open_count": 0,
-      "median_days": null,
-      "p75_days": null
+      "sample_count": 1,
+      "open_count": 1,
+      "median_days": 0.6997834625115741,
+      "p75_days": 0.6997834625115741
     },
     {
       "stage": "Project Intake",
@@ -89,16 +89,16 @@
     {
       "stage": "Procurement & Scheduling",
       "sample_count": 27,
-      "open_count": 5,
-      "median_days": 7.013458748252315,
+      "open_count": 2,
+      "median_days": 7.017436711180555,
       "p75_days": 14.697986950439816
     },
     {
       "stage": "Active Installation",
-      "sample_count": 15,
-      "open_count": 0,
-      "median_days": 7.276770325532408,
-      "p75_days": 8.6342907578125
+      "sample_count": 16,
+      "open_count": 1,
+      "median_days": 6.132342796082176,
+      "p75_days": 8.458815944878472
     },
     {
       "stage": "Inspection",
@@ -109,16 +109,16 @@
     },
     {
       "stage": "Witness Test / PTO",
-      "sample_count": 20,
-      "open_count": 7,
-      "median_days": 19.961025172974537,
-      "p75_days": 44.99041598945602
+      "sample_count": 21,
+      "open_count": 8,
+      "median_days": 20.660808635486113,
+      "p75_days": 41.66939788063657
     },
     {
       "stage": "Energized",
       "sample_count": 14,
       "open_count": 6,
-      "median_days": 23.02540574410301,
+      "median_days": 23.725189206614584,
       "p75_days": 42.47655373391204
     }
   ],
