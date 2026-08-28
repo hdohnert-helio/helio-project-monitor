@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T20:56:45.803909Z",
+  "generated_at": "2026-08-28T21:19:52.506350Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 39,
   "transitions": [
@@ -41,8 +41,8 @@
       "stage": "Sales Ops Review",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 2.0902337800578703,
-      "p75_days": 2.0902337800578703
+      "median_days": 3.106283576828704,
+      "p75_days": 3.106283576828704
     },
     {
       "stage": "Project Intake",
@@ -60,10 +60,10 @@
     },
     {
       "stage": "Engineering",
-      "sample_count": 28,
-      "open_count": 0,
+      "sample_count": 29,
+      "open_count": 1,
       "median_days": 4.046818129201388,
-      "p75_days": 6.516571929377893
+      "p75_days": 6.018248280902777
     },
     {
       "stage": "Plan Review",
@@ -76,7 +76,7 @@
       "stage": "Interconnection",
       "sample_count": 51,
       "open_count": 10,
-      "median_days": 14.37805702630787,
+      "median_days": 15.240443519456019,
       "p75_days": 25.997579467129633
     },
     {
@@ -90,7 +90,7 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 27,
       "open_count": 2,
-      "median_days": 7.017436711180555,
+      "median_days": 7.175926449768519,
       "p75_days": 14.697986950439816
     },
     {
@@ -102,23 +102,23 @@
     },
     {
       "stage": "Inspection",
-      "sample_count": 25,
-      "open_count": 3,
-      "median_days": 18.271420692604167,
-      "p75_days": 33.94256281497685
+      "sample_count": 26,
+      "open_count": 4,
+      "median_days": 17.13818027679977,
+      "p75_days": 33.925369381927084
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 21,
       "open_count": 7,
-      "median_days": 22.051258953032406,
+      "median_days": 23.06730874980324,
       "p75_days": 41.66939788063657
     },
     {
       "stage": "Energized",
       "sample_count": 15,
       "open_count": 7,
-      "median_days": 22.17896686204861,
+      "median_days": 23.195016658819444,
       "p75_days": 42.29036902849538
     }
   ],
