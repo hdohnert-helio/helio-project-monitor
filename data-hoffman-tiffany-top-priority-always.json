@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-28T21:19:52.506350Z",
-  "generated_at_label": "Fri Aug 28, 2026 · 5:19 PM ET",
+  "generated_at": "2026-08-29T15:33:05.111478Z",
+  "generated_at_label": "Sat Aug 29, 2026 · 11:33 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 9,
   "projects": [
@@ -89,7 +89,7 @@
       "customer": "Jonathan Wong",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-25T09:20:00-04:00",
-      "days_in_stage": 3,
+      "days_in_stage": 4,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -490,7 +490,7 @@
       "customer": "Daniel Ghazal",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-04-16T00:00:00-04:00",
-      "days_in_stage": 134,
+      "days_in_stage": 135,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
