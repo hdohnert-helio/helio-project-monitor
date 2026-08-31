@@ -1,93 +1,93 @@
 {
-  "generated_at": "2026-08-30T20:51:00.287236Z",
-  "today": "2026-08-30",
+  "generated_at": "2026-08-31T17:57:23.652249Z",
+  "today": "2026-08-31",
   "weeks": [
     {
       "index": 0,
-      "start": "2026-08-24",
-      "end": "2026-08-30",
-      "label": "Wk 08/24"
-    },
-    {
-      "index": 1,
       "start": "2026-08-31",
       "end": "2026-09-06",
       "label": "Wk 08/31"
     },
     {
-      "index": 2,
+      "index": 1,
       "start": "2026-09-07",
       "end": "2026-09-13",
       "label": "Wk 09/07"
     },
     {
-      "index": 3,
+      "index": 2,
       "start": "2026-09-14",
       "end": "2026-09-20",
       "label": "Wk 09/14"
     },
     {
-      "index": 4,
+      "index": 3,
       "start": "2026-09-21",
       "end": "2026-09-27",
       "label": "Wk 09/21"
     },
     {
-      "index": 5,
+      "index": 4,
       "start": "2026-09-28",
       "end": "2026-10-04",
       "label": "Wk 09/28"
     },
     {
-      "index": 6,
+      "index": 5,
       "start": "2026-10-05",
       "end": "2026-10-11",
       "label": "Wk 10/05"
     },
     {
-      "index": 7,
+      "index": 6,
       "start": "2026-10-12",
       "end": "2026-10-18",
       "label": "Wk 10/12"
     },
     {
-      "index": 8,
+      "index": 7,
       "start": "2026-10-19",
       "end": "2026-10-25",
       "label": "Wk 10/19"
     },
     {
-      "index": 9,
+      "index": 8,
       "start": "2026-10-26",
       "end": "2026-11-01",
       "label": "Wk 10/26"
     },
     {
-      "index": 10,
+      "index": 9,
       "start": "2026-11-02",
       "end": "2026-11-08",
       "label": "Wk 11/02"
     },
     {
-      "index": 11,
+      "index": 10,
       "start": "2026-11-09",
       "end": "2026-11-15",
       "label": "Wk 11/09"
+    },
+    {
+      "index": 11,
+      "start": "2026-11-16",
+      "end": "2026-11-22",
+      "label": "Wk 11/16"
     }
   ],
   "weekly_totals": {
-    "Wk 08/24": 7656.0,
-    "Wk 08/31": 0.0,
-    "Wk 09/07": 26045.28,
-    "Wk 09/14": 92101.11,
-    "Wk 09/21": 0.0,
-    "Wk 09/28": 28982.4,
-    "Wk 10/05": 7656.0,
-    "Wk 10/12": 37926.0,
-    "Wk 10/19": 0.0,
+    "Wk 08/31": 7656.0,
+    "Wk 09/07": 0.0,
+    "Wk 09/14": 95178.39,
+    "Wk 09/21": 22968.0,
+    "Wk 09/28": 37926.0,
+    "Wk 10/05": 36638.4,
+    "Wk 10/12": 0.0,
+    "Wk 10/19": 9481.5,
     "Wk 10/26": 0.0,
     "Wk 11/02": 18227.38,
-    "Wk 11/09": 9481.5,
+    "Wk 11/09": 0.0,
+    "Wk 11/16": 0.0,
     "Past-due": 0.0,
     "Beyond 12 wks": 0.0
   },
@@ -95,8 +95,8 @@
     "project_count": 7,
     "total_outstanding": 228075.67,
     "total_collected": 210409.43,
-    "this_week": 7656.0,
-    "next_30_days": 118146.39,
+    "this_week": 0.0,
+    "next_30_days": 156072.39,
     "past_due": 0.0,
     "beyond_12_wks": 0.0
   },
@@ -124,22 +124,22 @@
           "forecast_date": "2026-08-26",
           "anchor_source": "Project_Created_Date (signing)",
           "status": "on_track",
-          "bucket": "Wk 08/24"
+          "bucket": "Wk 08/31"
         },
         {
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 22968.0,
-          "forecast_date": "2026-09-20",
+          "forecast_date": "2026-09-21",
           "anchor_source": "today + 28d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 09/14"
+          "bucket": "Wk 09/21"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 7656.0,
-          "forecast_date": "2026-10-07",
+          "forecast_date": "2026-10-08",
           "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 10/05"
@@ -154,7 +154,7 @@
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 08/24"
+      "bucket": "Wk 08/31"
     },
     {
       "project_id": "PROJ-1649",
@@ -194,22 +194,22 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 26045.28,
-          "forecast_date": "2026-09-13",
+          "forecast_date": "2026-09-14",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 09/07"
+          "bucket": "Wk 09/14"
         }
       ],
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 26045.28,
-      "forecast_date": "2026-09-13",
+      "forecast_date": "2026-09-14",
       "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 09/07"
+      "bucket": "Wk 09/14"
     },
     {
       "project_id": "PROJ-1647",
@@ -240,7 +240,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 50911.2,
-          "forecast_date": "2026-09-17",
+          "forecast_date": "2026-09-18",
           "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 09/14"
@@ -249,16 +249,16 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 16970.4,
-          "forecast_date": "2026-10-04",
+          "forecast_date": "2026-10-05",
           "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 09/28"
+          "bucket": "Wk 10/05"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 50911.2,
-      "forecast_date": "2026-09-17",
+      "forecast_date": "2026-09-18",
       "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
@@ -295,7 +295,7 @@
           "label": "1/3 interconnection approval",
           "pct": 0.3333,
           "dollars": 18221.91,
-          "forecast_date": "2026-09-18",
+          "forecast_date": "2026-09-19",
           "anchor_source": "today + 14d (through Interconnection) + 5d",
           "status": "on_track",
           "bucket": "Wk 09/14"
@@ -304,7 +304,7 @@
           "label": "1/3 PTO",
           "pct": 0.3334,
           "dollars": 18227.38,
-          "forecast_date": "2026-11-04",
+          "forecast_date": "2026-11-05",
           "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 5d lag",
           "status": "on_track",
           "bucket": "Wk 11/02"
@@ -313,7 +313,7 @@
       "next_milestone": "1/3 interconnection approval",
       "next_milestone_pct": 0.3333,
       "next_dollar": 18221.91,
-      "forecast_date": "2026-09-18",
+      "forecast_date": "2026-09-19",
       "anchor_source": "today + 14d (through Interconnection) + 5d",
       "status": "on_track",
       "flags": [
@@ -379,7 +379,7 @@
     {
       "project_id": "PROJ-1642",
       "customer": "Ronald Muriel",
-      "stage": "Interconnection",
+      "stage": "Procurement & Scheduling",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -396,31 +396,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 37926.0,
-          "forecast_date": "2026-10-18",
-          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-09-28",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/12"
+          "bucket": "Wk 09/28"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-11-13",
-          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-10-24",
+          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 11/09"
+          "bucket": "Wk 10/19"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 37926.0,
-      "forecast_date": "2026-10-18",
-      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-09-28",
+      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 10/12"
+      "bucket": "Wk 09/28"
     },
     {
       "project_id": "PROJ-1372",
@@ -451,20 +451,20 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 12012.0,
-          "forecast_date": "2026-10-04",
+          "forecast_date": "2026-10-05",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 09/28"
+          "bucket": "Wk 10/05"
         }
       ],
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 12012.0,
-      "forecast_date": "2026-10-04",
+      "forecast_date": "2026-10-05",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [],
-      "bucket": "Wk 09/28"
+      "bucket": "Wk 10/05"
     }
   ],
   "view_label": "Douglas Hoffman + Team"
