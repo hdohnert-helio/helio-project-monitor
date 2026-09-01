@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T15:25:47.247354Z",
+  "generated_at": "2026-09-01T20:52:53.012525Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 39,
   "transitions": [
@@ -15,9 +15,9 @@
       "label": "Sold to Install Complete",
       "from": "__creation__",
       "to": "Inspection",
-      "sample_count": 15,
-      "median_days": 68.13282102557292,
-      "p75_days": 80.78587293580728
+      "sample_count": 16,
+      "median_days": 66.61680840502315,
+      "p75_days": 80.34588919828703
     },
     {
       "label": "Install Complete to Energized",
@@ -41,8 +41,8 @@
       "stage": "Sales Ops Review",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 6.86038937548611,
-      "p75_days": 6.86038937548611
+      "median_days": 7.087539435335648,
+      "p75_days": 7.087539435335648
     },
     {
       "stage": "Project Intake",
@@ -81,10 +81,10 @@
     },
     {
       "stage": "Permitting",
-      "sample_count": 22,
-      "open_count": 2,
-      "median_days": 15.514383284241898,
-      "p75_days": 32.15714858862847
+      "sample_count": 23,
+      "open_count": 3,
+      "median_days": 14.088182941481481,
+      "p75_days": 30.100537894085647
     },
     {
       "stage": "Procurement & Scheduling",
@@ -96,8 +96,8 @@
     {
       "stage": "Active Installation",
       "sample_count": 19,
-      "open_count": 2,
-      "median_days": 6.160605912974537,
+      "open_count": 1,
+      "median_days": 6.387755972824074,
       "p75_days": 8.057521958993055
     },
     {
@@ -111,14 +111,14 @@
       "stage": "Witness Test / PTO",
       "sample_count": 21,
       "open_count": 7,
-      "median_days": 26.821414548460645,
+      "median_days": 27.048564608310187,
       "p75_days": 41.66939788063657
     },
     {
       "stage": "Energized",
       "sample_count": 15,
       "open_count": 7,
-      "median_days": 26.94912245747685,
+      "median_days": 27.17627251732639,
       "p75_days": 42.29036902849538
     }
   ],
