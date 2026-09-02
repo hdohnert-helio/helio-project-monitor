@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T15:01:38.548717Z",
+  "generated_at": "2026-09-02T20:52:01.352115Z",
   "today": "2026-09-02",
   "weeks": [
     {
@@ -251,7 +251,7 @@
     {
       "project_id": "PROJ-1635",
       "customer": "Mohammed Noor | 54",
-      "stage": "Interconnection",
+      "stage": "Permitting",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -268,32 +268,32 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-10-21",
-          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-10-07",
+          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/19"
+          "bucket": "Wk 10/05"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-11-16",
-          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-11-02",
+          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 11/16"
+          "bucket": "Wk 11/02"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-10-21",
-      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-10-07",
+      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero",
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 10/19"
+      "bucket": "Wk 10/05"
     },
     {
       "project_id": "PROJ-1631",

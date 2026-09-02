@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-02T15:01:38.548717Z",
-  "generated_at_label": "Wed Sep 2, 2026 · 11:01 AM ET",
+  "generated_at": "2026-09-02T20:52:01.352115Z",
+  "generated_at_label": "Wed Sep 2, 2026 · 4:52 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 8,
   "projects": [
     {
       "project_id": "PROJ-1651",
       "customer": "Gene Feola",
-      "stage": "Engineering",
-      "stage_entered_at": "2026-08-27T12:34:00-04:00",
-      "days_in_stage": 5,
+      "stage": "Interconnection",
+      "stage_entered_at": "2026-09-02T14:43:00-04:00",
+      "days_in_stage": 0,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -49,7 +49,7 @@
       "customer": "Joseph Jahr",
       "stage": "Interconnection",
       "stage_entered_at": "2026-07-07T16:49:00-04:00",
-      "days_in_stage": 56,
+      "days_in_stage": 57,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -109,7 +109,7 @@
       "customer": "Steve Kerschner",
       "stage": "Energized",
       "stage_entered_at": "2026-07-30T13:47:00-04:00",
-      "days_in_stage": 33,
+      "days_in_stage": 34,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -450,7 +450,7 @@
       "customer": "Richard Desrochers",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-05T14:33:00-04:00",
-      "days_in_stage": 119,
+      "days_in_stage": 120,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -470,7 +470,7 @@
       "customer": "Daniel Ghazal",
       "stage": "Energized",
       "stage_entered_at": "2026-09-01T14:39:00-04:00",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -478,7 +478,7 @@
       "last_reviewed_by": "",
       "last_review_notes": "",
       "zoho_record_id": "5264387000053567062",
-      "lightreach_finance_status": "milestoneStatusChanged",
+      "lightreach_finance_status": "requirementStatusChanged",
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [
@@ -616,6 +616,114 @@
           "previous_status": "submitted",
           "reason": "",
           "at": "2026-09-01T18:34:02+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationPackage",
+          "name": "activationPackage",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-02T16:29:34+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "monitoringSiteId",
+          "name": "monitoringSiteId",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-02T16:29:34+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "siteImprovements",
+          "name": "siteImprovements",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-02T16:29:34+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationDocuments",
+          "name": "activationDocuments",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-02T16:29:34+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "extendedWarranty",
+          "name": "extendedWarranty",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-02T16:29:34+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "incentives",
+          "name": "incentives",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-02T16:29:34+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationPackage",
+          "name": "activationPackage",
+          "status": "inProgress",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-02T16:42:18+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "monitoringSiteId",
+          "name": "monitoringSiteId",
+          "status": "inProgress",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-02T16:42:18+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "siteImprovements",
+          "name": "siteImprovements",
+          "status": "inProgress",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-02T16:42:18+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationDocuments",
+          "name": "activationDocuments",
+          "status": "inProgress",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-02T16:42:18+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "extendedWarranty",
+          "name": "extendedWarranty",
+          "status": "inProgress",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-02T16:42:18+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "incentives",
+          "name": "incentives",
+          "status": "inProgress",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-02T16:42:18+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -634,6 +742,14 @@
           "previous_status": "submitted",
           "reason": "",
           "at": "2026-09-01T18:34:05+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "activation",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-02T16:29:36+00:00"
         }
       ],
       "aurora_project_id": "8ae40007-af15-41bf-9205-a5ffdcb370d4"
