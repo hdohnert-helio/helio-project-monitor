@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T14:55:33.760751Z",
+  "generated_at": "2026-09-03T20:49:58.295546Z",
   "today": "2026-09-03",
   "weeks": [
     {
@@ -80,10 +80,10 @@
     "Wk 09/07": 67920.0,
     "Wk 09/14": 26045.28,
     "Wk 09/21": 147671.27,
-    "Wk 09/28": 58754.4,
+    "Wk 09/28": 110371.59,
     "Wk 10/05": 102281.7,
     "Wk 10/12": 0.0,
-    "Wk 10/19": 38528.0,
+    "Wk 10/19": 90145.19,
     "Wk 10/26": 14688.6,
     "Wk 11/02": 23258.38,
     "Wk 11/09": 0.0,
@@ -93,16 +93,62 @@
     "Received": 655270.49
   },
   "summary": {
-    "project_count": 31,
-    "total_outstanding": 533572.86,
+    "project_count": 32,
+    "total_outstanding": 636807.24,
     "total_collected": 655270.49,
     "received": 655270.49,
     "this_week": 0.0,
-    "next_30_days": 300390.95,
+    "next_30_days": 352008.14,
     "past_due": 44793.23,
     "beyond_12_wks": 0.0
   },
   "projects": [
+    {
+      "project_id": "PROJ-1652",
+      "customer": "Garry Thibodeau",
+      "stage": "Engineering",
+      "owner": "Fred Stevens",
+      "rep": "Frederick Stevens",
+      "project_manager": "",
+      "zoho_record_id": "5264387000095644077",
+      "financing_type": "Solar Loan (inferred)",
+      "lending_status": "ClimateFirst",
+      "lender": "CF",
+      "contract_total": 103234.38,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 103234.38,
+      "milestones": [
+        {
+          "label": "Phase 1 (50%)",
+          "pct": 0.5,
+          "dollars": 51617.19,
+          "forecast_date": "2026-10-02",
+          "anchor_source": "today + 24d (through Permitting) + 5d",
+          "status": "on_track",
+          "bucket": "Wk 09/28"
+        },
+        {
+          "label": "Phase 2 (50%)",
+          "pct": 0.5,
+          "dollars": 51617.19,
+          "forecast_date": "2026-10-21",
+          "anchor_source": "today + 43d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d)) + 5d lag",
+          "status": "on_track",
+          "bucket": "Wk 10/19"
+        }
+      ],
+      "next_milestone": "Phase 1 (50%)",
+      "next_milestone_pct": 0.5,
+      "next_dollar": 51617.19,
+      "forecast_date": "2026-10-02",
+      "anchor_source": "today + 24d (through Permitting) + 5d",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 09/28"
+    },
     {
       "project_id": "PROJ-1651",
       "customer": "Gene Feola",
