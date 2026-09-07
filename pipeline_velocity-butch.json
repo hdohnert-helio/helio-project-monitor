@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T16:20:21.393307Z",
+  "generated_at": "2026-09-07T21:22:31.632763Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 26,
   "transitions": [
@@ -41,8 +41,8 @@
       "stage": "Sales Ops Review",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 12.898284583275462,
-      "p75_days": 12.898284583275462
+      "median_days": 13.108125317719907,
+      "p75_days": 13.108125317719907
     },
     {
       "stage": "Project Intake",
@@ -77,7 +77,7 @@
       "sample_count": 39,
       "open_count": 3,
       "median_days": 15.240443519456019,
-      "p75_days": 25.0750838673206
+      "p75_days": 25.18000423454282
     },
     {
       "stage": "Permitting",
@@ -111,15 +111,15 @@
       "stage": "Witness Test / PTO",
       "sample_count": 13,
       "open_count": 4,
-      "median_days": 32.85930975625,
+      "median_days": 33.06915049069445,
       "p75_days": 41.66939788063657
     },
     {
       "stage": "Energized",
       "sample_count": 8,
       "open_count": 5,
-      "median_days": 29.934793070266203,
-      "p75_days": 40.767744671168984
+      "median_days": 30.14463380471065,
+      "p75_days": 40.925125222002315
     }
   ],
   "notes": [
