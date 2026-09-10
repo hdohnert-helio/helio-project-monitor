@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T14:55:44.097625Z",
+  "generated_at": "2026-09-10T20:41:56.131122Z",
   "today": "2026-09-10",
   "weeks": [
     {
@@ -81,25 +81,25 @@
     "Wk 09/21": 46873.68,
     "Wk 09/28": 147671.27,
     "Wk 10/05": 89543.19,
-    "Wk 10/12": 102281.7,
+    "Wk 10/12": 84050.32,
     "Wk 10/19": 5207.1,
     "Wk 10/26": 90145.19,
     "Wk 11/02": 9481.5,
     "Wk 11/09": 23258.38,
     "Wk 11/16": 0.0,
     "Wk 11/23": 9632.0,
-    "Past-due": 44793.23,
+    "Past-due": 15002.83,
     "Beyond 12 wks": 0.0,
-    "Received": 655270.49
+    "Received": 612135.37
   },
   "summary": {
-    "project_count": 32,
-    "total_outstanding": 636807.24,
-    "total_collected": 655270.49,
-    "received": 655270.49,
+    "project_count": 29,
+    "total_outstanding": 588785.46,
+    "total_collected": 612135.37,
+    "received": 612135.37,
     "this_week": 0.0,
     "next_30_days": 352008.14,
-    "past_due": 44793.23,
+    "past_due": 15002.83,
     "beyond_12_wks": 0.0
   },
   "projects": [
@@ -535,52 +535,6 @@
       "bucket": "Paid"
     },
     {
-      "project_id": "PROJ-1643",
-      "customer": "Ryan Hopley & Anginieka Jackman",
-      "stage": "Witness Test / PTO",
-      "owner": "Laura Beth Collinson",
-      "rep": "Laura Beth Collinson",
-      "project_manager": "",
-      "zoho_record_id": "5264387000088831008",
-      "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - NTP",
-      "lender": "LR",
-      "contract_total": 37238.0,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 37238.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 29790.4,
-          "forecast_date": "2026-08-27",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 7447.6,
-          "forecast_date": "2026-10-15",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 10/12"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 29790.4,
-      "forecast_date": "2026-08-27",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
-      "flags": [
-        "Financing_Type inferred from Lending_Status"
-      ],
-      "bucket": "Past-due"
-    },
-    {
       "project_id": "PROJ-1642",
       "customer": "Ronald Muriel",
       "stage": "Procurement & Scheduling",
@@ -766,53 +720,6 @@
       "bucket": "Wk 10/12"
     },
     {
-      "project_id": "PROJ-1631",
-      "customer": "Bishuja Deb",
-      "stage": "Witness Test / PTO",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086594110",
-      "financing_type": "Lease / PPA (inferred)",
-      "lending_status": "LR - Activation Package Paid",
-      "lender": "LR",
-      "contract_total": 0.0,
-      "pct_collected": 1.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        }
-      ],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Contract_Total missing or zero",
-        "Financing_Type inferred from Lending_Status"
-      ],
-      "bucket": "Paid"
-    },
-    {
       "project_id": "PROJ-1629",
       "customer": "Kim & James Murphy",
       "stage": "Inspection",
@@ -861,7 +768,7 @@
     {
       "project_id": "PROJ-1627",
       "customer": "Mohammed Alamgir | 28",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -887,10 +794,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-10-20",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-10-15",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/19"
+          "bucket": "Wk 10/12"
         }
       ],
       "next_milestone": "Install package (80%)",
@@ -1269,50 +1176,6 @@
       "status": "on_track",
       "flags": [],
       "bucket": "Wk 09/21"
-    },
-    {
-      "project_id": "PROJ-1607",
-      "customer": "Justin Kane",
-      "stage": "Witness Test / PTO",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "David Fargnoli",
-      "zoho_record_id": "5264387000085757025",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - Install Package Paid",
-      "lender": "LR",
-      "contract_total": 53918.9,
-      "pct_collected": 0.8,
-      "dollars_collected": 43135.12,
-      "dollars_outstanding": 10783.78,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 43135.12,
-          "forecast_date": null,
-          "anchor_source": "received",
-          "status": "received",
-          "bucket": "Received"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 10783.78,
-          "forecast_date": "2026-10-15",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 10/12"
-        }
-      ],
-      "next_milestone": "Activation package (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 10783.78,
-      "forecast_date": "2026-10-15",
-      "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-      "status": "on_track",
-      "flags": [],
-      "bucket": "Wk 10/12"
     },
     {
       "project_id": "PROJ-1582",

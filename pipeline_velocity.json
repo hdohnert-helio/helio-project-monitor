@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T14:55:44.097625Z",
+  "generated_at": "2026-09-10T20:41:56.131122Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 40,
   "transitions": [
@@ -23,17 +23,17 @@
       "label": "Install Complete to Energized",
       "from": "Inspection",
       "to": "Energized",
-      "sample_count": 12,
-      "median_days": 22.52406429808449,
-      "p75_days": 35.48487210152778
+      "sample_count": 14,
+      "median_days": 26.027865745619216,
+      "p75_days": 38.70703813902777
     },
     {
       "label": "Sold to Energized",
       "from": "__creation__",
       "to": "Energized",
-      "sample_count": 6,
-      "median_days": 95.11015789097222,
-      "p75_days": 101.39872402399595
+      "sample_count": 9,
+      "median_days": 100.70019203195602,
+      "p75_days": 115.3093583924537
     }
   ],
   "dwell_per_stage": [
@@ -41,8 +41,8 @@
       "stage": "Sales Ops Review",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 15.839519586956017,
-      "p75_days": 15.839519586956017
+      "median_days": 16.079936641319446,
+      "p75_days": 16.079936641319446
     },
     {
       "stage": "Project Intake",
@@ -77,7 +77,7 @@
       "sample_count": 52,
       "open_count": 8,
       "median_days": 15.593326921006945,
-      "p75_days": 28.60281256434896
+      "p75_days": 28.78312535512153
     },
     {
       "stage": "Permitting",
@@ -102,24 +102,24 @@
     },
     {
       "stage": "Inspection",
-      "sample_count": 28,
+      "sample_count": 29,
       "open_count": 6,
-      "median_days": 15.506914286678242,
-      "p75_days": 33.890982515827545
+      "median_days": 15.008888712361111,
+      "p75_days": 33.873789082777776
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 21,
-      "open_count": 7,
+      "open_count": 4,
       "median_days": 28.675921421041668,
-      "p75_days": 44.000434409282406
+      "p75_days": 44.24085146364583
     },
     {
       "stage": "Energized",
       "sample_count": 16,
       "open_count": 8,
-      "median_days": 32.87602807394676,
-      "p75_days": 42.76638260086227
+      "median_days": 33.11644512831019,
+      "p75_days": 42.82648686445313
     }
   ],
   "notes": [
