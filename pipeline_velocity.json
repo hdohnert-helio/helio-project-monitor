@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T20:46:42.280957Z",
+  "generated_at": "2026-09-10T14:55:44.097625Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 40,
   "transitions": [
@@ -7,7 +7,7 @@
       "label": "Sold to Install Ready",
       "from": "__creation__",
       "to": "Active Installation",
-      "sample_count": 17,
+      "sample_count": 18,
       "median_days": 68.65059714215278,
       "p75_days": 85.15910702822916
     },
@@ -15,9 +15,9 @@
       "label": "Sold to Install Complete",
       "from": "__creation__",
       "to": "Inspection",
-      "sample_count": 16,
-      "median_days": 66.61680840502315,
-      "p75_days": 80.34588919828703
+      "sample_count": 17,
+      "median_days": 68.13282102557292,
+      "p75_days": 81.66584041084779
     },
     {
       "label": "Install Complete to Energized",
@@ -41,8 +41,8 @@
       "stage": "Sales Ops Review",
       "sample_count": 1,
       "open_count": 1,
-      "median_days": 15.08324856070602,
-      "p75_days": 15.08324856070602
+      "median_days": 15.839519586956017,
+      "p75_days": 15.839519586956017
     },
     {
       "stage": "Project Intake",
@@ -77,7 +77,7 @@
       "sample_count": 52,
       "open_count": 8,
       "median_days": 15.593326921006945,
-      "p75_days": 28.03560929466146
+      "p75_days": 28.60281256434896
     },
     {
       "stage": "Permitting",
@@ -89,7 +89,7 @@
     {
       "stage": "Procurement & Scheduling",
       "sample_count": 28,
-      "open_count": 3,
+      "open_count": 2,
       "median_days": 8.209611437268519,
       "p75_days": 15.467161476576969
     },
@@ -112,14 +112,14 @@
       "sample_count": 21,
       "open_count": 7,
       "median_days": 28.675921421041668,
-      "p75_days": 43.24416338303241
+      "p75_days": 44.000434409282406
     },
     {
       "stage": "Energized",
       "sample_count": 16,
       "open_count": 8,
-      "median_days": 32.11975704769676,
-      "p75_days": 42.4064676542419
+      "median_days": 32.87602807394676,
+      "p75_days": 42.76638260086227
     }
   ],
   "notes": [
