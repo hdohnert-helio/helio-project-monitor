@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10T20:41:56.131122Z",
-  "generated_at_label": "Thu Sep 10, 2026 · 4:41 PM ET",
+  "generated_at": "2026-09-11T14:56:30.551692Z",
+  "generated_at_label": "Fri Sep 11, 2026 · 10:56 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 8,
   "projects": [
@@ -29,7 +29,7 @@
       "customer": "Bob Muller",
       "stage": "Procurement & Scheduling",
       "stage_entered_at": "2026-08-17T16:58:00-04:00",
-      "days_in_stage": 23,
+      "days_in_stage": 24,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -49,7 +49,7 @@
       "customer": "Joseph Jahr",
       "stage": "Interconnection",
       "stage_entered_at": "2026-07-07T16:49:00-04:00",
-      "days_in_stage": 64,
+      "days_in_stage": 65,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -69,7 +69,7 @@
       "customer": "Jonathan Wong",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-25T09:20:00-04:00",
-      "days_in_stage": 16,
+      "days_in_stage": 17,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -89,7 +89,7 @@
       "customer": "Ronald Muriel",
       "stage": "Procurement & Scheduling",
       "stage_entered_at": "2026-08-31T10:22:00-04:00",
-      "days_in_stage": 10,
+      "days_in_stage": 11,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -478,7 +478,7 @@
       "last_reviewed_by": "",
       "last_review_notes": "",
       "zoho_record_id": "5264387000053567062",
-      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_finance_status": "milestoneAchieved",
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [
@@ -724,6 +724,60 @@
           "previous_status": "resubmitted",
           "reason": "",
           "at": "2026-09-02T16:42:18+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationPackage",
+          "name": "activationPackage",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-10T21:46:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "monitoringSiteId",
+          "name": "monitoringSiteId",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-10T21:46:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "siteImprovements",
+          "name": "siteImprovements",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-10T21:46:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationDocuments",
+          "name": "activationDocuments",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-10T21:46:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "extendedWarranty",
+          "name": "extendedWarranty",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-10T21:46:49+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "incentives",
+          "name": "incentives",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-10T21:46:49+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -750,6 +804,22 @@
           "previous_status": "rejected",
           "reason": "",
           "at": "2026-09-02T16:29:36+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "activation",
+          "status": "approved",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-10T21:46:50+00:00"
+        },
+        {
+          "event": "milestoneAchieved",
+          "milestone": "activation",
+          "status": "achieved",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-09-10T21:46:52+00:00"
         }
       ],
       "aurora_project_id": "8ae40007-af15-41bf-9205-a5ffdcb370d4"

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10T20:41:56.131122Z",
-  "generated_at_label": "Thu Sep 10, 2026 · 4:41 PM ET",
+  "generated_at": "2026-09-11T14:56:30.551692Z",
+  "generated_at_label": "Fri Sep 11, 2026 · 10:56 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 25,
   "projects": [
@@ -105,7 +105,7 @@
       "customer": "Kari Webb",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-12T16:50:00-04:00",
-      "days_in_stage": 28,
+      "days_in_stage": 29,
       "rep": "Scott Webb",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1486,7 +1486,7 @@
       "customer": "Sahil Goyal",
       "stage": "Energized",
       "stage_entered_at": "2026-08-11T10:52:00-04:00",
-      "days_in_stage": 30,
+      "days_in_stage": 31,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -2073,7 +2073,7 @@
       "customer": "Nusrat Nisan | 198",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-04T17:23:00-04:00",
-      "days_in_stage": 36,
+      "days_in_stage": 37,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -2176,7 +2176,7 @@
       "customer": "Moriam Khatun | 42",
       "stage": "Sales Ops Review",
       "stage_entered_at": "2026-08-25T10:17:00-04:00",
-      "days_in_stage": 16,
+      "days_in_stage": 17,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -3725,7 +3725,7 @@
       "customer": "Hartley Mannion",
       "stage": "Inspection",
       "stage_entered_at": "2026-09-10T10:53:00-04:00",
-      "days_in_stage": 0,
+      "days_in_stage": 1,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -4015,6 +4015,123 @@
           "previous_status": "submitted",
           "reason": "",
           "at": "2026-09-10T16:46:52+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "installPackage",
+          "name": "installPackage",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "finalDesignApproved",
+          "name": "finalDesignApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "dxfApproved",
+          "name": "dxfApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "shadeReportApproved",
+          "name": "shadeReportApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "planSetApproved",
+          "name": "planSetApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "productionModelApproved",
+          "name": "productionModelApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "permitApproved",
+          "name": "permitApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "installPhotosApproved",
+          "name": "installPhotosApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "projectSitePhotosApproved",
+          "name": "projectSitePhotosApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "roofPhotosApproved",
+          "name": "roofPhotosApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "electricalPhotosApproved",
+          "name": "electricalPhotosApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "storagePhotosApproved",
+          "name": "storagePhotosApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "systemCommissioningApproved",
+          "name": "systemCommissioningApproved",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:37+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -4049,6 +4166,14 @@
           "previous_status": "submitted",
           "reason": "",
           "at": "2026-09-10T16:46:53+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "install",
+          "status": "resubmitted",
+          "previous_status": "rejected",
+          "reason": "",
+          "at": "2026-09-10T21:14:39+00:00"
         }
       ],
       "aurora_project_id": "d88ac083-7b0c-4d3e-b76c-8c2ac64aa1aa"
@@ -4799,7 +4924,7 @@
       "customer": "Charles Casey | Crystal Casey",
       "stage": "Energized",
       "stage_entered_at": "2026-07-29T07:37:00-04:00",
-      "days_in_stage": 43,
+      "days_in_stage": 44,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -5372,7 +5497,7 @@
       "customer": "Frank & Josephine LaFauci",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-07-28T10:37:00-04:00",
-      "days_in_stage": 44,
+      "days_in_stage": 45,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "David Fargnoli",
