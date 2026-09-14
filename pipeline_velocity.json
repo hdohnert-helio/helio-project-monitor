@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T20:35:19.570859Z",
+  "generated_at": "2026-09-14T16:53:58.108680Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 40,
   "transitions": [
@@ -40,9 +40,9 @@
     {
       "stage": "Sales Ops Review",
       "sample_count": 1,
-      "open_count": 1,
-      "median_days": 19.07534682346065,
-      "p75_days": 19.07534682346065
+      "open_count": 0,
+      "median_days": 19.92162619638889,
+      "p75_days": 19.92162619638889
     },
     {
       "stage": "Project Intake",
@@ -75,16 +75,16 @@
     {
       "stage": "Interconnection",
       "sample_count": 52,
-      "open_count": 8,
+      "open_count": 7,
       "median_days": 15.593326921006945,
-      "p75_days": 30.362708835760998
+      "p75_days": 30.574278678993057
     },
     {
       "stage": "Permitting",
       "sample_count": 24,
       "open_count": 4,
       "median_days": 17.597747554021993,
-      "p75_days": 28.110432567997687
+      "p75_days": 28.74514209769387
     },
     {
       "stage": "Procurement & Scheduling",
@@ -112,14 +112,14 @@
       "sample_count": 22,
       "open_count": 5,
       "median_days": 28.521840654305556,
-      "p75_days": 45.844545704499424
+      "p75_days": 46.479255234195605
     },
     {
       "stage": "Energized",
       "sample_count": 19,
       "open_count": 11,
-      "median_days": 30.065329710740738,
-      "p75_days": 43.85008183450232
+      "median_days": 30.911609083668978,
+      "p75_days": 44.27322152096644
     }
   ],
   "notes": [
