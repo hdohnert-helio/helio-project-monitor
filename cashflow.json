@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T15:29:42.552540Z",
+  "generated_at": "2026-09-15T21:06:09.984930Z",
   "today": "2026-09-15",
   "weeks": [
     {
@@ -79,11 +79,11 @@
     "Wk 09/14": 86141.91,
     "Wk 09/21": 20828.4,
     "Wk 09/28": 132854.64,
-    "Wk 10/05": 22640.0,
-    "Wk 10/12": 89543.19,
+    "Wk 10/05": 74257.19,
+    "Wk 10/12": 37926.0,
     "Wk 10/19": 89257.42,
-    "Wk 10/26": 0.0,
-    "Wk 11/02": 117854.07,
+    "Wk 10/26": 51617.19,
+    "Wk 11/02": 66236.88,
     "Wk 11/09": 5031.0,
     "Wk 11/16": 0.0,
     "Wk 11/23": 9632.0,
@@ -106,7 +106,7 @@
     {
       "project_id": "PROJ-1652",
       "customer": "Garry Thibodeau",
-      "stage": "Engineering",
+      "stage": "Interconnection",
       "owner": "Fred Stevens",
       "rep": "Frederick Stevens",
       "project_manager": "",
@@ -123,31 +123,31 @@
           "label": "Phase 1 (50%)",
           "pct": 0.5,
           "dollars": 51617.19,
-          "forecast_date": "2026-10-14",
-          "anchor_source": "today + 24d (through Permitting) + 5d",
+          "forecast_date": "2026-10-11",
+          "anchor_source": "today + 21d (through Permitting) + 5d",
           "status": "on_track",
-          "bucket": "Wk 10/12"
+          "bucket": "Wk 10/05"
         },
         {
           "label": "Phase 2 (50%)",
           "pct": 0.5,
           "dollars": 51617.19,
-          "forecast_date": "2026-11-02",
-          "anchor_source": "today + 43d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d)) + 5d lag",
+          "forecast_date": "2026-10-30",
+          "anchor_source": "today + 40d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d)) + 5d lag",
           "status": "on_track",
-          "bucket": "Wk 11/02"
+          "bucket": "Wk 10/26"
         }
       ],
       "next_milestone": "Phase 1 (50%)",
       "next_milestone_pct": 0.5,
       "next_dollar": 51617.19,
-      "forecast_date": "2026-10-14",
-      "anchor_source": "today + 24d (through Permitting) + 5d",
+      "forecast_date": "2026-10-11",
+      "anchor_source": "today + 21d (through Permitting) + 5d",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 10/12"
+      "bucket": "Wk 10/05"
     },
     {
       "project_id": "PROJ-1651",

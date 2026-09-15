@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-09-15T15:29:42.552540Z",
+  "last_run": "2026-09-15T21:06:09.984930Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -3665,8 +3665,14 @@
         {
           "stage": "Engineering",
           "entered_at": "2026-04-16T04:00:00Z",
-          "exited_at": null,
+          "exited_at": "2026-09-15T21:06:09.984930Z",
           "truncated": true
+        },
+        {
+          "stage": "Interconnection",
+          "entered_at": "2026-09-15T21:06:09.984930Z",
+          "exited_at": null,
+          "truncated": false
         }
       ],
       "project_created_date": "2026-09-03"
