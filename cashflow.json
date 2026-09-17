@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T15:28:51.397594Z",
+  "generated_at": "2026-09-17T21:10:24.768331Z",
   "today": "2026-09-17",
   "weeks": [
     {
@@ -93,7 +93,7 @@
     "Received": 612135.37
   },
   "summary": {
-    "project_count": 29,
+    "project_count": 27,
     "total_outstanding": 588785.46,
     "total_collected": 612135.37,
     "received": 612135.37,
@@ -718,98 +718,6 @@
         "Financing_Type inferred from Lending_Status"
       ],
       "bucket": "Wk 10/19"
-    },
-    {
-      "project_id": "PROJ-1629",
-      "customer": "Kim & James Murphy",
-      "stage": "Inspection",
-      "owner": "Jenna Stockwell",
-      "rep": "Jenna Stockwell",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086571001",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
-      "lender": "LR",
-      "contract_total": null,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-09",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-10-27",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 10/26"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-09-09",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
-      "bucket": "Past-due"
-    },
-    {
-      "project_id": "PROJ-1627",
-      "customer": "Mohammed Alamgir | 28",
-      "stage": "Witness Test / PTO",
-      "owner": "Walter Carmona",
-      "rep": "Walter Carmona",
-      "project_manager": "",
-      "zoho_record_id": "5264387000086387039",
-      "financing_type": "Lease / PPA",
-      "lending_status": "LR - NTP",
-      "lender": "LR",
-      "contract_total": 0.0,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 0.0,
-      "milestones": [
-        {
-          "label": "Install package (80%)",
-          "pct": 0.8,
-          "dollars": 0.0,
-          "forecast_date": "2026-09-07",
-          "anchor_source": "Substantial_Completion + 14d",
-          "status": "past_due",
-          "bucket": "Past-due"
-        },
-        {
-          "label": "Activation package (20%)",
-          "pct": 0.2,
-          "dollars": 0.0,
-          "forecast_date": "2026-10-22",
-          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
-          "status": "on_track",
-          "bucket": "Wk 10/19"
-        }
-      ],
-      "next_milestone": "Install package (80%)",
-      "next_milestone_pct": 0.8,
-      "next_dollar": 0.0,
-      "forecast_date": "2026-09-07",
-      "anchor_source": "Substantial_Completion + 14d",
-      "status": "past_due",
-      "flags": [
-        "Contract_Total missing or zero"
-      ],
-      "bucket": "Past-due"
     },
     {
       "project_id": "PROJ-1620",

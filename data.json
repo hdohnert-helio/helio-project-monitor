@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-17T15:28:51.397594Z",
-  "generated_at_label": "Thu Sep 17, 2026 · 11:28 AM ET",
+  "generated_at": "2026-09-17T21:10:24.768331Z",
+  "generated_at_label": "Thu Sep 17, 2026 · 5:10 PM ET",
   "canvas_id": "5264387000040853100",
-  "project_count": 49,
+  "project_count": 48,
   "projects": [
     {
       "project_id": "PROJ-1652",
       "customer": "Garry Thibodeau",
       "stage": "Interconnection",
       "stage_entered_at": "2026-09-15T13:49:00-04:00",
-      "days_in_stage": 1,
+      "days_in_stage": 2,
       "rep": "Frederick Stevens",
       "owner": "Fred Stevens",
       "project_manager": "",
@@ -29,7 +29,7 @@
       "customer": "Gene Feola",
       "stage": "Interconnection",
       "stage_entered_at": "2026-09-02T14:43:00-04:00",
-      "days_in_stage": 14,
+      "days_in_stage": 15,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -45,31 +45,11 @@
       "aurora_project_id": "dc805e95-66b6-43cb-81ea-a7c6f1c35b4f"
     },
     {
-      "project_id": "PROJ-1650",
-      "customer": "Johny Appleseed Jr.",
-      "stage": "On Hold",
-      "stage_entered_at": "2026-08-10T20:30:00-04:00",
-      "days_in_stage": 37,
-      "rep": "brian Tilford",
-      "owner": "Brian Tilford",
-      "project_manager": "",
-      "last_reviewed_at": null,
-      "last_reviewed_by": "",
-      "last_review_notes": "",
-      "zoho_record_id": "5264387000093934072",
-      "lightreach_finance_status": "",
-      "lightreach_ntp_granted_at": null,
-      "lightreach_outstanding_stipulations": "",
-      "lightreach_requirement_log": [],
-      "lightreach_milestone_log": [],
-      "aurora_project_id": "b9e7928d-d297-4ef0-bf6b-7907ed8e66cd"
-    },
-    {
       "project_id": "PROJ-1649",
       "customer": "Bob Muller",
       "stage": "Procurement & Scheduling",
       "stage_entered_at": "2026-08-17T16:58:00-04:00",
-      "days_in_stage": 30,
+      "days_in_stage": 31,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -89,7 +69,7 @@
       "customer": "Gabrielle Jazwiecki - Solar",
       "stage": "Inspection",
       "stage_entered_at": "2026-09-01T13:02:00-04:00",
-      "days_in_stage": 15,
+      "days_in_stage": 16,
       "rep": "walter carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -109,7 +89,7 @@
       "customer": "Joseph Jahr",
       "stage": "Interconnection",
       "stage_entered_at": "2026-07-07T16:49:00-04:00",
-      "days_in_stage": 71,
+      "days_in_stage": 72,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -149,7 +129,7 @@
       "customer": "Kevin Gill",
       "stage": "Interconnection",
       "stage_entered_at": "2026-06-29T16:02:00-04:00",
-      "days_in_stage": 79,
+      "days_in_stage": 80,
       "rep": "Laura Beth Collinson",
       "owner": "Laura Beth Collinson",
       "project_manager": "",
@@ -1110,7 +1090,7 @@
       "customer": "Farid Ahmed",
       "stage": "Permitting",
       "stage_entered_at": "2026-08-21T14:46:00-04:00",
-      "days_in_stage": 26,
+      "days_in_stage": 27,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1130,7 +1110,7 @@
       "customer": "Sakhaowat Hossain",
       "stage": "On Hold",
       "stage_entered_at": "2026-06-01T14:52:00-04:00",
-      "days_in_stage": 107,
+      "days_in_stage": 108,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1186,7 +1166,7 @@
       "customer": "Kari Webb",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-12T16:50:00-04:00",
-      "days_in_stage": 35,
+      "days_in_stage": 36,
       "rep": "Scott Webb",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1206,7 +1186,7 @@
       "customer": "Mohammed Noor | 54",
       "stage": "Permitting",
       "stage_entered_at": "2026-09-02T14:39:00-04:00",
-      "days_in_stage": 14,
+      "days_in_stage": 15,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -1707,7 +1687,7 @@
       "customer": "Steve Kerschner",
       "stage": "Energized",
       "stage_entered_at": "2026-07-30T13:47:00-04:00",
-      "days_in_stage": 48,
+      "days_in_stage": 49,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -2046,9 +2026,9 @@
     {
       "project_id": "PROJ-1629",
       "customer": "Kim & James Murphy",
-      "stage": "Inspection",
-      "stage_entered_at": "2026-08-27T12:41:00-04:00",
-      "days_in_stage": 20,
+      "stage": "Energized",
+      "stage_entered_at": "2026-09-17T16:09:00-04:00",
+      "days_in_stage": 0,
       "rep": "Jenna Stockwell",
       "owner": "Jenna Stockwell",
       "project_manager": "",
@@ -2563,6 +2543,87 @@
           "previous_status": "",
           "reason": "",
           "at": "2026-09-04T17:45:06+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:01+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationPackage",
+          "name": "activationPackage",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:05+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "monitoringSiteId",
+          "name": "monitoringSiteId",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:05+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "siteImprovements",
+          "name": "siteImprovements",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:05+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationDocuments",
+          "name": "activationDocuments",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:05+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "extendedWarranty",
+          "name": "extendedWarranty",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:05+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "incentives",
+          "name": "incentives",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:05+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-09-17T20:08:11+00:00"
+        },
+        {
+          "event": "requirementCompleted",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "completed",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-09-17T20:08:13+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -2605,6 +2666,14 @@
           "previous_status": "",
           "reason": "",
           "at": "2026-09-04T17:45:01+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "activation",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:08:03+00:00"
         }
       ],
       "aurora_project_id": "8f51fecc-59fb-41c9-8a64-6cd2cbd9e1cf"
@@ -2612,9 +2681,9 @@
     {
       "project_id": "PROJ-1627",
       "customer": "Mohammed Alamgir | 28",
-      "stage": "Witness Test / PTO",
-      "stage_entered_at": "2026-09-10T11:05:00-04:00",
-      "days_in_stage": 7,
+      "stage": "Energized",
+      "stage_entered_at": "2026-09-17T15:30:00-04:00",
+      "days_in_stage": 0,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -2622,7 +2691,7 @@
       "last_reviewed_by": "",
       "last_review_notes": "",
       "zoho_record_id": "5264387000086387039",
-      "lightreach_finance_status": "requirementCompleted",
+      "lightreach_finance_status": "milestoneStatusChanged",
       "lightreach_ntp_granted_at": "2026-05-04T10:00:00-04:00",
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [
@@ -3399,6 +3468,33 @@
           "previous_status": "",
           "reason": "",
           "at": "2026-09-09T21:55:19+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:11:32+00:00"
+        },
+        {
+          "event": "requirementCompleted",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "completed",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-09-17T20:16:24+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "ptoConfirmation",
+          "name": "ptoConfirmation",
+          "status": "completed",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-09-17T20:16:26+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -3465,6 +3561,22 @@
           "previous_status": "",
           "reason": "",
           "at": "2026-09-09T21:55:18+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "activation",
+          "status": "submitted",
+          "previous_status": "pending",
+          "reason": "",
+          "at": "2026-09-17T20:11:33+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "activation",
+          "status": "pending",
+          "previous_status": "submitted",
+          "reason": "",
+          "at": "2026-09-17T20:16:27+00:00"
         }
       ],
       "aurora_project_id": "3107f8ea-77a5-47a3-91cc-49ff340eb29d"
@@ -4081,7 +4193,7 @@
       "customer": "Asaduzzaman Khokon",
       "stage": "Interconnection",
       "stage_entered_at": "2026-08-06T13:37:00-04:00",
-      "days_in_stage": 41,
+      "days_in_stage": 42,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -4184,7 +4296,7 @@
       "customer": "Mohammed Ali",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-05T14:59:00-04:00",
-      "days_in_stage": 42,
+      "days_in_stage": 43,
       "rep": "Mustak Ahmed",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -4637,7 +4749,7 @@
       "customer": "Abdul Mabud",
       "stage": "On Hold",
       "stage_entered_at": "2026-06-10T15:27:00-04:00",
-      "days_in_stage": 98,
+      "days_in_stage": 99,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -4657,7 +4769,7 @@
       "customer": "Moriam Khatun | 58",
       "stage": "Active Installation",
       "stage_entered_at": "2026-08-25T15:28:00-04:00",
-      "days_in_stage": 22,
+      "days_in_stage": 23,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -4677,7 +4789,7 @@
       "customer": "Nasima Majid",
       "stage": "Energized",
       "stage_entered_at": "2026-08-21T16:14:00-04:00",
-      "days_in_stage": 26,
+      "days_in_stage": 27,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -4685,7 +4797,7 @@
       "last_reviewed_by": "",
       "last_review_notes": "",
       "zoho_record_id": "5264387000086077022",
-      "lightreach_finance_status": "requirementStatusChanged",
+      "lightreach_finance_status": "milestoneAchieved",
       "lightreach_ntp_granted_at": null,
       "lightreach_outstanding_stipulations": "",
       "lightreach_requirement_log": [
@@ -5228,6 +5340,60 @@
           "previous_status": "resubmitted",
           "reason": "",
           "at": "2026-09-15T19:35:03+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationPackage",
+          "name": "activationPackage",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-17T21:00:54+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "monitoringSiteId",
+          "name": "monitoringSiteId",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-17T21:00:54+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "siteImprovements",
+          "name": "siteImprovements",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-17T21:00:54+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "activationDocuments",
+          "name": "activationDocuments",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-17T21:00:54+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "extendedWarranty",
+          "name": "extendedWarranty",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-17T21:00:54+00:00"
+        },
+        {
+          "event": "requirementStatusChanged",
+          "code": "incentives",
+          "name": "incentives",
+          "status": "completed",
+          "previous_status": "inProgress",
+          "reason": "",
+          "at": "2026-09-17T21:00:54+00:00"
         }
       ],
       "lightreach_milestone_log": [
@@ -5278,6 +5444,22 @@
           "previous_status": "rejected",
           "reason": "",
           "at": "2026-09-15T15:43:17+00:00"
+        },
+        {
+          "event": "milestoneStatusChanged",
+          "milestone": "activation",
+          "status": "approved",
+          "previous_status": "resubmitted",
+          "reason": "",
+          "at": "2026-09-17T21:00:56+00:00"
+        },
+        {
+          "event": "milestoneAchieved",
+          "milestone": "activation",
+          "status": "achieved",
+          "previous_status": "",
+          "reason": "",
+          "at": "2026-09-17T21:00:58+00:00"
         }
       ],
       "aurora_project_id": "35a03660-cd7d-477e-ba0c-003d68ad57a1"
@@ -5287,7 +5469,7 @@
       "customer": "Nusrat Nisan | 227",
       "stage": "Permitting",
       "stage_entered_at": "2026-08-18T12:40:00-04:00",
-      "days_in_stage": 29,
+      "days_in_stage": 30,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -5307,7 +5489,7 @@
       "customer": "Mohammad Gafur",
       "stage": "On Hold",
       "stage_entered_at": "2026-06-10T15:28:00-04:00",
-      "days_in_stage": 98,
+      "days_in_stage": 99,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -5327,7 +5509,7 @@
       "customer": "Mustaque Nabi",
       "stage": "Energized",
       "stage_entered_at": "2026-08-26T14:12:00-04:00",
-      "days_in_stage": 21,
+      "days_in_stage": 22,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -5684,7 +5866,7 @@
       "customer": "Mohammed Noor | 19",
       "stage": "Energized",
       "stage_entered_at": "2026-08-05T12:37:00-04:00",
-      "days_in_stage": 42,
+      "days_in_stage": 43,
       "rep": "Walter Carmona",
       "owner": "Walter Carmona",
       "project_manager": "",
@@ -7064,7 +7246,7 @@
       "customer": "Elsa Ortiz",
       "stage": "Energized",
       "stage_entered_at": "2026-08-14T13:14:00-04:00",
-      "days_in_stage": 33,
+      "days_in_stage": 34,
       "rep": "Kenny Crosby",
       "owner": "Jenna Stockwell",
       "project_manager": "David Fargnoli",
@@ -8252,7 +8434,7 @@
       "customer": "Carl Guild | Commercial",
       "stage": "Witness Test / PTO",
       "stage_entered_at": "2026-08-05T15:02:00-04:00",
-      "days_in_stage": 42,
+      "days_in_stage": 43,
       "rep": "Laura Beth Collinson",
       "owner": "Laura Beth Collinson",
       "project_manager": "David Fargnoli",
@@ -8332,7 +8514,7 @@
       "customer": "Daniel DeTuccio | Donna Petruska",
       "stage": "Inspection",
       "stage_entered_at": "2026-04-28T13:22:00-04:00",
-      "days_in_stage": 141,
+      "days_in_stage": 142,
       "rep": "Erik Williams",
       "owner": "Erik Williams",
       "project_manager": "David Fargnoli",
@@ -8352,7 +8534,7 @@
       "customer": "Richard Desrochers",
       "stage": "On Hold",
       "stage_entered_at": "2026-05-05T14:33:00-04:00",
-      "days_in_stage": 134,
+      "days_in_stage": 135,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
@@ -8472,7 +8654,7 @@
       "customer": "Daniel Ghazal",
       "stage": "Energized",
       "stage_entered_at": "2026-09-01T14:39:00-04:00",
-      "days_in_stage": 15,
+      "days_in_stage": 16,
       "rep": "Douglas Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "David Fargnoli",
