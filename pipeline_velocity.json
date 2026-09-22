@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T15:27:47.441137Z",
+  "generated_at": "2026-09-22T21:06:58.697322Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 42,
   "transitions": [
@@ -112,14 +112,14 @@
       "sample_count": 22,
       "open_count": 4,
       "median_days": 28.521840654305556,
-      "p75_days": 53.17080415698785
+      "p75_days": 53.229690893634256
     },
     {
       "stage": "Energized",
       "sample_count": 21,
       "open_count": 13,
-      "median_days": 31.168274028113427,
-      "p75_days": 47.950513589224535
+      "median_days": 31.403820974699073,
+      "p75_days": 48.186060535810185
     }
   ],
   "notes": [
