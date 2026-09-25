@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T15:45:59.734343Z",
+  "generated_at": "2026-09-25T21:22:32.771902Z",
   "today": "2026-09-25",
   "weeks": [
     {
@@ -79,7 +79,7 @@
     "Wk 09/21": 0.0,
     "Wk 09/28": 137053.11,
     "Wk 10/05": 26045.28,
-    "Wk 10/12": 95508.56,
+    "Wk 10/12": 62578.4,
     "Wk 10/19": 150372.39,
     "Wk 10/26": 46955.92,
     "Wk 11/02": 18775.5,
@@ -90,15 +90,15 @@
     "Wk 12/07": 9632.0,
     "Past-due": 35831.23,
     "Beyond 12 wks": 0.0,
-    "Received": 625703.77
+    "Received": 658633.93
   },
   "summary": {
     "project_count": 29,
-    "total_outstanding": 680943.06,
-    "total_collected": 625703.77,
-    "received": 625703.77,
+    "total_outstanding": 648012.9,
+    "total_collected": 658633.93,
+    "received": 658633.93,
     "this_week": 0.0,
-    "next_30_days": 408979.34,
+    "next_30_days": 376049.18,
     "past_due": 35831.23,
     "beyond_12_wks": 0.0
   },
@@ -515,12 +515,12 @@
       "project_manager": "",
       "zoho_record_id": "5264387000089834001",
       "financing_type": "Cash (inferred)",
-      "lending_status": "Cash - 20PCT deposit paid",
+      "lending_status": "Cash - 60PCT paid",
       "lender": "Cash",
       "contract_total": 54883.6,
-      "pct_collected": 0.2,
-      "dollars_collected": 10976.72,
-      "dollars_outstanding": 43906.88,
+      "pct_collected": 0.8,
+      "dollars_collected": 43906.88,
+      "dollars_outstanding": 10976.72,
       "milestones": [
         {
           "label": "Deposit (20%)",
@@ -535,10 +535,10 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 32930.16,
-          "forecast_date": "2026-10-13",
-          "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
-          "status": "on_track",
-          "bucket": "Wk 10/12"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Substantial completion (20%)",
@@ -550,16 +550,16 @@
           "bucket": "Wk 10/26"
         }
       ],
-      "next_milestone": "Pre-install (60%)",
-      "next_milestone_pct": 0.6,
-      "next_dollar": 32930.16,
-      "forecast_date": "2026-10-13",
-      "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "next_milestone": "Substantial completion (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 10976.72,
+      "forecast_date": "2026-10-30",
+      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 10/12"
+      "bucket": "Wk 10/26"
     },
     {
       "project_id": "PROJ-1644",
