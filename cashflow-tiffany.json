@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-25T21:22:32.771902Z",
-  "today": "2026-09-25",
+  "generated_at": "2026-09-26T14:55:38.363919Z",
+  "today": "2026-09-26",
   "weeks": [
     {
       "index": 0,
@@ -157,7 +157,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 22968.0,
-          "forecast_date": "2026-10-13",
+          "forecast_date": "2026-10-14",
           "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 10/12"
@@ -166,7 +166,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 7656.0,
-          "forecast_date": "2026-10-30",
+          "forecast_date": "2026-10-31",
           "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 10/26"
@@ -221,7 +221,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 26045.28,
-          "forecast_date": "2026-10-09",
+          "forecast_date": "2026-10-10",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 10/05"
@@ -230,7 +230,7 @@
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 26045.28,
-      "forecast_date": "2026-10-09",
+      "forecast_date": "2026-10-10",
       "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
       "status": "on_track",
       "flags": [
@@ -267,7 +267,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 50911.2,
-          "forecast_date": "2026-09-29",
+          "forecast_date": "2026-09-30",
           "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 09/28"
@@ -276,7 +276,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 16970.4,
-          "forecast_date": "2026-10-16",
+          "forecast_date": "2026-10-17",
           "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 10/12"
@@ -285,7 +285,7 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 50911.2,
-      "forecast_date": "2026-09-29",
+      "forecast_date": "2026-09-30",
       "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
@@ -368,7 +368,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 37926.0,
-          "forecast_date": "2026-10-23",
+          "forecast_date": "2026-10-24",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 10/19"
@@ -377,7 +377,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-11-18",
+          "forecast_date": "2026-11-19",
           "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 11/16"
@@ -386,7 +386,7 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 37926.0,
-      "forecast_date": "2026-10-23",
+      "forecast_date": "2026-10-24",
       "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
