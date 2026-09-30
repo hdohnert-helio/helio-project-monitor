@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T16:44:56.951687Z",
+  "generated_at": "2026-09-30T22:05:09.162509Z",
   "today": "2026-09-30",
   "weeks": [
     {
@@ -78,11 +78,11 @@
   "weekly_totals": {
     "Wk 09/28": 118831.2,
     "Wk 10/05": 18221.91,
-    "Wk 10/12": 59990.0,
+    "Wk 10/12": 111607.19,
     "Wk 10/19": 39610.4,
     "Wk 10/26": 150372.39,
-    "Wk 11/02": 35979.2,
-    "Wk 11/09": 70392.69,
+    "Wk 11/02": 41186.3,
+    "Wk 11/09": 13568.4,
     "Wk 11/16": 56755.38,
     "Wk 11/23": 14512.5,
     "Wk 11/30": 0.0,
@@ -188,7 +188,7 @@
     {
       "project_id": "PROJ-1652",
       "customer": "Garry Thibodeau",
-      "stage": "Interconnection",
+      "stage": "Permitting",
       "owner": "Fred Stevens",
       "rep": "Frederick Stevens",
       "project_manager": "",
@@ -205,31 +205,31 @@
           "label": "Phase 1 (50%)",
           "pct": 0.5,
           "dollars": 51617.19,
-          "forecast_date": "2026-10-26",
-          "anchor_source": "today + 21d (through Permitting) + 5d",
+          "forecast_date": "2026-10-12",
+          "anchor_source": "today + 7d (through Permitting) + 5d",
           "status": "on_track",
-          "bucket": "Wk 10/26"
+          "bucket": "Wk 10/12"
         },
         {
           "label": "Phase 2 (50%)",
           "pct": 0.5,
           "dollars": 51617.19,
-          "forecast_date": "2026-11-14",
-          "anchor_source": "today + 40d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d)) + 5d lag",
+          "forecast_date": "2026-10-31",
+          "anchor_source": "today + 26d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d)) + 5d lag",
           "status": "on_track",
-          "bucket": "Wk 11/09"
+          "bucket": "Wk 10/26"
         }
       ],
       "next_milestone": "Phase 1 (50%)",
       "next_milestone_pct": 0.5,
       "next_dollar": 51617.19,
-      "forecast_date": "2026-10-26",
-      "anchor_source": "today + 21d (through Permitting) + 5d",
+      "forecast_date": "2026-10-12",
+      "anchor_source": "today + 7d (through Permitting) + 5d",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 10/26"
+      "bucket": "Wk 10/12"
     },
     {
       "project_id": "PROJ-1651",
@@ -795,7 +795,7 @@
     {
       "project_id": "PROJ-1618",
       "customer": "Moriam Khatun | 58",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -821,10 +821,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-11-09",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-11-04",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 11/09"
+          "bucket": "Wk 11/02"
         }
       ],
       "next_milestone": "Install package (80%)",
@@ -1071,7 +1071,7 @@
     {
       "project_id": "PROJ-1608",
       "customer": "Hartley Mannion",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -1097,10 +1097,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 5207.1,
-          "forecast_date": "2026-11-09",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-11-04",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 11/09"
+          "bucket": "Wk 11/02"
         }
       ],
       "next_milestone": "Install package (80%)",

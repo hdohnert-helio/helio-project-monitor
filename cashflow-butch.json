@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T16:44:56.951687Z",
+  "generated_at": "2026-09-30T22:05:09.162509Z",
   "today": "2026-09-30",
   "weeks": [
     {
@@ -81,8 +81,8 @@
     "Wk 10/12": 0.0,
     "Wk 10/19": 0.0,
     "Wk 10/26": 20124.0,
-    "Wk 11/02": 0.0,
-    "Wk 11/09": 5207.1,
+    "Wk 11/02": 5207.1,
+    "Wk 11/09": 0.0,
     "Wk 11/16": 38528.0,
     "Wk 11/23": 5031.0,
     "Wk 11/30": 0.0,
@@ -344,7 +344,7 @@
     {
       "project_id": "PROJ-1618",
       "customer": "Moriam Khatun | 58",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -370,10 +370,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-11-09",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-11-04",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 11/09"
+          "bucket": "Wk 11/02"
         }
       ],
       "next_milestone": "Install package (80%)",
@@ -620,7 +620,7 @@
     {
       "project_id": "PROJ-1608",
       "customer": "Hartley Mannion",
-      "stage": "Inspection",
+      "stage": "Witness Test / PTO",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "David Fargnoli",
@@ -646,10 +646,10 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 5207.1,
-          "forecast_date": "2026-11-09",
-          "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-11-04",
+          "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 11/09"
+          "bucket": "Wk 11/02"
         }
       ],
       "next_milestone": "Install package (80%)",
