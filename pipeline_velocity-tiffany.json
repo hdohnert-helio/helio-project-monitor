@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T15:05:40.064676Z",
+  "generated_at": "2026-10-03T20:52:40.326893Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 7,
   "transitions": [
@@ -49,7 +49,7 @@
       "sample_count": 5,
       "open_count": 1,
       "median_days": 4.975175414108796,
-      "p75_days": 9.73929714056713
+      "p75_days": 9.980272397708333
     },
     {
       "stage": "Site Survey",
@@ -83,15 +83,15 @@
       "stage": "Permitting",
       "sample_count": 6,
       "open_count": 2,
-      "median_days": 6.459952455277778,
-      "p75_days": 16.428791744560186
+      "median_days": 6.58044008384838,
+      "p75_days": 16.489035558845487
     },
     {
       "stage": "Procurement & Scheduling",
       "sample_count": 7,
       "open_count": 2,
       "median_days": 17.27889715982639,
-      "p75_days": 26.427645361047453
+      "p75_days": 26.548132989618054
     },
     {
       "stage": "Active Installation",
@@ -118,7 +118,7 @@
       "stage": "Energized",
       "sample_count": 5,
       "open_count": 3,
-      "median_days": 31.758877918414353,
+      "median_days": 31.999853175555554,
       "p75_days": 41.91799961766204
     }
   ],
