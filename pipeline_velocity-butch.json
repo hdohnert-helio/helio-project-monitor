@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T21:08:34.250138Z",
+  "generated_at": "2026-10-05T19:43:51.469998Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 26,
   "transitions": [
@@ -82,7 +82,7 @@
     {
       "stage": "Permitting",
       "sample_count": 16,
-      "open_count": 3,
+      "open_count": 2,
       "median_days": 21.495910663153936,
       "p75_days": 34.65119253163195
     },
@@ -119,7 +119,7 @@
       "sample_count": 11,
       "open_count": 8,
       "median_days": 42.662738439328706,
-      "p75_days": 57.134941876180555
+      "p75_days": 58.07611340233797
     }
   ],
   "notes": [

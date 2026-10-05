@@ -1,132 +1,160 @@
 {
-  "generated_at": "2026-10-04T21:08:34.250138Z",
-  "today": "2026-10-04",
+  "generated_at": "2026-10-05T19:43:51.469998Z",
+  "today": "2026-10-05",
   "weeks": [
     {
       "index": 0,
-      "start": "2026-09-28",
-      "end": "2026-10-04",
-      "label": "Wk 09/28"
-    },
-    {
-      "index": 1,
       "start": "2026-10-05",
       "end": "2026-10-11",
       "label": "Wk 10/05"
     },
     {
-      "index": 2,
+      "index": 1,
       "start": "2026-10-12",
       "end": "2026-10-18",
       "label": "Wk 10/12"
     },
     {
-      "index": 3,
+      "index": 2,
       "start": "2026-10-19",
       "end": "2026-10-25",
       "label": "Wk 10/19"
     },
     {
-      "index": 4,
+      "index": 3,
       "start": "2026-10-26",
       "end": "2026-11-01",
       "label": "Wk 10/26"
     },
     {
-      "index": 5,
+      "index": 4,
       "start": "2026-11-02",
       "end": "2026-11-08",
       "label": "Wk 11/02"
     },
     {
-      "index": 6,
+      "index": 5,
       "start": "2026-11-09",
       "end": "2026-11-15",
       "label": "Wk 11/09"
     },
     {
-      "index": 7,
+      "index": 6,
       "start": "2026-11-16",
       "end": "2026-11-22",
       "label": "Wk 11/16"
     },
     {
-      "index": 8,
+      "index": 7,
       "start": "2026-11-23",
       "end": "2026-11-29",
       "label": "Wk 11/23"
     },
     {
-      "index": 9,
+      "index": 8,
       "start": "2026-11-30",
       "end": "2026-12-06",
       "label": "Wk 11/30"
     },
     {
-      "index": 10,
+      "index": 9,
       "start": "2026-12-07",
       "end": "2026-12-13",
       "label": "Wk 12/07"
     },
     {
-      "index": 11,
+      "index": 10,
       "start": "2026-12-14",
       "end": "2026-12-20",
       "label": "Wk 12/14"
+    },
+    {
+      "index": 11,
+      "start": "2026-12-21",
+      "end": "2026-12-27",
+      "label": "Wk 12/21"
     }
   ],
   "weekly_totals": {
-    "Wk 09/28": 0.0,
     "Wk 10/05": 73879.2,
-    "Wk 10/12": 26045.28,
-    "Wk 10/19": 24626.4,
-    "Wk 10/26": 37926.0,
-    "Wk 11/02": 0.0,
-    "Wk 11/09": 0.0,
+    "Wk 10/12": 0.0,
+    "Wk 10/19": 48775.68,
+    "Wk 10/26": 24626.4,
+    "Wk 11/02": 37926.0,
+    "Wk 11/09": 7576.8,
     "Wk 11/16": 0.0,
     "Wk 11/23": 9481.5,
     "Wk 11/30": 0.0,
     "Wk 12/07": 0.0,
     "Wk 12/14": 0.0,
-    "Past-due": 7656.0,
+    "Wk 12/21": 0.0,
+    "Past-due": 15232.8,
     "Beyond 12 wks": 0.0
   },
   "summary": {
     "project_count": 5,
     "total_outstanding": 217498.38,
     "total_collected": 121151.52,
-    "this_week": 0.0,
-    "next_30_days": 162476.88,
-    "past_due": 7656.0,
+    "this_week": 73879.2,
+    "next_30_days": 185207.28,
+    "past_due": 15232.8,
     "beyond_12_wks": 0.0
   },
   "projects": [
     {
       "project_id": "PROJ-1654",
       "customer": "Lauren Cohen",
-      "stage": "Project Intake",
+      "stage": "Interconnection",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
       "zoho_record_id": "5264387000097564001",
-      "financing_type": "",
-      "lending_status": "",
-      "lender": "?",
+      "financing_type": "Cash (inferred)",
+      "lending_status": "Cash - 20PCT deposit invoiced",
+      "lender": "Cash",
       "contract_total": 37884.0,
       "pct_collected": 0.0,
       "dollars_collected": 0.0,
       "dollars_outstanding": 37884.0,
-      "milestones": [],
-      "next_milestone": "—",
-      "next_milestone_pct": 0.0,
-      "next_dollar": 0.0,
-      "forecast_date": null,
-      "anchor_source": "100% collected",
-      "status": "paid",
-      "flags": [
-        "Lending_Status missing"
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 7576.8,
+          "forecast_date": "2026-09-22",
+          "anchor_source": "Project_Created_Date (signing)",
+          "status": "past_due",
+          "bucket": "Past-due"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 22730.4,
+          "forecast_date": "2026-10-23",
+          "anchor_source": "today + 25d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 10/19"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 7576.8,
+          "forecast_date": "2026-11-09",
+          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 11/09"
+        }
       ],
-      "bucket": "Paid"
+      "next_milestone": "Deposit (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 7576.8,
+      "forecast_date": "2026-09-22",
+      "anchor_source": "Project_Created_Date (signing)",
+      "status": "past_due",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Past-due"
     },
     {
       "project_id": "PROJ-1651",
@@ -157,7 +185,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 22968.0,
-          "forecast_date": "2026-10-08",
+          "forecast_date": "2026-10-09",
           "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 10/05"
@@ -166,10 +194,10 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 7656.0,
-          "forecast_date": "2026-10-25",
+          "forecast_date": "2026-10-26",
           "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 10/19"
+          "bucket": "Wk 10/26"
         }
       ],
       "next_milestone": "Deposit (20%)",
@@ -221,22 +249,22 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 26045.28,
-          "forecast_date": "2026-10-18",
+          "forecast_date": "2026-10-19",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 10/12"
+          "bucket": "Wk 10/19"
         }
       ],
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 26045.28,
-      "forecast_date": "2026-10-18",
+      "forecast_date": "2026-10-19",
       "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 10/12"
+      "bucket": "Wk 10/19"
     },
     {
       "project_id": "PROJ-1647",
@@ -267,7 +295,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 50911.2,
-          "forecast_date": "2026-10-08",
+          "forecast_date": "2026-10-09",
           "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 10/05"
@@ -276,16 +304,16 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 16970.4,
-          "forecast_date": "2026-10-25",
+          "forecast_date": "2026-10-26",
           "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 10/19"
+          "bucket": "Wk 10/26"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 50911.2,
-      "forecast_date": "2026-10-08",
+      "forecast_date": "2026-10-09",
       "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
@@ -313,16 +341,16 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 37926.0,
-          "forecast_date": "2026-11-01",
+          "forecast_date": "2026-11-02",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 10/26"
+          "bucket": "Wk 11/02"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-11-27",
+          "forecast_date": "2026-11-28",
           "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 11/23"
@@ -331,13 +359,13 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 37926.0,
-      "forecast_date": "2026-11-01",
+      "forecast_date": "2026-11-02",
       "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 10/26"
+      "bucket": "Wk 11/02"
     }
   ],
   "view_label": "Tiffany Vilayphonh"
