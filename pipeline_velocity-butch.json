@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T22:56:45.584185Z",
+  "generated_at": "2026-10-08T17:47:30.839991Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 26,
   "transitions": [
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 11,
       "open_count": 8,
-      "median_days": 42.662738439328706,
-      "p75_days": 60.21007305728009
+      "median_days": 42.91328080481482,
+      "p75_days": 60.99531907355325
     }
   ],
   "notes": [
