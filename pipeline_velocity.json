@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T23:09:51.430705Z",
+  "generated_at": "2026-10-09T17:23:18.696011Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 42,
   "transitions": [
@@ -23,17 +23,17 @@
       "label": "Install Complete to Energized",
       "from": "Inspection",
       "to": "Energized",
-      "sample_count": 17,
-      "median_days": 24.98581196263889,
-      "p75_days": 40.137015162581015
+      "sample_count": 18,
+      "median_days": 26.027865745619216,
+      "p75_days": 38.571208642630204
     },
     {
       "label": "Sold to Energized",
       "from": "__creation__",
       "to": "Energized",
-      "sample_count": 12,
-      "median_days": 101.1658800266493,
-      "p75_days": 118.40596593300347
+      "sample_count": 13,
+      "median_days": 101.63156802134259,
+      "p75_days": 127.69578855465278
     }
   ],
   "dwell_per_stage": [
@@ -82,7 +82,7 @@
     {
       "stage": "Permitting",
       "sample_count": 29,
-      "open_count": 5,
+      "open_count": 4,
       "median_days": 17.220401728136576,
       "p75_days": 34.070196885648144
     },
@@ -103,14 +103,14 @@
     {
       "stage": "Inspection",
       "sample_count": 31,
-      "open_count": 4,
+      "open_count": 3,
       "median_days": 18.271420692604167,
       "p75_days": 30.96343504802662
     },
     {
       "stage": "Witness Test / PTO",
       "sample_count": 25,
-      "open_count": 6,
+      "open_count": 5,
       "median_days": 28.36775988756945,
       "p75_days": 56.66063453809027
     },
@@ -119,7 +119,7 @@
       "sample_count": 22,
       "open_count": 14,
       "median_days": 42.29036902849538,
-      "p75_days": 62.74528080061342
+      "p75_days": 63.5046241490625
     }
   ],
   "notes": [
