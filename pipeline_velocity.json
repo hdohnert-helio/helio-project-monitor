@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T15:18:29.232278Z",
+  "generated_at": "2026-10-16T20:48:06.399411Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 42,
   "transitions": [
@@ -67,10 +67,10 @@
     },
     {
       "stage": "Plan Review",
-      "sample_count": 7,
-      "open_count": 0,
-      "median_days": 0.966192667326389,
-      "p75_days": 1.4895591997280093
+      "sample_count": 8,
+      "open_count": 1,
+      "median_days": 0.843472838292824,
+      "p75_days": 1.3880638058767363
     },
     {
       "stage": "Interconnection",
@@ -119,7 +119,7 @@
       "sample_count": 23,
       "open_count": 15,
       "median_days": 42.662738439328706,
-      "p75_days": 66.79525365689236
+      "p75_days": 66.9097048555787
     }
   ],
   "notes": [
