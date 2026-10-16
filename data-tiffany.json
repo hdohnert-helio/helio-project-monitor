@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-15T21:10:33.001732Z",
-  "generated_at_label": "Thu Oct 15, 2026 · 5:10 PM ET",
+  "generated_at": "2026-10-16T15:18:29.232278Z",
+  "generated_at_label": "Fri Oct 16, 2026 · 11:18 AM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 9,
   "projects": [
@@ -109,7 +109,7 @@
       "customer": "Ronald Muriel",
       "stage": "Procurement & Scheduling",
       "stage_entered_at": "2026-08-31T10:22:00-04:00",
-      "days_in_stage": 45,
+      "days_in_stage": 46,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",

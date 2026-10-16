@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-10-15T21:10:33.001732Z",
+  "last_run": "2026-10-16T15:18:29.232278Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -3170,6 +3170,12 @@
         {
           "stage": "Interconnection",
           "entered_at": "2026-08-13T11:52:21.676836Z",
+          "exited_at": "2026-10-16T15:18:29.232278Z",
+          "truncated": false
+        },
+        {
+          "stage": "Plan Review",
+          "entered_at": "2026-10-16T15:18:29.232278Z",
           "exited_at": null,
           "truncated": false
         }
