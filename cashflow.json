@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T17:23:13.252911Z",
+  "generated_at": "2026-10-19T22:11:50.095480Z",
   "today": "2026-10-19",
   "weeks": [
     {
@@ -76,13 +76,13 @@
     }
   ],
   "weekly_totals": {
-    "Wk 10/19": 211638.3,
+    "Wk 10/19": 233756.86,
     "Wk 10/26": 0.0,
     "Wk 11/02": 125084.0,
-    "Wk 11/09": 74257.19,
+    "Wk 11/09": 140612.87,
     "Wk 11/16": 76454.0,
     "Wk 11/23": 49468.4,
-    "Wk 11/30": 0.0,
+    "Wk 11/30": 22118.56,
     "Wk 12/07": 37340.88,
     "Wk 12/14": 0.0,
     "Wk 12/21": 0.0,
@@ -93,16 +93,71 @@
     "Received": 635645.93
   },
   "summary": {
-    "project_count": 25,
-    "total_outstanding": 596822.4,
+    "project_count": 26,
+    "total_outstanding": 707415.2,
     "total_collected": 635645.93,
     "received": 635645.93,
-    "this_week": 137759.1,
-    "next_30_days": 413554.29,
+    "this_week": 159877.66,
+    "next_30_days": 502028.53,
     "past_due": 22579.63,
     "beyond_12_wks": 0.0
   },
   "projects": [
+    {
+      "project_id": "PROJ-1655",
+      "customer": "Colin Hildinger",
+      "stage": "Project Intake",
+      "owner": "Jenna Stockwell",
+      "rep": "Jenna Stockwell",
+      "project_manager": "",
+      "zoho_record_id": "5264387000099644005",
+      "financing_type": "Cash (inferred)",
+      "lending_status": "Cash - 20PCT deposit invoiced",
+      "lender": "Cash",
+      "contract_total": 110592.8,
+      "pct_collected": 0.0,
+      "dollars_collected": 0.0,
+      "dollars_outstanding": 110592.8,
+      "milestones": [
+        {
+          "label": "Deposit (20%)",
+          "pct": 0.2,
+          "dollars": 22118.56,
+          "forecast_date": "2026-10-19",
+          "anchor_source": "Project_Created_Date (signing)",
+          "status": "on_track",
+          "bucket": "Wk 10/19"
+        },
+        {
+          "label": "Pre-install (60%)",
+          "pct": 0.6,
+          "dollars": 66355.68,
+          "forecast_date": "2026-11-15",
+          "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "status": "on_track",
+          "bucket": "Wk 11/09"
+        },
+        {
+          "label": "Substantial completion (20%)",
+          "pct": 0.2,
+          "dollars": 22118.56,
+          "forecast_date": "2026-12-02",
+          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "status": "on_track",
+          "bucket": "Wk 11/30"
+        }
+      ],
+      "next_milestone": "Deposit (20%)",
+      "next_milestone_pct": 0.2,
+      "next_dollar": 22118.56,
+      "forecast_date": "2026-10-19",
+      "anchor_source": "Project_Created_Date (signing)",
+      "status": "on_track",
+      "flags": [
+        "Financing_Type inferred from Lending_Status"
+      ],
+      "bucket": "Wk 10/19"
+    },
     {
       "project_id": "PROJ-1654",
       "customer": "Lauren Cohen",
