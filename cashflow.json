@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T15:53:02.660778Z",
+  "generated_at": "2026-10-21T21:28:03.167446Z",
   "today": "2026-10-21",
   "weeks": [
     {
@@ -79,10 +79,10 @@
     "Wk 10/19": 238265.35,
     "Wk 10/26": 18221.91,
     "Wk 11/02": 102353.6,
-    "Wk 11/09": 81833.99,
-    "Wk 11/16": 142809.68,
-    "Wk 11/23": 41891.6,
-    "Wk 11/30": 22118.56,
+    "Wk 11/09": 148189.67,
+    "Wk 11/16": 76454.0,
+    "Wk 11/23": 64010.16,
+    "Wk 11/30": 0.0,
     "Wk 12/07": 18227.38,
     "Wk 12/14": 19113.5,
     "Wk 12/21": 0.0,
@@ -106,7 +106,7 @@
     {
       "project_id": "PROJ-1655",
       "customer": "Colin Hildinger",
-      "stage": "Project Intake",
+      "stage": "Engineering",
       "owner": "Jenna Stockwell",
       "rep": "Jenna Stockwell",
       "project_manager": "",
@@ -132,19 +132,19 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 66355.68,
-          "forecast_date": "2026-11-17",
-          "anchor_source": "today + 34d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "forecast_date": "2026-11-11",
+          "anchor_source": "today + 28d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 11/16"
+          "bucket": "Wk 11/09"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 22118.56,
-          "forecast_date": "2026-12-04",
-          "anchor_source": "today + 44d (Project Intake(2d) + Site Survey(4d) + Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-11-28",
+          "anchor_source": "today + 38d (Engineering(2d) + Plan Review(1d) + Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 11/30"
+          "bucket": "Wk 11/23"
         }
       ],
       "next_milestone": "Deposit (20%)",
