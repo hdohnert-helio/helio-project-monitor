@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T15:49:42.049937Z",
+  "generated_at": "2026-10-22T21:23:23.171167Z",
   "today": "2026-10-22",
   "weeks": [
     {
@@ -76,9 +76,9 @@
     }
   ],
   "weekly_totals": {
-    "Wk 10/19": 73879.2,
+    "Wk 10/19": 99924.48,
     "Wk 10/26": 40952.31,
-    "Wk 11/02": 50671.68,
+    "Wk 11/02": 24626.4,
     "Wk 11/09": 7576.8,
     "Wk 11/16": 37926.0,
     "Wk 11/23": 0.0,
@@ -95,7 +95,7 @@
     "project_count": 6,
     "total_outstanding": 253947.67,
     "total_collected": 139373.43,
-    "this_week": 73879.2,
+    "this_week": 99924.48,
     "next_30_days": 137126.79,
     "past_due": 15232.8,
     "beyond_12_wks": 0.0
@@ -214,7 +214,7 @@
     {
       "project_id": "PROJ-1649",
       "customer": "Bob Muller",
-      "stage": "Procurement & Scheduling",
+      "stage": "Inspection",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -249,22 +249,22 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 26045.28,
-          "forecast_date": "2026-11-05",
-          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-10-22",
+          "anchor_source": "Substantial_Completion",
           "status": "on_track",
-          "bucket": "Wk 11/02"
+          "bucket": "Wk 10/19"
         }
       ],
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 26045.28,
-      "forecast_date": "2026-11-05",
-      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+      "forecast_date": "2026-10-22",
+      "anchor_source": "Substantial_Completion",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 11/02"
+      "bucket": "Wk 10/19"
     },
     {
       "project_id": "PROJ-1647",

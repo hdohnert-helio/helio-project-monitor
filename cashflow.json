@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T15:49:42.049937Z",
+  "generated_at": "2026-10-22T21:23:23.171167Z",
   "today": "2026-10-22",
   "weeks": [
     {
@@ -76,9 +76,9 @@
     }
   ],
   "weekly_totals": {
-    "Wk 10/19": 147614.95,
+    "Wk 10/19": 173660.23,
     "Wk 10/26": 108872.31,
-    "Wk 11/02": 61648.4,
+    "Wk 11/02": 35603.12,
     "Wk 11/09": 188894.87,
     "Wk 11/16": 76454.0,
     "Wk 11/23": 64010.16,
@@ -97,7 +97,7 @@
     "total_outstanding": 707415.2,
     "total_collected": 635645.93,
     "received": 635645.93,
-    "this_week": 147614.95,
+    "this_week": 173660.23,
     "next_30_days": 487486.77,
     "past_due": 22579.63,
     "beyond_12_wks": 0.0
@@ -372,7 +372,7 @@
     {
       "project_id": "PROJ-1649",
       "customer": "Bob Muller",
-      "stage": "Procurement & Scheduling",
+      "stage": "Inspection",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -407,22 +407,22 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 26045.28,
-          "forecast_date": "2026-11-05",
-          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-10-22",
+          "anchor_source": "Substantial_Completion",
           "status": "on_track",
-          "bucket": "Wk 11/02"
+          "bucket": "Wk 10/19"
         }
       ],
       "next_milestone": "Substantial completion (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 26045.28,
-      "forecast_date": "2026-11-05",
-      "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+      "forecast_date": "2026-10-22",
+      "anchor_source": "Substantial_Completion",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 11/02"
+      "bucket": "Wk 10/19"
     },
     {
       "project_id": "PROJ-1648",
@@ -924,7 +924,7 @@
     {
       "project_id": "PROJ-1624",
       "customer": "Nusrat Nisan | 198",
-      "stage": "Interconnection",
+      "stage": "Permitting",
       "owner": "Walter Carmona",
       "rep": "Walter Carmona",
       "project_manager": "",
@@ -941,31 +941,31 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-12-10",
-          "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+          "forecast_date": "2026-11-26",
+          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 12/07"
+          "bucket": "Wk 11/23"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2027-01-05",
-          "anchor_source": "today + 61d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
+          "forecast_date": "2026-12-22",
+          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 01/04"
+          "bucket": "Wk 12/21"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-12-10",
-      "anchor_source": "today + 35d (Interconnection(14d) + Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
+      "forecast_date": "2026-11-26",
+      "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
         "Contract_Total missing or zero"
       ],
-      "bucket": "Wk 12/07"
+      "bucket": "Wk 11/23"
     },
     {
       "project_id": "PROJ-1623",

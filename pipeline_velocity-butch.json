@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T15:49:42.049937Z",
+  "generated_at": "2026-10-22T21:23:23.171167Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 26,
   "transitions": [
@@ -75,7 +75,7 @@
     {
       "stage": "Interconnection",
       "sample_count": 39,
-      "open_count": 1,
+      "open_count": 0,
       "median_days": 15.240443519456019,
       "p75_days": 25.892737226788192
     },
@@ -91,7 +91,7 @@
       "sample_count": 21,
       "open_count": 3,
       "median_days": 9.700536321226851,
-      "p75_days": 15.719857487291668
+      "p75_days": 15.951583427453704
     },
     {
       "stage": "Active Installation",
@@ -111,15 +111,15 @@
       "stage": "Witness Test / PTO",
       "sample_count": 18,
       "open_count": 5,
-      "median_days": 25.470288699826387,
+      "median_days": 25.58615166990741,
       "p75_days": 51.63245220709491
     },
     {
       "stage": "Energized",
       "sample_count": 12,
       "open_count": 9,
-      "median_days": 49.74710227222222,
-      "p75_days": 68.77849769364583
+      "median_days": 49.86296524230325,
+      "p75_days": 68.83642917868634
     }
   ],
   "notes": [
