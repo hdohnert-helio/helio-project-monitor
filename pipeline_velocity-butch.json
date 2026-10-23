@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T15:40:27.603883Z",
+  "generated_at": "2026-10-23T21:14:37.191989Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 26,
   "transitions": [
@@ -111,15 +111,15 @@
       "stage": "Witness Test / PTO",
       "sample_count": 18,
       "open_count": 5,
-      "median_days": 25.96708009997685,
+      "median_days": 26.08310780892361,
       "p75_days": 51.63245220709491
     },
     {
       "stage": "Energized",
       "sample_count": 12,
       "open_count": 9,
-      "median_days": 50.307845475630785,
-      "p75_days": 69.02689339372107
+      "median_days": 50.539900893524305,
+      "p75_days": 69.08490724819444
     }
   ],
   "notes": [
