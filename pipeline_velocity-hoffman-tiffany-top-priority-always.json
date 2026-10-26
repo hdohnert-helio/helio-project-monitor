@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T17:13:30.563765Z",
+  "generated_at": "2026-10-26T22:31:04.909076Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 8,
   "transitions": [
@@ -90,7 +90,7 @@
       "stage": "Procurement & Scheduling",
       "sample_count": 9,
       "open_count": 3,
-      "median_days": 16.993192913819446,
+      "median_days": 17.213729317881945,
       "p75_days": 19.974545207893517
     },
     {
@@ -119,7 +119,7 @@
       "sample_count": 5,
       "open_count": 3,
       "median_days": 41.91799961766204,
-      "p75_days": 54.84765684305555
+      "p75_days": 55.06819324711805
     }
   ],
   "notes": [
