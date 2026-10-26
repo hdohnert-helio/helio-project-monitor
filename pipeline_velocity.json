@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-25T20:39:41.354100Z",
+  "generated_at": "2026-10-26T17:13:30.563765Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "project_count": 43,
+  "project_count": 44,
   "transitions": [
     {
       "label": "Sold to Install Ready",
@@ -91,7 +91,7 @@
       "sample_count": 38,
       "open_count": 8,
       "median_days": 9.20966611355324,
-      "p75_days": 16.736718012962964
+      "p75_days": 16.97910290989294
     },
     {
       "stage": "Active Installation",
@@ -118,8 +118,8 @@
       "stage": "Energized",
       "sample_count": 23,
       "open_count": 15,
-      "median_days": 44.99844008076389,
-      "p75_days": 71.4128828734838
+      "median_days": 45.85525963707176,
+      "p75_days": 71.84129265163773
     }
   ],
   "notes": [
