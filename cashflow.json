@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T17:21:14.724017Z",
+  "generated_at": "2026-10-29T22:38:02.849148Z",
   "today": "2026-10-29",
   "weeks": [
     {
@@ -76,10 +76,10 @@
     }
   ],
   "weekly_totals": {
-    "Wk 10/26": 50911.2,
-    "Wk 11/02": 149577.51,
-    "Wk 11/09": 27947.12,
-    "Wk 11/16": 161758.07,
+    "Wk 10/26": 91616.4,
+    "Wk 11/02": 108872.31,
+    "Wk 11/09": 41515.52,
+    "Wk 11/16": 148189.67,
     "Wk 11/23": 76454.0,
     "Wk 11/30": 50441.76,
     "Wk 12/07": 0.0,
@@ -97,8 +97,8 @@
     "total_outstanding": 757944.8,
     "total_collected": 635645.93,
     "received": 635645.93,
-    "this_week": 50911.2,
-    "next_30_days": 415736.7,
+    "this_week": 91616.4,
+    "next_30_days": 375031.5,
     "past_due": 152984.66,
     "beyond_12_wks": 0.0
   },
@@ -243,7 +243,7 @@
     {
       "project_id": "PROJ-1653",
       "customer": "Leslie Roach",
-      "stage": "Permitting",
+      "stage": "Procurement & Scheduling",
       "owner": "Fred Stevens",
       "rep": "Frederick Stevens",
       "project_manager": "",
@@ -269,31 +269,31 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 40705.2,
-          "forecast_date": "2026-11-02",
-          "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "forecast_date": "2026-10-26",
+          "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 11/02"
+          "bucket": "Wk 10/26"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 13568.4,
-          "forecast_date": "2026-11-19",
-          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-11-12",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 11/16"
+          "bucket": "Wk 11/09"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 40705.2,
-      "forecast_date": "2026-11-02",
-      "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "forecast_date": "2026-10-26",
+      "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 11/02"
+      "bucket": "Wk 10/26"
     },
     {
       "project_id": "PROJ-1652",
