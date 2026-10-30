@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-29T22:38:02.849148Z",
-  "generated_at_label": "Thu Oct 29, 2026 · 6:38 PM ET",
+  "generated_at": "2026-10-30T16:58:08.999959Z",
+  "generated_at_label": "Fri Oct 30, 2026 · 12:58 PM ET",
   "canvas_id": "5264387000040853100",
   "project_count": 9,
   "projects": [
@@ -9,7 +9,7 @@
       "customer": "Lauren Cohen",
       "stage": "Permitting",
       "stage_entered_at": "2026-10-21T09:04:00-04:00",
-      "days_in_stage": 8,
+      "days_in_stage": 9,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
@@ -109,7 +109,7 @@
       "customer": "Ronald Muriel",
       "stage": "Procurement & Scheduling",
       "stage_entered_at": "2026-08-31T10:22:00-04:00",
-      "days_in_stage": 59,
+      "days_in_stage": 60,
       "rep": "Doug Hoffman",
       "owner": "Tiffany Vilayphonh",
       "project_manager": "",
