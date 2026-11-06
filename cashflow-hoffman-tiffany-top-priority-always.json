@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T17:51:43.559942Z",
+  "generated_at": "2026-11-06T22:55:15.640913Z",
   "today": "2026-11-06",
   "weeks": [
     {
@@ -88,16 +88,16 @@
     "Wk 01/04": 0.0,
     "Wk 01/11": 0.0,
     "Wk 01/18": 0.0,
-    "Past-due": 55338.3,
+    "Past-due": 47761.5,
     "Beyond 12 wks": 0.0
   },
   "summary": {
     "project_count": 5,
-    "total_outstanding": 227902.39,
-    "total_collected": 35192.31,
+    "total_outstanding": 220325.59,
+    "total_collected": 42769.11,
     "this_week": 79355.7,
     "next_30_days": 74981.01,
-    "past_due": 55338.3,
+    "past_due": 47761.5,
     "beyond_12_wks": 0.0
   },
   "projects": [
@@ -110,21 +110,21 @@
       "project_manager": "",
       "zoho_record_id": "5264387000097564001",
       "financing_type": "Cash (inferred)",
-      "lending_status": "Cash - 20PCT deposit invoiced",
+      "lending_status": "Cash - 60PCT invoiced",
       "lender": "Cash",
       "contract_total": 37884.0,
-      "pct_collected": 0.0,
-      "dollars_collected": 0.0,
-      "dollars_outstanding": 37884.0,
+      "pct_collected": 0.2,
+      "dollars_collected": 7576.8,
+      "dollars_outstanding": 30307.2,
       "milestones": [
         {
           "label": "Deposit (20%)",
           "pct": 0.2,
           "dollars": 7576.8,
-          "forecast_date": "2026-09-22",
-          "anchor_source": "Project_Created_Date (signing)",
-          "status": "past_due",
-          "bucket": "Past-due"
+          "forecast_date": null,
+          "anchor_source": "received",
+          "status": "received",
+          "bucket": "Received"
         },
         {
           "label": "Pre-install (60%)",
@@ -145,16 +145,16 @@
           "bucket": "Wk 11/23"
         }
       ],
-      "next_milestone": "Deposit (20%)",
-      "next_milestone_pct": 0.2,
-      "next_dollar": 7576.8,
-      "forecast_date": "2026-09-22",
-      "anchor_source": "Project_Created_Date (signing)",
-      "status": "past_due",
+      "next_milestone": "Pre-install (60%)",
+      "next_milestone_pct": 0.6,
+      "next_dollar": 22730.4,
+      "forecast_date": "2026-11-10",
+      "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Past-due"
+      "bucket": "Wk 11/09"
     },
     {
       "project_id": "PROJ-1651",
