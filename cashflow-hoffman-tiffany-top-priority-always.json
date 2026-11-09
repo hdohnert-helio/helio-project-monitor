@@ -1,93 +1,93 @@
 {
-  "generated_at": "2026-11-08T21:53:20.276020Z",
-  "today": "2026-11-08",
+  "generated_at": "2026-11-09T21:21:24.061383Z",
+  "today": "2026-11-09",
   "weeks": [
     {
       "index": 0,
-      "start": "2026-11-02",
-      "end": "2026-11-08",
-      "label": "Wk 11/02"
-    },
-    {
-      "index": 1,
       "start": "2026-11-09",
       "end": "2026-11-15",
       "label": "Wk 11/09"
     },
     {
-      "index": 2,
+      "index": 1,
       "start": "2026-11-16",
       "end": "2026-11-22",
       "label": "Wk 11/16"
     },
     {
-      "index": 3,
+      "index": 2,
       "start": "2026-11-23",
       "end": "2026-11-29",
       "label": "Wk 11/23"
     },
     {
-      "index": 4,
+      "index": 3,
       "start": "2026-11-30",
       "end": "2026-12-06",
       "label": "Wk 11/30"
     },
     {
-      "index": 5,
+      "index": 4,
       "start": "2026-12-07",
       "end": "2026-12-13",
       "label": "Wk 12/07"
     },
     {
-      "index": 6,
+      "index": 5,
       "start": "2026-12-14",
       "end": "2026-12-20",
       "label": "Wk 12/14"
     },
     {
-      "index": 7,
+      "index": 6,
       "start": "2026-12-21",
       "end": "2026-12-27",
       "label": "Wk 12/21"
     },
     {
-      "index": 8,
+      "index": 7,
       "start": "2026-12-28",
       "end": "2027-01-03",
       "label": "Wk 12/28"
     },
     {
-      "index": 9,
+      "index": 8,
       "start": "2027-01-04",
       "end": "2027-01-10",
       "label": "Wk 01/04"
     },
     {
-      "index": 10,
+      "index": 9,
       "start": "2027-01-11",
       "end": "2027-01-17",
       "label": "Wk 01/11"
     },
     {
-      "index": 11,
+      "index": 10,
       "start": "2027-01-18",
       "end": "2027-01-24",
       "label": "Wk 01/18"
+    },
+    {
+      "index": 11,
+      "start": "2027-01-25",
+      "end": "2027-01-31",
+      "label": "Wk 01/25"
     }
   ],
   "weekly_totals": {
-    "Wk 11/02": 79355.7,
-    "Wk 11/09": 40952.31,
-    "Wk 11/16": 26451.9,
-    "Wk 11/23": 7576.8,
+    "Wk 11/09": 120308.01,
+    "Wk 11/16": 0.0,
+    "Wk 11/23": 34028.7,
     "Wk 11/30": 0.0,
     "Wk 12/07": 0.0,
     "Wk 12/14": 0.0,
-    "Wk 12/21": 0.0,
-    "Wk 12/28": 18227.38,
+    "Wk 12/21": 18227.38,
+    "Wk 12/28": 0.0,
     "Wk 01/04": 0.0,
     "Wk 01/11": 0.0,
     "Wk 01/18": 0.0,
+    "Wk 01/25": 0.0,
     "Past-due": 47761.5,
     "Beyond 12 wks": 0.0
   },
@@ -95,8 +95,8 @@
     "project_count": 5,
     "total_outstanding": 220325.59,
     "total_collected": 42769.11,
-    "this_week": 79355.7,
-    "next_30_days": 74981.01,
+    "this_week": 18221.91,
+    "next_30_days": 52250.61,
     "past_due": 47761.5,
     "beyond_12_wks": 0.0
   },
@@ -104,7 +104,7 @@
     {
       "project_id": "PROJ-1654",
       "customer": "Lauren Cohen",
-      "stage": "Permitting",
+      "stage": "Procurement & Scheduling",
       "owner": "Tiffany Vilayphonh",
       "rep": "Doug Hoffman",
       "project_manager": "",
@@ -130,8 +130,8 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 22730.4,
-          "forecast_date": "2026-11-12",
-          "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+          "forecast_date": "2026-11-06",
+          "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 11/09"
         },
@@ -139,8 +139,8 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 7576.8,
-          "forecast_date": "2026-11-29",
-          "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
+          "forecast_date": "2026-11-23",
+          "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 11/23"
         }
@@ -148,8 +148,8 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 22730.4,
-      "forecast_date": "2026-11-12",
-      "anchor_source": "today + 11d (Permitting(7d) + Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
+      "forecast_date": "2026-11-06",
+      "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
@@ -240,36 +240,36 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 50911.2,
-          "forecast_date": "2026-11-05",
+          "forecast_date": "2026-11-06",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 11/02"
+          "bucket": "Wk 11/09"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 16970.4,
-          "forecast_date": "2026-11-22",
+          "forecast_date": "2026-11-23",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 11/16"
+          "bucket": "Wk 11/23"
         }
       ],
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 50911.2,
-      "forecast_date": "2026-11-05",
+      "forecast_date": "2026-11-06",
       "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 11/02"
+      "bucket": "Wk 11/09"
     },
     {
       "project_id": "PROJ-1646",
       "customer": "Chris Anderson",
-      "stage": "Permitting",
+      "stage": "Procurement & Scheduling",
       "owner": "Douglas Hoffman",
       "rep": "Douglas Hoffman",
       "project_manager": "",
@@ -295,7 +295,7 @@
           "label": "1/3 interconnection approval",
           "pct": 0.3333,
           "dollars": 18221.91,
-          "forecast_date": "2026-11-13",
+          "forecast_date": "2026-11-14",
           "anchor_source": "today + 0d (through Interconnection) + 5d",
           "status": "on_track",
           "bucket": "Wk 11/09"
@@ -304,16 +304,16 @@
           "label": "1/3 PTO",
           "pct": 0.3334,
           "dollars": 18227.38,
-          "forecast_date": "2026-12-30",
-          "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 5d lag",
+          "forecast_date": "2026-12-24",
+          "anchor_source": "today + 40d (Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 5d lag",
           "status": "on_track",
-          "bucket": "Wk 12/28"
+          "bucket": "Wk 12/21"
         }
       ],
       "next_milestone": "1/3 interconnection approval",
       "next_milestone_pct": 0.3333,
       "next_dollar": 18221.91,
-      "forecast_date": "2026-11-13",
+      "forecast_date": "2026-11-14",
       "anchor_source": "today + 0d (through Interconnection) + 5d",
       "status": "on_track",
       "flags": [
@@ -350,19 +350,19 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 28444.5,
-          "forecast_date": "2026-11-05",
+          "forecast_date": "2026-11-06",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
-          "bucket": "Wk 11/02"
+          "bucket": "Wk 11/09"
         },
         {
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-11-22",
+          "forecast_date": "2026-11-23",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
-          "bucket": "Wk 11/16"
+          "bucket": "Wk 11/23"
         }
       ],
       "next_milestone": "Deposit (20%)",

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cutoff": "2026-04-16T00:00:00-04:00",
-  "last_run": "2026-11-08T21:53:20.276020Z",
+  "last_run": "2026-11-09T21:21:24.061383Z",
   "projects": {
     "5264387000085244029": {
       "project_id": "PROJ-1606",
@@ -3647,6 +3647,12 @@
         {
           "stage": "Permitting",
           "entered_at": "2026-09-14T16:53:58.108680Z",
+          "exited_at": "2026-11-09T21:21:24.061383Z",
+          "truncated": false
+        },
+        {
+          "stage": "Procurement & Scheduling",
+          "entered_at": "2026-11-09T21:21:24.061383Z",
           "exited_at": null,
           "truncated": false
         }
@@ -3947,6 +3953,12 @@
         {
           "stage": "Permitting",
           "entered_at": "2026-10-21T15:53:02.660778Z",
+          "exited_at": "2026-11-09T21:21:24.061383Z",
+          "truncated": false
+        },
+        {
+          "stage": "Procurement & Scheduling",
+          "entered_at": "2026-11-09T21:21:24.061383Z",
           "exited_at": null,
           "truncated": false
         }
