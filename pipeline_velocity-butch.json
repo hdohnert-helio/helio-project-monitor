@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T19:42:00.389251Z",
+  "generated_at": "2026-11-18T19:18:03.080718Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 26,
   "transitions": [
@@ -15,9 +15,9 @@
       "label": "Sold to Install Complete",
       "from": "__creation__",
       "to": "Inspection",
-      "sample_count": 14,
-      "median_days": 80.31645785134836,
-      "p75_days": 97.25802045661749
+      "sample_count": 15,
+      "median_days": 80.34588919828703,
+      "p75_days": 98.6548267403588
     },
     {
       "label": "Install Complete to Energized",
@@ -96,14 +96,14 @@
     {
       "stage": "Active Installation",
       "sample_count": 14,
-      "open_count": 3,
-      "median_days": 7.162444622592593,
+      "open_count": 2,
+      "median_days": 7.655135625312499,
       "p75_days": 9.141018498972802
     },
     {
       "stage": "Inspection",
       "sample_count": 19,
-      "open_count": 1,
+      "open_count": 0,
       "median_days": 15.008888712361111,
       "p75_days": 27.942347220185187
     },
