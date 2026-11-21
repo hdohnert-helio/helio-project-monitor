@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T19:00:31.361079Z",
+  "generated_at": "2026-11-21T17:54:56.273421Z",
   "cutoff": "2026-04-16T00:00:00-04:00",
   "project_count": 26,
   "transitions": [
@@ -98,7 +98,7 @@
       "sample_count": 14,
       "open_count": 2,
       "median_days": 7.655135625312499,
-      "p75_days": 9.809336533611111
+      "p75_days": 10.525177786579862
     },
     {
       "stage": "Inspection",
