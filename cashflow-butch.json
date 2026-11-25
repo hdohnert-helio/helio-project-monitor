@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-24T21:03:01.975840Z",
-  "today": "2026-11-24",
+  "generated_at": "2026-11-25T20:24:48.992281Z",
+  "today": "2026-11-25",
   "weeks": [
     {
       "index": 0,
@@ -76,28 +76,28 @@
     }
   ],
   "weekly_totals": {
-    "Wk 11/23": 38528.0,
+    "Wk 11/23": 0.0,
     "Wk 11/30": 0.0,
     "Wk 12/07": 0.0,
     "Wk 12/14": 0.0,
     "Wk 12/21": 0.0,
-    "Wk 12/28": 9632.0,
-    "Wk 01/04": 0.0,
+    "Wk 12/28": 0.0,
+    "Wk 01/04": 9632.0,
     "Wk 01/11": 0.0,
     "Wk 01/18": 0.0,
     "Wk 01/25": 0.0,
     "Wk 02/01": 0.0,
     "Wk 02/08": 0.0,
-    "Past-due": 0.0,
+    "Past-due": 38528.0,
     "Beyond 12 wks": 0.0
   },
   "summary": {
     "project_count": 6,
     "total_outstanding": 48160.0,
     "total_collected": 0.0,
-    "this_week": 38528.0,
-    "next_30_days": 38528.0,
-    "past_due": 0.0,
+    "this_week": 0.0,
+    "next_30_days": 0.0,
+    "past_due": 38528.0,
     "beyond_12_wks": 0.0
   },
   "projects": [
@@ -123,17 +123,17 @@
           "dollars": 38528.0,
           "forecast_date": "2026-11-24",
           "anchor_source": "Substantial_Completion + 14d",
-          "status": "on_track",
-          "bucket": "Wk 11/23"
+          "status": "past_due",
+          "bucket": "Past-due"
         },
         {
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 9632.0,
-          "forecast_date": "2027-01-03",
+          "forecast_date": "2027-01-04",
           "anchor_source": "today + 26d (Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 12/28"
+          "bucket": "Wk 01/04"
         }
       ],
       "next_milestone": "Install package (80%)",
@@ -141,11 +141,11 @@
       "next_dollar": 38528.0,
       "forecast_date": "2026-11-24",
       "anchor_source": "Substantial_Completion + 14d",
-      "status": "on_track",
+      "status": "past_due",
       "flags": [
         "Financing_Type inferred from Lending_Status"
       ],
-      "bucket": "Wk 11/23"
+      "bucket": "Past-due"
     },
     {
       "project_id": "PROJ-1635",
@@ -167,7 +167,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-12-18",
+          "forecast_date": "2026-12-19",
           "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 12/14"
@@ -176,7 +176,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2027-01-13",
+          "forecast_date": "2027-01-14",
           "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 01/11"
@@ -185,7 +185,7 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-12-18",
+      "forecast_date": "2026-12-19",
       "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
@@ -223,7 +223,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-12-29",
+          "forecast_date": "2026-12-30",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 12/28"
@@ -232,7 +232,7 @@
       "next_milestone": "Activation package (20%)",
       "next_milestone_pct": 0.2,
       "next_dollar": 0.0,
-      "forecast_date": "2026-12-29",
+      "forecast_date": "2026-12-30",
       "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
       "status": "on_track",
       "flags": [
@@ -260,7 +260,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-12-29",
+          "forecast_date": "2026-12-30",
           "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 12/28"
@@ -269,16 +269,16 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2027-01-24",
+          "forecast_date": "2027-01-25",
           "anchor_source": "today + 47d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
-          "bucket": "Wk 01/18"
+          "bucket": "Wk 01/25"
         }
       ],
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-12-29",
+      "forecast_date": "2026-12-30",
       "anchor_source": "today + 21d (Permitting(7d) + Procurement & Scheduling(4d) + Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
@@ -315,7 +315,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2026-12-29",
+          "forecast_date": "2026-12-30",
           "anchor_source": "today + 21d (Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 12/28"
@@ -352,7 +352,7 @@
           "label": "Install package (80%)",
           "pct": 0.8,
           "dollars": 0.0,
-          "forecast_date": "2026-12-18",
+          "forecast_date": "2026-12-19",
           "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 12/14"
@@ -361,7 +361,7 @@
           "label": "Activation package (20%)",
           "pct": 0.2,
           "dollars": 0.0,
-          "forecast_date": "2027-01-13",
+          "forecast_date": "2027-01-14",
           "anchor_source": "today + 36d (Active Installation(10d) + Inspection(5d) + Witness Test / PTO(21d)) + 14d lag",
           "status": "on_track",
           "bucket": "Wk 01/11"
@@ -370,7 +370,7 @@
       "next_milestone": "Install package (80%)",
       "next_milestone_pct": 0.8,
       "next_dollar": 0.0,
-      "forecast_date": "2026-12-18",
+      "forecast_date": "2026-12-19",
       "anchor_source": "today + 10d (Active Installation(10d)) + 14d lag",
       "status": "on_track",
       "flags": [
