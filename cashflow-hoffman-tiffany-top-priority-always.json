@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-25T20:24:48.992281Z",
-  "today": "2026-11-25",
+  "generated_at": "2026-11-26T20:02:38.505866Z",
+  "today": "2026-11-26",
   "weeks": [
     {
       "index": 0,
@@ -95,7 +95,7 @@
     "project_count": 5,
     "total_outstanding": 200267.5,
     "total_collected": 62827.2,
-    "this_week": 0.0,
+    "this_week": 79355.7,
     "next_30_days": 26451.9,
     "past_due": 39788.7,
     "beyond_12_wks": 0.0
@@ -240,7 +240,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 50911.2,
-          "forecast_date": "2026-11-22",
+          "forecast_date": "2026-11-23",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 11/23"
@@ -249,7 +249,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 16970.4,
-          "forecast_date": "2026-12-09",
+          "forecast_date": "2026-12-10",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 12/07"
@@ -258,7 +258,7 @@
       "next_milestone": "Pre-install (60%)",
       "next_milestone_pct": 0.6,
       "next_dollar": 50911.2,
-      "forecast_date": "2026-11-22",
+      "forecast_date": "2026-11-23",
       "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
       "status": "on_track",
       "flags": [
@@ -322,7 +322,7 @@
           "label": "Pre-install (60%)",
           "pct": 0.6,
           "dollars": 28444.5,
-          "forecast_date": "2026-11-22",
+          "forecast_date": "2026-11-23",
           "anchor_source": "today + 4d (Procurement & Scheduling(4d)) + 0d lag − 7d (pre-install)",
           "status": "on_track",
           "bucket": "Wk 11/23"
@@ -331,7 +331,7 @@
           "label": "Substantial completion (20%)",
           "pct": 0.2,
           "dollars": 9481.5,
-          "forecast_date": "2026-12-09",
+          "forecast_date": "2026-12-10",
           "anchor_source": "today + 14d (Procurement & Scheduling(4d) + Active Installation(10d)) + 0d lag",
           "status": "on_track",
           "bucket": "Wk 12/07"
